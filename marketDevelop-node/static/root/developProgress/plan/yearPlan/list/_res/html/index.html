@@ -14,13 +14,13 @@
             <section>
                 <div class="list-text {{yearList._selectList?'selectList':''}}" ng-click="selectList(yearList)">
                     <p mod>{{$index+1+num}}</p>
-                    <p mod>{{yearList.year}}</p>
-                    <p mod>{{yearList.type}}</p>
-                    <p mod>{{yearList.workloadWeight}}</p>
-                    <p mod>{{yearList.course}}</p>
-                    <p mod>{{yearList.development}}</p>
-                    <p mod>{{yearList.businessAccounted}}</p>
-                    <p mod>{{yearList.courseAccounted}}</p>
+                    <p mod>{{::yearList.year}}</p>
+                    <p mod>{{::yearList.type}}</p>
+                    <p mod>{{::yearList.workloadWeight}}</p>
+                    <p mod>{{::yearList.course}}</p>
+                    <p mod>{{::yearList.development}}</p>
+                    <p mod>{{::yearList.businessAccounted}}</p>
+                    <p mod>{{::yearList.courseAccounted}}</p>
                 </div>
             </section>
         </li>

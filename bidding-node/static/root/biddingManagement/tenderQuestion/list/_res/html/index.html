@@ -2,6 +2,7 @@
     <ul class="table">
         <li class="list-head">
             <span></span>
+            <span>编号</span>
             <span>项目名称</span>
             <span>答疑准备人</span>
             <span>答疑时间</span>
@@ -12,7 +13,8 @@
         <li class="list-all" ng-repeat="lists in answerLists" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1}}</p>
+                    <p>{{$index+1+num}}</p>
+                    <p>{{lists.biddingNumber}}</p>
                     <p>{{lists.projectName}}</p>
                     <p>{{lists.peopleAnswerQuestions}}</p>
                     <p>{{lists.officeHour}}</p>
@@ -27,7 +29,20 @@
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
 
 
 

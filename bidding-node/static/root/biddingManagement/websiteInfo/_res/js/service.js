@@ -6,7 +6,10 @@ app.factory('websiteSer',function ($http) {
         editWebsite:editWebsite,
         findWebsiteId:findWebsiteId,
         countWebsite:countWebsite,
-        deleteWebsite:deleteWebsite
+        deleteWebsite:deleteWebsite,
+        websitePermission:websitePermission,
+        websiteUrl:websiteUrl,
+        websiteName:websiteName
     };
     function websiteList(data) {
         return $http.get('/biddingwebinfo/list',{
@@ -37,6 +40,28 @@ app.factory('websiteSer',function ($http) {
     function deleteWebsite(data){
 
         return $http.get('/biddingwebinfo/delete',{
+            params: data
+
+        })
+    }
+    //----------------------------
+    //功能导航权限
+    function websitePermission(data){
+
+        return $http.get('/websitePermission/permission/'+data);
+    }
+    //获取网址
+    function websiteUrl(data){
+
+        return $http.get('/websiteUrl/url',{
+            params: data
+
+        })
+    }
+    //获取网站名称
+    function websiteName(data){
+
+        return $http.get('/websiteName/name',{
             params: data
 
         })

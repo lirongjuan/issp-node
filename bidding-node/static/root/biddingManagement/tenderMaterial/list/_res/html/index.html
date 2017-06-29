@@ -2,11 +2,12 @@
     <ul class="table">
         <li class="list-head">
             <span></span>
+            <span>编号</span>
             <span>项目名称</span>
             <span>资格要求</span>
             <span>标书编号</span>
             <span>同类项目经验</span>
-            <span>主营业务收入</span>
+            
             <span>专业资质认证</span>
             <span>管理体系认证</span>
             <span></span>
@@ -14,12 +15,13 @@
         <li class="list-all" ng-repeat="lists in materialLists" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1}}</p>
+                    <p>{{$index+1+num}}</p>
+                    <p>{{lists.biddingNumber}}</p>
                     <p>{{lists.projectName}}</p>
                     <p>{{lists.eligibilityRequirements}}</p>
                     <p>{{lists.tenderNumber}}</p>
                     <p>{{lists.experienceProject}}</p>
-                    <p>{{lists.mainBusinessIncome}}</p>
+                    
                     <p>{{lists.professionalQualificationCertification}}</p>
                     <p>{{lists.managementSystemCertification}}</p>
                     <p>
@@ -37,6 +39,7 @@
                                 <span>额外承诺</span>
                                 <span>补充资料</span>
                                 <span>经济分册</span>
+                                <span>主营业务收入</span>
                             </p>
                             <p class="see-children">
                                 <span>{{lists.projectManagerQuality}}</span>
@@ -46,6 +49,7 @@
                                 <span>{{lists.additionalCommitments}}</span>
                                 <span>{{lists.additionalInformation}}</span>
                                 <span>{{lists.economicVolume}}</span>
+                                <span>{{lists.mainBusinessIncome}}</span>
                             </p>
                         </li>
                     </ul>
@@ -64,7 +68,20 @@
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
 
 
 

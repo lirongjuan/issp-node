@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"websiteMenuCtrl"
             }
         }
+    }).state("root.biddingManagement.websiteInfo.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.biddingManagement.websiteInfo":{
+                templateUrl : "root/biddingManagement/websiteInfo/list/_res/html/index.html",
+                controller:'websiteListCtrl'
+            }
+        }
     }).state("root.biddingManagement.websiteInfo.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.biddingManagement.websiteInfo.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.biddingManagement.websiteInfo":{
                 templateUrl : "root/biddingManagement/websiteInfo/edit/_res/html/index.html",

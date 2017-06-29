@@ -12,26 +12,28 @@
     <ul class="table">
         <li class="list-head">
             <span></span>
-            <span>网站名称</span>
+            <span>编号</span>
             <span>网址</span>
+            <span>网站名称</span>
             <span>招投标类型</span>
             <span>业务类型</span>
             <span>业务方向科目</span>
             <span>标书模块</span>
-            <span>招标编号</span>
+            
             <span></span>
         </li>
         <li class="list-all" ng-repeat="lists in infoLists|filter:teamInfo" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1}}</p>
-                    <p>{{lists.webName}}</p>
+                    <p>{{$index+1+num}}</p>
+                    <p>{{lists.biddingNumber}}</p>
                     <p>{{lists.url}}</p>
+                    <p>{{lists.webName}}</p>
                     <p>{{lists.biddingType|cover}}</p>
                     <p>{{lists.businessType|cover}}</p>
                     <p>{{lists.businessDirectionSubject}}</p>
                     <p>{{lists.tenderModule}}</p>
-                    <p>{{lists.tenderNumber}}</p>
+                    
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
                     </p>
@@ -108,7 +110,20 @@
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
 
 
 

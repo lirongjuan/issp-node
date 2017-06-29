@@ -4,13 +4,14 @@ app.controller('mailSummaryAddCtrl', function($scope, emailSer,$state,toastr){
     $scope.stringSettings = {template : '{{option}}', smartButtonTextConverter(skip, option) { return option; }};
     //获取所有汇总
     $scope.objLists = [];
-    $scope.sendCondition = function(val){
+    $scope.sendCondition = function(val,bol){
         if(val){
             var data = {type:val};
             if(data.type == '合同签订与立项汇总'){
                 emailSer.getSignArea(data).then(function(response){
                     if(response.data.code == 0){
                         $scope.collectAll = response.data.data;
+                        if (bol) $scope.condis = [];
                     } else{
                         toastr.error(response.data.msg, '温馨提示');
                     }
@@ -20,6 +21,7 @@ app.controller('mailSummaryAddCtrl', function($scope, emailSer,$state,toastr){
                 emailSer.getBasicArea(data).then(function(response){
                     if(response.data.code == 0){
                         $scope.collectAll = response.data.data;
+                        if (bol) $scope.condis = [];
                     } else{
                         toastr.error(response.data.msg, '温馨提示');
                     }
@@ -28,6 +30,7 @@ app.controller('mailSummaryAddCtrl', function($scope, emailSer,$state,toastr){
                 emailSer.getDispatchArea(data).then(function(response){
                     if(response.data.code == 0){
                         $scope.collectAll = response.data.data;
+                        if (bol) $scope.condis = [];
                     } else{
                         toastr.error(response.data.msg, '温馨提示');
                     }

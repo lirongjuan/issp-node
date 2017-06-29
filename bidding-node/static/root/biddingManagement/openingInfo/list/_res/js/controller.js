@@ -1,6 +1,44 @@
 var app = angular.module('openingList', ['ng-pagination','toastr']);
-app.controller('openingListCtrl',function($scope,openingSer,toastr){
+app.controller('openingListCtrl',function($scope,openingSer,toastr,$stateParams,$state,$location){
     $scope.$emit('changeId', null);
+    //删除
+    //获取id
+    
+    if($stateParams.id){
+        switch ($stateParams.name){
+            case 'delete':
+                $scope.delShow = true;
+                break;
+        }
+    }
+    $scope.cancel = function(){//取消删除
+        $scope.delShow = false;
+        $state.go('' +
+            'root.biddingManagement.openingInfo.list[12]',{id:null,name:null});
+    };
+    var count=0;
+    $scope.delFn = function(){//确认删除
+        var data = {
+            id:$stateParams.id
+        };
+        openingSer.deleteBidOpening(data).then(function(response){
+            if(response.data.code==0){
+                count++;
+                toastr.info( "信息已删除", '温馨提示');
+                $scope.deledId = $stateParams.id;
+                $scope.$emit('changeId', null);
+                $scope.delShow = false;
+                if(($scope.custom.itemsCount-count)%10){
+                    $state.go('root.biddingManagement.openingInfo.list[12]',{id:null,name:null});
+                }else{
+                    $state.go('root.biddingManagement.openingInfo.list[12]',{id:null,name:null,page:$stateParams.page-1});
+                }
+                // $state.go('root.biddingManagement.openingInfo.list[12]',{id:null,name:null});
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        });
+    };
     //监听切换搜索是否出现
     $scope.$on('iSsearch',function(event,newIs){
         $scope.isView = newIs;
@@ -29,6 +67,16 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr){
             openingSer.countBidOpening(keywords).then(function (response) {
                 if(response.data.code==0){
                     $scope.custom.itemsCount = response.data.data;
+                    if($stateParams.id){
+                    angular.forEach($scope.itemsCount,function(obj){
+                        if(obj.id == $stateParams.id){
+                            obj._selectList = true;
+                        }
+                    });
+                    //向父Ctrl传递事件
+                    $scope.$emit('changeId', $stateParams.id);
+                }
+
                 }else{
                     toastr.error( response.data.msg, '温馨提示');
                 }
@@ -56,7 +104,7 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr){
         $scope.idListd = event.id;
         //向父Ctrl传递事件
         $scope.$emit('changeId', $scope.idListd);
-
+        $scope.$emit('page',$location.search().page);
     };
     //点击更多详细
     $scope.moreList = function(event){
@@ -85,6 +133,7 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr){
     openingSer.countBidOpening().then(function(response){
         if(response.data.code==0){
             $scope.custom.itemsCount = response.data.data;
+            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
         }else{
             toastr.error( response.data.msg, '温馨提示');
         }

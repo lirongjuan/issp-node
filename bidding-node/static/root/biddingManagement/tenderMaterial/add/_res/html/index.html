@@ -3,8 +3,15 @@
         <section>
             <ul>
                 <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>编号</em></label>
+                    <select class="sele num" ng-model="tender.biddingNumber" ng-change="changSelect()">
+                        <option ng-repeat="biddingNumber in biddingNumbers" value="{{biddingNumber}}">{{biddingNumber}}</option>
+                    </select>
+                </li>
+
+                <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="tender.projectName">
+                    <input type="text" value="{{projectNames.projectName}}" class="na">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>标书编号</em></label>

@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.developProgress.other.directionSubjects.list[12]",{
-        url:"/list[12]?id=&name=",
+        url:"/list[12]?id=&name=&page=",
         views:{
             "content@root.developProgress.other.directionSubjects":{
                 templateUrl : "root/developProgress/other/directionSubjects/list/_res/html/index.html",

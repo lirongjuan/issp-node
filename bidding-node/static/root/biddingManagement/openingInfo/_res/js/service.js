@@ -9,8 +9,16 @@ app.factory('openingSer',function ($http) {
         countBidOpening:countBidOpening,
         deleteBidOpening:deleteBidOpening,
         summaryOpen:summaryOpen,
-        getCity:getCity
+        getCity:getCity,
+        getProjectName:getProjectName,
+        getBiddingNum:getBiddingNum,
+        biddingNumber:biddingNumber,
+        openingPermission:openingPermission
     };
+    //菜单权限
+    function openingPermission(data) {
+        return $http.get('/openingPermission/openingPermission/'+data);
+    }
     function bidOpeningList(data) {
         return $http.get('/bidopeninginfo/list',{
             params: data
@@ -54,5 +62,19 @@ app.factory('openingSer',function ($http) {
     //获取所有地区
     function getCity(){
         return $http.get('/bidopeninginfo/cities')
+    }
+    //获取所有项目名称
+    function getProjectName(){
+        return $http.get('/getProjectName/projectName')
+    }
+    //编号查询
+    function getBiddingNum(data){
+        return $http.get('/getBiddingNum/num',{
+            params:data
+        })
+    }
+    //获取所有编号
+    function biddingNumber(){
+        return $http.get('/biddingNumber/num')
     }
 });

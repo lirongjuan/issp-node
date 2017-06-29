@@ -4,15 +4,17 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>网站名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="information.webName">
+                    <select class="sele webName" ng-model="webName" ng-change="changSelect()">
+                        <option ng-repeat="webName in webNames" value="{{webName}}">{{webName}}</option>
+                    </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>网址</em></label>
-                    <input type="text" ng-verify="{}" ng-model="information.url">
+                    <input type="text" value="{{url.url}}" class="na">
                 </li>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>招标编号</em></label>
-                    <input type="text" ng-verify="{}" ng-model="information.tenderNumber">
+                    <label><i><img src="/images/mandatory.png"></i><em>编号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="information.biddingNumber">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
@@ -52,11 +54,11 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>报名时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image registrationTime" ng-model="information.registrationTime">
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image registrationTime" ng-model="information.registrationTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>投标时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image biddingTime" ng-model="information.biddingTime">
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image biddingTime" ng-model="information.biddingTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>投标资格要求</em></label>
@@ -90,11 +92,11 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>购买标书时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image buyTenderTime" ng-model="information.buyTenderTime">
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image buyTenderTime" ng-model="information.buyTenderTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>价格</em></label>
-                    <input type="text" ng-model="information.price">
+                    <input type="number" ng-model="information.price">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>购买标书要求</em></label>
@@ -102,7 +104,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>交保证金时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image marginTime" ng-model="information.marginTime">
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image marginTime" ng-model="information.marginTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>交保证金方式</em></label>
@@ -113,7 +115,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>保证金退回时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image backTimeDeposit" ng-model="information.backTimeDeposit">
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image backTimeDeposit" ng-model="information.backTimeDeposit">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>备注</em></label>

@@ -22,7 +22,12 @@ app.controller('settingCtrl',function ($scope,$state) {
     $scope.$on('getId',function(event,id){
         $scope.editId=id;
     });
-
+    $scope.$on('pageId',function(event,flag){
+        $scope.page = flag;
+    });
+    if(!$scope.page){
+        $scope.page = $location.search().page;
+    }
     $scope.list = function(){
         $state.go('root.developProgress.other.setting.list[12]');
         $scope.menuClass = 'listMenu'

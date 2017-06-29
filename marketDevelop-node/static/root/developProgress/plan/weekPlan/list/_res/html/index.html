@@ -15,13 +15,13 @@
             <section>
                 <div class="list-text {{weekList._selectList?'selectList':''}}" ng-click="selectList(weekList)">
                     <p mod>{{$index+1+num}}</p>
-                    <p mod>{{weekList.year}}</p>
-                    <p mod>{{weekList.type}}</p>
-                    <p mod>{{weekList.monthTotal}}</p>
-                    <p mod>{{weekList.course}}</p>
-                    <p mod>{{weekList.cycle}}</p>
-                    <p mod>{{weekList.accounted}}%</p>
-                    <p mod>{{weekList.inquire}}</p>
+                    <p mod>{{::weekList.year}}</p>
+                    <p mod>{{::weekList.type}}</p>
+                    <p mod>{{::weekList.monthTotal}}</p>
+                    <p mod>{{::weekList.course}}</p>
+                    <p mod>{{::weekList.cycle}}</p>
+                    <p mod>{{::weekList.accounted}}%</p>
+                    <p mod>{{::weekList.inquire}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(weekList)">更多详细</a>
                     </p>
@@ -37,11 +37,11 @@
                                 <span>合计</span>
                             </p>
                             <p class="see-children">
-                                <span mod>{{weekList.know}}</span>
-                                <span mod>{{weekList.contact}}</span>
-                                <span mod>{{weekList.visit}}</span>
-                                <span mod>{{weekList.activity}}</span>
-                                <span mod>{{weekList.total}}</span>
+                                <span mod>{{::weekList.know}}</span>
+                                <span mod>{{::weekList.contact}}</span>
+                                <span mod>{{::weekList.visit}}</span>
+                                <span mod>{{::weekList.activity}}</span>
+                                <span mod>{{::weekList.total}}</span>
                             </p>
                         </li>
                     </ul>
@@ -57,7 +57,7 @@
         </div>
     </div>
     <footer class="footer">
-        <pagination count="custom.weekCount" take="custom.take" activate="custom.activatePage"></pagination>
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
 <div class="delete mod" ng-show="delShow">

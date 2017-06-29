@@ -6,8 +6,11 @@ app.controller('mailSummaryEditCtrl', function($scope, emailSer,$stateParams,$st
     emailSer.findEmailId(emailData).then(function(response){
         if(response.data.code==0){
             $scope.editMail = response.data.data;
-            $scope.condis = $scope.editMail.condi.split(',');
-            $scope.objLists = $scope.editMail.sendObject.split(',');
+            $scope.condis = $scope.editMail.condi.split(';');
+            $scope.objLists = $scope.editMail.sendObject.split(';');
+            $scope.condis.reUndefined();
+            $scope.objLists.reUndefined();
+            $scope.sendCondition($scope.editMail.type,false)
         }else{
             toastr.error(response.data.msg, '温馨提示');
         }
@@ -17,7 +20,8 @@ app.controller('mailSummaryEditCtrl', function($scope, emailSer,$stateParams,$st
     $scope.stringSettings = {template : '{{option}}', smartButtonTextConverter(skip, option) { return option; }};
     //获取所有汇总
     $scope.objLists = [];
-    $scope.sendCondition = function(val){
+    $scope.sendCondition = function(val,bol){
+
         if(val){
             var data = {type:val};
             if(data.type == '合同签订与立项汇总'){
@@ -25,6 +29,7 @@ app.controller('mailSummaryEditCtrl', function($scope, emailSer,$stateParams,$st
 
                     if(response.data.code == 0){
                         $scope.collectAll = response.data.data;
+                        if (bol) $scope.condis = [];
                     } else{
                         toastr.error(response.data.msg, '温馨提示');
                     }
@@ -34,6 +39,7 @@ app.controller('mailSummaryEditCtrl', function($scope, emailSer,$stateParams,$st
                 emailSer.getBasicArea(data).then(function(response){
                     if(response.data.code == 0){
                         $scope.collectAll = response.data.data;
+                        if (bol) $scope.condis = [];
                     } else{
                         toastr.error(response.data.msg, '温馨提示');
                     }
@@ -42,6 +48,7 @@ app.controller('mailSummaryEditCtrl', function($scope, emailSer,$stateParams,$st
                 emailSer.getDispatchArea(data).then(function(response){
                     if(response.data.code == 0){
                         $scope.collectAll = response.data.data;
+                        if (bol) $scope.condis = [];
                     } else{
                         toastr.error(response.data.msg, '温馨提示');
                     }

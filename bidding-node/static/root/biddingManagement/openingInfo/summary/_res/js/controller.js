@@ -21,6 +21,22 @@ app.controller('summaryCtrl', function($scope, openingSer,toastr){
             }
         })
     }}
+    //点击更多详细
+    $scope.moreList = function(event){
+        angular.forEach($scope.openLists,function(obj){
+            if(event.id!==obj.id){
+                obj._moreList = false
+            }
+        });
+        event._moreList = !event._moreList;
+    };
+    $scope.$on('deletedId',function(event,delid){
+        angular.forEach($scope.openLists,function(obj){
+            if(obj.id == delid){
+                obj._delete = delid
+            }
+        })
+    });
 });
 
 

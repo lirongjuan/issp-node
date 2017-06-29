@@ -1,9 +1,9 @@
 var app = angular.module('targetInfoList', ['ng-pagination','toastr']);
-app.controller('targetInfoListCtrl',function($scope,targetInfoSer,toastr,$stateParams,$state){
+app.controller('targetInfoListCtrl',function($scope,targetInfoSer,toastr,$stateParams,$state,$location){
     $scope.$emit('changeId', null);
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page || 1
         };
         targetInfoSer.targetInfoList(listData).then(function(response){
             if(response.data.code==0){
@@ -34,17 +34,8 @@ app.controller('targetInfoListCtrl',function($scope,targetInfoSer,toastr,$stateP
         $scope.idListd = event.id;
         //向父Ctrl传递事件
         $scope.$emit('changeId', $scope.idListd);
-        $scope.$emit('page', $stateParams.page);
+        $scope.$emit('page', $location.search().page);
     };
-    $scope.$on('deletedId',function(event,delid){
-
-        angular.forEach($scope.targetLists,function(obj){
-
-            if(obj.id == delid){
-                obj._delete = delid
-            }
-        })
-    });
 
 //分页
     $scope.custom = {
@@ -56,7 +47,7 @@ app.controller('targetInfoListCtrl',function($scope,targetInfoSer,toastr,$stateP
     targetInfoSer.countTarget().then(function(response){
         if(response.data.code==0){
             $scope.custom.itemsCount = response.data.data;
-            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
+            $scope.num = $location.search().page*10>10?($location.search().page-1)*10:null;
         }else {
             toastr.error(response.data.msg,'温馨提示')
         }
@@ -87,7 +78,7 @@ app.controller('targetInfoListCtrl',function($scope,targetInfoSer,toastr,$stateP
                 if(($scope.custom.itemsCount-count)%10){
                     $state.go('root.developProgress.market.targetInfo.list[12]',{id:null,name:null});
                 }else{
-                    $state.go('root.developProgress.market.targetInfo.list[12]',{id:null,name:null,page:$stateParams.page-1});
+                    $state.go('root.developProgress.market.targetInfo.list[12]',{id:null,name:null,page:$location.search().page-1});
                 }
             }else{
                 toastr.error( response.data.msg, '温馨提示');

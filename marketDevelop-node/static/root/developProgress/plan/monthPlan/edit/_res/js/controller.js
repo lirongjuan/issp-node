@@ -18,7 +18,7 @@ app.controller('monthPlanEditCtrl', function($scope, monthPlanSer,$stateParams,$
         var vm = $scope;
         monthPlanSer.monthPlanEdit(vm.editMonth).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.developProgress.plan.monthPlan.list');
+                $state.go('root.developProgress.plan.monthPlan.list[12]');
                 toastr.success("编辑成功", '温馨提示');
             }else {
                 toastr.error( response.data.msg, '温馨提示');

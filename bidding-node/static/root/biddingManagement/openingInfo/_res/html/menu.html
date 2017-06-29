@@ -1,20 +1,20 @@
 <ul class="list">
-    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list">
-        <a href="javascript:void(0)" class="lis">列表<span>Tabulate</span></a>
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表<span></span></a>
     </li>
-    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]">
-        <a href="javascript:void(0)" class="add">添加<span>Add</span></a>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" class="add">添加<span></span></a>
     </li>
-    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu'}">
-        <a href="javascript:void(0)"  class="same-one">编辑<span>Edit</span></a>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see">编辑<span></span></a>
     </li>
-    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu'}">
-        <a href="javascript:void(0)" class="same-two" >删除<span>Delete</span></a>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see" >删除<span></span></a>
     </li>
-    <li>
-        <a href="javascript:void(0)" class="same-two" >导出<span>Export</span></a>
+    <li ng-click="export()" ng-class="{'current':menuClass=='exportMenu'}" ui-sref=".export[12]" ng-show="EXPORT" ng-init="menuCheck('EXPORT')">
+        <a href="javascript:void(0)" class="same-two" >导出<span></span></a>
     </li>
-    <li ng-click="summary()" ng-class="{'current':menuClass=='summaryMenu'}" ui-sref=".summary[12]">
-        <a href="javascript:void(0)" class="same-three">汇总<span>Summary</span></a>
+    <li ng-click="summary()" ng-class="{'current':menuClass=='summaryMenu'}" ui-sref=".summary[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">汇总<span></span></a>
     </li>
 </ul>

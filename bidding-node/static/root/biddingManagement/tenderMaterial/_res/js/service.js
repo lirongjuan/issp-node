@@ -6,8 +6,17 @@ app.factory('MaterialSer',function ($http) {
         editSource:editSource,
         findSourceId:findSourceId,
         countSource:countSource,
-        deleteSource:deleteSource
+        deleteSource:deleteSource,
+        getProjectName:getProjectName,
+        getBiddingNum:getBiddingNum,
+        biddingNumber:biddingNumber,
+        MaterialFiles:MaterialFiles,//文件附件列表
+        MaterialPermission:MaterialPermission
     };
+    //菜单权限
+    function MaterialPermission(data) {
+        return $http.get('/MaterialPermission/MaterialPermission/'+data);
+    }
     function sourceList(data) {
         return $http.get('/tenderinfo/list',{
             params: data
@@ -36,6 +45,26 @@ app.factory('MaterialSer',function ($http) {
     function deleteSource(data){
         return $http.get('/tenderinfo/delete',{
             params: data
+        })
+    }
+    //获取所有项目名称
+    function getProjectName(){
+        return $http.get('/getProjectName/projectName')
+    }
+    //编号查询
+    function getBiddingNum(data){
+        return $http.get('/getBiddingNum/num',{
+            params:data
+        })
+    }
+    //获取所有编号
+    function biddingNumber(){
+        return $http.get('/biddingNumber/num')
+    }
+    //文件附件列表
+    function MaterialFiles(data) {
+        return $http.get('/materialFiles/files',{
+            params:data
         })
     }
 });

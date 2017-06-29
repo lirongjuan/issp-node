@@ -17,7 +17,7 @@ app.controller('webEditCtrl', function($scope, websiteSer,$stateParams,$state,to
         var vm = $scope;
         websiteSer.editWebsite(vm.webInfoEdit).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.biddingManagement.websiteInfo.list');
+                $state.go('root.biddingManagement.websiteInfo.list[12]');
                 toastr.success( "编辑成功", '温馨提示');
             }else{
                 toastr.error( response.data.msg, '温馨提示');
