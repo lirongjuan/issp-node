@@ -10,26 +10,28 @@
     <ul class="table">
         <li class="list-head">
             <span></span>
+            <span>项目问题编号</span>
             <span>地区</span>
             <span>年份</span>
             <span>合同外部项目名称</span>
             <span>内部项目名称</span>
             <span>工程类型</span>
             <span>合同外部编号</span>
-            <span>内部项目编号</span>
+            
             <span></span>
         </li>
         <li class="list-all" ng-repeat="lists in acceptedLists" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1}}</p>
-                    <p>{{lists.area}}</p>
-                    <p>{{lists.year}}</p>
-                    <p>{{lists.externalContractProjectName}}</p>
-                    <p>{{lists.internalProjectName}}</p>
-                    <p>{{lists.projectType}}</p>
-                    <p>{{lists.externalContractNum}}</p>
-                    <p>{{lists.internalNum}}</p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.projectNum}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.year}}</p>
+                    <p mod>{{lists.externalContractProjectName}}</p>
+                    <p mod>{{lists.internalProjectName}}</p>
+                    <p mod>{{lists.projectType}}</p>
+                    <p mod>{{lists.externalContractNum}}</p>
+                    
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
                     </p>
@@ -38,6 +40,7 @@
                     <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
                         <li>
                             <p class="see-parent">
+                                <span>内部项目编号</span>
                                 <span>通知方式</span>
                                 <span>问题具体内容</span>
                                 <span>问题类型</span>
@@ -47,32 +50,47 @@
                                 <span>受影响部门</span>
                             </p>
                             <p class="see-children">
-                                <span>{{lists.noticeWay|cover}}</span>
-                                <span>{{lists.problemSpecificContent}}</span>
-                                <span>{{lists.problemTypes|cover}}</span>
-                                <span>{{lists.solution}}</span>
-                                <span>{{lists.problemEmergencyDegree|cover}}</span>
-                                <span>{{lists.problemProcessingTime|cover}}</span>
-                                <span>{{lists.affectedDepartment|cover}}</span>
+                                <span mod>{{lists.internalNum}}</span>
+                                <span mod>{{lists.noticeWay|cover}}</span>
+                                <span mod>{{lists.problemSpecificContent}}</span>
+                                <span mod>{{lists.problemTypes|cover}}</span>
+                                <span mod>{{lists.solution}}</span>
+                                <span mod>{{lists.problemEmergencyDegree}}</span>
+                                <span mod>{{lists.problemProcessingTime|cover}}</span>
+                                <span mod>{{lists.affectedDepartment|cover}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                    </div>
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
 
 
 

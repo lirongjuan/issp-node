@@ -46,7 +46,7 @@ app.controller('infoListCtrl',function($scope,infoSer,toastr,$stateParams,$state
     });
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page || 1
         };
         infoSer.infoList(listData).then(function(response){
             if(response.data.code==0){

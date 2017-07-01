@@ -3,44 +3,58 @@
         <section>
             <ul>
                 <li class="required">
+                    <label><em>项目问题编号</em></label>
+                    <select class="sele" ng-model="results.projectNum" ng-change="changSelect()">
+                        <option value="{{number}}"  ng-repeat="number in numbers">{{number}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <input type="text" value="{{projectNames.area}}" class="na2">
+                </li>
+                <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>内部项目名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="results.internalProjectName">
+                    <input type="text" value="{{projectNames.internalProjectName}}" class="na">
+                </li>
+                 <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同外部项目名称</em></label>
+                    <input type="text" value="{{projectNames.externalContractProjectName}}" class="na3">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>年份</em></label>
+                    <input type="text" value="{{projectNames.year}}" class="na4">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>工程类型</em></label>
-                    <select class="sele" ng-model="results.projectType1" ng-change="changeSelect()" ng-init="results.projectType1='承包'">
-                        <option value="承包">承包</option>
-                        <option value="外包">外包</option>
-                        <option value="租赁">租赁</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="results.projectType" ng-init="results.projectType='承包'">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select  ng-model="results.projectType" class="sele">
+                            <option value="承包">承包</option>
+                            <option value="外包">外包</option>
+                            <option value="租赁">租赁</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="results.projectType" ng-verify="{}">
+                    </div>
                 </li>
+
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>问题对象</em></label>
-                    <select class="sele" ng-model="results.problemObject1"  ng-change="changeSelect2()"  ng-init="results.problemObject1='运行商'">
-                        <option value="运行商">运行商</option>
-                        <option value="厂家">厂家</option>
-                        <option value="集成商">集成商</option>
-                        <option value="政府机关">政府机关</option>
-                        <option value="内部员工">内部员工</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="results.problemObject" ng-init="results.problemObject='运行商'">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select  ng-model="results.problemObject" class="sele">
+                            <option value="运行商">运行商</option>
+                            <option value="厂家">厂家</option>
+                            <option value="集成商">集成商</option>
+                            <option value="政府机关">政府机关</option>
+                            <option value="内部员工">内部员工</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="results.problemObject" ng-verify="{}">
+                    </div>
                 </li>
-                <li class="required">
-                    <label><em>地区</em></label>
-                    <input type="text" ng-model="results.area">
-                </li>
-                <li class="required">
-                    <label><em>年份</em></label>
-                    <input type="text" ng-model="results.year">
-                </li>
-                <li class="required">
-                    <label><em>合同外部项目名称</em></label>
-                    <input type="text" ng-model="results.externalContractProjectName">
-                </li>
+               
                 <li class="required">
                     <label><em>问题受理时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image addTime" ng-model="results.problemAcceptTime">
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image addTime" ng-model="results.problemAcceptTime">
                 </li>
                 <li class="required">
                     <label><em>问题具体情况</em></label>
@@ -54,25 +68,25 @@
                     <label><em>问题处理人员</em></label>
                     <input type="text" ng-model="results.problemHandler">
                 </li>
+
+
                 <li class="required">
-                    <label><em>问题相关部门</em></label>
-                    <select class="sele" ng-model="results.problemRelevantDepartment" ng-init="results.problemRelevantDepartment='FINANCIALDEPARTMENTACCOUNT'">
-                        <option value="FINANCIALDEPARTMENTBUDGET">财务部门-预算</option>
-                        <option value="FINANCIALDEPARTMENTACCOUNT">财务部门-账务</option>
-                        <option value="FINANCIALDEPARTMENTMONEY">财务部门-资金</option>
-                        <option value="COMPREHENSIVERESOURCESWELFARE">综合资源部-福利</option>
-                        <option value="COMPREHENSIVERESOURCESLITERACY">综合资源部-素养</option>
-                        <option value="COMPREHENSIVERESOURCESPLAN">综合资源部-规划</option>
-                        <option value="IMPLEMENTATIONSYSTEMPROJECTGROUP">一线实施体系-项目组</option>
-                        <option value="IMPLEMENTATIONSYSTEMDEVELOPDEPARTMENT">一线实施体系-研发部</option>
-                        <option value="BUSINESSDEVELOPCUSTOMER">商务发展部-客户管理</option>
-                        <option value="BUSINESSDEVELOPBUSINESS">商务发展部-业务管理</option>
-                        <option value="BUSINESSDEVELOPPROGRESS">商务发展部-进度管理</option>
-                    </select>
+                    <label><i><img src="/images/mandatory.png"></i><em>问题相关部门</em></label>
+                    <div class="select multi1">
+                        <p class="select-text">
+                            <!-- <span ng-repeat="work in condis" ng-model="results.problemRelevantDepartment1">{{work}}, </span>
+                            <span ng-repeat="work in condis" ng-model="results.problemRelevantDepartment1" class="po" ng-show="a">{{work | cover}}, </span> -->
+                            <input type="text" ng-model="results.problemRelevantDepartment" class="po">
+                        </p>
+                        <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="condis" extra-settings="stringSettings"></div>
+                    </div>
                 </li>
+
+
+
                 <li class="required">
                     <label><em>问题发生时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image occurrence" ng-model="results.problemOccurrenceTime">
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image occurrence" ng-model="results.problemOccurrenceTime">
                 </li>
                 <li class="required">
                     <label><em>问题发生地点</em></label>
@@ -80,7 +94,7 @@
                 </li>
                 <li class="required">
                     <label><em>问题解决时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image solution" ng-model="results.problemSolveTime">
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image solution" ng-model="results.problemSolveTime">
                 </li>
                 <li class="required">
                     <label><em>问题处理结果</em></label>

@@ -41,7 +41,7 @@ app.controller('websiteListCtrl',function($scope,websiteSer,toastr,$stateParams,
     };
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page || 1
         };
         websiteSer.websiteList(listData).then(function(response){
             if(response.data.code==0){

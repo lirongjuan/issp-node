@@ -42,7 +42,7 @@ app.controller('questionListCtrl',function($scope,questionSer,toastr,$stateParam
     };
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page || 1
         };
         questionSer.answerList(listData).then(function(response){
             if(response.data.code==0){

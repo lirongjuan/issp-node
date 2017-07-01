@@ -45,7 +45,7 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr,$stateParams,
     });
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page || 1
         };
         openingSer.bidOpeningList(listData).then(function(response){
             if(response.data.code==0){

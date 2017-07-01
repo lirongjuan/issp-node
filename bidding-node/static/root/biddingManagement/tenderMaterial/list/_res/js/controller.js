@@ -42,7 +42,7 @@ app.controller('MaterialListCtrl',function($scope,MaterialSer,toastr,$stateParam
     };
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page || 1
         };
         MaterialSer.sourceList(listData).then(function(response){
             if(response.data.code==0){

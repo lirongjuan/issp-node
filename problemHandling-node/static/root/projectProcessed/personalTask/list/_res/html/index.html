@@ -10,6 +10,7 @@
     <ul class="table">
         <li class="list-head">
             <span></span>
+            <span>内部编号</span>
             <span>内部项目名称</span>
             <span>处理人员</span>
             <span>每日计划</span>
@@ -19,22 +20,42 @@
         <li class="list-all" ng-repeat="lists in assigneeLists|filter:teamInfo" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1}}</p>
-                    <p>{{lists.internalProjectName}}</p>
-                    <p>{{lists.handler}}</p>
-                    <p>{{lists.dailyPlan}}</p>
-                    <p>{{lists.temporaryTask}}</p>
-                    <p>{{lists.actualCompletion}}</p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.projectNum}}</p>
+                    <p mod>{{lists.internalProjectName}}</p>
+                    <p mod>{{lists.handler}}</p>
+                    <p mod>{{lists.dailyPlan}}</p>
+                    <p mod>{{lists.temporaryTask}}</p>
+                    <p mod>{{lists.actualCompletion}}</p>
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
-
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
 
 
 

@@ -58,7 +58,7 @@ app.controller('emailListCtrl',function($scope,emailSer,toastr,$stateParams,$sta
     };
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page || 1
         };
         emailSer.emailList(listData).then(function(response){
             if(response.data.code==0){

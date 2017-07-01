@@ -3,19 +3,28 @@
         <section>
             <ul>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>内部项目名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="task.internalProjectName">
+                    <label><em>项目问题编号</em></label>
+                    <select class="sele" ng-model="task.projectNum" ng-change="changSelect()">
+                        <option value="{{number}}"  ng-repeat="number in numbers">{{number}}</option>
+                    </select>
                 </li>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>处理人员</em></label>
-                    <select class="sele" ng-model="task.handler1" ng-change="changeSelect()" ng-init="task.handler1='小明'">
-                        <option value="小明">小明</option>
-                        <option value="小红">小红</option>
-                        <option value="小黄">小黄</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="task.handler" ng-init="task.handler='小明'">
+                    <label><i><img src="/images/mandatory.png"></i><em>内部项目名称</em></label>
+                    <input type="text" value="{{projectNames.internalProjectName}}" class="na">
                 </li>
 
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>处理人员</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select  ng-model="task.handler" class="sele">
+                            <option value="小明">小明</option>
+                            <option value="小红">小红</option>
+                            <option value="小黄">小黄</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="task.handler" ng-verify="{}">
+                    </div>
+                </li>
                 <li class="required">
                     <label><em>每日计划</em></label>
                     <input type="text" ng-model="task.dailyPlan">

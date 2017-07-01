@@ -9,7 +9,7 @@ app.controller('settingListCtrl',function($scope,settingSer,toastr){
     };
     function activatePage(page) {
         var pages = {
-            page:page
+            page:page || 1
         };
         settingSer.listSetting(pages).then(function(response){
             if(response.data.code==0){

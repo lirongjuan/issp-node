@@ -7,7 +7,16 @@ app.factory('taskSer',function ($http) {
         editAssignment:editAssignment,
         findAssignmentId:findAssignmentId,
         countAssignment:countAssignment,
-        deleteAssignment:deleteAssignment
+        deleteAssignment:deleteAssignment,
+        listFileAssignment:listFileAssignment,
+        uploadFileAssignment:uploadFileAssignment,
+        exportAssignment:exportAssignment,
+        downloadFileAssignment:downloadFileAssignment,
+        deleteFileAssignment:deleteFileAssignment,
+        nameAssignment:nameAssignment,
+        getBiddingName:getBiddingName,
+        permissionAssignment:permissionAssignment,
+        gitNum:gitNum
     };
     function assignmentList(data) {
         return $http.get('/involvedprocessingtask/list',{
@@ -48,5 +57,44 @@ app.factory('taskSer',function ($http) {
             params: data
 
         })
+    }
+    //----------------------------------
+    //文件附件列表
+    function listFileAssignment(data){
+        return $http.get('/listFileAssignment/listFile',{params:data})
+    }
+    //上传附件
+    function uploadFileAssignment(data){
+        return $http.post('/uploadFileAssignment/uploadFile',data)
+    }
+    //导出
+    function exportAssignment(data){
+        return $http.get('/exportAssignment/export',{params:data})
+    }
+    //文件下载
+    function downloadFileAssignment(data){
+        return $http.get('/downloadFileAssignment/downloadFile',{params:data})
+    }
+    //删除文件或文件夹
+    function deleteFileAssignment(data){
+        return $http.post('/deleteFileAssignment/deleteFile',data)
+    }
+    //获取内部名称
+    function nameAssignment(){
+        return $http.get('/nameAssignment/name')
+    }
+    //获取编号
+    function gitNum(){
+        return $http.get('/gitNum/num')
+    }
+    //编号查询
+    function getBiddingName(data){
+        return $http.get('/getBiddingName/name',{
+            params:data
+        })
+    }
+    //菜单权限
+    function permissionAssignment(data) {
+        return $http.get('/permissionAssignment/permissionAssignment/'+data);
     }
 });

@@ -1,0 +1,74 @@
+<div class="content-input" verify-scope="tipStyle: 1">
+    <section class="interval">
+        <ul class="inter-left">
+            <li class="required">
+                <label><i><img src="/images/mandatory.png"></i><em>汇总类型</em></label>
+                <select class="sele" ng-model="addEmails.type" ng-change="sendCondition(addEmails.type)" >
+                    <option value="问题处理结果汇总">问题处理结果汇总</option>
+                </select>
+            </li>
+            <li class="required f-l">
+                <label><i><img src="/images/mandatory.png"></i><em>发送间隔</em></label>
+                <input type="number" ng-model="addEmails.sendNum" ng-verify="{}">
+                <select class="sele" ng-model="addEmails.collectSendUnit" ng-init="addEmails.collectSendUnit='MINUTE'">
+                    <option value="MINUTE">分钟</option>
+                    <option value="HOURS">小时</option>
+                    <option value="DAY">天</option>
+                    <option value="WEEK">周</option>
+                    <option value="MONTH">月</option>
+                    <option value="QUARTER">季</option>
+                    <option value="YEAR">年</option>
+                </select>
+            </li>
+            <li class="required ">
+                <label><i><img src="/images/mandatory.png"></i><em>选择对象</em></label>
+                <select class="sele one-select" ng-model="checkedEmail" ng-init="checkedEmail='自由录入'">
+                    <option ng-repeat="one in emails">{{one}}</option>
+                </select>
+                <input type="text" style=" width:22%;right: 102px; background-color: #fff;" ng-model="sendObjectList" ng-show="checkedEmail=='自由录入'">
+                <div class="select two-select" ng-show="checkedEmail=='个人邮箱'">
+                    <p class="select-text" >
+                        <span></span>
+                    </p>
+                    <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions111" selected-model="names" extra-settings="stringSettings"></div>
+                </div>
+                <div class="select two-select" ng-show="checkedEmail=='公邮'">
+                    <p class="select-text" >
+                        <span></span>
+                    </p>
+                    <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions111" selected-model="names" extra-settings="stringSettings"></div>
+                </div>
+                <button type="button" class="data-add" ng-click="addMail()">添加</button>
+            </li>
+
+        </ul>
+        <ul class="inter-right">
+            <div class="sum-select">
+                <label><i><img src="/images/mandatory.png"></i><em>汇总条件</em></label>
+                <div class="select">
+                    <p class="select-text">
+                        <span ng-repeat="work in condis">{{work}}, </span>
+                    </p>
+                    <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="condis" extra-settings="stringSettings"></div>
+                </div>
+            </div>
+            <li >
+                <label><em>备注</em></label>
+                <input type="text" class="remark" ng-model="addEmails.remark">
+            </li>
+            <li class="f-send">
+                <p class="send-o">
+                    <em>发送对象:</em>
+                    <span>(双击可以删除该条邮箱地址)</span>
+                </p>
+                <div class="dclick">
+                    <p ng-repeat="list in objLists" ng-dblclick="dbSend($index)" >{{list}}</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="EmailAddFun()">提交</button>
+    </p>
+</div>

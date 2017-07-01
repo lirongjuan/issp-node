@@ -1,7 +1,18 @@
 var app = angular.module('problemEdit', ['toastr']);
 app.controller('problemEditCtrl', function($scope, problemSer,$stateParams,$state,toastr){
     var problemData ={id: $stateParams.id};
-
+    $scope.changSelect = function(){
+        var obj={
+            problemProcessingTime:$scope.editAccept.problemProcessingTime = angular.element('.a1').val(),
+            affectedDepartment:$scope.editAccept.affectedDepartment = angular.element('.a2').val()
+            };
+        problemSer.gitDegree(obj).then(function(response){
+            if(response.data.code == 0){
+                $scope.projectNames = response.data.data;
+                console.log($scope.projectNames)
+            }
+        });
+    };
     //获取ID
     problemSer.findProblemId(problemData).then(function(response){
         if(response.data.code=='0'){
@@ -11,65 +22,15 @@ app.controller('problemEditCtrl', function($scope, problemSer,$stateParams,$stat
         }
 
     });
-
-    // var selects = [
-    //     {
-    //         name: 'projectType',
-    //         list: {OUTSOURCING: '外包', RENT: '租赁'}
-    //     },
-    //     {
-    //         name: 'noticeWay',
-    //         list: {WRITTEN: '书面', MAIL: '邮件', ORAL: '口头'}
-    //     },
-    //     {
-    //         name: 'problemTypes',
-    //         list: {PROGRESSCLASS: '进度类', DELIVERCLASS: '交付类', DEVICECLASS: '设备类'}
-    //     },
-    //     {
-    //         name: 'problemEmergencyDegree',
-    //         list: {INTERMEDIATE: '中级', EMERGENCY: '紧急'}
-    //     },
-    //     {
-    //         name: 'problemProcessingTime',
-    //         list: {FOURTOTWENTYFOURHOURS: '4-24小时之类', TWENTYFOURHOURS: '24小时以上'}
-    //     },
-    //     {
-    //         name: 'affectedDepartment',
-    //         list: {TWOTOTHREEDEPARTMENT: '影响2-3个部门', THREEDEPARTMENT: '影响3个部门以上'}
-    //     }
-    // ];
     //编辑点击提交
     $scope.problemEditFun = function(){
         var vm = $scope;
-        // selects.forEach(function (select) {
-        //     if (vm.editAccept[select.name]) {
-        //         var isFind;
-        //         for (var name in select.list) {
-        //             var text = select.list[name];
-        //             if (vm.editAccept[select.name] == text) {
-        //                 vm.editAccept[select.name] = name;
-        //                 isFind = name;
-        //                 break;
-        //             }
-        //         }
-        //         if(isFind){
-        //             vm.editAccept[select.name] = isFind;
-        //         }else{
-        //             for (var name in select.list) {
-        //                 var text = select.list[name];
-        //                 if (vm.editAccept[select.name+"_default"] == text) {
-        //                     vm.editAccept[select.name+"_default"] = name;
-        //                     isFind = name;
-        //                     break;
-        //                 }
-        //             }
-        //             vm.editAccept[select.name] = isFind;
-        //         }
-        //     }
-        // });
+        vm.editAccept.year = angular.element('.addYear').val();
+        vm.editAccept.problemEmergencyDegree = angular.element('.na').val();
+
         problemSer.editProblem(vm.editAccept).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.projectProcessed.problemAccepted.list');
+                $state.go('root.projectProcessed.problemAccepted.list[12]');
                 toastr.success( "编辑成功", '温馨提示');
             }else {
                 toastr.error( response.data.msg, '温馨提示');

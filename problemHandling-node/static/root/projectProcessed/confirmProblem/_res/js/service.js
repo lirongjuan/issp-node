@@ -8,8 +8,16 @@ app.factory('confirmSer',function ($http) {
         findResultId:findResultId,
         countResult:countResult,
         deleteResult:deleteResult,
-        summaryList:summaryList,
-        getArea:getArea
+        
+        confirmListFile:confirmListFile,
+        confirmUploadFile:confirmUploadFile,
+        confirmExport:confirmExport,
+        confirmDownloadFile:confirmDownloadFile,
+        confirmDeleteFile:confirmDeleteFile,
+        confirmName:confirmName,
+        getBiddingName:getBiddingName,
+        confirmPermission:confirmPermission,
+        gitNum:gitNum
     };
     function resultList(data) {
         return $http.get('/problemhandlingresult/list',{
@@ -48,12 +56,44 @@ app.factory('confirmSer',function ($http) {
 
         })
     }
-    //汇总
-    function summaryList(data) {
-        return $http.get('/problemhandlingresult/collect?areas='+data.join(','))
+    
+    //----------------------------------
+    //文件附件列表
+    function confirmListFile(data){
+        return $http.get('/confirmListFile/listFile',{params:data})
     }
-    //获取所有地区
-    function getArea(){
-        return $http.get('/problemhandlingresult/area')
+    //上传附件
+    function confirmUploadFile(data){
+        return $http.post('/confirmUploadFile/uploadFile',data)
+    }
+    //导出
+    function confirmExport(data){
+        return $http.get('/confirmExport/export',{params:data})
+    }
+    //文件下载
+    function confirmDownloadFile(data){
+        return $http.get('/confirmDownloadFile/downloadFile',{params:data})
+    }
+    //删除文件或文件夹
+    function confirmDeleteFile(data){
+        return $http.post('/confirmDeleteFile/deleteFile',data)
+    }
+    //获取内部名称
+    function confirmName(){
+        return $http.get('/confirmName/name')
+    }
+    //获取编号
+    function gitNum(){
+        return $http.get('/gitNum/num')
+    }
+    //编号查询
+    function getBiddingName(data){
+        return $http.get('/getBiddingName/name',{
+            params:data
+        })
+    }
+    //菜单权限
+    function confirmPermission(data) {
+        return $http.get('/confirmPermission/confirmPermission/'+data);
     }
 });
