@@ -1,4 +1,8 @@
-var app = angular.module('statement', []);
+var app = angular.module('statement', [
+    {files:[
+        "root/statement/_res/js/service.js"
+    ]}
+]);
 app.controller('statementCtrl', function ($scope,$state) {
     if ($state.current.url == '/statement') {//默认加载列表
         $state.go('root.statement.info');
@@ -7,12 +11,120 @@ app.controller('statementCtrl', function ($scope,$state) {
     $scope.$on("changeId",function(event,id){
         $scope.$broadcast("passId",id)
     });
-
-}).controller('navCtrl',function($scope,$state,$location){
+    $scope.$on('page',function(event,msg){
+        $scope.$broadcast('pageId',msg)
+    });
+    $scope.$on('countId',function(event,msg){
+        $scope.$broadcast('count',msg)
+    });
+}).controller('navCtrl',function($scope,$state,$location,statementSer){
+    $scope.navCla='info';
     var active =$location.path().split('/')[3];
-    $scope.navCla=active?active:'basicinfo';
+    $scope.navCla=active?active:'info';
     $scope.navClass= function(name){
-       $scope.navCla=name
+        $scope.navCla=name;
+        $scope.$emit('isId',true); //每次切换页面更新搜索值
+    }
+
+   statementSer.navPermission().then(function(response){   //权限设置
+        if(response.data.code == 0){
+            var data = response.data.data;
+                if(data && data.length){
+                $scope.isHide = false;
+                for(var i =0,len=data.length;i<len;i++){
+                    var obj = data[i];
+                    $scope[obj.name]=obj.flag;
+                }
+            }else if(response.data.data.length == 0){
+                $scope.isHide = true;
+            }
+        }else{
+            $scope.isHide= false;
+        }
+    });
+    statementSer.setPermission().then(function(response){ //权限设置
+        if(response.data.code == 0){
+            var data = response.data.data;
+            if(data && data.length){
+                $scope.isHide = false;
+                for(var i =0,len=data.length;i<len;i++){
+                    var obj = data[i];
+                    $scope[obj.name]=obj.flag;
+                }
+            }else if(response.data.data.length== 0){
+                $scope.isHide = true;
+            }
+        }else{
+            $scope.isHide = false;
+        }
+    });
+    $scope.showsList=[
+        {id:"1",item:"银行流水管理",menuList:[{name:'银行账户信息'},{name2:"银行流水"},{name3:"汇总分析"}],showIs:true},
+        {id:"2",item:"设置",menuList:[{name4:'设置'}],showIs:true},
+    ];
+    $scope.showMenu = function(obj,event) {
+        if(event){
+            if(obj.showIs){
+                obj.showIs=!event;
+            }else{
+                obj.showIs=event;
+                /* angular.forEach(function(item){ showSubAble sublist*/
+                this.showsList.forEach(function(item){
+                    if(item.id!=obj.id){
+                        item.showIs=!event;
+                    }else{
+                        item.showIs=event;
+                    }
+                });
+            }
+        }
+    };
+
+});
+
+app.directive('mod',function(){
+    return{
+        restrict:'AE',
+        replace:true,
+        link:function(scope,elements,attrs){
+            elements.hover(function(){
+                var textWidth = elements.text().length*12;
+                var boxWidth = elements.width();
+
+                if(textWidth>boxWidth){
+                    elements.addClass('modac');
+                }
+            });
+            elements.dblclick(function(){
+                if(elements.hasClass('modac')){
+                    $('.module').show();
+                    var Index =  elements.index(),
+                        title,
+                        tag = this.tagName;
+                    if(tag=="P"){
+                        title =  $(".list-head span").eq(Index).text();
+                    }else if(tag=="SPAN"){
+                        title = $(this).parent().siblings('.see-parent').children().eq(Index).text();
+                    }
+                    var conText = elements.text();
+                    $('.see-type').text(title);
+                    $('.see-description').text(conText)
+                }
+
+            })
+        }
+    }
+}).directive('modclose',function(){
+    return{
+        restrict:'AE',
+        replace:true,
+        link:function(scope,elements,attrs){
+            elements.on("click",function(){
+                $('.module').hide();
+            });
+
+        }
     }
 });
+
 

@@ -1,11 +1,11 @@
 <ul class="list">
-    <li ng-click="list()" ui-sref=".list" ng-class="{'current':menuClass=='listMenu'}">
-        <a href="javascript:void(0)" >列表<span>List</span></a>
+    <li ng-click="list()" ui-sref=".list[12]" ng-show="LIST" ng-class="{'current':menuClass=='listMenu'}"  ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)">列表</a>
     </li>
-    <li ng-click="import()" ui-sref=".import[12]" ng-class="{'current':menuClass=='importMenu'}">
-        <a href="javascript:void(0)"  class="add">导入<span>Import</span></a>
+    <li ng-click="import()" ng-show="IMPORT" ui-sref=".import[12]" ng-class="{'current':menuClass=='importMenu'}" ng-init="menuCheck('IMPORT')">
+        <a href="javascript:void(0)"  class="same-two">导入</a>
     </li>
-    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu'}">
-        <a href="javascript:void(0)" class="same-two">删除<span>Delete</span></a>
+    <li ng-click="delete()" ng-show="DELETE" ng-class="{'current':menuClass=='deleteMenu','seeParent':hasId}" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
     </li>
 </ul>

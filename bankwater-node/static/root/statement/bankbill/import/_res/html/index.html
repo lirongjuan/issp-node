@@ -1,3 +1,85 @@
+<ul class="upload-yes">
+    <li ng-repeat="list in affirmFile">
+        <div class="up-al">
+            <p>{{::list.name}}</p>
+            <i href="javascript:void(0)" class="input-yes"><img src="/images/gou.png"></i>
+        </div>
+    </li>
+</ul>
+<ul class="upload-input">
+    <li ng-repeat="list in files">
+        <div class="up-al">
+            <p>{{::list.name}}</p>
+            <a href="javascript:void(0)" class="upload-close" ng-click="del($index)"><img src="/images/close2.png"></a>
+        </div>
+    </li>
+</ul>
+<div class="upload-all">
+    <div class="upload-btn">
+        <label class="upload-pic" for="uploadFile">
+            <i class="upload-pic">{{uploadFile.name}}</i>
+            选择文件
+        </label>
+        <input type="file" id='uploadFile' style="display: none" onchange='angular.element(this).scope().fileNameChanged()' accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel">
+    </div>
+</div>
+<ul class="listsearch">
+    <li>
+        <label><i><img src="/images/mandatory.png"></i><em>账号名称</em></label>
+        <select ng-model="vm.accountId" ng-change="bankBills()">
+            <option value="">请选择账号</option>
+            <option ng-repeat="account in accounts" ng-value="account.id" >{{account.name}}</option>
+        </select>
+    </li>
+
+    <li>
+        <label><i><img src="/images/mandatory.png"></i><em>收入(贷方金额)</em></label>
+        <select ng-model="vm.creditorCostIndex" ng-change="bankBills()">
+            <option value="">请选择</option>
+            <option ng-repeat="acc in bankLists" ng-value="$index">{{acc.value}}</option>
+        </select>
+    </li>
+    <li>
+        <label><i><img src="/images/mandatory.png"></i><em>支出(借方金额)</em></label>
+        <select ng-model="vm.debtorCostIndex" ng-change="bankBills()">
+            <option value="">请选择</option>
+            <option ng-repeat="acc in bankLists" ng-value="$index" >{{acc.value}}</option>
+        </select>
+    </li>
+    <li>
+        <label><i><img src="/images/mandatory.png"></i><em>余额</em></label>
+        <select ng-model="vm.balanceIndex" ng-change="bankBills()">
+            <option value="">请选择</option>
+            <option ng-repeat="acc in bankLists" ng-value="$index" >{{acc.value}}</option>
+        </select>
+    </li>
+    <li>
+        <label><i><img src="/images/mandatory.png"></i><em>流水日期</em></label>
+        <select ng-model="vm.recordDateIndex" ng-change="bankBills()">
+            <option value="">请选择</option>
+            <option ng-repeat="acc in bankLists" value={{$index}} >{{acc.value}}</option>
+        </select>
+    </li>
+
+</ul>
+<div class="module-btn">
+   <!-- <div class="{{isUp?'import-no':'import-yes'}}" ng-click="updataSel()">
+        <label class="sure-btn">
+            <i class="sure-pic"></i>
+            浏览
+        </label>
+    </div>-->
+    <a href="javascript:void(0)" class="module-upload" ng-click="updataSel()">浏览</a>
+    <div class="{{isUp?'import-no':'import-yes'}}" ng-click="upload()">
+        <label class="sure-btn">
+            <i class="sure-pic"></i>
+            导入
+        </label>
+    </div>
+</div>
+
+<footer class="footer"></footer>
+<!--
 <div class="upload-file">
     <section>
 
@@ -16,12 +98,36 @@
                     的为必填项
                 </span>
         </div>
-        <div class="file-right">
+      <div class="file-right">
             <div>
                 <label><i><img src="/images/mandatory.png"></i><em>账号名称</em></label>
-                <select ng-model="bank" ng-change="bankSel()">
+                <select ng-model="bank" ng-change="bankSel()" >
                     <option value="">请选择账号</option>
-                    <option ng-repeat="account in accounts" value={{account.id}}>{{account.name}}</option>
+                    <option ng-repeat="account in accounts" value={{account.id}} >{{account.name}}</option>
+                </select>
+            </div>
+            <div>
+                <label><i><img src="/images/mandatory.png"></i><em>收入(贷方金额)</em></label>
+                <select ng-model="creditorCost" >
+                    <option value="">请选择账号</option>
+                </select>
+            </div>
+            <div>
+                <label><i><img src="/images/mandatory.png"></i><em>支出(借方金额)</em></label>
+                <select ng-model="debtorCost">
+                    <option value="">请选择账号</option>
+                </select>
+            </div>
+            <div>
+                <label><i><img src="/images/mandatory.png"></i><em>余额</em></label>
+                <select ng-model="balance">
+                    <option value="">请选择账号</option>
+                </select>
+            </div>
+            <div>
+                <label><i><img src="/images/mandatory.png"></i><em>流水日期</em></label>
+                <select ng-model="recordDate">
+                    <option value="">请选择账号</option>
                 </select>
             </div>
             <div class="btn">
@@ -29,9 +135,8 @@
                 <button ng-click="upload()">上传</button>
             </div>
         </div>
-
-
     </section>
 </div>
+-->
 
 

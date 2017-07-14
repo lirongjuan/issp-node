@@ -1,41 +1,75 @@
-
 <div class="content-tab list">
     <ul class="listsearch">
         <li>
             <label>账号列表</label>
-            <select ng-model="bank" ng-change="bankSel()">
-                <option ng-repeat="account in accounts" value={{account.id}}>{{account.name}}</option>
+            <select ng-model="a" ng-change="fn()">
+                <option value="">请选择账号</option>
+                <option ng-repeat="account in bankbillLists2" ng-value="account.id">{{account.name}}</option>
             </select>
         </li>
     </ul>
-    <ul class="table">
-        <li class="list-head">
+
+    <div class="table">
+        <ul ng-repeat="list in bankbillLists" style="display: {{list._delete?'none':'block'}};">
+        <li class="title" >
             <span></span>
-            <span>账号名称</span>
-            <span>账号</span>
-            <span>卡号</span>
-            <span>公司</span>
-            <span>银行</span>
-            <span>银行地址</span>
-            <span>类型</span>
+            <span mod ng-repeat="d in list.detailList track by $index" ng-if="$index<8">
+                {{d.title}}
+            </span>
+            <span></span>
         </li>
-        <li class="list-all" ng-repeat="list in infoLists" style="display: {{list._delete?'none':'block'}};">
-            <section>
-                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p>{{list.name}}</p>
-                    <p>{{list.number}}</p>
-                    <p>{{list.cardNumber}}</p>
-                    <p>{{list.company}}</p>
-                    <p>{{list.bank}}</p>
-                    <p>{{list.bankAddress}}</p>
-                    <p>{{list.type}}</p>
-                </div>
-            </section>
+        <li class="titl1">
+            <div class="txt {{list._selectList?'selectList':''}}"  ng-click="selectList(list)">
+                <span mod>{{$index+1+num}}</span>
+                <span mod ng-repeat="d in list.detailList track by $index" ng-if="$index<8">
+                    {{d.val}}
+                </span>
+                <span mod><a href="javascript:void(0)" class="mores" ng-click="moreList(list)">更多详细...</a></span>
+            </div>
+
+            <div class="Dcan">
+                <ul class="can-see" ng-repeat="lis in arr" style="display: {{list._moreList?'block':'none'}};">
+                    <li>
+                        <p class="see-parent">
+                            <span mod ng-repeat="d in list.detailList track by $index" ng-if="$index>lis.a*7 &&$index<lis.a*7+8">
+                                 {{d.title}}
+                            </span>
+                        </p>
+                        <p class="see-children">
+                            <span mod ng-repeat="d in list.detailList track by $index" ng-if="$index>lis.a*7 &&$index<lis.a*7+8">
+                                  {{d.val}}
+                            </span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
         </li>
-    </ul>
+
+        </ul>
+
+    </div>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose="">关闭</button>
+        </div>
+    </div>
+
     <footer class="footer">
         <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

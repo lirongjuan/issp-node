@@ -1,14 +1,19 @@
 var app = angular.module('infoServer',[]);
 app.factory('infoSer',function ($http) {
     return {
-        listInfo : listInfo,
+        listInfo :listInfo,
         countInfo:countInfo,
         addInfo:addInfo,
         getInfo:getInfo,
         editInfo:editInfo,
-        delInfo:delInfo
+        delInfo:delInfo,
+        menuPermission:menuPermission,
     };
-    function listInfo(data) {
+    //菜单权限
+    function menuPermission(data){
+        return $http.get('/bankaccountinfo/guidePermission/'+data);
+    }
+    function listInfo(data){
         return $http.get('/listInfo',{params:data})
     }
     function countInfo() {

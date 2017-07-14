@@ -13,20 +13,39 @@
         <li class="list-all" ng-repeat="list in infoLists" style="display: {{list._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p>{{list.name}}</p>
-                    <p>{{list.number}}</p>
-                    <p>{{list.cardNumber}}</p>
-                    <p>{{list.company}}</p>
-                    <p>{{list.bank}}</p>
-                    <p>{{list.bankAddress}}</p>
-                    <p>{{list.type}}</p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.name}}</p>
+                    <p mod>{{list.number}}</p>
+                    <p mod>{{list.cardNumber}}</p>
+                    <p mod>{{list.company}}</p>
+                    <p mod>{{list.bank}}</p>
+                    <p mod>{{list.bankAddress}}</p>
+                    <p mod>{{list.type}}</p>
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose="">关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

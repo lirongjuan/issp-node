@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"bankbillMenuCtrl"
             }
         }
+    }).state("root.statement.bankbill.list[12]", {
+        url : "/list[12]?id=&name=&page=&countId=",
+        views : {
+            "content@root.statement.bankbill" : {
+                templateUrl : "root/statement/bankbill/list/_res/html/index.html",
+                controller:"bankbillListCtrl"
+            }
+        }
     }).state("root.statement.bankbill.import[12]", {
         url : "/import[12]",
         views : {
