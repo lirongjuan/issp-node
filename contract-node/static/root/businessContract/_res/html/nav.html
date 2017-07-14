@@ -3,22 +3,22 @@
     <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
     {{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('signingProject')" ng-show="siginmanage"  ng-class="{'active':navCla=='signingProject'}"  ui-sref="_root.businessContract.signingProject.list[12]" >
+        <li ng-click="navClass(menuInfo.msg)" ng-show="siginmanage"  ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.businessContract.signingProject.list[12]" >
             <a href="javascript:void(0)">{{menuInfo.name}}</a>
         </li>
-        <li ng-click="navClass('basicInfo')"  ng-show="baseinfomanage" ng-class="{'active':navCla=='basicInfo'}"  ui-sref="_root.businessContract.basicInfo.list[12]">
+        <li ng-click="navClass(menuInfo.msg)"  ng-show="baseinfomanage" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.businessContract.basicInfo.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name2}}</a>
         </li>
-        <li ng-click="navClass('dispatchList')"  ng-show="dispatchsheet" ng-class="{'active':navCla=='dispatchList'}"  ui-sref="_root.businessContract.dispatchList.list[12]">
+        <li ng-click="navClass(menuInfo.msg)"  ng-show="dispatchsheet" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.businessContract.dispatchList.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name3}}</a>
         </li>
-        <li ng-click="navClass('contractType')"  ng-show="contractcategory" ng-class="{'active':navCla=='contractType'}"  ui-sref="_root.businessContract.contractType.list[12]">
+        <li ng-click="navClass(menuInfo.msg)"  ng-show="contractcategory" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.businessContract.contractType.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name4}}</a>
         </li>
-        <li ng-click="navClass('mailSummary')"  ng-show="collectemail" ng-class="{'active':navCla=='mailSummary'}"  ui-sref="_root.businessContract.mailSummary.list[12]">
+        <li ng-click="navClass(menuInfo.msg)"  ng-show="collectemail" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.businessContract.mailSummary.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name5}}</a>
         </li>
-        <li ng-click="navClass('setting')"  ng-show="cuspermission" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.businessContract.setting.list[12]" >
+        <li ng-click="navClass(menuInfo.msg)"  ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.businessContract.setting.list[12]" >
             <a href="javascript:void(0)">{{menuInfo.name6}}</a>
         </li>
     </ul>

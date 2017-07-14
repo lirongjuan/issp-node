@@ -13,18 +13,25 @@
         <li class="list-all" ng-repeat="lists in answerLists" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1+num}}</p>
-                    <p>{{lists.biddingNumber}}</p>
-                    <p>{{lists.projectName}}</p>
-                    <p>{{lists.peopleAnswerQuestions}}</p>
-                    <p>{{lists.officeHour}}</p>
-                    <p>{{lists.answersUnit}}</p>
-                    <p>{{lists.problem}}</p>
-                    <p>{{lists.reply}}</p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.biddingNumber}}</p>
+                    <p mod>{{lists.projectName}}</p>
+                    <p mod>{{lists.peopleAnswerQuestions}}</p>
+                    <p mod>{{lists.officeHour}}</p>
+                    <p mod>{{lists.answersUnit}}</p>
+                    <p mod>{{lists.problem}}</p>
+                    <p mod>{{lists.reply}}</p>
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>

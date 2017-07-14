@@ -4,7 +4,7 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
-                    <select class="sele" ng-model="basic.businessType" ng-init="basic.businessType='MOBILECOMMUNICATION'">
+                    <select class="sele" ng-model="basic.businessType" ng-init="basic.businessType='MOBILECOMMUNICATION'" ng-verify="option:0">
                         <option value="MOBILECOMMUNICATION">移动通信类</option>
                         <option value="SOFTDEVELOP">软件开发类</option>
                         <option value="INTELLIGENCESYSTEM">智能系统集成类</option>
@@ -29,7 +29,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合作方式</em></label>
-                    <select class="sele" ng-model="basic.businessCooperate" ng-init="basic.businessCooperate='RENTCONTRACT'">
+                    <select class="sele" ng-model="basic.businessCooperate" ng-init="basic.businessCooperate='RENTCONTRACT'" ng-verify="option:0">
                         <option value="RENTCONTRACT">租赁合同</option>
                         <option value="CHARCONTRACT">承包的项目合同</option>
                         <option value="DISTRIBUTECONTRACT">分包项目合同</option>
@@ -106,14 +106,14 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同属性</em></label>
-                    <select class="sele" ng-model="basic.contractProperty" ng-init="basic.contractProperty='FRAMECONTRACT'">
+                    <select class="sele" ng-model="basic.contractProperty" ng-init="basic.contractProperty='FRAMECONTRACT'" ng-verify="option:0">
                         <option value="FRAMECONTRACT">框架合同</option>
                         <option value="SINGLECONTRACT">单次合同</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>支付方式</em></label>
-                    <select class="sele" ng-model="basic.payWays" ng-init="basic.payWays='CASH'">
+                    <select class="sele" ng-model="basic.payWays" ng-init="basic.payWays='CASH'" ng-verify="option:0">
                         <option value="CASH">现金</option>
                         <option value="BANK">银行汇兑</option>
                         <option value="ELECTRIC">电汇</option>
@@ -126,7 +126,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>结算费用来源</em></label>
-                    <select class="sele" ng-model="basic.payFeeOrigin" ng-init="basic.payFeeOrigin='PREPAY'">
+                    <select class="sele" ng-model="basic.payFeeOrigin" ng-init="basic.payFeeOrigin='PREPAY'" ng-verify="option:0">
                         <option value="PREPAY">预付</option>
                         <option value="BACKTOBACK">背靠背</option>
                         <option value="ADVANCE">垫付</option>
@@ -134,7 +134,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同是否已归档</em></label>
-                    <select class="sele" ng-model="basic.fileCondition" ng-init="basic.fileCondition='已归档'">
+                    <select class="sele" ng-model="basic.fileCondition" ng-init="basic.fileCondition='已归档'" ng-verify="option:0">
                         <option value="已归档">已归档</option>
                         <option value="未归档">未归档</option>
                     </select>
@@ -169,10 +169,8 @@
 </div>
 
 <script type="text/javascript">
-
     !function(){
         laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
     }();
-
 
 </script>

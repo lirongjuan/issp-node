@@ -1,0 +1,74 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+       <li class="list-head">
+            <span></span>
+            <span>代码</span>
+            <span>月份</span>
+            <span>一级科目</span>
+            <span>地区</span>
+            <span>项目名称</span>
+            <span>项目组/部门</span>
+            <span>期初借方余额</span>
+            <span>期初贷方余额</span>
+            <span></span>
+        </li>
+
+        <li class="list-all" ng-repeat="list in courseCollectLists"  style="display: {{list._delete?'none':'block'}};">
+            <section>
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p>{{$index+1+num}}</p>
+                    <p mod>{{::list.code}}</p>
+                    <p mod>{{::list.months}}</p>
+                    <p mod>{{::list.firstSubject}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.projectName}}</p>
+                    <p mod>{{::list.projectGroup}}</p>
+                    <p mod>{{::list.beginningDebitAmount}}</p>
+                    <p mod>{{::list.beginningCreditAmount}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul style="display: {{list._moreList?'block':'none'}};">
+                        <p class="see-parent china">
+                            <span class="morel">本期借方发生额</span>
+                            <span class="morel">本期贷方发生额</span>
+                            <span class="morel">期末借方余额</span>
+                            <span class="morel">期末贷方余额</span>
+                        </p>
+                        <p class="see-children english"> 
+                            <span class="morep" mod>{{::list.issueDebitAmount}}</span>
+                            <span class="morep" mod>{{::list.issueCreditAmount}}</span>
+                            <span class="morep" mod>{{::list.endDebitAmount}}</span>
+                            <span class="morep" mod>{{::list.endCreditAmount}}</span>
+                        </p>          
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+     <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

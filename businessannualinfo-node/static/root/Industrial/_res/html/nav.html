@@ -1,0 +1,19 @@
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass('registered')" ng-class="{'active':navCla=='registered'}"  ui-sref="_root.Industrial.registered.list[12]" ng-show="businessregister">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass('information')" ng-class="{'active':navCla=='information'}" ui-sref="_root.Industrial.information.list[12]" ng-show="businessannualinfo">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass('tax')" ng-class="{'active':navCla=='tax'}" ui-sref="_root.Industrial.tax.list[12]" ng-show="businesstaxchange">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.Industrial.setting.list[12]" ng-show="cuspermission">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+    </ul>
+</div>

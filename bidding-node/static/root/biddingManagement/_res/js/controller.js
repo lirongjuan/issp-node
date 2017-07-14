@@ -20,22 +20,7 @@ app.controller('biddingCtrl', function ($scope,$state) {
         $scope.navCla = name;
         $scope.$emit('isId',true);//每次切换页面更新搜索值
     };
-    // bidSer.navPermission().then(function(response){
-    //     if(response.data.code == 0){
-    //         var data = response.data.data;
-    //         if(data && data.length){
-    //             $scope.isHide = false;
-    //             for(var i =0,len=data.length;i<len;i++){
-    //                 var obj = data[i];
-    //                 $scope[obj.name]=obj.flag;
-    //             }
-    //         }else if(response.data.data.length == 0){
-    //             $scope.isHide = true;
-    //         }
-    //     }else{
-    //         $scope.isHide = false;
-    //     }
-    // });
+
     bidSer.navPermission().then(function(response){
         if(response.data.code == 0){
             var data = response.data.data;
@@ -69,8 +54,8 @@ app.controller('biddingCtrl', function ($scope,$state) {
         }
     });
     $scope.showsList = [
-        {id:"1",item:"招投标管理",menuList:[{name:'招投标网站信息'},{name2:"招标信息"},{name3:"投标答疑问题记录"},{name4:"标书资料"},{name5:"开标信息"},{name6:"招投标信息邮件发送"}],showIs:false},
-        {id:"2",item:"设置",menuList:[{name7:'设置'}],showIs:false}
+        {id:"1",item:"招投标管理",menuList:[{name:'招投标网站信息'},{name2:"招标信息"},{name3:"投标答疑问题记录"},{name4:"标书资料"},{name5:"开标信息"},{name6:"招投标信息邮件发送"}],showIs:true},
+        {id:"2",item:"设置",menuList:[{name7:'设置'}],showIs:true}
     ];
     $scope.showMenu = function(obj,event) {
         if(event){
@@ -80,11 +65,11 @@ app.controller('biddingCtrl', function ($scope,$state) {
                 obj.showIs=event;
                 /* angular.forEach(function(item){ showSubAble sublist*/
                 this.showsList.forEach(function(item){
-                    if(item.id!=obj.id){
-                        item.showIs=!event;
-                    }else{
-                        item.showIs=event;
-                    }
+                    //if(item.id!=obj.id){
+                        //item.showIs=!event;
+                    //}else{
+                        //item.showIs=event;
+                    //}
                 });
             }
         }

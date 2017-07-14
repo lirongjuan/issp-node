@@ -1,0 +1,26 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <!-- <li class="required">
+                    <label><em>内部项目名称</em></label>
+                    <select class="sele" ng-model="contractInProject">
+                        <option value="">请选择</option>
+                        <option ng-repeat="number in ssuiProjects" ng-verify="{}" value="{{number.contractInProject}}">{{number.contractInProject}}</option>
+                    </select>
+                </li> -->
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>年份</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="data.year">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>月份</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="data.month">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>

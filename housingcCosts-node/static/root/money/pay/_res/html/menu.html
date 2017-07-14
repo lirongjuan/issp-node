@@ -1,0 +1,14 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see" >删除<span></span></a>
+    </li>
+    <li ng-click="summaryArea()" ng-class="{'current':menuClass=='summaryAreaMenu'}" ui-sref=".summaryArea[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">地区汇总<span></span></a>
+    </li>
+    <li ng-click="summaryProject()" ng-class="{'current':menuClass=='summaryProjectMenu'}" ui-sref=".summaryProject[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">项目汇总<span></span></a>
+    </li>
+</ul>

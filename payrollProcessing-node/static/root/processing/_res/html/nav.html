@@ -1,0 +1,28 @@
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass('waitconfirm')" ng-show="waitconfirm" ng-class="{'active':navCla=='waitconfirm'}"  ui-sref="_root.processing.waitconfirm.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass('payed')" ng-show="payed" ng-class="{'active':navCla=='payed'}" ui-sref="_root.processing.payed.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass('salaryconfirm')" ng-show="salaryconfirm" ng-class="{'active':navCla=='salaryconfirm'}" ui-sref="_root.processing.salaryconfirm.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass('summary')" ng-show="collect" ng-class="{'active':navCla=='summary'}" ui-sref="_root.processing.summary.departmentSummary[12]" >
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass('confirmed')" ng-show="confirmed" ng-class="{'active':navCla=='confirmed'}" ui-sref="_root.processing.confirmed.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass('invoicesubmit')" ng-show="invoicesubmit" ng-class="{'active':navCla=='invoicesubmit'}" ui-sref="_root.processing.invoicesubmit.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.processing.setting.list[12]" >
+            <a href="javascript:void(0)">{{menuInfo.name7}}</a>
+        </li>
+    </ul>
+</div>

@@ -3,7 +3,7 @@
         <ul class="inter-left">
             <li class="required">
                 <label><i><img src="/images/mandatory.png"></i><em>汇总类型</em></label>
-                <select class="sele" ng-model="editMail.type" ng-change="sendCondition(editMail.type,true)">
+                <select class="sele" ng-model="editMail.type" ng-change="sendCondition(editMail.type,true)" ng-verify="option:0">
                     <option value="合同签订与立项汇总">合同签订与立项汇总</option>
                     <option value="项目合同基本信息汇总">项目合同基本信息汇总</option>
                     <option value="派工单信息汇总">派工单信息汇总</option>
@@ -12,7 +12,7 @@
             <li class="required f-l">
                 <label><i><img src="/images/mandatory.png"></i><em>发送间隔</em></label>
                 <input type="number" ng-model="editMail.sendNum" ng-verify="{}">
-                <select class="sele" ng-model="editMail.collectSendUnit">
+                <select class="sele" ng-model="editMail.collectSendUnit" ng-verify="option:0">
                     <option value="MINUTE">分钟</option>
                     <option value="HOURS">小时</option>
                     <option value="DAY">天</option>

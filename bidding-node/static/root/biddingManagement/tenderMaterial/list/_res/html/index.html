@@ -15,15 +15,15 @@
         <li class="list-all" ng-repeat="lists in materialLists" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1+num}}</p>
-                    <p>{{lists.biddingNumber}}</p>
-                    <p>{{lists.projectName}}</p>
-                    <p>{{lists.eligibilityRequirements}}</p>
-                    <p>{{lists.tenderNumber}}</p>
-                    <p>{{lists.experienceProject}}</p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.biddingNumber}}</p>
+                    <p mod>{{lists.projectName}}</p>
+                    <p mod>{{lists.eligibilityRequirements}}</p>
+                    <p mod>{{lists.tenderNumber}}</p>
+                    <p mod>{{lists.experienceProject}}</p>
                     
-                    <p>{{lists.professionalQualificationCertification}}</p>
-                    <p>{{lists.managementSystemCertification}}</p>
+                    <p mod>{{lists.professionalQualificationCertification}}</p>
+                    <p mod>{{lists.managementSystemCertification}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
                     </p>
@@ -42,28 +42,29 @@
                                 <span>主营业务收入</span>
                             </p>
                             <p class="see-children">
-                                <span>{{lists.projectManagerQuality}}</span>
-                                <span>{{lists.teamMembersQuality}}</span>
-                                <span>{{lists.resourcesInto}}</span>
-                                <span>{{lists.technicalSolution}}</span>
-                                <span>{{lists.additionalCommitments}}</span>
-                                <span>{{lists.additionalInformation}}</span>
-                                <span>{{lists.economicVolume}}</span>
-                                <span>{{lists.mainBusinessIncome}}</span>
+                                <span mod>{{lists.projectManagerQuality}}</span>
+                                <span mod>{{lists.teamMembersQuality}}</span>
+                                <span mod>{{lists.resourcesInto}}</span>
+                                <span mod>{{lists.technicalSolution}}</span>
+                                <span mod>{{lists.additionalCommitments}}</span>
+                                <span mod>{{lists.additionalInformation}}</span>
+                                <span mod>{{lists.economicVolume}}</span>
+                                <span mod>{{lists.mainBusinessIncome}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>

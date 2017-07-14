@@ -1,0 +1,96 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>填写人</em></label>
+                    <input type="text" ng-model="pop.fillPerson" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>需求类型</em></label>
+                    <input type="text" ng-model="pop.requirementType" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调动原因</em></label>
+                    <input type="text" ng-model="pop.moveReason" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调动人员</em></label>
+                    <input type="text" ng-model="pop.movePeople" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <input type="text" ng-model="pop.area" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目</em></label>
+                    <input type="text" ng-model="pop.project" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>部门</em></label>
+                    <input type="text" ng-model="pop.department" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位层级</em></label>
+                    <input type="text" ng-model="pop.postHierarchy" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>技能情况</em></label>
+                    <input type="text" ng-model="pop.skillIs" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调往地区</em></label>
+                    <input type="text" ng-model="pop.moveArea" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调往项目</em></label>
+                    <input type="text" ng-model="pop.moveProject" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>特殊要求</em></label>
+                    <input type="text" ng-model="pop.specialRequirement" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计划到岗时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image startTime" ng-model="pop.planArriveTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>实际到岗时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image endTime" ng-model="pop.actualArriveTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>备注</em></label>
+                    <input type="text" ng-model="pop.remark" ng-verify="{}">
+                </li>
+                
+                <!-- <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核人</em></label>
+                    <select class="sele num" ng-model="pop.auditor" ng-change="changSelect()">
+                        <option value="GENERALMANAGER">总经办</option>
+                        <option value="ORIGINALPOLICYMAKERS">原决策层</option>
+                        <option value="TRANSFERREDPOLICYMAKERS">调往决策层</option>
+                        <option value="PLANMODULE">规划模块</option>
+                        <option value="BUDGETMODULE">预算模块</option>
+                    </select>
+                </li> -->
+                <!-- <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核意见</em></label>
+                    <input type="text" ng-model="pop.generalAuditOpinion" ng-verify="{}">
+                </li> -->
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="peopleAddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

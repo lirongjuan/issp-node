@@ -1,0 +1,35 @@
+<div class="collect">
+    <div class="sum-select">
+        <input type="button" value="地区汇总" ng-click="collect() " class="summaryPay">
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>地区</span>
+            <span>申购时间</span>
+            <span>申购人</span>
+            <span>设备名称</span>
+            <span>型号</span>
+            <span>购买单价</span>
+            <span>数量</span>
+            <span>合计金额</span>
+            <span>购买途径</span>
+            <span>备注</span>
+            <span>总数量</span>
+            <span>总金额</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="Lists in summaryLists">
+            <span>{{Lists.area}}</span>
+            <span>{{Lists.subscribeDate}}</span>
+            <span>{{Lists.requisitioner}}</span>
+            <span>{{Lists.deviceName}}</span>
+            <span>{{Lists.model}}</span>
+            <span>{{Lists.unitPrice}}</span>
+            <span>{{Lists.quantity}}</span>
+            <span>{{Lists.totalSum}}</span>
+            <span>{{Lists.approach}}</span>
+            <span>{{Lists.comment}}</span>
+            <span>{{Lists.quantitySum}}</span>
+            <span>{{Lists.sum}}</span>
+        </li>
+    </ul>
+</div>

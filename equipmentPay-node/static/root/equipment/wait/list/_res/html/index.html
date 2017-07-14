@@ -1,0 +1,112 @@
+<div class="content-tab list">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select class="salc" ng-model="checkedName" ng-init="checkedName='竞争公司'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <input type="text" ng-model="competitive" ng-show="checkedName=='竞争公司'">
+        <a href="javascript:void(0)" ng-click="collect()"><img src="/images/search2.png"></a>
+    </div>
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>申购时间</span>
+            <span>申购人</span>
+            <span>地区</span>
+            <span>部门</span>
+            <span>设备名称</span>
+            <span>型号</span>
+            <span>购买单价</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in waitLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.subscribeDate}}</p>
+                    <p mod>{{lists.requisitioner}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.projectTeam}}</p>
+                    <p mod>{{lists.deviceName}}</p>
+                    <p mod>{{lists.model}}</p>
+                    <p mod>{{lists.unitPrice}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>数量</span>
+                                <span>合计金额</span>
+                                <span>购买途径</span>
+                                <span>备注</span>
+                                <span>是否付款</span>
+                                <span>付款时间</span>
+                                <span>付款人</span>
+                                <span>年份</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.quantity}}</span>
+                                <span mod>{{lists.totalSum}}</span>
+                                <span mod>{{lists.approach}}</span>
+                                <span mod>{{lists.comment}}</span>
+                                <span mod>{{lists.ifPayment}}</span>
+                                <span mod>{{lists.payTime}}</span>
+                                <span mod>{{lists.payMan}}</span>
+                                <span mod>{{lists.year}}</span>
+                            </p>
+                            <p class="see-parent">
+                                <span>月份</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.month}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+<div class="delete mod" ng-show="payShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要付款吗？</p>
+        <div class="btn">
+            <button ng-click="payFn()">确定</button>
+            <button ng-click="paycel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="payShow"></div>
+
+

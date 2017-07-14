@@ -1,0 +1,21 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list">
+    <li ng-click="departmentSummary()" ng-class="{'current':menuClass=='departmentSummaryMenu'}" ui-sref=".departmentSummary[12]" class="lis" ng-show="DEPARTCOLLECT" ng-init="menuCheck('DEPARTCOLLECT')">
+        <a href="javascript:void(0)" class="same-two">部门汇总</a>
+    </li>
+    <li ng-click="departmentAnalyze()" ng-class="{'current':menuClass=='departmentAnalyzeMenu'}" ui-sref=".departmentAnalyze[12]" ng-show="DEPARTANALYZE" ng-init="menuCheck('DEPARTANALYZE')">
+        <a href="javascript:void(0)"  class="same-three">部门分析</a>
+    </li>
+    <li ng-click="oneSummary()" ng-class="{'current':menuClass=='oneSummaryMenu'}" ui-sref=".oneSummary[12]" ng-show="PERSONALCOLLECT" ng-init="menuCheck('PERSONALCOLLECT')">
+        <a href="javascript:void(0)"  class="same-one" >个人汇总</a>
+    </li>
+    <li ng-click="areasAnalyze()" ng-class="{'current':menuClass=='areasAnalyzeMenu'}" ui-sref=".areasAnalyze[12]" ng-show="AREAANALYZE" ng-init="menuCheck('AREAANALYZE')">
+        <a href="javascript:void(0)"  class="same-three">地区分析</a>
+    </li>
+    <li ng-click="oneAnalyze()" ng-class="{'current':menuClass=='oneAnalyzeMenu'}" ui-sref=".oneAnalyze[12]" ng-show="PERSONALANALYZE" ng-init="menuCheck('PERSONALANALYZE')">
+        <a href="javascript:void(0)"  class="same-three">个人分析</a>
+    </li>
+    <li ng-click="areasSummary()" ng-class="{'current':menuClass=='areasSummaryMenu'}" ui-sref=".areasSummary[12]" ng-show="AREACOLLECT" ng-init="menuCheck('AREACOLLECT')">
+        <a href="javascript:void(0)" class="same-three" >地区汇总</a>
+    </li>
+</ul>

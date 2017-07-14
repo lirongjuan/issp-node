@@ -1,0 +1,29 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]">
+        <a href="javascript:void(0)" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]">
+        <a href="javascript:void(0)" class="add">添加<span></span></a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}">
+        <a href="javascript:void(0)"  class="same-one see">编辑<span></span></a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}">
+        <a href="javascript:void(0)" class="same-two see" >删除<span></span></a>
+    </li>
+    <li ng-click="auditZ()" ng-class="{'current':menuClass=='auditZMenu','seeParent':idListd}">
+        <a href="javascript:void(0)" class="same-two see" >总经办审核<span></span></a>
+    </li>
+    <li ng-click="auditY()" ng-class="{'current':menuClass=='auditYMenu','seeParent':idListd}">
+        <a href="javascript:void(0)" class="same-two see" >原决策层审核<span></span></a>
+    </li>
+    <li ng-click="auditD()" ng-class="{'current':menuClass=='auditDMenu','seeParent':idListd}">
+        <a href="javascript:void(0)" class="same-two see" >调往决策层审核<span></span></a>
+    </li>
+    <li ng-click="auditG()" ng-class="{'current':menuClass=='auditGMenu','seeParent':idListd}">
+        <a href="javascript:void(0)" class="same-two see" >规划模块审核<span></span></a>
+    </li>
+    <li ng-click="auditS()" ng-class="{'current':menuClass=='auditSMenu','seeParent':idListd}">
+        <a href="javascript:void(0)" class="same-two see" >预算审核<span></span></a>
+    </li>
+</ul>

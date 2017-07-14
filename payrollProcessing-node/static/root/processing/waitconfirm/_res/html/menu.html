@@ -1,0 +1,9 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" class="lis">
+        <a href="javascript:void(0)" class="same-two">列表</a>
+    </li>
+    <li ng-click="notarize()" ng-class="{'current':menuClass=='notarizeMenu','seeParent':idList}">
+        <a href="javascript:void(0)"  class="same-three see">确认</a>
+    </li>   
+</ul>

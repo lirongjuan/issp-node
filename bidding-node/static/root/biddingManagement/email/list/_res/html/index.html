@@ -3,51 +3,26 @@
         <li class="list-head">
             <span></span>
             <span>汇总类型</span>
-            <span>汇总条件</span>
             <span>备注</span>
-            <span>发送间隔</span>
             <span>发送间隔和单位</span>
-            <span>发送单位</span>
-            
-            <span></span>
+            <span>发送对象</span>    
+            <span>上次发送时间</span>
+            <span>状态</span>
+            <span>创建人</span>
         </li>
         <li class="list-all" ng-repeat="lists in mailLists" style="display: {{lists._delete?'none':'block'}};">
             <section class="{{lists.status=='CONGEAL'?'congeal':''}}">
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
                     <p mod>{{$index+1+num}}</p>
                     <p mod>{{lists.type}}</p>
-                    <p mod>{{lists.condi}}</p>
                     <p mod>{{lists.remark}}</p>
-                    <p mod>{{lists.sendNum}}</p>
                     <p mod>{{lists.sendNumAndUnit}}</p>
-                    <p mod>{{lists.collectSendUnit | cover}}</p>
-                    
-                    <p>
-                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
-                    </p>
+                    <p mod>{{lists.sendObject}}</p>
+                    <p mod>{{lists.lastSendTime}}</p>
+                    <p mod>{{lists.status | cover}}</p>
+                    <p mod>{{lists.createPersion}}</p>
                 </div>
-                <div class="can">
-                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
-                        <li>
-                            <p class="see-parent">
-                                <span>发送对象</span>
-                                
-                                <span>上次发送时间</span>
-                                <span>状态</span>
-                                <span>创建人</span>
-                                
-                            </p>
-                            <p class="see-children">
-                                <span mod>{{lists.sendObject}}</span>
-                                
-                                <span mod>{{lists.lastSendTime}}</span>
-                                <span mod>{{lists.status | cover}}</span>
-                                <span mod>{{lists.createPersion}}</span>
-                                
-                            </p>
-                        </li>
-                    </ul>
-                </div>
+                
                 <div class="thaw-modal">
                     <button ng-click="thaw(lists)">解冻</button>
                 </div>

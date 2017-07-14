@@ -1,0 +1,39 @@
+<div class="collect">
+    <div class="collect-select" style="margin:20px 20px 20px 88px">
+        <span>  
+            年份:
+            <input type="number" style="border:1px solid black;" ng-model="year">
+        </span>
+        <span>  
+            月份:
+            <input type="number" style="border:1px solid black;" ng-model="month">
+        </span>
+        <button ng-click="collect()" class="aaa">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>月份</span>
+            <span>上月余额</span>
+            <span>本月余额</span>
+            <span>收入</span>
+            <span>支出</span>
+        </li>
+        <li class="sum-tbody">
+            <span mod>{{::recordLists.month}}</span>
+            <span mod>{{::recordLists.lastBalance}}</span>
+            <span mod>{{::recordLists.currentBalance}}</span>
+            <span mod>{{::recordLists.income}}</span>
+            <span mod>{{::recordLists.expenditure}}</span>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>

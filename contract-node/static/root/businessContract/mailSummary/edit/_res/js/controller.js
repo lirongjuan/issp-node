@@ -6,7 +6,7 @@ app.controller('mailSummaryEditCtrl', function($scope, emailSer,$stateParams,$st
     emailSer.findEmailId(emailData).then(function(response){
         if(response.data.code==0){
             $scope.editMail = response.data.data;
-            $scope.condis = $scope.editMail.condi.split(';');
+            $scope.condis = $scope.editMail.condi.split(',');
             $scope.objLists = $scope.editMail.sendObject.split(';');
             $scope.condis.reUndefined();
             $scope.objLists.reUndefined();
@@ -21,12 +21,10 @@ app.controller('mailSummaryEditCtrl', function($scope, emailSer,$stateParams,$st
     //获取所有汇总
     $scope.objLists = [];
     $scope.sendCondition = function(val,bol){
-
         if(val){
             var data = {type:val};
             if(data.type == '合同签订与立项汇总'){
                 emailSer.getSignArea(data).then(function(response){
-
                     if(response.data.code == 0){
                         $scope.collectAll = response.data.data;
                         if (bol) $scope.condis = [];

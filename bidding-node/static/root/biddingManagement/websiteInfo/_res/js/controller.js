@@ -63,7 +63,8 @@ app.controller('websiteCtrl',function ($scope,$state) {
         $scope.menuClass = 'listMenu'
     };
     $scope.add = function(){
-        $scope.menuClass = 'addMenu'
+        $scope.menuClass = 'addMenu';
+        $scope.idListd = ''
     };
     websiteSer.websitePermission().then(function(response){
         if(response.data.code == 0){

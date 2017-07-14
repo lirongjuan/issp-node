@@ -80,7 +80,7 @@
                 </li>
                 <li class="required">
                     <label><em>受影响部门</em></label>
-                    <select class="sele a2" ng-model="editAccept.affectedDepartment" ng-change="changSelect()">
+                    <select class="sele a2" ng-model="affectedDepartment" ng-change="changSelect()">
                         <option value="ONEDEPARTMENT">影响1个部门</option>
                         <option value="TWOTOTHREEDEPARTMENT">影响2-3个部门</option>
                         <option value="THREEDEPARTMENT">影响3个部门以上</option>
@@ -88,7 +88,7 @@
                     </select>
                 </li>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>问题紧急程度</em></label>
+                    <label><i></i><em>问题紧急程度</em></label>
                     <input type="text" value="{{projectNames}}" class="na">
                 </li>
             </ul>

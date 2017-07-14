@@ -12,7 +12,6 @@ app.controller('basicExportCtrl', function($scope, basicSer,$state,toastr){
     });
     //导出
     $scope.workersAddFun = function(){
-        $scope.Projects.push($scope.innerProjects);
         var obj = {
             innerProjects : $scope.Projects
         };

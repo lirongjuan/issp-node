@@ -1,0 +1,160 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+       <li class="list-head">
+            <span></span>
+            <span>年份</span>
+            <span>月份</span>
+            <span>计薪周期开始时间</span>
+            <span>计薪周期结束时间</span>
+            <span>地区</span>
+            <span>姓名</span>
+            <span>部门</span>
+            <span></span>
+        </li>
+
+        <li class="list-all" ng-repeat="list in payedLists"  style="display: {{list._delete?'none':'block'}};">
+            <section>
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.year}}</p>
+                    <p mod>{{::list.month}}</p>
+                    <p mod>{{::list.salaryStart}}</p>
+                    <p mod>{{::list.salaryEnd}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.name}}</p>
+                    <p mod>{{::list.department}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul style="display: {{list._moreList?'block':'none'}};">
+                        <p class="see-parent" style="background:#999;">
+                            <span class="morel">岗位</span>
+                            <span class="morel">出勤天数</span>
+                            <span class="morel">员工工资</span>
+                            <span class="morel">电脑补助</span>
+                            <span class="morel">住宿补助</span>
+                            <span class="morel">工龄补助</span>
+                            <span class="morel">高温补助</span>
+                            <span class="morel">社保补助</span>
+                        </p>
+                        <p class="see-children" style="background:rgba(0, 198, 255, 0.34)">
+                            
+                            <span class="morep" mod>{{::list.position}}</span>
+                            <span class="morep" mod>{{::list.attendanceDays}}</span>
+                            <span class="morep" mod>{{::list.salary}}</span>
+                            <span class="morep" mod>{{::list.cpSubsidy}}</span>
+                            <span class="morep" mod>{{::list.dormitorySubsidy}}</span>
+                            <span class="morep" mod>{{::list.yearSubsidy}}</span>
+                            <span class="morep" mod>{{::list.hotSubsidy}}</span>
+                            <span class="morep" mod>{{::list.socialSubsidy}}</span>
+                        </p> 
+                        <p class="see-parent" style="background:#999;">
+                            
+                            <span class="morel">其他</span>
+                            <span class="morel">工资总额</span>
+                            <span class="morel">假期加班费</span>
+                            <span class="morel">社保扣款</span>
+                            <span class="morel">水电扣款</span>
+                            <span class="morel">扣分合计</span>
+                            <span class="morel">奖励处罚扣款</span>
+                            <span class="morel">事病假扣款</span>
+                        </p>
+                        <p class="see-children" style="background:rgba(0, 198, 255, 0.34)">
+                            
+                            <span class="morep" mod>{{::list.anotherSubsidy}}</span>
+                            <span class="morep" mod>{{::list.totalSalary}}</span>
+                            <span class="morep" mod>{{::list.holidaySalary}}</span>
+                            <span class="morep" mod>{{::list.socialConsume}}</span>
+                            <span class="morep" mod>{{::list.dormitoryConsume}}</span>
+                            <span class="morep" mod>{{::list.deduction}}</span>
+                            <span class="morep" mod>{{::list.punishConsume}}</span>
+                            <span class="morep" mod>{{::list.vacationConsume}}</span>
+                        </p> 
+                        <p class="see-parent" style="background:#999;">
+                            
+                            <span class="morel">旷工扣款</span>
+                            <span class="morel">实发工资</span>
+                            <span class="morel">是否缴纳个人所得税</span>
+                            <span class="morel">本月第一次发工资</span>
+                            <span class="morel">本月第二次发工资</span>
+                            <span class="morel">第一次是否发放</span>
+                            <span class="morel">第二次是否发放</span>
+                            <span class="morel">第一次确认时间</span>
+                        </p>
+                        <p class="see-children" style="background:rgba(0, 198, 255, 0.34)">
+                            
+                            <span class="morep" mod>{{::list.absenteeismConsume}}</span>
+                            <span class="morep" mod>{{::list.actualSalary}}</span>
+                            <span class="morep" mod>{{::list.ratepaying|cover}}</span>
+                            <span class="morep" mod>{{::list.firstSalary}}</span>
+                            <span class="morep" mod>{{::list.secondSalary}}</span>
+                            <span class="morep" mod>{{::list.firstConfirm}}</span>
+                            <span class="morep" mod>{{::list.secondConfirm}}</span>
+                            <span class="morep" mod>{{::list.firstConfirmTime}}</span>
+                        </p> 
+                        <p class="see-parent" style="background:#999;">
+                            
+                            <span class="morel">第二次确认时间</span>
+                            <span class="morel">第一次付款时间</span>
+                            <span class="morel">第二次付款时间</span>
+                            <span class="morel">数据状态</span>
+                            <span class="morel">本月需缴发票金额</span>
+                            <span class="morel">累计需缴纳发票金额</span>
+                            <span class="morel">累计上交发票金额</span>
+                        </p>
+                        <p class="see-children" style="background:rgba(0, 198, 255, 0.34)">
+                            
+                            <span class="morep" mod>{{::list.secondConfirmTime}}</span>
+                            <span class="morep" mod>{{::list.firstPayedTime}}</span>
+                            <span class="morep" mod>{{::list.secondPayedTime}}</span>
+                            <span class="morep" mod>{{::list.findType | cover}}</span>
+                            <span class="morep" mod>{{::list.needRatepaying}}</span>
+                            <span class="morep" mod>{{::list.totalRatepayed}}</span>
+                            <span class="morep" mod>{{::list.totalSubmit}}</span>
+                        </p> 
+                         
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+     <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow1">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn1()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow1"></div>
+<div class="delete mod" ng-show="delShow2">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn2()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow2"></div>

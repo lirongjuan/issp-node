@@ -25,14 +25,14 @@
         <li class="list-all" ng-repeat="lists in infoLists|filter:teamInfo" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1+num}}</p>
-                    <p>{{lists.biddingNumber}}</p>
-                    <p>{{lists.url}}</p>
-                    <p>{{lists.webName}}</p>
-                    <p>{{lists.biddingType|cover}}</p>
-                    <p>{{lists.businessType|cover}}</p>
-                    <p>{{lists.businessDirectionSubject}}</p>
-                    <p>{{lists.tenderModule}}</p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.biddingNumber}}</p>
+                    <p mod>{{lists.url}}</p>
+                    <p mod>{{lists.webName}}</p>
+                    <p mod>{{lists.biddingType|cover}}</p>
+                    <p mod>{{lists.businessType|cover}}</p>
+                    <p mod>{{lists.businessDirectionSubject}}</p>
+                    <p mod>{{lists.tenderModule}}</p>
                     
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
@@ -52,14 +52,14 @@
                                 <span>密码</span>
                             </p>
                             <p class="see-children">
-                                <span>{{lists.projectName}}</span>
-                                <span>{{lists.registrationTime}}</span>
-                                <span>{{lists.biddingTime}}</span>
-                                <span>{{lists.biddingQualifications}}</span>
-                                <span>{{lists.provinces}}</span>
-                                <span>{{lists.cities}}</span>
-                                <span>{{lists.account}}</span>
-                                <span>{{lists.password}}</span>
+                                <span mod>{{lists.projectName}}</span>
+                                <span mod>{{lists.registrationTime}}</span>
+                                <span mod>{{lists.biddingTime}}</span>
+                                <span mod>{{lists.biddingQualifications}}</span>
+                                <span mod>{{lists.provinces}}</span>
+                                <span mod>{{lists.cities}}</span>
+                                <span mod>{{lists.account}}</span>
+                                <span mod>{{lists.password}}</span>
                             </p>
                         </li>
                         <li>
@@ -74,14 +74,14 @@
                                 <span>交保证金方式</span>
                             </p>
                             <p class="see-children">
-                                <span>{{lists.registrant}}</span>
-                                <span>{{lists.registrationInfo}}</span>
-                                <span>{{lists.status|cover}}</span>
-                                <span>{{lists.buyTenderTime}}</span>
-                                <span>{{lists.price}}</span>
-                                <span>{{lists.buyTenderRequirements}}</span>
-                                <span>{{lists.marginTime}}</span>
-                                <span>{{lists.marginMethod}}</span>
+                                <span mod>{{lists.registrant}}</span>
+                                <span mod>{{lists.registrationInfo}}</span>
+                                <span mod>{{lists.status|cover}}</span>
+                                <span mod>{{lists.buyTenderTime}}</span>
+                                <span mod>{{lists.price}}</span>
+                                <span mod>{{lists.buyTenderRequirements}}</span>
+                                <span mod>{{lists.marginTime}}</span>
+                                <span mod>{{lists.marginMethod}}</span>
                             </p>
                         </li>
                         <li>
@@ -90,22 +90,23 @@
                                 <span>备注</span>
                             </p>
                             <p class="see-children">
-                                <span>{{lists.backTimeDeposit}}</span>
-                                <span>{{lists.remark}}</span>
+                                <span mod>{{lists.backTimeDeposit}}</span>
+                                <span mod>{{lists.remark}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>

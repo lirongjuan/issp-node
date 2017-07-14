@@ -1,0 +1,20 @@
+
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass('review')" ng-class="{'active':navCla=='review'}"  ui-sref="_root.money.review.list[12]" ng-show="moneyready">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass('wait')" ng-class="{'active':navCla== 'wait'}" ui-sref="_root.money.wait.list[12]" ng-show="waitpay">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass('pay')" ng-class="{'active':navCla=='pay'}" ui-sref="_root.money.pay.list[12]" ng-show="payrecord">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.money.setting.list[12]" ng-show="cuspermission">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+    </ul>
+</div>

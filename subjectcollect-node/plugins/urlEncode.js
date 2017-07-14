@@ -1,3 +1,4 @@
+
 module.exports = function () {
     var obj = arguments[0];
     var contacat = false;

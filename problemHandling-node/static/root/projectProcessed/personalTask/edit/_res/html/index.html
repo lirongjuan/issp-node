@@ -5,12 +5,13 @@
                 <li class="required">
                     <label><em>项目问题编号</em></label>
                     <select class="sele" ng-model="taskEdit.projectNum" ng-change="changSelect()">
-                        <option value="{{number}}"  ng-repeat="number in numbers">{{number}}</option>
+                        <!-- <option value="{{number}}"  ng-repeat="number in numbers">{{number}}</option> -->
+                        <option value="{{taskEdit.projectNum}}">{{taskEdit.projectNum}}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>内部项目名称</em></label>
-                    <input type="text" value="{{projectNames.internalProjectName}}" class="na">
+                    <input type="text" value="{{projectNames.internalProjectName}}" class="na" ng-model="taskEdit.internalProjectName">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>处理人员</em></label>

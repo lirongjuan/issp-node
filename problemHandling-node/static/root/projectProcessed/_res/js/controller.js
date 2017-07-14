@@ -53,7 +53,7 @@ app.controller('processedCtrl', function ($scope,$state) {
         }
     });
     $scope.showsList = [
-        {id:"1",item:"项目中问题受理和处理",menuList:[{name:'项目执行中的问题受理'},{name2:"确认问题处理结果"},{name3:"参与处理人员的任务分配"},{name4:"邮件发送"}],showIs:true},
+        {id:"1",item:"项目中问题受理和处理",menuList:[{name:'项目执行中的问题受理'},{name2:"确认问题处理结果"},{name3:"参与人员的任务分配"},{name4:"邮件发送"}],showIs:true},
         {id:"2",item:"设置",menuList:[{name5:'设置'}],showIs:true}
     ];
     $scope.showMenu = function(obj,event) {

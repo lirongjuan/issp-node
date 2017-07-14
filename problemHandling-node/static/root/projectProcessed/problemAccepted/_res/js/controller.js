@@ -101,11 +101,11 @@ app.filter('cover', function(){
             case "PERSONNERCLASS":
                 result = "人员类";
                 break;
-            case "PROGRESSCLASS":
-                result = "进度类";
+            case "DISPATCHINGCLASS":
+                result = "派工类";
                 break;
-            case "DELIVERCLASS":
-                result = "交付类";
+            case "SETTLEMENTCLASS":
+                result = "结算类";
                 break;
             case "DEVICECLASS":
                 result = "设备类";

@@ -54,9 +54,21 @@ app.controller('busContractCtrl', function ($scope,$state) {
         }
     });
     $scope.showsList = [
-        {id:"1",item:"商务合同管理",menuList:[{name:'项目签订与立项'},{name2:"项目合同基本信息"},{name3:"派工单信息"},{name4:"合同类型"},{name5:"汇总和邮件发送"}],showIs:true},
-        {id:"2",item:"设置",menuList:[{name6:'设置'}],showIs:true}
+        {id:"1",item:"商务合同管理",menuList:[{name:'项目签订与立项',msg:'signingProject'},{name2:"项目合同基本信息",msg:'basicInfo'},{name3:"派工单信息",msg:'dispatchList'},{name4:"合同类型",msg:'contractType'},{name5:"汇总和邮件发送",msg:'mailSummary'}],showIs:false},
+        {id:"2",item:"设置",menuList:[{name6:'设置',msg:'setting'}],showIs:false}
     ];
+    if(active){
+        for(var i = 0; i < $scope.showsList.length; i++){
+            var n = $scope.showsList[i].menuList;
+            for(var j = 0; j < n.length; j++){
+                var m = n[j].msg;
+                if(m == active){
+                    $scope.showsList[i].showIs = true;
+                    break;
+                }
+            }
+        }
+    }
     $scope.showMenu = function(obj,event) {
         if(event){
             if(obj.showIs){
@@ -103,7 +115,6 @@ app.directive('mod',function(){
                     $('.see-type').text(title);
                     $('.see-description').text(conText)
                 }
-
             })
         }
     }

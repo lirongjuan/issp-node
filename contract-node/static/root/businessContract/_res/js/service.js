@@ -1,4 +1,4 @@
-var app = angular.module('contractModule');
+var app = angular.module('contractServer',[]);
 app.factory('contractsSer', function($http){
     return {
         navPermission : navPermission,

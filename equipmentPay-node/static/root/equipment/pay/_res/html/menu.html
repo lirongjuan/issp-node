@@ -1,0 +1,14 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="summaryArea()" ng-class="{'current':menuClass=='summaryAreaMenu'}" ui-sref=".summaryArea[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">地区汇总<span></span></a>
+    </li>
+    <li ng-click="summaryDepartment()" ng-class="{'current':menuClass=='summaryDepartmentMenu'}" ui-sref=".summaryDepartment[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">部门汇总<span></span></a>
+    </li>
+    <li ng-click="summaryEquip()" ng-class="{'current':menuClass=='summaryEquipMenu'}" ui-sref=".summaryEquip[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">设备名称汇总<span></span></a>
+    </li>
+</ul>

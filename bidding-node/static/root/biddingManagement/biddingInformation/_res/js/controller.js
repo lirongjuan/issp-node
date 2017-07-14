@@ -79,7 +79,8 @@ app.controller('informationCtrl',function ($scope,$state) {
         $scope.menuClass = 'listMenu'
     };
     $scope.add = function(){
-        $scope.menuClass = 'addMenu'
+        $scope.menuClass = 'addMenu';
+        $scope.idListd = ''
     };
     $scope.summary = function(){
         $scope.menuClass = 'summaryMenu'

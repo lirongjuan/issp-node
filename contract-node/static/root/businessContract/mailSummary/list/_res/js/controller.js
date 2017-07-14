@@ -75,7 +75,7 @@ app.controller('mailSummaryListCtrl',function($scope,emailSer,toastr,$stateParam
         }else{
             toastr.error(response.data.msg, '温馨提示');
         }
-    })
+    });
     //获取id
     if($stateParams.id){
         switch ($stateParams.name){
@@ -89,6 +89,10 @@ app.controller('mailSummaryListCtrl',function($scope,emailSer,toastr,$stateParam
     }
     $scope.cancel = function(){//取消删除/冻结
         $scope.delShow = false;
+        $scope.congealShow = false;
+        $state.go('root.businessContract.mailSummary.list[12]',{id:null,name:null});
+    };
+    $scope.conCancel = function(){//取消/冻结
         $scope.congealShow = false;
         $state.go('root.businessContract.mailSummary.list[12]',{id:null,name:null});
     };

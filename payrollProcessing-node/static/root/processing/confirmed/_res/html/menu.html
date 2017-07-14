@@ -1,0 +1,12 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list" class="lis">
+        <a href="javascript:void(0)" class="same-two">列表</a>
+    </li>
+    <li ng-click="first()" ng-class="{'current':menuClass=='firstMenu','seeParent':idList}">
+        <a href="javascript:void(0)"  class="same-one see" >第一次付款</a>
+    </li>
+    <li ng-click="second()" ng-class="{'current':menuClass=='secondMenu','seeParent':idList}">
+        <a href="javascript:void(0)"  class="same-three see">第二次付款</a>
+    </li>
+</ul>

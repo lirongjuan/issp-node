@@ -1,0 +1,33 @@
+<div class="collect">
+    <div class="sum-select">
+        <label><i><img src="/images/mandatory.png"></i><em>地市</em></label>
+        <div class="select">
+            <p class="select-text" >
+                <span ng-repeat="city in cities">{{city}}, </span>
+            </p>
+            <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="cities" extra-settings="stringSettings"></div>
+        </div>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>地区</span>
+            <span>时间</span>
+            <span>租金</span>
+            <span>水费</span>
+            <span>电费</span>
+            <span>管理费</span>
+            <span>其他费用</span>
+            <span>合计</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="Lists in summaryLists">
+            <span>{{Lists.area}}</span>
+            <span>{{Lists.payTime}}</span>
+            <span>{{Lists.rent}}</span>
+            <span>{{Lists.water}}</span>
+            <span>{{Lists.energy}}</span>
+            <span>{{Lists.fee}}</span>
+            <span>{{Lists.otherFee}}</span>
+            <span>{{Lists.total}}</span>
+        </li>
+    </ul>
+</div>

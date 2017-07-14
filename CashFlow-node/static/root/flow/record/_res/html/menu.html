@@ -1,0 +1,36 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" class="lis">
+        <a href="javascript:void(0)" class="same-two">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="same-three">添加</a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idList}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see" >编辑</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idList}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)"  class="same-three see">删除</a>
+    </li>
+    <li ng-click="monthAll()" ng-class="{'current':menuClass=='monthAllMenu'}" ui-sref=".monthAll[12]" ng-show="MONTH" ng-init="menuCheck('MONTH')">
+        <a href="javascript:void(0)" class="same-three">月份汇总</a>
+    </li>
+    <li ng-click="conditionsAll()" ng-class="{'current':menuClass=='conditionsAllMenu'}" ui-sref=".conditionsAll[12]" ng-show="CONDITION" ng-init="menuCheck('CONDITION')">
+        <a href="javascript:void(0)" class="same-three">条件汇总</a>
+    </li>
+    <li ng-click="area()" ng-class="{'current':menuClass=='areaMenu'}" ui-sref=".area[12]" ng-show="AREA" ng-init="menuCheck('AREA')">
+        <a href="javascript:void(0)" class="same-three">地区分析</a>
+    </li>
+    <li ng-click="project()" ng-class="{'current':menuClass=='projectMenu'}" ui-sref=".project[12]" ng-show="PROJECT" ng-init="menuCheck('PROJECT')">
+        <a href="javascript:void(0)" class="same-three">项目分析</a>
+    </li>
+    <li ng-click="group()" ng-class="{'current':menuClass=='groupMenu'}" ui-sref=".group[12]" ng-show="GROUP" ng-init="menuCheck('GROUP')">
+        <a href="javascript:void(0)" class="same-three">项目组分析</a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idList}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)"  class="same-one see" >上传</a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':idList}" ng-show="DOWNLOAD" ng-init="menuCheck('DOWNLOAD')">
+        <a href="javascript:void(0)"  class="same-one see" >下载</a>
+    </li>
+</ul>

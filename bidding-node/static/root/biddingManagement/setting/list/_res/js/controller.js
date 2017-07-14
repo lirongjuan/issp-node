@@ -1,5 +1,5 @@
 var app = angular.module('settingList', ['ng-pagination','toastr']);
-app.controller('settingListCtrl',function($scope,settingSer,toastr){
+app.controller('settingListCtrl',function($scope,settingSer,toastr,$stateParams){
     $scope.$emit('changeId', null);
     //分页
     $scope.pagination = {
@@ -23,6 +23,7 @@ app.controller('settingListCtrl',function($scope,settingSer,toastr){
     settingSer.countSetting().then(function(response){
         if(response.data.code==0){
             $scope.pagination.itemsCount = response.data.data;
+            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
         }else{
             toastr.error( response.data.msg, '温馨提示');
         }

@@ -93,14 +93,14 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否完工</em></label>
-                    <select class="sele" ng-model="editSheet.completeProject" ng-init="editSheet.completeProject='已完工'">
+                    <select class="sele" ng-model="editSheet.completeProject" ng-init="editSheet.completeProject='已完工'" ng-verify="option:0">
                         <option value="已完工">已完工</option>
                         <option value="未完工">未完工</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同是否已归档</em></label>
-                    <select class="sele" ng-model="editSheet.fileCondition" ng-init="editSheet.fileCondition='已归档'">
+                    <select class="sele" ng-model="editSheet.fileCondition" ng-init="editSheet.fileCondition='已归档'" ng-verify="option:0">
                         <option value="已归档">已归档</option>
                         <option value="未归档">未归档</option>
                     </select>

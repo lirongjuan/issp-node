@@ -1,0 +1,61 @@
+<div class="collect">
+    <div class="collect-select" style="margin:20px 20px 20px 88px">
+        <span>  
+            年份:
+            <input type="number" style="border:1px solid black;" ng-model="year">
+        </span>
+        <span>  
+            月份:
+            <input type="number" style="border:1px solid black;" ng-model="month">
+        </span>
+        <span>
+            地区：
+            <select ng-model="area" class="recordse">
+                <option value="请选择1">请选择</option>
+                <option ng-repeat="area in areas" value="{{area.area}}">{{area.area}}</option>
+            </select>
+            <input type="text" ng-model="area" class="recordin">
+        </span>
+        <button ng-click="collect()" class="aaa">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>时间</span>
+            <span>地区</span>
+            <span>本月收入</span>
+            <span>本月支出</span>
+            <span>上月收入</span>
+            <span>上月支出</span>
+            <span>收入差额</span>
+            <span>支出差额</span>
+            <span>收入比例</span>
+            <span>支出比例</span>
+            <span>收入增长率</span>
+            <span>支出增长率</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="list in recordLists">
+            <span mod>{{::list.recordDate}}</span>
+            <span mod>{{::list.area}}</span>
+            <span mod>{{::list.income}}</span>
+            <span mod>{{::list.expenditure}}</span>
+            <span mod>{{::list.lastIncome}}</span>
+            <span mod>{{::list.lastExpenditure}}</span>
+            <span mod>{{::list.incomeSubtract}}</span>
+            <span mod>{{::list.expenditureSubtract}}</span>
+            <span mod>{{::list.incomeRate | number:2}}</span>
+            <span mod>{{::list.expenditureRate | number:2}}</span>
+            <span mod>{{::list.incomeGrowRate}}</span>
+            <span mod>{{::list.expenditureGrowRate}}</span>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>

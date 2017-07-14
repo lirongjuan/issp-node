@@ -75,7 +75,8 @@ app.controller('questionCtrl',function ($scope,$state) {
         $scope.menuClass = 'listMenu'
     };
     $scope.add = function(){
-        $scope.menuClass = 'addMenu'
+        $scope.menuClass = 'addMenu';
+        $scope.idListd = ''
     };
 });
 

@@ -1,0 +1,124 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>填写人</span>
+            <span>需求类型</span>
+            <span>调动原因</span>
+            <span>调动人员</span>
+            <span>地区</span>
+            <span>项目</span>
+            <span>部门</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in answerLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.fillPerson}}</p>
+                    <p mod>{{lists.requirementType}}</p>
+                    <p mod>{{lists.moveReason}}</p>
+                    <p mod>{{lists.movePeople}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.project}}</p>
+                    <p mod>{{lists.department}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                
+                                <span>岗位层级</span>
+                                <span>技能情况</span>
+                                <span>调往地区</span>
+                                <span>调往项目</span>
+                                <span>特殊要求</span>
+                                <span>计划到岗时间</span>
+                                <span>实际到岗时间</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                
+                                <span mod>{{lists.postHierarchy}}</span>
+                                <span mod>{{lists.skillIs}}</span>
+                                <span mod>{{lists.moveArea}}</span>
+                                <span mod>{{lists.moveProject}}</span>
+                                <span mod>{{lists.specialRequirement}}</span>
+                                <span mod>{{lists.planArriveTime}}</span>
+                                <span mod>{{lists.actualArriveTime}}</span>
+                                <span mod>{{lists.remark}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                
+                                <!-- <span>审核人</span> -->
+                                <span>总经办审核意见</span>
+                                <span>原决策层审核意见</span>
+                                <span>调往决策层审核意见</span>
+                                <span>规划模块审核意见</span>
+                                <span>预算审核意见</span>
+                            </p>
+                            <p class="see-children">
+                                
+                                <!-- <span mod>{{lists.auditor | cover}}</span> -->
+                                <span mod>{{lists.generalAuditOpinion}}</span>
+                                <span mod>{{lists.originalAuditOpinion}}</span>
+                                <span mod>{{lists.transferAuditOpinion}}</span>
+                                <span mod>{{lists.planAuditOpinion}}</span>
+                                <span mod>{{lists.budgetAuditOpinion}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+<!-- 审核 -->
+<!-- <div class="delete mod" ng-show="audShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="audFn()">确定</button>
+            <button ng-click="audCel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="audShow"></div> -->
+
+
+
+

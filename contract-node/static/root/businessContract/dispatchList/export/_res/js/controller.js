@@ -12,7 +12,6 @@ app.controller('dispatchExportCtrl', function($scope, dispatchSer,$state,toastr)
     });
     //导出
     $scope.workersAddFun = function(){
-        $scope.Projects.push($scope.innerProjects);
         var obj = {
             innerProjects : $scope.Projects
         };
