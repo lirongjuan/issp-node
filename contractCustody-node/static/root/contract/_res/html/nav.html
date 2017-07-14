@@ -1,0 +1,22 @@
+<div class="nav-list"ng-repeat="list in showsList">
+    <h3 class="header-menu big"ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="projectcontract" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.contract.project.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name1}}</a>
+        </li>
+
+        <li ng-click="navClass(menuInfo.msg)" ng-show="housingcontract" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.contract.house.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="carrentalagreement" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.contract.car.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)"  ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.contract.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a><!--ng-show="cuspermission"-->
+        </li>
+    </ul>
+</div>
+
+

@@ -1,0 +1,82 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>时间</span>
+            <span>合同名称</span>
+            <span>内部名称</span>
+            <span>合同编号</span>
+            <span>负责人</span>
+            <span>交接时间</span>
+            <span>交接人</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in basicinfoLists" style="display: {{list._delete?'none':'block'}};">
+            <section  class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.times}}</p>
+                    <p mod>{{list.contractName}}</p>
+                    <p mod>{{list.internalName}}</p>
+                    <p mod>{{list.contractId}}</p>
+                    <p mod>{{list.principal}}</p>
+                    <p mod>{{list.heirTime}}</p>
+                    <p mod>{{list.heir}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>交接数量</span>
+                                <span>保管人</span>
+                                <span>保管地点</span>
+                                <span>备注</span>
+                                <span>创建时间</span>
+                                <span>修改时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod >{{list.heirCount}}</span>
+                                <span mod >{{list.preserver}}</span>
+                                <span mod>{{list.preserverPlace}}</span>
+                                <span mod>{{list.remark}}</span>
+                                <span mod>{{list.createTime}}</span>
+                                <span mod>{{list.modifyTime}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

@@ -1,0 +1,56 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>时间</em></label>
+                    <input type="text"  class="times" ng-model="edit.times"   onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同名称</em></label>
+                    <input type="text"  ng-model="edit.contractName" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>内部名称</em></label>
+                    <input type="text"   ng-verify="{}" ng-model="edit.internalName">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同编号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="edit.contractId">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>负责人</em></label>
+                    <input type="text" ng-verify="{}" ng-model="edit.principal">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>交接时间</em></label>
+                    <input type="text"  class="heirTime" ng-model="edit.heirTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>交接人</em></label>
+                    <input type="text" ng-verify="{}" ng-model="edit.heir">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>交接数量</em></label>
+                    <input type="number"  ng-model="edit.heirCount" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>保管人</em></label>
+                    <input type="text"  ng-model="edit.preserver" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>保管地点</em></label>
+                    <input type="text"  ng-model="edit.preserverPlace" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><em>备注</em></label>
+                    <input type="text"  ng-model="edit.remark" >
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="ProEditFun()">提交</button>
+    </p>
+</div>
