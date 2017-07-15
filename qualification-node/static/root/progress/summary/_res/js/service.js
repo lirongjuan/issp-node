@@ -6,8 +6,25 @@ app.factory('summarySer',function ($http) {
         addProgress:addProgress,
         getProgress:getProgress,
         editProgress:editProgress,
-        deleteProgress:deleteProgress
+        deleteProgress:deleteProgress,
+        menuPermission:menuPermission,
+        viewSummary:viewSummary,
+        summarylistInfo:summarylistInfo,
     };
+
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/qualificationscollect/guidePermission/'+data);
+    }
+    //附件列表
+    function viewSummary(data){
+        return $http.get('/qualificationscollect/listFile',{params:data})
+    }
+    //根据条件来查询
+    function summarylistInfo(data){
+        return $http.get('/qualificationscollect/findByFilter',{params:data})
+    }
+
     function listProgress(data) {
         return $http.get('/listProgress',{params:data})
     }

@@ -1,6 +1,12 @@
-<div class="nav-list">
-    <h3 class="header-menu big"><i class="nav-arrow"></i>资质进度管理</h3>
-    <ul class="menu">
-        <li class="active"  ui-sref="_root.finance.summary.week[12]" ><a href="javascript:void(0)">资质进度汇总</a></li>
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="qualificationscollect" ng-class="{'active':navCla==menuInfo.msg}" class="active" ui-sref="_root.progress.summary.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.progress.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
     </ul>
 </div>

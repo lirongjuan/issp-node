@@ -36,7 +36,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>办理状态</em></label>
-                    <select class="sele" ng-model="edit.handle" ng-init="edit.handle='NONE'">
+                    <select class="sele" ng-model="edit.handle" ng-init="edit.handle='NONE'" ng-verify="option:0">
                         <option value="NONE">未办理</option>
                         <option value="SUCCESS">办理成功</option>
                         <option value="FAIL">办理失败</option>

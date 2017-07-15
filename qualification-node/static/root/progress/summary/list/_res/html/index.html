@@ -1,5 +1,6 @@
 <div class="content-tab list">
     <ul class="table">
+        <li class="list-all"></li>
         <li class="list-head">
             <span></span>
             <span>资质名称</span>
@@ -14,15 +15,15 @@
         <li class="list-all" ng-repeat="list in progressList" style="display: {{list._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p>{{list.qualifications}}</p>
-                    <p>{{list.company}}</p>
-                    <p>{{list.attestation}}</p>
-                    <p>{{list.handleTime}}</p>
-                    <p>{{list.endTime}}</p>
-                    <p>{{list.director}}</p>
-                    <p>{{list.handleCost}}</p>
-                    <p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.qualifications}}</p>
+                    <p mod>{{list.company}}</p>
+                    <p mod>{{list.attestation}}</p>
+                    <p mod>{{list.handleTime}}</p>
+                    <p mod>{{list.endTime}}</p>
+                    <p mod>{{list.director}}</p>
+                    <p mod>{{list.handleCost}}</p>
+                    <p mod>
                         <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
                     </p>
                 </div>
@@ -39,25 +40,44 @@
                                 <span>修改时间</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.renewal}}</span>
-                                <span>{{list.handle|cover}}</span>
-                                <span>{{list.certificate}}</span>
-                                <span>{{list.material}}</span>
-                                <span>{{list.record}}</span>
-                                <span>{{list.writer}}</span>
-                                <span>{{list.modifyTime}}</span>
-                            </p>
+                                <span mod>{{list.renewal}}</span>
+                                <span mod>{{list.handle|cover}}</span>
+                                <span mod>{{list.certificate}}</span>
+                                <span mod>{{list.material}}</span>
+                                <span mod>{{list.record}}</span>
+                                <span mod>{{list.writer}}</span>
+                                <span mod>{{list.modifyTime}}</span>
+                            </p> mod
                         </li>
                     </ul>
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
 
 
 
