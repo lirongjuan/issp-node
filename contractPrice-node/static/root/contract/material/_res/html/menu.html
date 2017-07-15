@@ -1,26 +1,26 @@
 <ul class="list">
-    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list" >
-        <a href="javascript:void(0)" >列表<span>Tabulate</span></a>
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]"  ng-show="LIST"  ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" >列表</a>
     </li>
-    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" >
-        <a href="javascript:void(0)"  class="add">添加<span>Add</span></a>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="add">添加</a>
     </li>
-    <li  ng-click="edit()" ng-class="{'current':menuClass=='editMenu'}" >
-        <a href="javascript:void(0)"  class="same-one" >编辑<span>Edit</span></a>
+    <li  ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':getId}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see" >编辑</a>
     </li>
-    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu'}" >
-        <a href="javascript:void(0)" class="same-two">删除<span>Delete</span></a>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':getId}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
     </li>
-    <li ng-click="congeal()" ng-class="{'current':menuClass=='congealMenu'}" >
-        <a href="javascript:void(0)" class="same-two">冻结<span>Delete</span></a>
+    <li ng-click="congeal()" ng-class="{'current':menuClass=='congealMenu','seeParent':getId}"ng-show="CONGEL" ng-init="menuCheck('CONGEL')">
+        <a href="javascript:void(0)" class="same-two see">冻结</a>
     </li>
-    <li  ng-class="{'current':menuClass=='updataMenu'}" >
-        <a href="javascript:void(0)" class="same-three">上传<span>Updata</span></a>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':getId}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)" class="same-one see">上传附件</a>
     </li>
-    <li ng-class="{'current':menuClass=='downloadMenu'}" >
-        <a href="javascript:void(0)" class="same-one">下载<span>Download</span></a>
+    <li ng-click="download()" ng-class="{'current':menuClass=='viewMenu','seeParent':getId}" ng-show="DOWNLOAD" ng-init="menuCheck('DOWNLOAD')">
+        <a href="javascript:void(0)" class="same-one see">下载附件</a>
     </li>
-    <li ng-click="collect()" ng-class="{'current':menuClass=='collectMenu'}"  ui-sref=".collect[12]">
-        <a href="javascript:void(0)" class="same-two">汇总<span>Collects</span></a>
+    <li ng-click="collect()" ng-class="{'current':menuClass=='collectMenu'}"  ui-sref=".collect[12]"ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two">汇总</a>
     </li>
 </ul>

@@ -9,8 +9,18 @@ app.factory('materialSer',function ($http) {
         deleteMaterial:deleteMaterial,
         congealMaterial:congealMaterial,
         thawMaterial:thawMaterial,
-        collectMaterial:collectMaterial
+        collectMaterial:collectMaterial,
+        menuPermission:menuPermission,
+        viewMaterial:viewMaterial,
     };
+    //菜单权限
+    function menuPermission(data){
+        return $http.get('/contractquotedata/guidePermission/'+data);
+    }
+    //附件列表
+    function viewMaterial(data){
+       return $http.get('/contractquotedata/listFile',{params:data})
+    }
     function listMaterial(data) {
         return $http.get('/listMaterial',{params:data})
     }

@@ -1,9 +1,12 @@
 <div class="collect ">
     <div class="collect-select">
-        <span>地区：<input type="text" ng-model="area"></span>
-        <span>用户名称：<input type="text" ng-model="customerName"></span>
-        <span>开始日期：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="starttime"></span>
-        <span>结束日期：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="endtime"></span>
+        <span></span>
+        <span><i><img src="/images/mandatory.png"></i><em>地区：</em><input type="text" ng-model="area"></span>
+        <span><i><img src="/images/mandatory.png"></i><em>用户名称：</em><input type="text" ng-model="customerName"></span>
+        <span><i><img src="/images/mandatory.png"></i><em>开始日期：</em>
+            <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="startDate"></span>
+        <span><i><img src="/images/mandatory.png"></i><em>结束日期：</em>
+            <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="endDate"></span>
         <button ng-click="collect()">汇总</button>
     </div>
     <ul class="sum-list">

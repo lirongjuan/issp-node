@@ -4,47 +4,109 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                    <input type="text"  ng-model="add.area">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.area" class="sele">
+                            <option ng-repeat="e in inner" value="{{e.area}}">{{e.area}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="add.area" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
-                    <input type="text"   ng-verify="{}" ng-model="add.project">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.projectGroup" class="sele">
+                            <option ng-repeat="area in inner" value="{{area.projectGroup}}">{{area.projectGroup}}</option>
+                        </select>
+
+                        <input type="text"  class="inputDom" ng-model="add.projectGroup" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目内部结构</em></label>
-                    <input type="text"  ng-verify="{}" ng-model="add.projectInner">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.projectInner" class="sele">
+                            <option ng-repeat="area in inner" value="{{area.projectInner}}">{{area.projectInner}}</option>
+                        </select>
+
+                        <input type="text"  class="inputDom" ng-model="add.projectInner" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工项目名称</em></label>
-                    <input type="text"  ng-model="add.projectDispatch">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.dispatchProject" class="sele">
+
+                            <option ng-repeat="area in inner" value="{{area.dispatchProject}}">{{area.dispatchProject}}</option>
+                        </select>
+
+                        <input type="text"  class="inputDom " ng-model="add.dispatchProject" ng-verify="{}">
+                    </div>
                 </li>
+
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工单编号</em></label>
-                    <input type="text"   ng-verify="{}" ng-model="add.dispatchCode">
+                    <select class="sele" ng-model="add.dispatchNum" ng-change="selPro(add.dispatchNum)" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-repeat="a in NumbersInfo track by $index">{{a}}</option>
+                    </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工合同号</em></label>
-                    <input type="text"  ng-verify="{}" ng-model="add.dispatchContraCode">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.outProjectNum" class="sele">
+                            <option ng-repeat="area in inner" value="{{area.outProjectNum}}">{{area.outProjectNum}}</option>
+                        </select>
+
+                        <input type="text"  class="inputDom" ng-model="add.outProjectNum" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>开工时间</em></label>
-                    <input type="text" class="starttime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.startTime" class="sele">
+                            <option ng-repeat="area in inner" value="{{area.startProjectTime}}">{{area.startProjectTime}}</option>
+                        </select>
+                        <input type="text" class="inputDom startTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})"ng-model="add.startTime">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>完工时间</em></label>
-                    <input type="text"  class="endtime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.endTime" class="sele">
+                            <option ng-repeat="area in inner" value="{{area.endProjectTime}}">{{area.endProjectTime}}</option>
+                        </select>
+
+                        <input type="text"  class="inputDom endTime"onClick="laydate({istime: true, format: 'YYYY-MM-DD'})"ng-model="add.endTime">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>完工时间(单位：个月)</em></label>
-                    <input type="number"   ng-verify="{}" ng-model="add.completeTime">个月
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.completeTime" class="sele" ng-change="com(add.completeTime)">
+                            <option ng-repeat="area in inner" value="{{area.completeTime}}">{{area.completeTime}}</option>
+                        </select>
+
+                        <input type="number"  class="inputDom" ng-model="add.completeTime" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同金额(单位:万元)</em></label>
-                    <input type="number"  ng-verify="{}" ng-model="add.contractMoney">万元
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.money" class="sele" ng-change="fe(add.money)">
+                            <option ng-repeat="area in inner" value="{{area.money}}">{{area.money}}</option>
+                        </select>
+                        <input type="number"  class="inputDom" ng-model="add.money" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工单位</em></label>
-                    <input type="text"  ng-verify="{}" ng-model="add.dispatchUnit">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="add.majorCompany" class="sele">
+                            <option ng-repeat="area in inner" value="{{area.majorCompany}}">{{area.majorCompany}}</option>
+                        </select>
+
+                        <input type="text"class="inputDom" ng-model="add.majorCompany" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同规模数</em></label>
@@ -52,7 +114,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>回款周期</em></label>
-                    <input type="text"   ng-verify="{}" ng-model="add.receivableNum">
+                    <input type="number"   ng-verify="{}" ng-model="add.receivableNum">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>重点性</em></label>

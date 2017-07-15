@@ -4,11 +4,11 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                    <input type="text"  ng-model="edit.area">
+                    <input type="text" ng-model="edit.area">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
-                    <input type="text"   ng-verify="{}" ng-model="edit.project">
+                    <input type="text"   ng-verify="{}" ng-model="edit.projectGroup">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目内部结构</em></label>
@@ -16,35 +16,35 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工项目名称</em></label>
-                    <input type="text"  ng-model="edit.projectDispatch">
+                    <input type="text"  ng-model="edit.dispatchProject">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工单编号</em></label>
-                    <input type="text"   ng-verify="{}" ng-model="edit.dispatchCode">
+                    <input type="text" disabled  ng-verify="{}" ng-model="edit.dispatchNum">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工合同号</em></label>
-                    <input type="text"  ng-verify="{}" ng-model="edit.dispatchContraCode">
+                    <input type="text"  ng-verify="{}" ng-model="edit.outProjectNum">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>开工时间</em></label>
-                    <input type="text" class="starttime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="edit.startTime">
+                    <input type="text" class="starttime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="edit.startProjectTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>完工时间</em></label>
-                    <input type="text"  class="endtime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="edit.endTime">
+                    <input type="text"  class="endtime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="edit.endProjectTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>完工时间(单位：个月)</em></label>
-                    <input type="number"   ng-verify="{}" ng-model="edit.completeTime">个月
+                    <input type="number"   ng-verify="{}" ng-model="edit.completeTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同金额(单位:万元)</em></label>
-                    <input type="number"  ng-verify="{}" ng-model="edit.contractMoney">万元
+                    <input type="number"  ng-verify="{}" ng-model="edit.money">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工单位</em></label>
-                    <input type="text"  ng-verify="{}" ng-model="edit.dispatchUnit">
+                    <input type="text"  ng-verify="{}" ng-model="edit.majorCompany">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同规模数</em></label>

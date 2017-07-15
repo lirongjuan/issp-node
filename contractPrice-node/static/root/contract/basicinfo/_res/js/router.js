@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"basicinfoMenuCtrl"
             }
         }
+    }).state("root.contract.basicinfo.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.contract.basicinfo":{
+                templateUrl : "root/contract/basicinfo/list/_res/html/index.html",
+                controller:'basicinfoListCtrl'
+            }
+        }
     }).state("root.contract.basicinfo.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,11 +28,27 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.contract.basicinfo.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.contract.basicinfo":{
                 templateUrl : "root/contract/basicinfo/edit/_res/html/index.html",
                 controller:'basicinfoEditCtrl'
+            }
+        }
+    }).state("root.contract.basicinfo.export[12]",{
+        url:"/export[12]",
+        views:{
+            "content@root.contract.basicinfo":{
+                templateUrl : "root/contract/basicinfo/export/_res/html/index.html",
+                controller:'basicinfoExportCtrl'
+            }
+        }
+    }).state("root.contract.basicinfo.import[12]",{
+        url:"/import[12]",
+        views:{
+            "content@root.contract.basicinfo":{
+                templateUrl : "root/contract/basicinfo/import/_res/html/index.html",
+                controller:'basicinfoimportCtrl'
             }
         }
     })

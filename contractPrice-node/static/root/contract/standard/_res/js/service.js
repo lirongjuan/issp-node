@@ -7,8 +7,13 @@ app.factory('standardSer',function ($http) {
         getStandard:getStandard,
         editStandard:editStandard,
         deleteStandard:deleteStandard,
-        collectStandard:collectStandard
+        collectStandard:collectStandard,
+        menuPermission:menuPermission
     };
+    //菜单权限
+    function menuPermission(data){
+        return $http.get('/contractnodestandard/guidePermission/'+data);
+    }
     function listStandard(data) {
         return $http.get('/listStandard',{params:data})
     }

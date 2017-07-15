@@ -8,20 +8,14 @@ app.controller('basicinfoEditCtrl', function($scope,$state,$stateParams,toastr,b
         }
     });
     $scope.basicEditFun = function(){
-        $scope.edit.startTime=angular.element('.starttime').val();
-        $scope.edit.endTime=angular.element('.endtime').val();
+        $scope.edit.startProjectTime=angular.element('.starttime').val();
+        $scope.edit.endProjectTime=angular.element('.endtime').val();
         basicinfoSer.editBasicinfo($scope.edit).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.contract.basicinfo.list');
-                toastr.success( $scope.edit.area+"已成功添加", '温馨提示');
-            }else if(response.data.code==403||response.data.code==401){
-
-                toastr.error( "请登录用户,2秒后跳至登陆页面", '温馨提示');
-                var absurl = $location.absUrl();
-                ipCookie('absurl', absurl,{ expires:3,expirationUnit: 'minutes' });
-                setTimeout(function(){
-                    window.location.href='http://localhost/login'
-                },2000)
+                $state.go('root.contract.basicinfo.list[12]');
+                toastr.success( $scope.edit.area+"已成功编辑", '温馨提示');
+            }else{
+                toastr.error(response.data.msg, '温馨提示');
             }
         });
     };
