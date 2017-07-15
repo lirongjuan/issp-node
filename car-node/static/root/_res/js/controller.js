@@ -14,16 +14,51 @@ app.controller('rootCtrl', function ($scope,$rootScope,$state,ipCookie,rootSer,$
 
     $scope.login = function(){
         var absurl = $location.absUrl();
-        ipCookie('absurl', absurl,{ expires:3,expirationUnit: 'minutes' });
-        location.href="http://localhost/login";//部署到线上时要改为登录域名
+        window.location.href='http://user.issp.bjike.com/login?url='+absurl
     };
     $scope.logout = function(){
-        rootSer.logout().then(function(response){
-            if(response.data.code==0){
-                ipCookie.remove("username");
-                $scope.username="登录用户";
-                $scope.logined=false;
-            }
-        })
+        var abs = window.location.host;
+        var hashs = $location.url().split('?')[0];
+        location.href="http://user.issp.bjike.com/user/logout?absurl="+abs+"&hash="+hashs;
+    }
+
+    //搜索功能
+    $scope.isClick = true;
+    $scope.searchToggle = function(){
+        $scope.isClick = !$scope.isClick;
+        //父 Ctrl 监听到事件，向下广播
+        $scope.$broadcast('iSsearch',$scope.isClick)
+    };
+    //更新 isClick
+    $scope.$on('isId',function(event,msg){
+        $scope.isClick = msg;
+    });
+    //监听当前页面是否有搜索功能
+    $scope.$on('isVi',function(event,msg){
+        $scope.isView = msg;
+    });
+});
+
+// 下拉导航的自定义指令
+app.directive('resize', function ($window) {
+    return function (scope, element) {
+
+        var w = angular.element($window);
+        scope.getWindowDimensions = function () {
+            return { 'h': w.height() };
+        };
+        scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {
+            scope.windowHeight = newValue.h;
+            scope.style = function () {
+                return {
+                    'height': (newValue.h - 240) + 'px',
+                };
+            };
+
+        }, true);
+
+        w.bind('resize', function () {
+            scope.$apply();
+        });
     }
 });

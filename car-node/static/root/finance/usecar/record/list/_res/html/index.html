@@ -14,16 +14,16 @@
         <li class="list-all" style="display: {{list._delete?'none':'block'}};" ng-repeat="list in usecarLists">
             <section  class="{{list.status=='CONGEAL'?'congeal':''}}" >
                 <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p>{{::list.number}}</p>
-                    <p>{{::list.driver}}</p>
-                    <p>{{::list.companyDispatch|cover}}</p>
-                    <p>{{::list.carUser}}</p>
-                    <p>{{::list.userNumber}}</p>
-                    <p>{{::list.area}}</p>
-                    <p>{{::list.group}}</p>
-                    <p>
-                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.number}}</p>
+                    <p mod>{{::list.driver}}</p>
+                    <p mod>{{::list.companyDispatch|cover}}</p>
+                    <p mod>{{::list.carUser}}</p>
+                    <p mod>{{::list.userNumber}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.group}}</p>
+                    <p mod>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(list)">更多详细</a>
                     </p>
                 </div>
                 <div class="can">
@@ -40,14 +40,14 @@
                                 <span>加班时长</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::list.projectApproval|cover}}</span>
-                                <span>{{::list.project}}</span>
-                                <span>{{::list.acctype|cover}}</span>
-                                <span>{{::list.dispatchDate}}</span>
-                                <span>{{::list.startTime}}</span>
-                                <span>{{::list.endTime}}</span>
-                                <span>{{::list.siesta|cover}}</span>
-                                <span>{{::list.overWorkTime}}</span>
+                                <span mod>{{::list.projectApproval|cover}}</span>
+                                <span mod>{{::list.project}}</span>
+                                <span mod>{{::list.acctype|cover}}</span>
+                                <span mod>{{::list.dispatchDate}}</span>
+                                <span mod>{{::list.startTime}}</span>
+                                <span mod>{{::list.endTime}}</span>
+                                <span mod>{{::list.siesta|cover}}</span>
+                                <span mod>{{::list.overWorkTime}}</span>
                             </p>
                         </li>
                         <li>
@@ -62,14 +62,14 @@
                                 <span>补加油说明</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::list.dispatchReason}}</span>
-                                <span>{{::list.accompanyUser}}</span>
-                                <span>{{::list.carNumber}}</span>
-                                <span>{{::list.oilCardNumber}}</span>
-                                <span>{{::list.aircondition|cover}}</span>
-                                <span>{{::list.downtown|cover}}</span>
-                                <span>{{::list.addOil|cover}}</span>
-                                <span>{{::list.addOilExplain}}</span>
+                                <span mod>{{::list.dispatchReason}}</span>
+                                <span mod>{{::list.accompanyUser}}</span>
+                                <span mod>{{::list.carNumber}}</span>
+                                <span mod>{{::list.oilCardNumber}}</span>
+                                <span mod>{{::list.aircondition|cover}}</span>
+                                <span mod>{{::list.downtown|cover}}</span>
+                                <span mod>{{::list.addOil|cover}}</span>
+                                <span mod>{{::list.addOilExplain}}</span>
                             </p>
                         </li>
                         <li>
@@ -85,14 +85,14 @@
                                 <span>完成任务数量</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::list.oweOilExplain}}</span>
-                                <span>{{::list.addOilTime}}</span>
-                                <span>{{::list.addOilAmount}}</span>
-                                <span>{{::list.oilCardBalance}}</span>
-                                <span>{{::list.oilPrice}}</span>
-                                <span>{{::list.principal}}</span>
-                                <span>{{::list.planTaskAmount}}</span>
-                                <span>{{::list.finishTaskAmount}}</span>
+                                <span mod>{{::list.oweOilExplain}}</span>
+                                <span mod>{{::list.addOilTime}}</span>
+                                <span mod>{{::list.addOilAmount}}</span>
+                                <span mod>{{::list.oilCardBalance}}</span>
+                                <span mod>{{::list.oilPrice}}</span>
+                                <span mod>{{::list.principal}}</span>
+                                <span mod>{{::list.planTaskAmount}}</span>
+                                <span mod>{{::list.finishTaskAmount}}</span>
                             </p>
                         </li>
                         <li>
@@ -108,14 +108,14 @@
                                 <span>小票附件</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::list.startMileage}}</span>
-                                <span>{{::list.endMileage}}</span>
-                                <span>{{::list.mileageSubtract}}</span>
-                                <span>{{::list.mileageOfGPS}}</span>
-                                <span>{{::list.parkCost}}</span>
-                                <span>{{::list.roadCost}}</span>
-                                <span>{{::list.mealCost}}</span>
-                                <span>{{::list.receipt}}</span>
+                                <span mod>{{::list.startMileage}}</span>
+                                <span mod>{{::list.endMileage}}</span>
+                                <span mod>{{::list.mileageSubtract}}</span>
+                                <span mod>{{::list.mileageOfGPS}}</span>
+                                <span mod>{{::list.parkCost}}</span>
+                                <span mod>{{::list.roadCost}}</span>
+                                <span mod>{{::list.mealCost}}</span>
+                                <span mod>{{::list.receipt}}</span>
                             </p>
                         </li>
                         <li>
@@ -131,14 +131,14 @@
                                 <span>是否付款</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::list.evaluatedriver}}</span>
-                                <span>{{::list.punishCost}}</span>
-                                <span>{{::list.exceptionAnalyze}}</span>
-                                <span>{{::list.fundModuleSugg}}</span>
-                                <span>{{::list.budgetModuleSugg}}</span>
-                                <span>{{::list.principalSugg}}</span>
-                                <span>{{::list.auditResult|cover}}</span>
-                                <span>{{::list.pay|cover}}</span>
+                                <span mod>{{::list.evaluatedriver}}</span>
+                                <span mod>{{::list.punishCost}}</span>
+                                <span mod>{{::list.exceptionAnalyze}}</span>
+                                <span mod>{{::list.fundModuleSugg}}</span>
+                                <span mod>{{::list.budgetModuleSugg}}</span>
+                                <span mod>{{::list.principalSugg}}</span>
+                                <span mod>{{::list.auditResult|cover}}</span>
+                                <span mod>{{::list.pay|cover}}</span>
                             </p>
                         </li>
                         <li>
@@ -153,14 +153,14 @@
                                 <span>资金审核人</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::list.carRentalCost}}</span>
-                                <span>{{::list.budgetPayDate}}</span>
-                                <span>{{::list.receiveReceiptDate}}</span>
-                                <span>{{::list.auditReceiptSugg}}</span>
-                                <span>{{::list.fundAudtiTime}}</span>
-                                <span>{{::list.budgetAuditTime}}</span>
-                                <span>{{::list.principalAuditTime}}</span>
-                                <span>{{::list.fundAuditUser}}</span>
+                                <span mod>{{::list.carRentalCost}}</span>
+                                <span mod>{{::list.budgetPayDate}}</span>
+                                <span mod>{{::list.receiveReceiptDate}}</span>
+                                <span mod>{{::list.auditReceiptSugg}}</span>
+                                <span mod>{{::list.fundAudtiTime}}</span>
+                                <span mod>{{::list.budgetAuditTime}}</span>
+                                <span mod>{{::list.principalAuditTime}}</span>
+                                <span mod>{{::list.fundAuditUser}}</span>
                             </p>
                         </li>
                         <li>
@@ -175,21 +175,21 @@
                                 <span>金额</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::list.auditReceiptResult}}</span>
-                                <span>{{::list.budgetAuditUser}}</span>
-                                <span>{{::list.payPlan}}</span>
-                                <span>{{::list.findType|cover}}</span>
-                                <span>{{::list.oilWear}}</span>
-                                <span>{{::list.oilCost}}</span>
-                                <span>{{::list.overWorkCost}}</span>
-                                <span>{{::list.cost}}</span>
+                                <span mod>{{::list.auditReceiptResult}}</span>
+                                <span mod>{{::list.budgetAuditUser}}</span>
+                                <span mod>{{::list.payPlan}}</span>
+                                <span mod>{{::list.findType|cover}}</span>
+                                <span mod>{{::list.oilWear}}</span>
+                                <span mod>{{::list.oilCost}}</span>
+                                <span mod>{{::list.overWorkCost}}</span>
+                                <span mod>{{::list.cost}}</span>
                             </p>
                         </li>
                         <li>
-                            <p class="see-parent">
+                            <p mod class="see-parent">
                                 <span>合计金额</span>
                             </p>
-                            <p class="see-children">
+                            <p mod class="see-children">
                                 <span>{{::list.totalCost}}</span>
                             </p>
                         </li>
@@ -202,11 +202,43 @@
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose="">关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div class="delete mod" ng-show="congealShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要冻结这条数据？</p>
+        <div class="btn">
+            <button ng-click="conFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow||congealShow"></div>
 
 
 

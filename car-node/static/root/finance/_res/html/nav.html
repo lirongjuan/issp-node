@@ -1,17 +1,16 @@
-<div class="nav-list">
-    <h3 class="header-menu big"><i class="nav-arrow"></i>出车管理</h3>
-    <ul class="menu">
-        <li class="active"  ui-sref="_root.finance.summary.week[12]" ><a href="javascript:void(0)">汇总</a></li>
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" ng-show="finance"  ui-sref="_root.finance.summary.week[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+       <!-- <li ng-click="navClass('usecar')" ng-class="{'active':navCla=='usecar'}" ui-sref="_root.finance.usecar.record.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>-->
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" go-show="cuspermission" ui-sref="_root.finance.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
     </ul>
 </div>
-<!--<div class="nav-list">-->
-    <!--<h3 class="header-menu big"><i class="nav-arrow"></i>用车管理</h3>-->
-    <!--<ul class="menu">-->
-        <!--<li  ui-sref="_root.finance.usecar.record.list" ><a href="javascript:void(0)">出车记录</a></li>-->
-        <!--<li  ui-sref="_root.contract.basicinfo.list" ><a href="javascript:void(0)">等待审核</a></li>-->
-        <!--<li  ui-sref="_root.contract.basicinfo.list" ><a href="javascript:void(0)">财务核对</a></li>-->
-        <!--<li  ui-sref="_root.contract.basicinfo.list" ><a href="javascript:void(0)">等待付款</a></li>-->
-        <!--<li  ui-sref="_root.contract.basicinfo.list" ><a href="javascript:void(0)">已付款记录</a></li>-->
-        <!--<li  ui-sref="_root.contract.basicinfo.list" ><a href="javascript:void(0)">汇总</a></li>-->
-    <!--</ul>-->
-<!--</div>-->

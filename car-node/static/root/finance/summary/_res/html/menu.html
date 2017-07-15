@@ -1,17 +1,17 @@
 <ul class="list">
-    <li ui-sref=".week[12]" ui-sref-active="current">
-        <a href="javascript:void(0)" >周汇总<span>Week</span></a>
+    <li ng-click="week()" ng-class="{'current':menuClass=='weekMenu'}" ui-sref=".week[12]" ng-show="WEEK" ng-init="menuCheck('WEEK')">
+        <a href="javascript:void(0)"  class="same-one">周汇总</a>
     </li>
-    <li ui-sref=".month[12]" ui-sref-active="current">
-        <a href="javascript:void(0)"  class="add">月汇总<span>Month</span></a>
+    <li ng-click="month()" ng-class="{'current':menuClass=='monthMenu'}" ui-sref=".month[12]" ng-show="MONTH" ng-init="menuCheck('MONTH')">
+        <a href="javascript:void(0)"  class="same-one">月汇总</a>
     </li>
-    <li ui-sref=".area[12]" ui-sref-active="current">
-        <a href="javascript:void(0)" class="same-one" >地区汇总<span>Area</span></a>
+    <li ng-click="area()" ng-class="{'current':menuClass=='areaMenu'}" ui-sref=".area[12]" ng-show="AREACOLLECT" ng-init="menuCheck('AREACOLLECT')">
+        <a href="javascript:void(0)"  class="same-one">地区汇总</a>
     </li>
-    <li ui-sref=".project[12]" ui-sref-active="current">
-        <a href="javascript:void(0)" class="same-two">项目汇总<span>Project</span></a>
+    <li ng-click="project()" ng-class="{'current':menuClass=='projectMenu'}" ui-sref=".project[12]" ng-show="GROUPCOLLECT" ng-init="menuCheck('GROUPCOLLECT')">
+        <a href="javascript:void(0)"  class="same-one">项目汇总</a>
     </li>
-    <li ui-sref=".driver[12]" ui-sref-active="current">
-        <a href="javascript:void(0)" class="same-two">司机汇总<span>Driver</span></a>
+    <li ng-click="driver()" ng-class="{'current':menuClass=='driverMenu'}" ui-sref=".driver[12]" ng-show="DRIVERCOLLECT" ng-init="menuCheck('DRIVERCOLLECT')">
+        <a href="javascript:void(0)"  class="same-one">司机汇总</a>
     </li>
 </ul>

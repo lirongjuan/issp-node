@@ -8,8 +8,13 @@ app.factory('summarySer',function ($http) {
         listProject:listProject,
         proAnalysis:proAnalysis,
         listDriver:listDriver,
-        driAnalysis:driAnalysis
+        driAnalysis:driAnalysis,
+        menuPermission:menuPermission,
     };
+    //菜单权限
+    function menuPermission(data){
+        return $http.get('/finance/guidePermission/'+data);
+    }
     function listWeek(data) {
         return $http.get('/listWeek',{params:data})
     }

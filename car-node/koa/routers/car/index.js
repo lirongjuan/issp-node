@@ -7,7 +7,40 @@ var fetch = require('node-fetch');//url转发
 module.exports = function(){
     var router = new Router();
 
-    router.get('/listWeek', function*(){
+    router.get('/finance/setButtonPermission', function*(){ //设置导航权限
+        var $self = this;
+        var navToken = {token:$self.cookies.get('token')};
+        yield (server().settingNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/finance/sonPermission', function*(){  //下拉导航权限
+        var $self = this;
+        var navToken = {token:$self.cookies.get('token')};
+        yield (server().carNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/finance/guidePermission/:guideAddrStatus', function*(){ //汇总菜单导航权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().summaryPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/listWeek', function*(){
         var $self = this;
         var week = this.request.query;
         week.token = $self.cookies.get('token');
@@ -114,6 +147,7 @@ module.exports = function(){
     }).get('/listUsecar', function*(){
         var $self = this;
         var page = this.request.query;
+        page.token = $self.cookies.get('token');
         yield (server().listUsecar(page)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
@@ -138,6 +172,106 @@ module.exports = function(){
         var $self = this;
         var token = {token:$self.cookies.get('token')};
         yield (server().logout(token)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/listSetting', function*(){   //设置
+        var $self = this;
+        var setting = this.request.query;
+        setting.userToken = $self.cookies.get('token');
+        yield (server().listSetting(setting)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/countSetting', function*(){
+        var $self = this;
+        yield (server().countSetting()
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getpermit', function*(){
+        var $self = this;
+        var getId = $self.request.query;
+        yield (server().getpermit(getId)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getListpermit', function*(){
+        var $self = this;
+        var listPermit = $self.request.query;
+        yield (server().getListpermit(listPermit)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).post('/editSetting', function*(){
+        var $self = this;
+        var editSet = $self.request.body;
+        editSet.userToken = $self.cookies.get("token");
+        yield (server().editSetting(editSet)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/dispatchcarinfo/unfreeze', function*(){  //解冻出车记录
+        var $self = this;
+        var thawId = $self.request.query;
+        thawId.token = $self.cookies.get('token');
+        yield (server().thawUser(thawId)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('dispatchcarinfo/freeze', function*(){    //冻结出车记录
+        var $self = this;
+        var conId = $self.request.query;
+        conId.token = $self.cookies.get('token');
+        yield (server().congealRecord(conId)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/dispatchcarinfo/find', function*(){  //根据id来查询所有的出车信息
+        var $self = this;
+        var getId = $self.request.query;
+        getId.token = $self.cookies.get('token');
+        yield (server().getRecord(getId)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;

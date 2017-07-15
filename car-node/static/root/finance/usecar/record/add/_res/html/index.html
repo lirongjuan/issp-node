@@ -8,141 +8,137 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否公司人员出车</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.companyDispatch">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>用车人</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.carUser">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>所属地区</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.area">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>所属项目组</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.group">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否立项</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.projectApproval">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.project">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>科目类型</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.acctype">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>出车日期</em></label>
-                    <input type="text" ng-verify="{}" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                    <input type="text" ng-verify="{}" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="carDate">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>出车开始时间</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}"onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="starttime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>出车结束时间</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
-                </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>出车结束时间</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}"onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="endtime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否午休</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.siesta">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>加班时长</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.overWorkTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>用车事由</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.dispatchReason">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>随同人员</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.accompanyUser">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>车牌号码</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.carNumber">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>所用油卡编号</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.oilCardNumber">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否开空调</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.aircondition">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否市内</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.downtown">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>当天是否加油</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.addOil">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>油卡余额</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.oilCardBalance">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>任务下达人</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.planTaskAmount">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>计划任务数量</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.planTaskAmount">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>完成任务数量</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.finishTaskAmount">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>出车开始里程数</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.startMileage">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>出车结束里程数</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.endMileage">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>GPS轨迹总里程数</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.mileageOfGPS">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>停车费</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.parkCost">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>过路费</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.roadCost">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>对司机的评价</em></label>
-                    <input type="text" ng-verify="{}" ng-model="Add.name">
+                    <input type="text" ng-verify="{}" ng-model="Add.evaluatedriver">
                 </li>
                 <li>
-                    <label><em>补加油说明</em></label> <input type="text" ng-model="Add.description">
+                    <label><em>补加油说明</em></label> <input type="text" ng-model="Add.addOilExplain">
                 </li>
                 <li>
-                    <label><em>欠油说明</em></label> <input type="text" ng-model="Add.description">
+                    <label><em>欠油说明</em></label> <input type="text" ng-model="Add.oweOilExplain">
                 </li>
                 <li>
-                    <label><em>加油时间</em></label> <input type="text" ng-model="Add.description">
+                    <label><em>加油时间</em></label> <input type="text" ng-model="Add.addOilTime">
                 </li>
                 <li>
-                    <label><em>当天油价</em></label> <input type="text" ng-model="Add.description">
+                    <label><em>当天油价</em></label> <input type="text" ng-model="Add.oilPrice">
                 </li>
                 <li>
-                    <label><em>处罚汇总</em></label> <input type="text" ng-model="Add.description">
+                    <label><em>处罚汇总</em></label> <input type="text" ng-model="Add.punishCost">
                 </li>
                 <li>
-                    <label><em>异常分析</em></label> <input type="text" ng-model="Add.description">
+                    <label><em>异常分析</em></label> <input type="text" ng-model="Add.exceptionAnalyze">
                 </li>
             </ul>
         </section>

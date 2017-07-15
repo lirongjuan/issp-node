@@ -1,4 +1,4 @@
-var app = angular.module('summary', []);
+var app = angular.module('usercar', []);
 app.config(function($provide, $stateProvider){
     $stateProvider.state("root.finance.usecar", {
         url : "/usecar",

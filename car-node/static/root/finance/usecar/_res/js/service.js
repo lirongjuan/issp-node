@@ -8,8 +8,29 @@ app.factory('usecarSer',function ($http) {
         listProject:listProject,
         proAnalysis:proAnalysis,
         listDriver:listDriver,
-        driAnalysis:driAnalysis
+        driAnalysis:driAnalysis,
+        thawAngle:thawAngle,
+        congealRecord:congealRecord,
+        deleteRecord:deleteRecord,
+        getRecord:getRecord,
     };
+    //冻结
+    function congealRecord(data){
+        return $http.get('dispatchcarinfo/freeze',{params:data})
+    }
+    //解冻
+    function thawAngle(data){
+        return $http.get('/dispatchcarinfo/unfreeze',{params:data})
+    }
+    //删除
+    function deleteRecord(data){
+        return $http.get('/',{params:data})
+    }
+    //根据id来查询所有出车记录信息
+    function getRecord(data){
+        return $http.get('/dispatchcarinfo/find',{params:data})
+    }
+
     function listUsecar(data) {
         return $http.get('/listUsecar',{params:data})
     }
