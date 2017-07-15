@@ -28,10 +28,20 @@ app.factory('basicinfoSer',function ($http) {
         deleteCooperationBasic:deleteCooperationBasic,
         editCooperation:editCooperation,
         editCooperationById:editCooperationById,
+        getAreas:getAreas,
+        getsuType:getsuType,
     };
     //菜单权限
   function menuPermission(data) {
         return $http.get('/supplierinformation/guidePermission/'+data);
+    }
+    //获取所有的地区
+    function getAreas(){
+        return $http.get('/supplierinformation/listArea')
+    }
+    //获取所有的供应商类型
+    function getsuType(){
+        return $http.get('/supplierinformation/listType')
     }
     //列表
     function basicInfoList(data) {

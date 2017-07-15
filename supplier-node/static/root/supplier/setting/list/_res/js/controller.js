@@ -9,13 +9,16 @@ app.controller('settingListCtrl',function($scope,settingSer,toastr,$stateParams)
     };
     function activatePage(page) {
         var pages = {
-            page:page
+            page:page||1
         };
         settingSer.listSetting(pages).then(function(response){
             if(response.data.code==0){
                 $scope.settingLists = response.data.data;
                 if($stateParams.id){
-                    angular.forEach($scope.dispatchLists,function(obj){
+                    if($stateParams.id.indexOf('&')){
+                        $stateParams.id = $stateParams.id.split('&')[0];
+                    }
+                    angular.forEach($scope.settingLists,function(obj){
                         if(obj.id == $stateParams.id){
                             obj._selectList = true;
                         }
@@ -24,8 +27,6 @@ app.controller('settingListCtrl',function($scope,settingSer,toastr,$stateParams)
                     $scope.$emit('changeId', $stateParams.id);
                 }
                 $scope.operators = response.data.data.supOperateVO
-            }else if(response.data.code==1){
-                toastr.error( response.data.msg, '温馨提示');
             }else{
                 toastr.error(  response.data.msg, '温馨提示');
             }
@@ -34,8 +35,7 @@ app.controller('settingListCtrl',function($scope,settingSer,toastr,$stateParams)
     settingSer.countSetting().then(function(response){
         if(response.data.code==0){
             $scope.pagination.itemsCount = response.data.data;
-        }else if(response.data.code==1){
-            toastr.error( response.data.msg, '温馨提示');
+            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
         }else{
             toastr.error( response.data.msg, '温馨提示');
         }
@@ -47,6 +47,7 @@ app.controller('settingListCtrl',function($scope,settingSer,toastr,$stateParams)
         event._selectList = true;
         //向父Ctrl传递事件
         $scope.$emit('changeId', event.id);
+        $scope.$emit('page', $stateParams.page);
     }
 
 });

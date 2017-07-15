@@ -2,19 +2,11 @@
     <div class="input-list">
         <section>
             <ul>
-                <!--<li class="required">-->
-                    <!--<label><i><img src="/images/mandatory.png"></i><em></em></label>-->
-                    <!--<select class="sele" ng-model="add.area">-->
-                        <!--<option value="" disabled>请选择</option>-->
-                     <!--</select>-->
-                    <!--<input type="text" class="inputDom" ng-verify="{}" ng-model="add.area">-->
-                <!--</li>-->
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>供应商地区</em></label>
                     <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
-                        <select ng-model="add.area" class="sele">
-                            <option value="请选择1">请选择1</option>
-                            <option ng-repeat="area in areas" value="{{area.area}}">{{area.area}}</option>
+                        <select ng-model="add.area" class="sele" >
+                            <option ng-repeat="area in AreasInfo track by $index">{{area}}</option>
                         </select>
 
                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="add.area" ng-verify="{}">
@@ -29,20 +21,12 @@
                     <label><i><img src="/images/mandatory.png"></i><em>供应商类型</em></label>
                     <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
                         <select ng-model="add.type" class="sele">
-                            <option value="请选择1">请选择1</option>
-                            <option ng-repeat="area in areas" value="{{area.area}}">{{area.area}}</option>
+                            <option ng-repeat="t in TypeInfo track by $index">{{t}}</option>
                         </select>
 
                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="add.type" ng-verify="{}">
                     </div>
                 </li>
-                <!--<li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>供应商类型</em></label>
-                    <select class="sele" ng-model="add.type">
-                        <option value="" disabled>请选择</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="add.type">
-                </li>-->
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>经营范围</em></label>
                     <input type="text" ng-model="add.scope" ng-verify="{}">

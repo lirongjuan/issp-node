@@ -11,6 +11,9 @@ app.controller('supplierCtrl', function ($scope,$state) {
     $scope.$on('socialListId',function(event,msg) {
         $scope.$broadcast('socialListId', msg)
     });
+    $scope.$on('page',function(event,msg){
+        $scope.$broadcast('pageId',msg)
+    });
 }).controller('navCtrl',function($scope,$state,$location,supplierSer){
     $scope.navCla='basicinfo';
     var active = $location.path().split('/')[3];
@@ -53,8 +56,8 @@ app.controller('supplierCtrl', function ($scope,$state) {
         }
     });
     $scope.showsList =[
-        {id:"1",item:"供应商信息管理",menuList:[{name:'供应商基本信息'},{name2:"供应商类型管理"}],showIs:true},
-        {id:"2",item:"设置",menuList:[{name3:'设置'}],showIs:true}
+        {id:"1",item:"供应商信息管理",menuList:[{name:'供应商基本信息',msg:'basicinfo'},{name2:"供应商类型管理",msg:'type'}],showIs:true},
+        {id:"2",item:"设置",menuList:[{name3:'设置',msg:'setting'}],showIs:false}
     ];
 
     $scope.showMenu = function(obj,event){

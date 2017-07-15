@@ -529,5 +529,29 @@ module.exports = function(){
         };
         return request(options);
     };
+    //获取所有的派单工编号
+    this.getArea = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/supplierinformation/v1/listArea',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取所有的供应商类型名称
+    this.getType = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/supplierinformation/v1/listType',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     return this;
 };

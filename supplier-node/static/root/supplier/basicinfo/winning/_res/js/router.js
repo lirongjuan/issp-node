@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.winning.rewardDelete[12]",{
-        url:"/rewardDelete[12]?subId=",
+        url:"/rewardDelete[12]? =",
         views:{
             "modal@root.supplier.basicinfo.winning":{
                 templateUrl : "root/supplier/basicinfo/winning/rewardDelete/_res/html/index.html",

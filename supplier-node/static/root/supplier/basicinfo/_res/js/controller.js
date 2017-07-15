@@ -5,7 +5,7 @@ var app = angular.module('basicinfo', [{
 }]);
 app.controller('basicinfoCtrl',function ($scope,$state) {
     if ($state.current.url == '/basicinfo') {  //默认加载列表
-        $state.go('root.supplier.basicinfo.list')
+        $state.go('root.supplier.basicinfo.list[12]')
     }
 
 }).controller('basicinfoMenuCtrl',function($scope,$state,$rootScope,$location, basicinfoSer){
@@ -17,6 +17,11 @@ app.controller('basicinfoCtrl',function ($scope,$state) {
             $scope.menuClass = 'listMenu';
         }
     });
+    if (window.location.href.split('id=')[1]) {//如果是刷新进来的页面，没有经过list
+        $scope.idListd = window.location.href.split('id=')[1];
+        if($location.search().name){$scope.menuClass = $location.search().name + '?id=Menu'}
+    }
+
  $scope.menuCheck = function (name){
         var buttonName = name;
         $scope.buttonShow = true;
@@ -33,77 +38,84 @@ app.controller('basicinfoCtrl',function ($scope,$state) {
     $scope.$on("listId", function(event, id){
        $scope.idListd = id;
     });
+    $scope.$on('pageId',function(event,flag){
+        $scope.page = flag;
+    });
+    if(!$scope.page){
+        $scope.page = $location.search().page;
+    }
     $scope.delete = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.list[12]',{id:$scope.idListd,name:'delete'});
+            $state.go('root.supplier.basicinfo.list[12]',{id:$scope.idListd,name:'delete',page:$scope.page});
             $scope.menuClass = 'deleteMenu'
         }
     };
     $scope.edit = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.edit[12]',{id:$scope.idListd});
+            $state.go('root.supplier.basicinfo.edit[12]',{id:$scope.idListd,page:$scope.page});
             $scope.menuClass = 'editMenu'
         }
     }
 
     $scope.winning = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.winning',{id:$scope.idListd});
-            $scope.menuClass = 'winning?id=Menu'
+            $state.go('root.supplier.basicinfo.winning',{id:$scope.idListd,page:$scope.page});
+            $scope.menuClass = 'winningMenu'
         }
     };
     $scope.qualification = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.qualification',{id:$scope.idListd});
-            $scope.menuClass = 'qualification?id=Menu'
+            $state.go('root.supplier.basicinfo.qualification',{id:$scope.idListd,page:$scope.page});
+            $scope.menuClass = 'qualificationMenu'
         }
     };
     $scope.contact = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.contact',{id:$scope.idListd});
-            $scope.menuClass = 'contact?id=Menu'
+            $state.go('root.supplier.basicinfo.contact',{id:$scope.idListd,page:$scope.page});
+            $scope.menuClass = 'contactMenu'
         }
     };
     $scope.cooperation = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.cooperation',{id:$scope.idListd});
-            $scope.menuClass = 'cooperation?id=Menu'
+            $state.go('root.supplier.basicinfo.cooperation',{id:$scope.idListd,page:$scope.page});
+            $scope.menuClass = 'cooperationMenu'
         }
     };
     $scope.list = function(){
         $scope.menuClass = 'listMenu'
     };
     $scope.add = function(){
-        $scope.menuClass = 'addMenu'
+        $scope.menuClass = 'addMenu';
+        $scope.idListd = ''
     };
 
     $scope.details = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.details[12]',{id:$scope.idListd});
+            $state.go('root.supplier.basicinfo.details[12]',{id:$scope.idListd,page:$scope.page});
             $scope.menuClass = 'detailsMenu'
         }
     };
     $scope.rewardAdd = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.rewardAdd[12]',{id:$scope.idListd});
+            $state.go('root.supplier.basicinfo.rewardAdd[12]',{id:$scope.idListd,page:$scope.page});
             $scope.menuClass = 'rewardAddMenu'
         }
     };
     $scope.qualifiAdd = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.qualifiAdd[12]',{id:$scope.idListd});
+            $state.go('root.supplier.basicinfo.qualifiAdd[12]',{id:$scope.idListd,page:$scope.page});
             $scope.menuClass = 'qualifiAddMenu'
         }
     };
     $scope.contactAdd = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.contactAdd[12]',{id:$scope.idListd});
+            $state.go('root.supplier.basicinfo.contactAdd[12]',{id:$scope.idListd,page:$scope.page});
             $scope.menuClass = 'contactAddMenu'
         }
     };
     $scope.cooperationAdd = function(){
         if($scope.idListd){
-            $state.go('root.supplier.basicinfo.cooperationAdd[12]',{id:$scope.idListd});
+            $state.go('root.supplier.basicinfo.cooperationAdd[12]',{id:$scope.idListd,page:$scope.page});
             $scope.menuClass = 'cooperationAddMenu'
         }
     };

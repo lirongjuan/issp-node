@@ -17,17 +17,23 @@ app.controller('basicinfoListCtrl',function($scope,basicinfoSer,$stateParams,toa
         $scope.delShow = false;
         $state.go('root.supplier.basicinfo.list[12]',{id:null,name:null});
     };
+    var count =0;
     $scope.delFn = function(){//确认删除
         var data = {
             id:$stateParams.id
         };
         basicinfoSer.deleteBasicInfo(data).then(function(response){
             if(response.data.code==0){
+                count++;
                 toastr.info( "信息已删除", '温馨提示');
                 $scope.deledId = $stateParams.id;
                 $scope.$emit('changeId', null);
                 $scope.delShow = false;
-                $state.go('root.supplier.basicinfo.list[12]',{id:null,name:null});
+                if(($scope.abili.itemsCount-count)%10){
+                    $state.go('root.supplier.basicinfo.list[12]',{id:null,name:null});
+                }else{
+                    $state.go('root.supplier.basicinfo.list[12]',{id:null,name:null,page:$stateParams.page-1});
+                }
             }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
@@ -36,7 +42,7 @@ app.controller('basicinfoListCtrl',function($scope,basicinfoSer,$stateParams,toa
     $scope.teamInfo = {};
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page||1
         }
         basicinfoSer.basicInfoList(listData).then(function(response){
             if(response.data.code==0){
@@ -64,6 +70,7 @@ app.controller('basicinfoListCtrl',function($scope,basicinfoSer,$stateParams,toa
         $scope.idListd = event.id;
         //向父Ctrl传递事件
         $scope.$emit('changeId', $scope.idListd);
+        $scope.$emit('page', $stateParams.page);
 
     };
 
@@ -94,6 +101,7 @@ app.controller('basicinfoListCtrl',function($scope,basicinfoSer,$stateParams,toa
     basicinfoSer.countBasicInfo().then(function(response){
         if(response.data.code==0){
             $scope.abili.itemsCount = response.data.data;
+            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
         }else if(response.data.code==1){
             toastr.error( response.data.msg, '温馨提示');
         }

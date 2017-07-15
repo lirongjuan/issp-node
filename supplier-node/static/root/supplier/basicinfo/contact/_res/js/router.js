@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.contact.contactDelete[12]",{
-        url:"/contactDelete[12]?suId=",
+        url:"/contactDelete[12]?suId=&page=",
         views:{
             "modal@root.supplier.basicinfo.contact":{
                 templateUrl : "root/supplier/basicinfo/contact/contactDelete/_res/html/index.html",
@@ -20,7 +20,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.contact.contactEdit[12]",{
-        url:"/contactEdit[12]?suId=",
+        url:"/contactEdit[12]?suId=&page=",
         views:{
             "content@root.supplier.basicinfo.contact":{
                 templateUrl : "root/supplier/basicinfo/contact/contactEdit/_res/html/index.html",

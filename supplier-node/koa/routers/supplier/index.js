@@ -571,6 +571,30 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
-    })
+    }).get('/supplierinformation/listArea', function*(){
+        var $self = this;
+        var token = {userToken:$self.cookies.get('token')};
+        yield (server().getArea(token)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/supplierinformation/listType', function*(){  //获取所有的地区名称
+            var $self = this;
+            var token = {userToken:$self.cookies.get('token')};
+            yield (server().getType(token)
+                .then((parsedBody) =>{
+                    var responseText = JSON.parse(parsedBody);
+                    $self.body = responseText;
+                }).catch((error) =>{
+                    $self.set('Content-Type','application/json;charset=utf-8');
+                    $self.body=error.error;
+                    console.error(error.error);
+                }));
+        })
     return router;
 };

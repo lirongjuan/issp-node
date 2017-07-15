@@ -5,7 +5,7 @@ var app = angular.module('type', [{
 }]);
 app.controller('typeCtrl',function ($scope,$state) {
     if ($state.current.url == '/type') {
-        $state.go('root.supplier.type.list');
+        $state.go('root.supplier.type.list[12]');
     }
 }).controller('typeMenuCtrl',function($scope,$state,$rootScope,$location,typeSer){
 
@@ -16,6 +16,11 @@ app.controller('typeCtrl',function ($scope,$state) {
             $scope.menuClass = 'listMenu';
         }
     });
+    if (window.location.href.split('id=')[1] || window.location.href.split('cusNum=')) {//如果是刷新进来的页面，没有经过list
+        $scope.idList = window.location.href.split('id=')[1] || window.location.href.split('cusNum=')[1];
+        $scope.customerNum = window.location.href.split('customerNum=')[1];
+        if($location.search().name){$scope.menuClass = $location.search().name + 'Menu'}
+    }
 
     $scope.menuCheck = function (name){
         var buttonName = name;
@@ -33,10 +38,16 @@ app.controller('typeCtrl',function ($scope,$state) {
     $scope.$on("listId", function(event, id){
         $scope.idList = id;
     });
+    $scope.$on('pageId',function(event,flag){
+        $scope.page = flag;
+    });
+    if(!$scope.page){
+        $scope.page = $location.search().page;
+    }
     //冻结
     $scope.congeal = function(){
         if($scope.idList){
-            $state.go('root.supplier.type.list[12]',{id:$scope.idList,name:'congeal'});
+            $state.go('root.supplier.type.list[12]',{id:$scope.idList,name:'congeal',page:$scope.page});
             $scope.menuClass = 'congealMenu';
 
         }
@@ -44,14 +55,14 @@ app.controller('typeCtrl',function ($scope,$state) {
     //关于删除
     $scope.delete = function(){
         if($scope.idList){
-            $state.go('root.supplier.type.list[12]',{id:$scope.idList,name:'delete'});
+            $state.go('root.supplier.type.list[12]',{id:$scope.idList,name:'delete',page:$scope.page});
             $scope.menuClass = 'deleteMenu'
         }
     };
     //编辑
     $scope.edit = function(){
         if($scope.idList){
-            $state.go('root.supplier.type.edit[12]',{id:$scope.idList});
+            $state.go('root.supplier.type.edit[12]',{id:$scope.idList,page:$scope.page});
             $scope.menuClass = 'editMenu'
         }
     };
@@ -60,7 +71,8 @@ app.controller('typeCtrl',function ($scope,$state) {
         $scope.menuClass = 'listMenu'
     };
     $scope.add = function(){
-        $scope.menuClass = 'addMenu'
+        $scope.menuClass = 'addMenu';
+        $scope.idList = ''
     };
 });
 //自定义过滤器

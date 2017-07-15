@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.setting.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.supplier.setting":{
                 templateUrl : "root/supplier/setting/edit/_res/html/index.html",

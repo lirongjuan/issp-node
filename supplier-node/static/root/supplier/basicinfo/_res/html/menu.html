@@ -1,41 +1,41 @@
 <ul class="list">
     <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST"  ng-init="menuCheck('LIST')">
-        <a href="javascript:void(0)" class="lis">列表<span>Tabulate</span></a>
+        <a href="javascript:void(0)" class="lis">列表</a>
     </li>
     <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]"  ng-show="ADD" ng-init="menuCheck('ADD')">
-        <a href="javascript:void(0)" class="add">添加<span>Add</span></a>
+        <a href="javascript:void(0)" class="add">添加</a>
     </li>
     <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}"  ng-show="EDIT" ng-init="menuCheck('EDIT')">
-        <a href="javascript:void(0)"  class="same-one see">编辑<span>Edit</span></a>
+        <a href="javascript:void(0)"  class="same-one see">编辑</a>
     </li>
    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
-        <a href="javascript:void(0)" class="same-two see">删除<span>Delete</span></a>
+        <a href="javascript:void(0)" class="same-two see">删除</a>
     </li>
-    <li ng-click="winning()" ng-class="{'current':menuClass=='winning?id=Menu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('WINN')">
-        <a href="javascript:void(0)"  class="same-one see">获奖情况<span>Winning</span></a>
+    <li ng-click="winning()" ng-class="{'current':menuClass=='winningMenu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('WINN')">
+        <a href="javascript:void(0)"  class="same-one see">获奖情况</a>
     </li>
     <li ng-click="rewardAdd()" ng-class="{'current':menuClass=='rewardAddMenu','seeParent':idListd}"  ng-show="ADD" ng-init="menuCheck('REWARDADD')">
-        <a href="javascript:void(0)"  class="same-one see">获奖情况添加<span>rewardAdd</span></a>
+        <a href="javascript:void(0)"  class="same-one see">获奖情况添加</a>
     </li>
-    <li ng-click="qualification()" ng-class="{'current':menuClass=='qualification?id=Menu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('QUALIFICATION')">
-        <a href="javascript:void(0)"  class="same-two see">企业资质<span>Qualification</span></a>
+    <li ng-click="qualification()" ng-class="{'current':menuClass=='qualificationMenu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('QUALIFICATION')">
+        <a href="javascript:void(0)"  class="same-two see">企业资质</a>
     </li>
     <li ng-click="qualifiAdd()" ng-class="{'current':menuClass=='qualifiAddMenu','seeParent':idListd}"  ng-show="ADD" ng-init="menuCheck('QUALIFIADD')">
-        <a href="javascript:void(0)"  class="same-one see">企业资质添加<span>QualifiAddAdd</span></a>
+        <a href="javascript:void(0)"  class="same-one see">企业资质添加</a>
     </li>
-    <li ng-click="contact()" ng-class="{'current':menuClass=='contact?id=Menu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('CONTACT')">
-        <a href="javascript:void(0)"  class="same-three see">联系情况<span>Contact</span></a>
+    <li ng-click="contact()" ng-class="{'current':menuClass=='contactMenu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('CONTACT')">
+        <a href="javascript:void(0)"  class="same-three see">联系情况</a>
     </li>
     <li ng-click="contactAdd()" ng-class="{'current':menuClass=='contactAddMenu','seeParent':idListd}"  ng-show="ADD" ng-init="menuCheck('CONTACTADD')">
-        <a href="javascript:void(0)"  class="same-three see">联系情况添加<span>ContactAdd</span></a>
+        <a href="javascript:void(0)"  class="same-three see">联系情况添加</a>
     </li>
-    <li ng-click="cooperation()" ng-class="{'current':menuClass=='cooperation?id=Menu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('COOPERATION')">
-        <a href="javascript:void(0)"  class="same-one see">合作情况<span>Cooperation</span></a>
+    <li ng-click="cooperation()" ng-class="{'current':menuClass=='cooperationMenu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('COOPERATION')">
+        <a href="javascript:void(0)"  class="same-one see">合作情况</a>
     </li>
     <li ng-click="cooperationAdd()" ng-class="{'current':menuClass=='cooperationAddMenu','seeParent':idListd}"  ng-show="ADD" ng-init="menuCheck('COOPERATIONADD')">
-        <a href="javascript:void(0)"  class="same-three see">合作情况添加<span>cooperationAdd</span></a>
+        <a href="javascript:void(0)"  class="same-three see">合作情况添加</a>
     </li>
     <li ng-click="details()" ng-class="{'current':menuClass=='detailsMenu','seeParent':idListd}"  ng-show="EDIT" ng-init="menuCheck('DETAILS')">
-        <a href="javascript:void(0)"  class="same-one see">详细信息<span>Details</span></a>
+        <a href="javascript:void(0)"  class="same-one see">详细信息</a>
     </li>
 </ul>

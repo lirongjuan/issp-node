@@ -3,6 +3,7 @@
  */
 var app = angular.module('contactBasic', ['toastr','ng-pagination']);
 app.controller('contactBasicCtrl', function($scope, basicinfoSer,$state,toastr,$stateParams){
+
     //列表
     var contactData ={id: $stateParams.id};
     basicinfoSer.contactList(contactData).then(function (response) {

@@ -17,10 +17,21 @@ app.controller('settingCtrl',function ($scope,$state) {
             $scope.menuClass = 'listMenu';
         }
     });
+    if (window.location.href.split('id=')[1] || window.location.href.split('cusNum=')) {//如果是刷新进来的页面，没有经过list
+        $scope.idList = window.location.href.split('id=')[1] || window.location.href.split('cusNum=')[1];
+        $scope.customerNum = window.location.href.split('customerNum=')[1];
+        if($location.search().name){$scope.menuClass = $location.search().name + 'Menu'}
+    }
 
-    $scope.$on('listId',function(event,id){
+    $scope.$on('pageId',function(event,id){
         $scope.editId=id;
     });
+    $scope.$on('pageId',function(event,flag){
+        $scope.page = flag;
+    });
+    if(!$scope.page){
+        $scope.page = $location.search().page;
+    }
 
     $scope.list = function(){
         $state.go('root.supplier.setting.list[12]');
@@ -28,7 +39,7 @@ app.controller('settingCtrl',function ($scope,$state) {
     };
     $scope.edit = function(){
         if($scope.editId){
-            $state.go('root.supplier.setting.edit[12]',{id:$scope.editId});
+            $state.go('root.supplier.setting.edit[12]',{id:$scope.editId,page:$scope.page});
             $scope.menuClass = 'editMenu'
         }
 

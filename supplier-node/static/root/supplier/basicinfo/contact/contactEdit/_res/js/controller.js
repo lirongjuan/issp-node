@@ -10,10 +10,9 @@ app.controller('contactEditCtrl', function($scope, basicinfoSer,$state,toastr,$s
     $scope.contEditFun = function(){
         var vm = $scope;
         basicinfoSer.editContact(vm.editInfo).then(function(response){
-            console.log(vm.editInfo.email);
             if(response.data.code == 0){
                 $state.go('root.supplier.basicinfo.list[12]');
-                toastr.success( "已成功添加", '温馨提示');
+                toastr.success( "已成功编辑", '温馨提示');
             }else {
                 toastr.error( response.data.msg, '温馨提示');
             }

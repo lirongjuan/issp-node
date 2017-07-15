@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.list[12]",{
-        url:"/list[12]?id=&name=",
+        url:"/list[12]?id=&name=&page=",
         views:{
             "content@root.supplier.basicinfo":{
                 templateUrl : "root/supplier/basicinfo/list/_res/html/index.html",
@@ -28,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.details[12]",{
-        url:"/details[12]?id=",
+        url:"/details[12]?id=&page=",
         views:{
             "content@root.supplier.basicinfo":{
                 templateUrl : "root/supplier/basicinfo/details/_res/html/index.html",
@@ -36,7 +36,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.supplier.basicinfo":{
                 templateUrl : "root/supplier/basicinfo/edit/_res/html/index.html",
@@ -44,7 +44,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.rewardAdd[12]",{
-        url:"/rewardAdd[12]?id=",
+        url:"/rewardAdd[12]?id=&page=",
         views:{
             "content@root.supplier.basicinfo":{
                 templateUrl : "root/supplier/basicinfo/rewardAdd/_res/html/index.html",
@@ -52,7 +52,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.qualifiAdd[12]",{
-        url:"/qualifiAdd[12]?id=",
+        url:"/qualifiAdd[12]?id=&page=",
         views:{
             "content@root.supplier.basicinfo":{
                 templateUrl : "root/supplier/basicinfo/qualifiAdd/_res/html/index.html",
@@ -60,7 +60,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.contactAdd[12]",{
-        url:"/contactAdd[12]?id=",
+        url:"/contactAdd[12]?id=&page=",
         views:{
             "content@root.supplier.basicinfo":{
                 templateUrl : "root/supplier/basicinfo/contactAdd/_res/html/index.html",
@@ -68,7 +68,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.supplier.basicinfo.cooperationAdd[12]",{
-        url:"/cooperationAdd[12]?id=",
+        url:"/cooperationAdd[12]?id=&page=",
         views:{
             "content@root.supplier.basicinfo":{
                 templateUrl : "root/supplier/basicinfo/cooperationAdd/_res/html/index.html",

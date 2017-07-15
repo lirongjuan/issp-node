@@ -16,7 +16,7 @@
         <li class="list-all" ng-repeat="lists in contactBasics.data" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div  class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1}}</p>
+                    <p>{{$index+1+num}}</p>
                     <p>{{lists.contacts}}</p>
                     <p>{{lists.duties}}</p>
                     <p>{{lists.telephone}}</p>

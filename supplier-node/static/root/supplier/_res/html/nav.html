@@ -3,15 +3,15 @@
         <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
         {{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('basicinfo')" ng-show="supplierinformation" ng-class="{'active':navCla=='basicinfo'}" ui-sref="_root.supplier.basicinfo.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="supplierinformation" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.supplier.basicinfo.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name}}</a>
         </li>
-        <li ng-click="navClass('type')" ng-show="suppliertype" ng-class="{'active':navCla=='type'}" ui-sref="_root.supplier.type.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="suppliertype" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.supplier.type.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name2}}</a>
         </li>
     </ul>
     <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('setting')" ng-show="cuspermission" ng-class="{'active':navCla=='setting'}" ui-sref="_root.supplier.setting.list[12]" >
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.supplier.setting.list[12]" >
             <a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
     </ul>
 </div>
