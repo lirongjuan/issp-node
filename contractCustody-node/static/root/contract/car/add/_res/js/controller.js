@@ -10,6 +10,7 @@ app.controller('carAddCtrl', function($scope,$state,toastr,carSer){
                 toastr.success( $scope.add.contractName+"已成功添加", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');
+				
             }
         });
     };
