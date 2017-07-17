@@ -1,0 +1,17 @@
+<ul class="list">
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]"ng-show="LIST"  ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':getId}"ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
+    </li>
+    <li ng-click="areaCollect()"ng-class="{'current':menuClass=='areaCollectMenu'}" ui-sref=".areaCollect[12]"ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two">地区汇总</a>
+    </li>
+    <li ng-click="collect()"ng-class="{'current':menuClass=='collectMenu'}" ui-sref=".collect[12]"ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two">个人汇总</a>
+    </li>
+    <li ng-click="departCollect()"ng-class="{'current':menuClass=='departCollectMenu'}" ui-sref=".departCollect[12]"ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two">部门汇总</a>
+    </li>
+</ul>

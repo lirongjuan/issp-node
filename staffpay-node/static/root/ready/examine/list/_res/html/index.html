@@ -1,0 +1,59 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>年份</span>
+            <span>月份</span>
+            <span>类别</span>
+            <span>科目</span>
+            <span>总准备金</span>
+            <span>项目组</span>
+            <span>比例分配</span>
+            <span>准备金</span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.year}}</p>
+                    <p mod>{{list.month}}</p>
+                    <p mod>{{list.category}}</p>
+                    <p mod>{{list.subject}}</p>
+                    <p mod>{{list.totalReserves}}</p>
+                    <p mod>{{list.projectGroup}}</p>
+                    <p mod>{{list.prorate}}</p>
+                    <p mod>{{list.reserves}}</p>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

@@ -1,0 +1,144 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>月份</em></label>
+                    <input type="number"  ng-model="add.months" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计薪周期（开始）</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="starttime"  >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计薪周期（结束）</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="endtime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <input type="text" ng-model="add.area" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
+                    <input type="text" ng-model="add.name" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>部门</em></label>
+                    <input type="text" ng-model="add.department" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <input type="text" ng-model="add.jobs" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>出勤天数</em></label>
+                    <input type="number" ng-model="add.attendanceDay" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>员工工资</em></label>
+                    <input type="number" ng-model="add.staffWage" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>电脑补助</em></label>
+                    <input type="number" ng-model="add.computerHelp" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>住宿补助</em></label>
+                    <input type="number" ng-model="add.stayHelp" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工龄补助</em></label>
+                    <input type="number" ng-model="add.lengthHelp" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>高温补助</em></label>
+                    <input type="number" ng-model="add.hyperthermiaHelp" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>社保补助</em></label>
+                    <input type="number" ng-model="add.socialHelp" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>其他费用</em></label>
+                    <input type="number" ng-model="add.otherFee" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工资总额</em></label>
+                    <input type="number" ng-model="add.totalWages" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>假期加班费</em></label>
+                    <input type="number" ng-model="add.holidayOvertimePay" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>社保扣款</em></label>
+                    <input type="number" ng-model="add.socialDeduction" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>水电费扣款</em></label>
+                    <input type="number" ng-model="add.utilitiesDeduction" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>扣分合计</em></label>
+                    <input type="number" ng-model="add.deductionTotal" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>奖金处罚扣款</em></label>
+                    <input type="number" ng-model="add.bonusPenaltyDeduction" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>个税扣款</em></label>
+                    <input type="number" ng-model="add.incomeTaxDeduction" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>事病假扣款</em></label>
+                    <input type="number" ng-model="add.whatSickLeaveDeduction" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>旷工扣款</em></label>
+                    <input type="number" ng-model="add.absenteeismDeduction" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>实发工资</em></label>
+                    <input type="number" ng-model="add.realWages" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否缴纳个人所得税</em></label>
+                    <select class="sele" ng-model="add.incomeTax">
+                        <option value="YES">是</option>
+                        <option value="NO">否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>本月第一次发工资</em></label>
+                    <input type="number" ng-model="add.firstSalary" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>本月第二次发工资</em></label>
+                    <input type="number" ng-model="add.secondSalary" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>第一次付款时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="onetime" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>第二次付款时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="twotime" ng-verify="{}" >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>本月需缴发票金额</em></label>
+                    <input type="number" ng-model="add.invoiceValue" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>累计已缴发票金额</em></label>
+                    <input type="number" ng-model="add.paidInvoiceAmount" ng-verify="{}">
+                </li>
+
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="waitAddFun()">提交</button>
+    </p>
+</div>

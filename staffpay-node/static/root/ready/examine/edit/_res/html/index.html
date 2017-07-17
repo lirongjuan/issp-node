@@ -1,0 +1,44 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>年份</em></label>
+                    <input type="text"  ng-model="edit.year" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>月份</em></label>
+                    <input type="text"  ng-model="edit.month" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>类别</em></label>
+                    <input type="text"   ng-verify="{}" ng-model="edit.category">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>科目</em></label>
+                    <input type="text" ng-verify="{}" ng-model="edit.subject">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总准备金</em></label>
+                    <input type="text" ng-verify="{}" ng-model="edit.totalReserves">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <input type="text" ng-verify="{}" ng-model="edit.projectGroup">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>比例分配</em></label>
+                    <input type="text" ng-model="edit.prorate" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>准备金</em></label>
+                    <input type="text" ng-model="edit.reserves" ng-verify="{}">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="standardEditFun()">提交</button>
+    </p>
+</div>

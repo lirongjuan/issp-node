@@ -1,0 +1,142 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>月份</span>
+            <span>计薪周期（开始）</span>
+            <span>计薪周期（结束）</span>
+            <span>地区</span>
+            <span>姓名</span>
+            <span>部门</span>
+            <span>岗位</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in basicinfoLists" style="display: {{list._delete?'none':'block'}};">
+            <section  class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.months}}</p>
+                    <p mod>{{list.startPaidCycle}}</p>
+                    <p mod>{{list.endPaidCycle}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p mod>{{list.name}}</p>
+                    <p mod>{{list.department}}</p>
+                    <p mod>{{list.jobs}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>出勤天数</span>
+                                <span>员工工资</span>
+                                <span>电脑补助</span>
+                                <span>住宿补助</span>
+                                <span>工龄补助</span>
+                                <span>高温补助</span>
+                                <span>社保补助</span>
+                                <span>其他费用</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod >{{list.attendanceDay}}</span>
+                                <span mod >{{list.staffWage}}</span>
+                                <span mod>{{list.computerHelp}}</span>
+                                <span mod>{{list.stayHelp}}</span>
+                                <span mod>{{list.lengthHelp}}</span>
+                                <span mod>{{list.hyperthermiaHelp}}</span>
+                                <span mod>{{list.socialHelp}}</span>
+                                <span mod>{{list.otherFee}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>工资总额</span>
+                                <span>假期加班费</span>
+                                <span>社保扣款</span>
+                                <span>水电费扣款</span>
+                                <span>奖金处罚扣款</span>
+                                <span>个税扣款</span>
+                                <span>事病假扣款</span>
+                                <span>旷工扣款</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod >{{list.totalWages}}</span>
+                                <span mod >{{list.holidayOvertimePay}}</span>
+                                <span mod>{{list.socialDeduction}}</span>
+                                <span mod>{{list.utilitiesDeduction}}</span>
+                                <span mod>{{list.deductionTotal}}</span>
+                                <span mod>{{list.bonusPenaltyDeduction}}</span>
+                                <span mod>{{list.incomeTaxDeduction}}</span>
+                                <span mod>{{list.whatSickLeaveDeduction}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>实发工资</span>
+                                <span>是否缴纳个人所得税</span>
+                                <span>本月第一次发工资</span>
+                                <span>本月第二次发工资</span>
+                                <span>本月需缴发票金额</span>
+                                <span>累计已缴发票金额</span>
+                                <span>是否确认第一次工资发放记录</span>
+                                <span>是否确认工资</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod >{{list.realWages}}</span>
+                                <span mod >{{list.incomeTax | cover}}</span>
+                                <span mod>{{list.firstSalary}}</span>
+                                <span mod>{{list.secondSalary}}</span>
+                                <span mod>{{list.invoiceValue}}</span>
+                                <span mod>{{list.paidInvoiceAmount}}</span>
+                                <span mod>{{list.confirmFirstSalary | cover}}</span>
+                                <span mod>{{list.confirmSalary | cover}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>第一次付款时间</span>
+                                <span>第二次付款时间</span>
+                                <span>数据状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod >{{list.firstPayTime}}</span>
+                                <span mod >{{list.secondPayTime}}</span>
+                                <span mod>{{list.findType| cover}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

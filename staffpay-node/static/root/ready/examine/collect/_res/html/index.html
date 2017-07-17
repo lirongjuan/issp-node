@@ -1,0 +1,25 @@
+
+<div class="collect">
+    <div class="collect-select">
+        <span>月份：<input type="number" class="inputter" ng-model="data.month" ></span>
+        <button ng-click="collect()">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>月份</span>
+            <span>项目组</span>
+            <span>上月准备金</span>
+            <span>本月准备金</span>
+            <span>差额</span>
+            <span>增长率</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="Lists in summaryLists">
+            <span>{{::Lists.month}}</span>
+            <span>{{::Lists.projectGroup}}</span>
+            <span>{{::Lists.lastReserveSum}}</span>
+            <span>{{::Lists.reserveSum}}</span>
+            <span>{{::Lists.balance}}</span>
+            <span>{{::Lists.increase}}</span>
+        </li>
+    </ul>
+</div>

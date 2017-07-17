@@ -1,0 +1,52 @@
+<div class="collect">
+    <div class="collect-select">
+        <span>个人：<input type="text" class="inputter" ng-model="data.names" ></span>
+        <button ng-click="collect()">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>月份</span>
+            <span>地区</span>
+            <span>员工工资</span>
+            <span>电脑补助</span>
+            <span>住宿补助</span>
+            <span>工龄补助</span>
+            <span>高温补助</span>
+            <span>社保补助</span>
+            <span>其他费用</span>
+            <span>工资总额</span>
+            <span>假期加班费</span>
+            <span>社保扣款</span>
+            <span>水电费扣款</span>
+            <span>扣分合计</span>
+            <span>奖金处罚扣款</span>
+            <span>个税扣款</span>
+            <span>事病假扣款</span>
+            <span>旷工扣款</span>
+            <span>实发工资</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="list in onlyLists" >
+            <span>{{list.months}}</span>
+            <span>{{list.area}}</span>
+            <span>{{list.staffWage}}</span>
+            <span>{{list.computerHelp}}</span>
+            <span>{{list.stayHelp}}</span>
+            <span>{{list.lengthHelp}}</span>
+            <span>{{list.hyperthermiaHelp}}</span>
+            <span>{{list.socialHelp}}</span>
+            <span>{{list.otherFee}}</span>
+            <span>{{list.totalWages}}</span>
+            <span>{{list.holidayOvertimePay}}</span>
+            <span>{{list.socialDeduction}}</span>
+            <span>{{list.utilitiesDeduction}}</span>
+            <span>{{list.deductionTotal}}</span>
+            <span>{{list.bonusPenaltyDeduction}}</span>
+            <span>{{list.incomeTaxDeduction}}</span>
+            <span>{{list.whatSickLeaveDeduction}}</span>
+            <span>{{list.absenteeismDeduction}}</span>
+            <span>{{list.realWages}}</span>
+
+        </li>
+
+    </ul>
+</div>
