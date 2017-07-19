@@ -1,0 +1,41 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否归还</em></label>
+                    <select class="sele" ng-model="edit.ifReturn">
+                        <option value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核情况</em></label>
+                    <select class="sele" ng-model="edit.auditCase">
+                        <option value="UNAUDITED">未审核</option>
+                        <option value="AUDITED">通过</option>
+                        <option value="REJECT">拒绝</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>领用日期</em></label>
+                    <input type="text" ng-model="edit.returnTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="onetime">
+                </li>
+                <li class="required">
+                <label><i><img src="/images/mandatory.png"></i><em>物资状态</em></label>
+                <select class="sele" ng-model="edit.materialState">
+                    <option value="INTACT">完好</option>
+                    <option value="MANUAL_DAMAGE">人为损坏</option>
+                    <option value="NATURAL_DAMAGE">自然损坏</option>
+                    <option value="REPAIRING">维修中</option>
+                    <option value="SCRAP">已报废</option>
+                </select>
+            </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="restFun()">提交</button>
+    </p>
+</div>

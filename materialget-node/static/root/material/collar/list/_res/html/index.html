@@ -1,0 +1,109 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>类别</span>
+            <span>科目</span>
+            <span>物品名称</span>
+            <span>数量</span>
+            <span>单位</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p mod>{{list.projectGroup}}</p>
+                    <p mod>{{list.materialName}}</p>
+                    <p mod>{{list.quantity}}</p>
+                    <p mod>{{list.unit}}</p>
+                    <p mod>{{list.recipient}}</p>
+                    <p mod>{{list.receiveDate}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>领用人</span>
+                                <span>领用日期</span>
+                                <span>用途</span>
+                                <span>审核人</span>
+                                <span>审核状态</span>
+                                <span>审核意见</span>
+                                <span>备注</span>
+                                <span>物资编号</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod >{{list.recipient}}</span>
+                                <span mod >{{list.receiveDate}}</span>
+                                <span mod>{{list.purpose}}</span>
+                                <span mod>{{list.auditor}}</span>
+                                <span mod>{{list.auditState | cover}}</span>
+                                <span mod>{{list.auditOpinion}}</span>
+                                <span mod>{{list.comment}}</span>
+                                <span mod>{{list.materialNo}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>型号</span>
+                                <span>原存储地区</span>
+                                <span>物资原负责人</span>
+                                <span>经手人</span>
+                                <span>是否归还</span>
+                                <span>审核情况</span>
+                                <span>归还时间</span>
+                                <span>物资状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.model}}</span>
+                                <span mod>{{list.oldStorageArea}}</span>
+                                <span mod>{{list.oldPrincipal}}</span>
+                                <span mod>{{list.handler}}</span>
+                                <span mod>{{list.ifReturn | cover}}</span>
+                                <span mod>{{list.auditCase | cover}}</span>
+                                <span mod>{{list.returnTime}}</span>
+                                <span mod>{{list.materialState|cover}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

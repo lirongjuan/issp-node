@@ -1,0 +1,23 @@
+<ul class="list">
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST"  ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="add">添加</a>
+    </li>
+    <li  ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':getId}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see" >编辑</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':getId}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
+    </li>
+    <li ng-click="audit()" ng-class="{'current':menuClass=='auditMenu','seeParent':getId}" ng-show="AUDIT" ng-init="menuCheck('AUDIT')">
+        <a href="javascript:void(0)" class="same-two see">审核</a>
+    </li>
+    <li ng-click="Leadcompletion()" ng-class="{'current':menuClass=='LeadcompletionMenu','seeParent':getId}"  ng-show="RECEIVE" ng-init="menuCheck('RECEIVE')">
+        <a href="javascript:void(0)" class="same-two see">领用完成</a>
+    </li>
+    <li ng-click="restitution()" ng-class="{'current':menuClass=='restitutionMenu','seeParent':getId}" ng-show="BREA" ng-init="menuCheck('BREA')">
+        <a href="javascript:void(0)" class="same-two see">物资归还</a>
+    </li>
+</ul>

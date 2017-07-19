@@ -1,0 +1,38 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>型号</em></label>
+                    <input type="text"  ng-model="edit.model" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>原存储地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="edit.oldStorageArea" class="sele">
+                            <option ng-repeat="a in area track by $index">{{a.area}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.oldStorageArea" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资原负责人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="edit.oldPrincipal"  class="sele">
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.oldPrincipal" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>经手人</em></label>
+                    <input type="text"  ng-model="edit.handler" ng-verify="{}">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="LeadFun()">提交</button>
+    </p>
+</div>

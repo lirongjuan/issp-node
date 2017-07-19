@@ -1,0 +1,77 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.area">
+                            <option ng-repeat="a in area track by $index">{{a.area}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.area" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.projectGroup">
+                            <option ng-repeat="a in group track by $index">{{a}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.projectGroup" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物品名称</em></label>
+                    <input type="text"  ng-model="edit.materialName" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>单位</em></label>
+                    <input type="text"  ng-model="edit.unit" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>领用人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.recipient">
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.recipient" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>领用日期</em></label>
+                    <input type="text" ng-model="edit.receiveDate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="onetime" >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>用途</em></label>
+                    <input type="text" ng-model="edit.purpose" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.auditor">
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.auditor" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="edit.comment">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>领用编号</em></label>
+                    <span  class="select2">
+                    <p class="select-text">
+                        <span ng-repeat="word in positions">{{word}},</span>
+                    </p>
+                    <div class="mymultiselect" ng-dropdown-multiselect="" options="getNo" selected-model="positions" extra-settings="stringSettings" ></div>
+                </span>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="EditFun()">提交</button>
+    </p>
+</div>
