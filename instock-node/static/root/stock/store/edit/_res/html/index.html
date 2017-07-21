@@ -1,0 +1,203 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组/部门</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.projectGroup">
+                            <option ng-repeat="a in area track by $index">{{a.area}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="edit.projectGroup" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>入库类型</em></label>
+                    <select class="sele" ng-model="edit.instockType">
+                        <option value="BUY">购买入库</option>
+                        <option value="LEND">外借入库</option>
+                        <option value="TRANSFER">调动入库</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>入库编码</em></label>
+                    <input type="text" ng-model="edit.stockEncoding" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资名称</em></label>
+                    <input type="text" ng-model="edit.materialName" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资类型</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.materialType">
+                            <option ng-repeat="a in area track by $index">{{a.area}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="edit.materialType" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申购日期</em></label>
+                    <input type="text" ng-model="edit.buyDate" onClick="laydate({istime: true , format:'YYYY-MM-DD'})" class="buy">
+                </li>
+                <li  class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申购人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.requisitioner" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.requisitioner" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资型号</em></label>
+                    <input type="text" ng-model="edit.materialModel" ng-verify="{}">
+                </li>
+
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>数量</em></label>
+                    <input type="number"  ng-model="edit.quantity" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>单位</em></label>
+                    <input type="text"  ng-model="edit.unit" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>单价</em></label>
+                    <input type="number" step="0.01" ng-model="edit.unitPrice" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总额(元)</em></label>
+                    <input type="number" step="0.01" ng-model="edit.totalSum" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>途径</em></label>
+                    <input type="text"  ng-model="edit.approach" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>购买网址</em></label>
+                    <input type="text"  ng-model="edit.buyWebsites" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>入库日期</em></label>
+                    <input type="text" ng-model="edit.instockDate" onClick="laydate({istime: true , format:'YYYY-MM-DD'})" class="instock">
+                </li>
+
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>存储地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.storageArea" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.storageArea" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>存储位置</em></label>
+                    <input type="text"  ng-model="edit.storageSite" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资状态</em></label>
+                    <select class="sele" ng-model="edit.materialState">
+                        <option value="INTACT">完好</option>
+                        <option value="MANUAL_DAMAGE">人为损坏</option>
+                        <option value="NATURAL_DAMAGE">自然损坏</option>
+                        <option value="REPAIRING">维修中</option>
+                        <option value="SCRAP">已报废</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>使用状态</em></label>
+                    <select class="sele" ng-model="edit.useState">
+                        <option value="RECEIVE">领用</option>
+                        <option value="CHECKOUT">外借</option>
+                        <option value="TRANSFER">调动</option>
+                        <option value="INSTOCK">在库</option>
+                    </select>
+                </li>
+                <li  class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>外借人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.lender" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.lender" ng-verify="{}">
+                    </div>
+                </li>
+                <li  class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>外借地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.lendArea" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.lendArea" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>外借日期</em></label>
+                    <input type="text" ng-model="edit.lendDate" onClick="laydate({istime: true , format:'YYYY-MM-DD'})" class="lend">
+                </li>
+                <li  class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>购买人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.purchaser" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.purchaser" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>购买日期</em></label>
+                    <input type="text" ng-model="edit.purchaseDate" onClick="laydate({istime: true , format:'YYYY-MM-DD'})" class="purchase">
+                </li>
+                <li class="required">
+                    <label><em>是否有保修卡</em></label>
+                    <select class="sele" ng-model="edit.ifWarrantyCard">
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>保修联系人</em></label>
+                    <input type="text"  ng-model="edit.warrantyCardContact">
+                </li>
+                <li class="required">
+                    <label><em>保修联系电话</em></label>
+                    <input type="text"  ng-model="edit.warrantyPhone">
+                </li>
+                <li class="required">
+                    <label><em>保修期限(月)</em></label>
+                    <input type="number"  ng-model="edit.warrantyExpire">
+                </li>
+                <li class="required">
+                    <label><em>是否有发票</em></label>
+                    <select class="sele" ng-model="edit.ifInvoice">
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li  class="required">
+                    <label><em>物资负责人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.goodPrincipal" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.goodPrincipal" >
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>数据来源</em></label>
+                    <input type="text"  ng-model="edit.dataSource">
+                </li>
+                <li class="required">
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="edit.comment">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="StoreEditFun()">提交</button>
+    </p>
+</div>

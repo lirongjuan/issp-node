@@ -1,0 +1,131 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>项目组/部门</span>
+            <span>入库类型</span>
+            <span>入库编码</span>
+            <span>物资名称</span>
+            <span>物品类型</span>
+            <span>申购日期</span>
+            <span>申购人</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.projectGroup}}</p>
+                    <p mod>{{list.instockType | cover}}</p>
+                    <p mod>{{list.stockEncoding}}</p>
+                    <p mod>{{list.materialName}}</p>
+                    <p mod>{{list.materialType}}</p>
+                    <p mod>{{list.buyDate}}</p>
+                    <p mod>{{list.requisitioner}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>物资型号</span>
+                                <span>数量</span>
+                                <span>单位</span>
+                                <span>单价(元)</span>
+                                <span>总额(元)</span>
+                                <span>途径</span>
+                                <span>购买网址</span>
+                                <span>入库日期</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod >{{list.materialModel}}</span>
+                                <span mod >{{list.quantity}}</span>
+                                <span mod>{{list.unit}}</span>
+                                <span mod>{{list.unitPrice}}</span>
+                                <span mod>{{list.totalSum}}</span>
+                                <span mod>{{list.approach}}</span>
+                                <span mod>{{list.buyWebsites}}</span>
+                                <span mod>{{list.instockDate}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>存储地区</span>
+                                <span>存储位置</span>
+                                <span>物资状态</span>
+                                <span>外借人</span>
+                                <span>外借地区</span>
+                                <span>外借日期</span>
+                                <span>购买人</span>
+                                <span>购买日期</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.storageArea}}</span>
+                                <span mod>{{list.storageSite}}</span>
+                                <span mod>{{list.materialState | cover}}</span>
+                                <span mod>{{list.lender}}</span>
+                                <span mod>{{list.lendArea}}</span>
+                                <span mod>{{list.lendDate}}</span>
+                                <span mod>{{list.purchaser}}</span>
+                                <span mod>{{list.purchaseDate}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>是否有保修卡</span>
+                                <span>保修联系人</span>
+                                <span>保修联系电话</span>
+                                <span>保修期限(月)</span>
+                                <span>是否有发票</span>
+                                <span>物资负责人</span>
+                                <span>数据来源</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.ifWarrantyCard | cover}}</span>
+                                <span mod>{{list.warrantyCardContact}}</span>
+                                <span mod>{{list.warrantyPhone}}</span>
+                                <span mod>{{list.warrantyExpire}}</span>
+                                <span mod>{{list.ifInvoice | cover}}</span>
+                                <span mod>{{list.goodPrincipal}}</span>
+                                <span mod>{{list.dataSource}}</span>
+                                <span mod>{{list.comment}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+
