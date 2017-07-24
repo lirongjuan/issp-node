@@ -1,0 +1,63 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.area">
+                            <option ng-repeat="a in area track by $index">{{a.area}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="edit.area" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组/部门</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.projectGroup">
+                            <option ng-repeat="a in group track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="edit.projectGroup" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>类型</em></label>
+                    <input type="text" ng-model="edit.type" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设备名称</em></label>
+                    <input type="text" ng-model="edit.deviceName" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>周转率</em></label>
+                    <input type="text" ng-model="edit.turnoverRatio" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>闲置率</em></label>
+                    <input type="text" ng-model="edit.vacancyRate" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>上次盘点与本次盘点库存差</em></label>
+                    <input type="text" ng-model="edit.stockSubtract" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>盈亏率</em></label>
+                    <input type="text" ng-model="edit.balanceRate" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>盘点类型</em></label>
+                    <select class="sele" ng-model="edit.inventoryType" ng-init="edit.inventoryType=''">
+                        <option value="">请选择</option>
+                        <option value="DAILY_INVENTORY">日盘</option>
+                        <option value="WEEKLY_INVENTORY">周盘</option>
+                        <option value="ANNUAL_INVENTORY">年盘</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="WeekEditFun()">提交</button>
+    </p>
+</div>

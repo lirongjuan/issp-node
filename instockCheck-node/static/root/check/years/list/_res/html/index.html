@@ -1,0 +1,109 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>项目组/地区</span>
+            <span>类型</span>
+            <span>设备名称</span>
+            <span>单位</span>
+            <span>账目数</span>
+            <span>总额</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p mod>{{list.projectGroup}}</p>
+                    <p mod>{{list.type}}</p>
+                    <p mod>{{list.deviceName}}</p>
+                    <p mod>{{list.unit}}</p>
+                    <p mod>{{list.accountNo}}</p>
+                    <p mod>{{list.total}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>库存数</span>
+                                <span>领用数</span>
+                                <span>维修数</span>
+                                <span>调动数</span>
+                                <span>报废数</span>
+                                <span>盘亏数</span>
+                                <span>盘亏总额</span>
+                                <span>盘盈数</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.stockNo}}</span>
+                                <span mod>{{list.receiveNo}}</span>
+                                <span mod>{{list.repairNo}}</span>
+                                <span mod>{{list.transferNo}}</span>
+                                <span mod>{{list.scrapNo}}</span>
+                                <span mod>{{list.inventoryLossNo}}</span>
+                                <span mod>{{list.inventoryLossTotal}}</span>
+                                <span mod>{{list.inventorySurplusNo}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>盘盈总额</span>
+                                <span>经办人</span>
+                                <span>经办人确认情况</span>
+                                <span>账务模块负责人</span>
+                                <span>账务模块核实</span>
+                                <span>总经办</span>
+                                <span>总经办审核意见</span>
+                                <span>盘点类型</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.inventorySurplusTotal}}</span>
+                                <span mod>{{list.operator}}</span>
+                                <span mod>{{list.operatorConfirm}}</span>
+                                <span mod>{{list.accountModule}}</span>
+                                <span mod>{{list.accountModuleConfirm}}</span>
+                                <span mod>{{list.zjb}}</span>
+                                <span mod>{{list.zjbOpinion}}</span>
+                                <span mod>{{list.inventoryType | cover}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

@@ -1,0 +1,67 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>账目数</em></label>
+                    <input type="number" ng-model="edit.accountNo" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总额</em></label>
+                    <input type="text" ng-model="edit.total" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>库存数</em></label>
+                    <input type="text" ng-model="edit.stockNo" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>领用数</em></label>
+                    <input type="text" ng-model="edit.receiveNo" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>维修数</em></label>
+                    <input type="text" ng-model="edit.repairNo" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调动数</em></label>
+                    <input type="text" ng-model="edit.transferNo" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>报废数</em></label>
+                    <input type="text" ng-model="edit.scrapNo" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>经办人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.operator" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.operator" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>账务模块负责人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.accountModule" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.accountModule" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总经办</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.zjb" >
+                            <option ng-repeat="use in user track by $index">{{use}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="edit.zjb" ng-verify="{}">
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="dayEditFun()">提交</button>
+    </p>
+</div>
