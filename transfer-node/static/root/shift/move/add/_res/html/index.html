@@ -1,0 +1,125 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申请人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.proposer">
+                            <option ng-repeat="a in user track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.proposer" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>IMEI号</em></label>
+                    <input type="text" ng-model="add.imeiCode" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>入库编码</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.instockCode">
+                            <option ng-repeat="a in group track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.instockCode" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调入地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.transferredArea">
+                            <option ng-repeat="a in area track by $index">{{a.area}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.transferredArea" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申请日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="onetime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>用途</em></label>
+                    <input type="text" ng-model="add.purpose" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>原存储地区项目经理</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.originalPM">
+                            <option ng-repeat="a in user track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.originalPM" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>福利模块负责人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.welfareModule">
+                            <option ng-repeat="a in user track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.welfareModule" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>原存储地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.archSaveArea">
+                            <option ng-repeat="a in area track by $index">{{a.area}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.archSaveArea" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调动途径</em></label>
+                    <select class="sele" ng-model="add.transferWay" ng-init="add.transferWay=''" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="EXPRESS">快递</option>
+                        <option value="MANPOWER">人员带动</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>快递费用</em></label>
+                    <input type="number" step="0.01" ng-model="add.expressCharge" >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调动时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="twotime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资来源</em></label>
+                    <select class="sele" ng-model="add.materialSource" ng-init="add.materialSource=''" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="BUY">公司采购</option>
+                        <option value="ALLOWED">公司外借</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资状态</em></label>
+                    <select class="sele" ng-model="add.materialState" ng-init="add.materialState=''" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="INTACT">完好</option>
+                        <option value="DAMAGED">损坏</option>
+                        <option value="MAINTENANCE">维修中</option>
+                        <option value="BAD">已经报废</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>物资负责人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.materialPrincipal">
+                            <option ng-repeat="a in user track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.materialPrincipal" >
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="add.comment">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="moveAddFun()">提交</button>
+    </p>
+</div>

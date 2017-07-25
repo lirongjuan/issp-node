@@ -1,0 +1,32 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>领用人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.recipient">
+                            <option ng-repeat="a in user track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="edit.recipient" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>福利模块负责人确认调配成功</em></label>
+                    <select class="sele" ng-model="edit.confirmDeploy">
+                        <option ng-value=false>未确认</option>
+                        <option ng-value=true>已确认</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>调动时间</em></label>
+                    <input type="text" ng-model="edit.finishDeployTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="twotime">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="confirmFun()">提交</button>
+    </p>
+</div>

@@ -1,0 +1,123 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>申请人</span>
+            <span>设备类型</span>
+            <span>物资名称</span>
+            <span>型号</span>
+            <span>IMEI号</span>
+            <span>入库编码</span>
+            <span>数量</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.proposer}}</p>
+                    <p mod>{{list.materialType}}</p>
+                    <p mod>{{list.materialName}}</p>
+                    <p mod>{{list.model}}</p>
+                    <p mod>{{list.imeiCode}}</p>
+                    <p mod>{{list.instockCode}}</p>
+                    <p mod>{{list.quantity}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>单位</span>
+                                <span>调入地区</span>
+                                <span>申请日期</span>
+                                <span>用途</span>
+                                <span>经手人</span>
+                                <span>备注</span>
+                                <span>原存储地区项目经理</span>
+                                <span>项目经理审核状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.unit}}</span>
+                                <span mod>{{list.transferredArea}}</span>
+                                <span mod>{{list.applyDate}}</span>
+                                <span mod>{{list.purpose}}</span>
+                                <span mod>{{list.handler}}</span>
+                                <span mod>{{list.comment}}</span>
+                                <span mod>{{list.originalPM}}</span>
+                                <span mod>{{list.pmAuditState | cover}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>福利模块负责人</span>
+                                <span>福利模块负责人审核状态</span>
+                                <span>原存储地区</span>
+                                <span>调用途径</span>
+                                <span>快递费用</span>
+                                <span>物资来源</span>
+                                <span>物资状态</span>
+                                <span>调动时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.welfareModule}}</span>
+                                <span mod>{{list.welfareState | cover}}</span>
+                                <span mod>{{list.archSaveArea}}</span>
+                                <span mod>{{list.transferWay | cover}}</span>
+                                <span mod>{{list.expressCharge}}</span>
+                                <span mod>{{list.materialSource | cover}}</span>
+                                <span mod>{{list.materialState | cover}}</span>
+                                <span mod>{{list.transferTime}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>物资负责人</span>
+                                <span>领用人</span>
+                                <span>福利模块负责人确认调配成功</span>
+                                <span>调配完成时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.materialPrincipal}}</span>
+                                <span mod>{{list.recipient}}</span>
+                                <span mod>{{list.confirmDeploy | cover}}</span>
+                                <span mod>{{list.finishDeployTime}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+
