@@ -11,6 +11,7 @@ app.factory('activitySer',function ($http) {
         summaryAreaByOrder:summaryAreaByOrder,
         summaryProjectByOrder:summaryProjectByOrder,
         summaryProjectNameByOrder:summaryProjectNameByOrder,
+        menuPermission:menuPermission,
     };
     function listActivity(data) {
         return $http.get('/listActivity/list',{params:data})
@@ -49,5 +50,9 @@ app.factory('activitySer',function ($http) {
     //项目名称汇总
     function summaryProjectNameByOrder(data) {
         return $http.post('/summaryProjectNameByOrder/projectName',data)
+    }
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/activity/guidePermission/'+data);
     }
 });

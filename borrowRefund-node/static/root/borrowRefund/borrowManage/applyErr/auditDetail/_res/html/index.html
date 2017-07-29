@@ -1,0 +1,78 @@
+<div class="collect">
+    <ul class="sum-list">
+        <li class="table_list">
+            <span>借款日期</span>
+            <span>预计借款日期</span>
+            <span>借款人</span>
+            <span>负责人</span>
+            <span>借款方式</span>
+            <span>参与人员</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span>{{::auditList.lendDate}}</span>
+            <span>{{::auditList.estimateLendDate}}</span>
+            <span>{{::auditList.lender}}</span>
+            <span>{{::auditList.charger}}</span>
+            <span>{{::auditList.lendWay}}</span>
+            <span>{{::auditList.attender}}</span>
+        </li>
+        <li class="table_list">
+            <span>地区</span>
+            <span>项目名称</span>
+            <span>一级科目</span>
+            <span>二级科目</span>
+            <span>三级科目</span>
+            <span>总金额</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span>{{::auditList.area}}</span>
+            <span>{{::auditList.projectName}}</span>
+            <span>{{::auditList.firstSubject}}</span>
+            <span>{{::auditList.secondSubject}}</span>
+            <span>{{::auditList.thirdSubject}}</span>
+            <span>{{::auditList.money}}</span>
+        </li>
+        <li class="span-col">
+            <span class="col-thead">说明</span>
+            <span class="col-tbody">{{::auditList.explains}}</span>
+        </li>
+        <li class="span-col">
+            <span class="col-thead">借款事由</span>
+            <span class="col-tbody">{{::auditList.lendReson}}</span>
+        </li>
+        <li class="span-col">
+            <span class="col-thead">备注</span>
+            <span class="col-tbody">{{::auditList.remark}}</span>
+        </li>
+        <li class="span-col">
+            <span class="col-thead">商品链接</span>
+            <span class="col-tbody">{{::auditList.goodsLink}}</span>
+        </li>
+    </ul>
+</div>
+<div class="content-tab list">
+<ul class="table com-table">
+            <li class="list-head">
+                <span></span>
+                <span class="data-id">id</span>
+                <span>职位名称</span>
+                <span>审核人</span>
+                <span>审核意见</span>
+                <span>审核时间</span>
+                <span>是否通过</span>
+            </li>
+            <li class="list-all"  ng-repeat="list in detailList">
+                <section>
+                    <div class="list-text">
+                        <p>{{$index+1}}</p>
+                        <p class="data-id"></p>
+                        <p>{{::list.position}}</p>
+                        <p>{{::list.auditor}}</p>
+                        <p>{{::list.auditSuggest}}</p>
+                        <p>{{::list.auditDate}}</p>
+                        <p>{{::list.passOr}}</p>
+                    </div>
+                </section>
+            </li>
+     </ul>
+</div>

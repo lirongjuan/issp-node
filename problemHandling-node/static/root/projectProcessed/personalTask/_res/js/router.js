@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.projectProcessed.personalTask.list[12]",{
-        url:"/list[12]?id=&name=&page=",
+        url:"/list[12]?id=&name=&page=&internalProjectName=&handler=",
         views:{
             "content@root.projectProcessed.personalTask":{
                 templateUrl : "root/projectProcessed/personalTask/list/_res/html/index.html",

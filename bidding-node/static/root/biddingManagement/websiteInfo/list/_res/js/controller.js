@@ -72,13 +72,6 @@ app.controller('websiteListCtrl',function($scope,websiteSer,toastr,$stateParams,
         $scope.$emit('page',$location.search().page);
     };
 
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.websiteLists,function(obj){
-            if(obj.id == delid){
-                obj._delete = delid
-            }
-        })
-    });
 
 //分页
     $scope.custom = {

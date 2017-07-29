@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"emailMenuCtrl"
             }
         }
+    }).state("root.compete.email.list[12]",{
+        url:"/list[12]?id=&name=",
+        views:{
+            "content@root.compete.email":{
+                templateUrl : "root/compete/email/list/_res/html/index.html",
+                controller:'emailListCtrl'
+            }
+        }
     }).state("root.compete.email.add[12]",{
         url:"/add[12]",
         views:{

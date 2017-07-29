@@ -13,19 +13,19 @@
             <span>经历时间</span>
             <span></span>
         </li>
-        <li class="list-all">
-            <section ng-repeat="list in marketserveLists.data|filter:teamInfo" style="display: {{list._delete?'none':'block'}};">
+        <li class="list-all" ng-repeat="list in marketserveLists.data" style="display: {{list._delete?'none':'block'}};">
+            <section >
                 <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
+                    <p mod>{{$index+1+num}}</p>
                     <p class="data-id"></p>
-                    <p>{{::list.projectName}}</p>
-                    <p>{{::list.workload}}</p>
-                    <p>{{::list.projectLaunchCost}}</p>
-                    <p>{{::list.amount}}</p>
-                    <p>{{::list.cooperationType | cover}}</p>
-                    <p>{{::list.area}}</p>
-                    <p>{{::list.startTime}}</p>
-                    <p>{{::list.duration}}</p>
+                    <p mod>{{::list.projectName}}</p>
+                    <p mod>{{::list.workload}}</p>
+                    <p mod>{{::list.projectLaunchCost}}</p>
+                    <p mod>{{::list.amount}}</p>
+                    <p mod>{{::list.cooperationType | cover}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.startTime}}</p>
+                    <p mod>{{::list.duration}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
                     </p>
@@ -40,30 +40,56 @@
                                 <span>车辆费用</span>
                                 <span>配置费用</span>
                                 <span>其它费用</span>
+                                <span>工期</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::list.labour}}</span>
-                                <span>{{::list.numberOfStaff}}</span>
-                                <span>{{::list.deviceCharge}}</span>
-                                <span>{{::list.vehicleCharge}}</span>
-                                <span>{{::list.configCharge}}</span>
-                                <span>{{::list.otherCharge}}</span>
+                                <span mod>{{::list.labour}}</span>
+                                <span mod>{{::list.numberOfStaff}}</span>
+                                <span mod>{{::list.deviceCharge}}</span>
+                                <span mod>{{::list.vehicleCharge}}</span>
+                                <span mod>{{::list.configCharge}}</span>
+                                <span mod>{{::list.otherCharge}}</span>
+                                <span mod>{{::list.timeLimit}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>服务费用</span>
+                                <span>提成</span>
+                                <span>招待费</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.serviceCharge}}</span>
+                                <span mod>{{::list.royalties}}</span>
+                                <span mod>{{::list.serveCharge}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                </div>
                 </div>
             </section>
         </li>
      </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

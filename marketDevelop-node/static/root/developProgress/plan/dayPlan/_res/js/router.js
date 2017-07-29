@@ -28,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.developProgress.plan.dayPlan.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.developProgress.plan.dayPlan":{
                 templateUrl : "root/developProgress/plan/dayPlan/edit/_res/html/index.html",

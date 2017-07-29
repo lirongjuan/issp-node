@@ -1,15 +1,40 @@
 var app = angular.module('postedList', ['ng-pagination','toastr']);
-app.controller('postedListCtrl',function($scope,postedSer,toastr){
+app.controller('postedListCtrl',function($scope,postedSer,toastr,$stateParams,$state,$location){
     $scope.$emit('changeId', null);
 
     function activatePage(page) {
         var listData = {
-            page:page
+            page:page || 1
         };
         postedSer.listChecked(listData).then(function(response){
             if(response.data.code==0){
-
-                $scope.postedLists = response.data.data
+                $scope.postedLists = response.data.data;
+                if($stateParams.id){
+                    if($stateParams.id.indexOf('&')){
+                        $stateParams.id = $stateParams.id.split('&')[0];
+                    }
+                    angular.forEach($scope.postedLists,function(obj){
+                        if(obj.id == $stateParams.id){
+                            obj._selectList = true;
+                        }
+                    });
+                    //向父Ctrl传递事件
+                    $scope.$emit('changeId', $stateParams.id);
+                }
+                if($stateParams.ids){
+                    var arr = $stateParams.ids.split(',');
+                    angular.forEach($scope.postedLists,function(obj){
+                        obj.isV = false;
+                        for(var i = 0;i<arr.length;i++){
+                            if(obj.id == arr[i]){
+                                obj.isV = true;
+                                delete arr[i];
+                            }
+                        }
+                    });
+                    //向父Ctrl传递事件
+                    $scope.$emit('changeId', $stateParams.id);
+                }
             }else{
                 toastr.error(response.data.msg, '温馨提示');
             }
@@ -24,6 +49,7 @@ app.controller('postedListCtrl',function($scope,postedSer,toastr){
         $scope.idListd = event.id;
         //向父Ctrl传递事件
         $scope.$emit('changeId', $scope.idListd);
+        $scope.$emit('page', $location.search().page);
 
     };
     //点击更多详细
@@ -44,12 +70,10 @@ app.controller('postedListCtrl',function($scope,postedSer,toastr){
         }else if(event._add==false&&$scope.selected.indexOf(event.id)!=-1){
             $scope.selected.splice($scope.selected.indexOf(event.id), 1);
         }
-
-        $scope.$emit('seledIds', $scope.selected);
+        $scope.$emit('seledIds', $scope.selected.join(','));
     };
     // 结账
     $scope.$on('billId',function(event,pleaseids){
-
         angular.forEach($scope.postedLists,function(obj){
             angular.forEach(pleaseids,function (sub) {
                 if(obj.id == sub){
@@ -78,10 +102,75 @@ app.controller('postedListCtrl',function($scope,postedSer,toastr){
     postedSer.countChecked().then(function(response){
         if(response.data.code==0){
             $scope.custom.itemsCount = response.data.data;
+            $scope.num = $location.search().page*10>10?($location.search().page-1)*10:null;
         }else{
             toastr.error(response.data.msg, '温馨提示');
         }
-    })
-
+    });
+    //获取id
+    if($stateParams.id){
+        switch ($stateParams.name){
+            case 'postponement':
+                $scope.delShow = true;
+                break;
+        }
+    }
+    //获取id数组
+    if($stateParams.ids){
+        switch ($stateParams.name){
+            case 'bill':
+                $scope.billShow = true;
+                break;
+        }
+    }
+    $scope.cancel = function(){//取消反过账
+        $scope.delShow = false;
+        $state.go('root.recordAccount.posted.list[12]',{id:null,name:null});
+    };
+    $scope.billCancel = function(){//取消结账
+        $scope.billShow = false;
+        $state.go('root.recordAccount.posted.list[12]',{ids:null,name:null});
+    };
+    var count = 0;
+    $scope.delFn = function(){//确认反过账
+        var data = {
+            id:$stateParams.id
+        };
+        postedSer.antiPosting(data).then(function(response){
+            if(response.data.code==0){
+                count++;
+                toastr.info( "反过账成功", '温馨提示');
+                $scope.$emit('changeId', null);
+                $scope.delShow = false;
+                if(($scope.custom.itemsCount-count)%10){
+                    $state.go('root.recordAccount.posted.list[12]',{id:null,name:null});
+                }else{
+                    $state.go('root.recordAccount.posted.list[12]',{id:null,name:null,page:$location.search().page-1});
+                }
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        });
+    };
+    $scope.billFn = function(){ //确认结账
+        var billData = {
+            ids : $stateParams.ids.split(',')
+        };
+        postedSer.billCheck(billData).then(function(response){
+            if(response.data.code==0){
+                count++;
+                toastr.info( "结账成功", '温馨提示');
+                $scope.$emit('changeId', null);
+                $scope.billShow = false;
+                if(($scope.custom.itemsCount-count)%10){
+                    $state.go('root.recordAccount.posted.list[12]',{ids:null,name:null});
+                }else{
+                    $state.go('root.recordAccount.posted.list[12]',{ids:null,name:null,page:$location.search().page-1});
+                }
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        });
+    }
 });
 

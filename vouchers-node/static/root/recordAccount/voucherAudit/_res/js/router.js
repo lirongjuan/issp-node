@@ -11,8 +11,16 @@ app.config(function($provide, $stateProvider){
                 controller:"voucherAuditMenuCtrl"
             }
         }
+    }).state("root.recordAccount.voucherAudit.list[12]",{
+        url:"/list[12]?id=&name=&page",
+        views:{
+            "content@root.recordAccount.voucherAudit":{
+                templateUrl : "root/recordAccount/voucherAudit/list/_res/html/index.html",
+                controller:'voucherAuditListCtrl'
+            }
+        }
     }).state("root.recordAccount.voucherAudit.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.recordAccount.voucherAudit":{
                 templateUrl : "root/recordAccount/voucherAudit/edit/_res/html/index.html",

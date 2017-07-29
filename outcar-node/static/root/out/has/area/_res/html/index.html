@@ -1,0 +1,20 @@
+<div class="collect">
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>地区</span>
+            <span>租车单价</span>
+            <span>加班费</span>
+            <span>餐费补贴</span>
+            <span>停车/过路费</span>
+            <span>金额</span>
+        </li>
+        <li class="sum-tbody"  ng-repeat="summaryList in summaryLists">
+            <span>{{summaryList.arrival}}</span>
+            <span>{{summaryList.carPrice}}</span>
+            <span>{{summaryList.overtimeFeeSum}}</span>
+            <span>{{summaryList.allowanceSum}}</span>
+            <span>{{summaryList.parkFeeSum}}</span>
+            <span>{{summaryList.amountSum}}</span>
+        </li>
+    </ul>
+</div>

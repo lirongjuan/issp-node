@@ -4,7 +4,13 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                    <input type="text"  ng-verify="{}" ng-model="data.projectName">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="data.projectName" class="sele">
+                            <option value="请选择">请选择</option>
+                            <option ng-repeat="list in allNames">{{list}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.projectName" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>付款形式</em></label>
@@ -16,7 +22,15 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>付款内容</em></label>
-                    <select class="sele" ng-model="data.remitContent" ng-verify="{}">
+                    <select class="sele" ng-model="data.remitContent">
+                        <option>请选付款内容</option>
+                        <option value="CASH">现金</option>
+                        <option value="BANK_TRANSFER">银行兑现</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>回款形式</em></label>
+                    <select class="sele" ng-model="data.backForm">
                         <option>请选付款内容</option>
                         <option value="CASH">现金</option>
                         <option value="BANK_TRANSFER">银行兑现</option>
@@ -41,6 +55,10 @@
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>提成</em></label>
                     <input type="number"  ng-verify="{}" ng-model="data.royalties">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>回款时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image backDate">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>招待费</em></label>

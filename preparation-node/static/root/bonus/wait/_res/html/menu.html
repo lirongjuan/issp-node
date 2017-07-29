@@ -1,0 +1,14 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" class="lis" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="same-two">列表</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idList}" ng-show="DELETE"  ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)"  class="same-three see">删除</a>
+    </li>
+    <li ng-click="pay()" ng-class="{'current':menuClass=='payMenu','seeParent':idList}" ng-show="EDIT"  ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-three see">支付</a>
+    </li>
+    <li ng-click="export()" ng-class="{'current':menuClass=='exportMenu'}" ui-sref=".export[12]" ng-show="EXPORT" ng-init="menuCheck('EXPORT')">
+        <a href="javascript:void(0)" class="same-one" >导出</a>
+    </li>
+</ul>

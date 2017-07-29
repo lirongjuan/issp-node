@@ -1,0 +1,89 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>项目名</span>
+            <span>时间</span>
+            <span>目标收入</span>
+            <span>实际收入</span>
+            <span>计划人工成本</span>
+            <span></span>
+        </li>
+        <li class="list-all">
+            <section ng-repeat="list in controlLists.data" style="display: {{list._delete?'none':'block'}};">
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.project}}</p>
+                    <p mod>{{::list.name}}</p>
+                    <p mod>{{::list.time}}</p>
+                    <p mod>{{::list.targetIncome}}</p>
+                    <p mod>{{::list.actualIncome}}</p>
+                    <p mod>{{::list.targetCost}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>实际人工成本</span>
+                                <span>实际车辆费用</span>
+                                <span>目标车辆费用</span>
+                                <span>目标其他费用</span>
+                                <span>实际其他费用</span>
+                                <span>目标费用合计</span>
+                                <span>实际费用合计</span>
+                                <span>目标利润率</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.actualCost}}</span>
+                                <span mod>{{::list.actualCar}}</span>
+                                <span mod>{{::list.targetCar}}</span>
+                                <span mod>{{::list.targetOther}}</span>
+                                <span mod>{{::list.actualOther}}</span>
+                                <span mod>{{::list.targetTotal}}</span>
+                                <span mod>{{::list.actualTotal}}</span>
+                                <span mod>{{::list.targetProfit}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>实际利润率</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.actualProfit}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

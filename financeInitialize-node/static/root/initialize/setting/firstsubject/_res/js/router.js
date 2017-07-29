@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"firstsubjectMenuCtrl"
             }
         }
+    }).state("root.initialize.setting.firstsubject.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.initialize.setting.firstsubject":{
+                templateUrl : "root/initialize/setting/firstsubject/list/_res/html/index.html",
+                controller:'firstsubjectListCtrl'
+            }
+        }
     }).state("root.initialize.setting.firstsubject.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,11 +28,27 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.initialize.setting.firstsubject.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.initialize.setting.firstsubject":{
                 templateUrl : "root/initialize/setting/firstsubject/edit/_res/html/index.html",
                 controller:'EditCtrl'
+            }
+        }
+    }).state("root.initialize.setting.firstsubject.export[12]",{
+        url:"/export[12]",
+        views:{
+            "content@root.initialize.setting.firstsubject":{
+                templateUrl : "root/initialize/setting/firstsubject/export/_res/html/index.html",
+                controller:'exportCtrl'
+            }
+        }
+    }).state("root.initialize.setting.firstsubject.import[12]",{
+        url:"/import[12]",
+        views:{
+            "content@root.initialize.setting.firstsubject":{
+                templateUrl : "root/initialize/setting/firstsubject/import/_res/html/index.html",
+                controller:'importCtrl'
             }
         }
     })

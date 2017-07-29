@@ -1,0 +1,8 @@
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <ul class="menu" ng-repeat="menuInfo in list.menuList" ng-if="list.menuList.length" ng-show="list.showIs">
+        <li ng-click="navClass('mission')" ng-class="{'active':navCla=='mission'}" ng-class="{'active':navCla=='basicinfo'}"  ui-sref="_root.schedulejob.mission.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('missionGroup')" ng-class="{'active':navCla=='missionGroup'}"ui-sref="_root.schedulejob.missionGroup.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}
+</a></li>
+    </ul>
+</div>

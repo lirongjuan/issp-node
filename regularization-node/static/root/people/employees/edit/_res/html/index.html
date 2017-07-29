@@ -1,0 +1,155 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+             <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched side">
+                        <select class="sele name" ng-model="data.name">
+                            <option ng-repeat="name in names" value="{{name}}">{{name}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.name">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>性别</em></label>
+                    <select class="sele gender" ng-model="data.gender">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>学历</em></label>
+                    <input type="text" ng-model="data.education">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>专业</em></label>
+                    <input type="text" ng-model="data.profession">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>入职时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image hiredate" ng-model="data.hiredate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>员工编号</em></label>
+                    <input type="text" ng-model="data.empNo">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele area" ng-model="data.area">
+                            <option ng-repeat="area in areas" value="{{area.area}}">{{area.area}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.area">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectGroup side">
+                        <select class="sele projectGroup" ng-model="data.projectGroup">
+                            <option ng-repeat="projectGroup in projectGroups" value="{{projectGroup}}">{{projectGroup}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.projectGroup">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched post side">
+                        <select class="sele post" ng-model="data.post">
+                            <option ng-repeat="post in posts" value="{{post.value}}">{{post.value}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.post">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>试用期月份</em></label>
+                    <input type="number" ng-model="data.probationPeriod">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>入职以来月平考勤扣分量</em></label>
+                    <input type="text" ng-model="data.monthAverageDeductMark">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>奖励分数</em></label>
+                    <input type="number" ng-model="data.awardSoce">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>处罚分数</em></label>
+                    <input type="number" ng-model="data.penaltyScore">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工作自述</em></label>
+                    <input type="text" ng-model="data.jobReadme">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工作总结</em></label>
+                    <input type="text" ng-model="data.jobSummary">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>条件相关说明</em></label>
+                    <input type="text" ng-model="data.criteriaAttention">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>转正条件确认</em></label>
+                    <select class="sele posCriteriaConfirmed" ng-model="data.posCriteriaConfirmed">
+                        <option value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>转正面谈信息</em></label>
+                    <input type="text" ng-model="data.posFacialInfor">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>决策层</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched decisionLevel side">
+                        <select class="sele decisionLevel" ng-model="data.decisionLevel">
+                            <option ng-repeat="decisionLevel in decisionLevels" value="{{decisionLevel}}">{{decisionLevel}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.decisionLevel">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>规划模块</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched planModule side">
+                        <select class="sele planModule" ng-model="data.planModule">
+                            <option ng-repeat="planModule in planModules" value="{{planModule}}">{{planModule}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.planModule">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>预算模块</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched budgetModule side">
+                        <select class="sele budgetModule" ng-model="data.budgetModule">
+                            <option ng-repeat="budgetModule in budgetModules" value="{{budgetModule}}">{{budgetModule}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.budgetModule">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总经办</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched gmOffice side">
+                        <select class="sele gmOffice" ng-model="data.gmOffice">
+                            <option ng-repeat="gmOffice in gmOffices" value="{{gmOffice}}">{{gmOffice}}</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.gmOffice">
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="empEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

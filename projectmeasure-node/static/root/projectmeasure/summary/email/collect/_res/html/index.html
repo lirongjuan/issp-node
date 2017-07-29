@@ -1,18 +1,17 @@
-<div class="collect" style="margin-top:-70px;">
-    <div class="collect-select">
-        <span>
-            地区：
-            <select class="sele"  ng-model="data.lender">
-                <option value="">请选择</option>
-                <option ng-repeat="list in peoples" value="{{list}}">{{ list }}</option>
-            </select>
-            <input type="text"  class="inputArea" ng-model="data.lender">
-        </span>
-        <button ng-click="collect()">汇总</button>
+<div class="collect">
+    <div class="sum-select">
+        <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+        <div class="select">
+        <p class="select-text" >
+        <span ng-repeat="name in firstCompany">{{name}}, </span>
+       </p>
+        <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="alleAreas" selected-model="firstCompany" extra-settings="stringSettings"></div>
+       </div>
     </div>
     <ul class="sum-list">
         <li class="sum-thead">
             <span>地区</span>
+            <span>项目数量</span>
             <span>项目利润</span>
             <span>多项目多界面项目数量</span>
             <span>多项目单界面项目数量</span>
@@ -26,16 +25,17 @@
         </li>
         <li class="sum-tbody" ng-repeat="Lists in summaryLists">
             <span>{{::Lists.area}}</span>
-            <span>{{::Lists.lender}}</span>
-            <span>{{::Lists.projectGroup}}</span>
-            <span>{{::Lists.projectName}}</span>
-            <span>{{::Lists.firstSubject}}</span>
-            <span>{{::Lists.secondSubject}}</span>
-            <span>{{::Lists.thirdSubject}}</span>
-            <span>{{::Lists.payCondition}}</span>
-            <span>{{::Lists.money}}</span>
-            <span>{{::Lists.payCondition}}</span>
-            <span>{{::Lists.money}}</span>
+            <span>{{::Lists.projectCount}}</span>
+            <span>{{::Lists.projectProfit}}</span>
+            <span>{{::Lists.mmProjectCount}}</span>
+            <span>{{::Lists.mmProjectCount}}</span>
+            <span>{{::Lists.smProjectCount}}</span>
+            <span>{{::Lists.ssProjectCount}}</span>
+            <span>{{::Lists.ssProjectCount}}</span>
+            <span>{{::Lists.matterProjectCount}}</span>
+            <span>{{::Lists.agencyProjectCount}}</span>
+            <span>{{::Lists.agencyProjectCount}}</span>
+            <span>{{::Lists.testDeficitProjectCount}}</span>
         </li>
     </ul>
 </div>

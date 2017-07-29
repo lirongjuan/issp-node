@@ -1,27 +1,38 @@
-<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
 <ul class="list">
-    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list" class="lis">
-        <a href="javascript:void(0)" class="same-two">列表<span>Tabulate</span></a>
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" class="lis" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="same-two">列表<span></span></a>
     </li>
-    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]">
-        <a href="javascript:void(0)"  class="same-three">添加市场招待申请<span>Add</span></a>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="same-three">添加<span></span></a>
     </li>
-    <li ng-click="addcustomer()" ng-class="{'current':menuClass=='addcustomerMenu'}">
-        <a href="javascript:void(0)"  class="same-three">添加客户信息<span>addcustomer</span></a>
+    <li ng-click="addcustomer()" ng-class="{'current':menuClass=='addcustomerMenu','seeParent':idList}"  ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="same-three see">添加客户信息<span></span></a>
     </li>
-    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu'}">
-        <a href="javascript:void(0)"  class="same-one" >编辑市场招待记录<span>Edit</span></a>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idList}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see" >编辑<span></span></a>
     </li>
-    <li ng-click="organize()" ng-class="{'current':menuClass=='organizeMenu'}">
-        <a href="javascript:void(0)"  class="same-three">资金模块 <span>Organize</span></a>
+    <li ng-click="organize()" ng-class="{'current':menuClass=='organizeMenu','seeParent':idList}" ng-show="AUDIT" ng-init="menuCheck('AUDIT')">
+        <a href="javascript:void(0)"  class="same-three see">资金模块意见<span></span></a>
     </li>
-    <li ng-click="executiveOpinion()" ng-class="{'current':menuClass=='executiveOpinionMenu'}">
-        <a href="javascript:void(0)"  class="same-three">决策层审核 <span>executiveOpinion</span></a>
+    <li ng-click="executiveOpinion()" ng-class="{'current':menuClass=='executiveOpinionMenu','seeParent':idList}" ng-show="AUDIT" ng-init="menuCheck('AUDIT')">
+        <a href="javascript:void(0)"  class="same-three see">决策层意见<span></span></a>
     </li>
-    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu'}">
-        <a href="javascript:void(0)"  class="same-three">删除<span>Delete</span></a>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idList}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)"  class="same-three see">删除<span></span></a>
     </li>
-    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu'}">
-        <a href="javascript:void(0)"  class="same-three">查看客户<span>view</span></a>
+    <li ng-click="see()" ng-class="{'current':menuClass=='seeMenu','seeParent':idList}" ng-show="checkCustomer" ng-init="menuCheck('checkCustomer')">
+        <a href="javascript:void(0)"  class="same-three see">查看客户<span></span></a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idList}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)" class="same-two see" >上传附件<span></span></a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':idList}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)" class="same-two see" >查看附件<span></span></a>
+    </li>
+    <li ng-click="import()" ng-class="{'current':menuClass=='importMenu'}" ui-sref=".import[12]" ng-show="IMPORT" ng-init="menuCheck('IMPORT')">
+        <a href="javascript:void(0)" class="same-three" >导入<span></span></a>
+    </li>
+    <li ng-click="export()" ng-class="{'current':menuClass=='exportMenu'}" ui-sref=".export[12]" ng-show="EXPORT" ng-init="menuCheck('EXPORT')">
+        <a href="javascript:void(0)" class="same-one" >导出<span></span></a>
     </li>
 </ul>

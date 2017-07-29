@@ -1,0 +1,22 @@
+
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    </li>
+    <li ng-click="export()" ng-class="{'current':menuClass=='exportMenu'}" ui-sref=".export[12]" ng-show="EXPORT" ng-init="menuCheck('EXPORT')">
+        <a href="javascript:void(0)" class="same-one" >导出</a>
+    </li>
+    <li ng-click="area()" ng-class="{'current':menuClass=='areaMenu'}" ui-sref=".area[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)"  class="same-two">地区汇总</a>
+    </li>
+    <li ng-click="department()" ng-class="{'current':menuClass=='departmentMenu'}" ui-sref=".department[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)"  class="same-three">部门汇总</a>
+    </li>
+    <li ng-click="material()" ng-class="{'current':menuClass=='materialMenu'}" ui-sref=".material[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)"  class="same-one">物资名称汇总</a>
+    </li>
+    <li ng-click="state()" ng-class="{'current':menuClass=='stateMenu'}" ui-sref=".state[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)"  class="same-two">状态汇总</a>
+    </li>
+</ul>

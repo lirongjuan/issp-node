@@ -1,0 +1,167 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.area">
+                            <option ng-repeat="areas in getAllAreas">{{areas.area}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editPurchase.area" ng-init="editPurchase.area = '请选择'">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.projectTeam">
+                            <option ng-repeat="teams in getAllTeams" >{{teams.department}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editPurchase.projectTeam" ng-init="editPurchase.projectTeam = '请选择'">
+                    </div>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>申购人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.requisitioner">
+                            <option ng-repeat="people in getAllNames">{{people}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editPurchase.requisitioner" ng-init="editPurchase.requisitioner = '请选择'">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申购日期</em></label>
+                    <input type="text"  onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="date-icon subscribeDate" ng-model="editPurchase.subscribeDate">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>设备类型</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.deviceType">
+                            <option value="硬件">硬件</option>
+                            <option value="软件">软件</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editPurchase.deviceType" ng-init="editPurchase.deviceType = '请选择'">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设备名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editPurchase.deviceName">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>型号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editPurchase.model">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>数量</em></label>
+                    <input type="number" min="1" ng-verify="{}" ng-model="editPurchase.quantity" id="inp">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>单位</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editPurchase.unit">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>购买原因</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editPurchase.buyReason">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>单价</em></label>
+                    <input type="number" ng-verify="{}" ng-model="editPurchase.unitPrice">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总额</em></label>
+                    <input type="number" ng-verify="{}" ng-model="editPurchase.totalSum">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>途径</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editPurchase.approach">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>预计借款时间</em></label>
+                    <input type="text"  onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="date-icon planBorrowTime" ng-model="editPurchase.planBorrowTime">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>地区审核人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.areaAuditor">
+                            <option ng-repeat="people in getAllNames">{{people}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editPurchase.areaAuditor" ng-init="editPurchase.areaAuditor = '请选择'">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>购买网址/店铺</em></label>
+                    <input type="text"ng-model="editPurchase.buyAddress">
+                </li>
+                <li class="required">
+                    <label><em>收件地址</em></label>
+                    <input type="text" ng-model="editPurchase.deliveryAddress">
+                </li>
+                <li class="required">
+                    <label ><em>收件人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.receiver">
+                            <option ng-repeat="people in getAllNames">{{people}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="editPurchase.receiver" ng-init="editPurchase.receiver = '请选择'">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>收件人联系方式</em></label>
+                    <input type="text" ng-model="editPurchase.receiverPhone">
+                </li>
+                <li class="required">
+                    <label ><em>借款人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.borrower">
+                            <option ng-repeat="people in getAllNames">{{people}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="editPurchase.borrower" ng-init="editPurchase.borrower = '请选择'">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>借款方式</em></label>
+                    <input type="text" ng-model="editPurchase.borrowManner">
+                </li>
+                <li class="required">
+                    <label ><em>是否为代写借支</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.ifReplaceBorrow">
+                            <option value="true">是</option>
+                            <option value="false">否</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label ><em>是否付款</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editPurchase.ifPayment">
+                            <option value="true">是</option>
+                            <option value="false">否</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>快递单号</em></label>
+                    <input type="text" ng-model="editPurchase.expressNumber">
+                </li>
+                <li class="required">
+                    <label><em>备注(收款卡号)</em></label>
+                    <input type="text" ng-model="editPurchase.comment">
+                </li>
+
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="purchaseEditFun()">提交</button>
+    </p>
+</div>
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

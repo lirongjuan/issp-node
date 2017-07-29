@@ -1,13 +1,11 @@
 <div class="nav-list" ng-repeat="list in showsList">
-    <h3 class="header-menu big" ng-click="showMenu(list,true)"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('marketserve')" ng-class="{'active':navCla=='marketserve'}"  ui-sref="_root.marketActivity.marketserve.list"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
-        <li ng-click="navClass('email')" ng-class="{'active':navCla=='email'}"  ui-sref="_root.marketActivity.email.list"><a href="javascript:void(0)">{{menuInfo.name2}}
+        <li ng-click="navClass('marketserve')" ng-show="marketserveapply" ng-class="{'active':navCla=='marketserve'}"  ui-sref="_root.marketActivity.marketserve.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('email')" ng-show="marketservesummary" ng-class="{'active':navCla=='email'}"  ui-sref="_root.marketActivity.email.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}
 </a></li>
-        <li ng-click="navClass('servereCord')" ng-class="{'active':navCla=='servereCord'}"  ui-sref="_root.marketActivity.servereCord.list"><a href="javascript:void(0)">{{menuInfo.name3}}
+        <li ng-click="navClass('servereCord')" ng-show="marketserverecord" ng-class="{'active':navCla=='servereCord'}"  ui-sref="_root.marketActivity.servereCord.list[12]"><a href="javascript:void(0)">{{menuInfo.name3}}
 </a></li>
-        <li  ng-class="{'active':navCla==''}"  <a href="javascript:void(0)">{{menuInfo.name4}}
-</a></li>
-        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.marketActivity.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name5}}</a></li>
+        <li ng-click="navClass('setting')"  ng-show="cuspermission" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.marketActivity.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name5}}</a></li>
     </ul>
 </div>

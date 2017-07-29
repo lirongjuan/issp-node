@@ -2,7 +2,45 @@ var request = require('request-promise');
 var path = require('path');
 var config = require(path.resolve('plugins/read-config.js'));
 var form = require(path.resolve('plugins/form.js'));
+var urlEncode = require(path.resolve('plugins/urlEncode.js'));
+var uploadFile = require(path.resolve('plugins/uploadFile.js'));
 module.exports = function(){
+     //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/firstsubject/v1/setButtonPermission',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.siginNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/firstsubject/v1/sonPermission',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //币别 功能菜单权限
+    this.currencyPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/currency/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     //列表 币别
    this.currencyList= function(argvs){
         var options = {
@@ -10,7 +48,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/currency/v1/listCurrency?limit=10&page=${argvs.page}`,
             headers : {
-                // token : token
+                userToken:argvs.userToken
             }
         };
         return request(options);
@@ -75,7 +113,18 @@ module.exports = function(){
         };
         return request(options);
     };
-
+     //一级科目设置 功能菜单权限
+    this.firstsubjectPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/firstsubject/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     //列表 一级科目设置
    this.firstsubjectList= function(argvs){
         var options = {
@@ -83,7 +132,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/firstsubject/v1/listFirstSubject?limit=10&page=${argvs.page}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -148,16 +197,42 @@ module.exports = function(){
         };
         return request(options);
     };
+     //一级科目 导入
+    this.firstsubjectImport = function(argvs){
+        var options = {
+            url: config()['rurl']+'/firstsubject/v1/importExcel',
+            method: 'POST',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
 
                         //  类别
-    //资产类
+     //功能菜单权限
+    this.categoryPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/category/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //....类
     this.sortList= function(argvs){
         var options = {  
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + `/category/v1/listCategory?limit=10&categoryName=${argvs.categoryName}&page=${argvs.page}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -242,7 +317,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/account/v1/listAccount?limit=10&categoryName=${argvs.categoryName}&page=${argvs.page}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -291,7 +366,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/account/v1/listThirdCategory?firstSubject=${encodeURIComponent(argvs.firstSubject)}&secondSubject=${encodeURIComponent(argvs.secondSubject)}`,   
             headers : {
-                // token : token
+               userToken : argvs.userToken
             }
         };
         return request(options);
@@ -343,16 +418,49 @@ module.exports = function(){
         };
         return request(options);
     };
-    //用户退出
-    this.logout = function(argvs){
+    this.listSetting = function(argvs){
         var options = {
-            method : 'POST',
+            method : 'GET',
             timeout : 3000,
-            uri : config()['user'] + `/v1/sign-out/${argvs.token}`,
+            uri : config()['rurl'] + `/cuspermission/v1/list`,
+        };
+        return request(options);
+    };
+    this.countSetting = function(){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/cuspermission/v1/count',
+        };
+        return request(options);
+    };
+    this.getpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/getOneById/${argvs.id}`,
+        };
+        return request(options);
+    };
+    this.getListpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/listOperateById/${argvs.id}`,
+        };
+        return request(options);
+    };
+    this.editSetting = function(argvs){
+        var options = {
+            method : 'PUT',
+            timeout : 3000,
+            uri : config()['rurl'] + '/cuspermission/v1/edit',
+            headers:{
+                userToken:argvs.userToken
+            },
             form:argvs
         };
         return request(options);
     };
-
     return this;
 };

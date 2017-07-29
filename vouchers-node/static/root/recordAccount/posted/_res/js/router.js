@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"postedMenuCtrl"
             }
         }
+    }).state("root.recordAccount.posted.list[12]",{
+        url:"/list[12]?id=&ids=&name=&page=",
+        views:{
+            "content@root.recordAccount.posted":{
+                templateUrl : "root/recordAccount/posted/list/_res/html/index.html",
+                controller:'postedListCtrl'
+            }
+        }
     }).state("root.recordAccount.posted.subjectsSummary[12]",{
         url:"/subjectsSummary[12]",
         views:{

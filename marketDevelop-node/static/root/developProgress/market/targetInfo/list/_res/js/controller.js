@@ -39,7 +39,7 @@ app.controller('targetInfoListCtrl',function($scope,targetInfoSer,toastr,$stateP
 
 //分页
     $scope.custom = {
-        itemsCount: 14, //总条数
+        itemsCount: 1, //总条数
         take: 10, //每页显示
         activatePage: activatePage
     };

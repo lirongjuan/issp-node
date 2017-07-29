@@ -1,15 +1,24 @@
-<div class="nav-list">
-    <h3 class="header-menu big"><i class="nav-arrow"></i>往年账务情况</h3>
-    <ul class="menu">
-        <li ng-click="navClass('proWeek')" ng-class="{'active':navCla=='proWeek'}"  ui-sref="_root.budget.proWeek.list" >
-            <a href="javascript:void(0)">项目收入周</a></li>
-        <li ng-click="navClass('month')" ng-class="{'active':navCla=='month'}"  ui-sref="_root.budget.month.list" >
-            <a href="javascript:void(0)">项目收入月</a></li>
-        <li ng-click="navClass('areaWeek')" ng-class="{'active':navCla=='areaWeek'}"  ui-sref="_root.budget.areaWeek.list" >
-            <a href="javascript:void(0)">地区收入周</a></li>
-        <li ng-click="navClass('areaMonth')" ng-class="{'active':navCla=='areaMonth'}"  ui-sref="_root.budget.areaMonth.list" >
-            <a href="javascript:void(0)">地区收入月</a></li>
-        <li ng-click="navClass('warning')" ng-class="{'active':navCla=='warning'}"  ui-sref="_root.budget.warning.list" >
-            <a href="javascript:void(0)">预警</a></li>
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass('proWeek')" ng-show="projectweek" ng-class="{'active':navCla=='proWeek'}"  ui-sref="_root.budget.proWeek.list[12]" >
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass('month')" ng-show="projectmonth" ng-class="{'active':navCla=='month'}"  ui-sref="_root.budget.month.list" >
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass('areaWeek')" ng-show="arrivalweek" ng-class="{'active':navCla=='areaWeek'}"  ui-sref="_root.budget.areaWeek.list[12]" >
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass('areaMonth')" ng-show="arrivalmonth" ng-class="{'active':navCla=='areaMonth'}"  ui-sref="_root.budget.areaMonth.list" >
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass('warning')" ng-show="warn" ng-class="{'active':navCla=='warning'}"  ui-sref="_root.budget.warning.list" >
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass('setting')" ng-show="cuspermission" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.budget.setting.list[12]" >
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
      </ul>
 </div>

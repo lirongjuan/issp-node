@@ -1,6 +1,3 @@
-/**
- * Created by ike on 2017/4/13.
- */
 var app = angular.module('collectApp', ['toastr']);
 app.controller('grounpCtrl',function($scope,checkincomeSer,toastr) {
     //查看更多
@@ -12,7 +9,7 @@ app.controller('grounpCtrl',function($scope,checkincomeSer,toastr) {
          if(response.data.code==0){
             $scope.projectGroups = response.data.data;
          }else{
-             toastr.error('汇总失败','温馨提示')
+                toastr.error( response.data.msg , '温馨提示');
         }
     })
     
@@ -32,9 +29,9 @@ app.controller('grounpCtrl',function($scope,checkincomeSer,toastr) {
         }
         checkincomeSer.ctGroup(collectData).then(function(response){
             if(response.data.code==0){
-                $scope.lists = response.data.data;
+                $scope.listss = response.data.data;
             }else{
-                toastr.error('汇总失败','温馨提示')
+                toastr.error( response.data.msg , '温馨提示');
             }
         });
     }

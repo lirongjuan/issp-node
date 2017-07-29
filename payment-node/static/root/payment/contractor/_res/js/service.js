@@ -7,6 +7,7 @@ app.factory('contractorSer',function ($http) {
         editContractor:editContractor,
         findContractorId:findContractorId,
         deleteContractor:deleteContractor,
+        menuPermission:menuPermission
     };
     function listContractor(data) {
         return $http.get('/listContractor/list',{
@@ -36,5 +37,9 @@ app.factory('contractorSer',function ($http) {
         return $http.get('/deleteContractor/delete',{
             params: data
         })
+    }
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/contractor/guidePermission/'+data);
     }
 });

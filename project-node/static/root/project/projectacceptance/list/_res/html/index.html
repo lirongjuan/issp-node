@@ -1,8 +1,8 @@
+<script src="../js/controller.js"></script>
 <div class="content-tab list">
     <ul class="table com-table">
         <li class="list-head">
             <span></span>
-            <span class="data-id">id</span>
             <span>合同外部项目名称</span>
             <span>内部项目名称</span>
             <span>销售合同号</span>
@@ -15,15 +15,14 @@
         <li class="list-all">
             <section ng-repeat="list in projectacceptanceLists.data" style="display: {{list._delete?'none':'block'}};">
                 <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p class="data-id"></p>
-                    <p>{{list.outerName}}</p>
-                    <p>{{list.innerName}}</p>
-                    <p>{{list.saleNum}}</p>
-                    <p>{{list.dispatchNum}}</p>
-                    <p>{{list.area}}</p>
-                    <p>{{list.checkApplyReport}}</p>
-                    <p>{{list.startCheckTime}}</p>
+                    <p>{{$index+1+num}}</p>
+                    <p mod>{{::list.outerName}}</p>
+                    <p mod>{{::list.innerName}}</p>
+                    <p mod>{{::list.saleNum}}</p>
+                    <p mod>{{::list.dispatchNum}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.checkApplyReport}}</p>
+                    <p mod>{{::list.startCheckTime}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
                     </p>
@@ -42,14 +41,14 @@
                                 <span>工程遗留问题清单</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.startCheckContent}}</span>
-                                <span>{{list.startCheckDecision}}</span>
-                                <span>{{list.workOrder}}</span>
-                                <span>{{list.customerTransferList}}</span>
-                                <span>{{list.enginMemorandum}}</span>
-                                <span>{{list.deviceInstallReport}}</span>
-                                <span>{{list.systemCheckBook}}</span>
-                                <span>{{list.enginLeaveList}}</span>
+                                <span mod>{{::list.startCheckContent}}</span>
+                                <span mod>{{::list.startCheckDecision}}</span>
+                                <span mod>{{::list.workOrder}}</span>
+                                <span mod>{{::list.customerTransferList}}</span>
+                                <span mod>{{::list.enginMemorandum}}</span>
+                                <span mod>{{::list.deviceInstallReport}}</span>
+                                <span mod>{{::list.systemCheckBook}}</span>
+                                <span mod>{{::list.enginLeaveList}}</span>
                             </p>
                         </li>
                         <li>
@@ -58,24 +57,36 @@
                                 <span>工程竣工验收报告</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.technicalLeaveList}}</span>
-                                <span>{{list.projectCompleteReport}}</span>
+                                <span mod>{{::list.technicalLeaveList}}</span>
+                                <span mod>{{::list.projectCompleteReport}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                </div>
                 </div>
             </section>
         </li>
      </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

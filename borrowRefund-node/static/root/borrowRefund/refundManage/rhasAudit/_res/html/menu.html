@@ -1,0 +1,12 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list width-12">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="chargerAudit()" ng-class="{'current':menuClass=='chargerAuditMenu','seeParent':idList}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see" >分析</a>
+    </li>
+    <li ng-click="congeal()" ng-class="{'current':menuClass=='congealMenu','seeParent':idList}" ng-show="FINACECONGEL" ng-init="menuCheck('FINACECONGEL')">
+        <a href="javascript:void(0)"  class="same-one" >申请冻结</a>
+    </li>
+</ul>

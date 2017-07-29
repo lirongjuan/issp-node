@@ -1,0 +1,94 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span>地区英文代号</span>
+            <span>项目组英文代号</span>
+            <span>大模块英文字符</span>
+            <span>小模块英文字符</span>
+            <span>小项目数字字段</span>
+            <span>属性数字字段</span>
+            <span>类型英文代号</span>
+            <span></span>
+        </li>
+        <li class="list-all">
+            <section ng-repeat="list in accountLists.data" style="display: {{list._delete?'none':'block'}};">
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.projectTeamEnglishCode}}</p>
+                    <p mod>{{::list.projectTeamEnglishCode}}</p>
+                    <p mod>{{::list.largeModuleEnglishCharacter}}</p>
+                    <p mod>{{::list.smallModuleEnglishCharacter}}</p>
+                    <p mod>{{::list.smallProjectNumField}}</p>
+                    <p mod>{{::list.attributeNumField}}</p>
+                    <p mod>{{::list.typeEnglishCode}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>目录数字字段</span>
+                                <span>事件内容</span>
+                                <span>物品内容</span>
+                                <span>文献主题</span>
+                                <span>内容概况数字字段</span>
+                                <span>序号</span>
+                                <span>地区数字字段</span>
+                                <span>部门数字字段</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.directoryNumField}}</span>
+                                <span mod>{{::list.eventContent}}</span>
+                                <span mod>{{::list.articleContent}}</span>
+                                <span mod>{{::list.theme}}</span>
+                                <span mod>{{::list.contentSummaryNumField}}</span>
+                                <span mod>{{::list.no}}</span>
+                                <span mod>{{::list.areaNumField}}</span>
+                                <span mod>{{::list.departmentNumField}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>员工编号</span>
+                                <span>岗位数字字段</span>
+                                <span>时间年月日字段</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.employeeNum}}</span>
+                                <span mod>{{::list.postNumField}}</span>
+                                <span mod>{{::list.timeField}}</span>
+                                <span mod>{{::list.remark}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

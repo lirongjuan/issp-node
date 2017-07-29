@@ -14,11 +14,11 @@ app.controller('rootCtrl', function ($scope,$rootScope,$state,ipCookie,rootSer,$
 
      $scope.login = function(){
         var absurl = $location.absUrl();
-        window.location.href='http://localhost/login?url='+absurl
+        window.location.href='http://user.issp.bjike.com/login?url='+absurl
     };
     $scope.logout = function(){
         var abs = window.location.host;
         var hashs = $location.url().split('?')[0];
-        location.href="http://localhost/user/logout?absurl="+abs+"&hash="+hashs;
+        location.href="http://user.issp.bjike.com/user/logout?absurl="+abs+"&hash="+hashs;
     }
 })

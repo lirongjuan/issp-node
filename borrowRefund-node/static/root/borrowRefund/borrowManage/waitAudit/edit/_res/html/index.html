@@ -1,0 +1,80 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <!--表单验证插件-->
+    <div class="collect">
+        <ul class="sum-list">
+            <li class="table_list">
+                <span><i><img src="/images/mandatory.png"></i> 借款日期</span>
+                <span><i><img src="/images/mandatory.png"></i> 预计借款日期</span>
+                <span><i><img src="/images/mandatory.png"></i> 借款人</span>
+                <span>参与人员</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span><input type="text" ng-model="data.lendDate" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.estimateLendDate" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.lender" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.attender"></span>
+            </li>
+            <li class="table_list">
+                <span><i><img src="/images/mandatory.png"></i> 负责人</span>
+                <span><i><img src="/images/mandatory.png"></i> 借款方式</span>
+                <span><i><img src="/images/mandatory.png"></i> 地区</span>
+                <span><i><img src="/images/mandatory.png"></i> 项目名称</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span><input type="text" ng-model="data.charger" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.lendWay" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.area" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.projectName" ng-verify="{}"></span>
+            </li>
+            <li class="table_list">
+                <span><i><img src="/images/mandatory.png"></i> 一级科目</span>
+                <span><i><img src="/images/mandatory.png"></i> 二级科目</span>
+                <span><i><img src="/images/mandatory.png"></i> 三级科目</span>
+                <span><i><img src="/images/mandatory.png"></i> 总金额(元)</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span><input type="text" ng-model="data.firstSubject" ng-verify="{}" disabled></span>
+                <span><input type="text" ng-model="data.secondSubject" ng-verify="{}" disabled></span>
+                <span>
+                    <select ng-model="data.thirdSubject" ng-change="sjChange(data.thirdSubject)">
+                        <option>请选择三级科目</option>
+                        <option ng-repeat="subject in subjects" value="{{ subject.thirdSubject }}">{{ subject.thirdSubject}}</option>
+                    </select>
+                </span>
+                <span><input type="text" ng-model="data.money" ng-verify="{}"></span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead"><i><img src="/images/mandatory.png"></i> 说明</span>
+                <span class="col-tbody">
+                    <select class="sele" ng-model="data.explains" ng-change="explainFn(data.explains)">
+                        <option>请选择说明</option>
+                        <option ng-repeat="list in PlainsList" value="{{ list.remark }}">{{ list.remark }}</option>
+                    </select>
+                </span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead"><i><img src="/images/mandatory.png"></i> 借款事由</span>
+                <span class="col-tbody"><input type="text" ng-model="data.lendReson" ng-verify="{}"></span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead"><i><img src="/images/mandatory.png"></i> 备注</span>
+                <span class="col-tbody"><input type="text" ng-model="data.remark" ng-verify="{}"></span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead"><i><img src="/images/mandatory.png"></i> 商品链接</span>
+                <span class="col-tbody"><input type="text" ng-model="data.goodsLink" ng-verify="{}"></span>
+            </li>
+        </ul>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="EditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+    !function () {
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    } ();
+
+</script>

@@ -74,7 +74,7 @@ app.controller('yearPlanListCtrl',function($scope,yearPlanSer,toastr,$stateParam
 
 //分页
     $scope.custom = {
-        itemsCount: 50, //总条数
+        itemsCount: 4, //总条数
         take: 10, //每页显示
         activatePage: activatePage
     };

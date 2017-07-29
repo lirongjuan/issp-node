@@ -14,14 +14,14 @@
         <li class="list-all" ng-repeat="list in areaMonthLists" style="display: {{list._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p>{{list.arrival}}</p>
-                    <p>{{list.year}}</p>
-                    <p>{{list.month}}</p>
-                    <p>{{list.scale}}</p>
-                    <p>{{list.targetWork}}</p>
-                    <p>{{list.actualWork}}</p>
-                    <p>{{list.workDifferences}}</p>
+                    <p>{{$index+1+num}}</p>
+                    <p mod>{{::list.arrival}}</p>
+                    <p mod>{{::list.year}}</p>
+                    <p mod>{{::list.month}}</p>
+                    <p mod>{{::list.scale}}</p>
+                    <p mod>{{::list.targetWork}}</p>
+                    <p mod>{{::list.actualWork}}</p>
+                    <p mod ng-class="{'red':list.workDifferences>=maxNum}">{{::list.workDifferences}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
                     </p>
@@ -35,9 +35,9 @@
                                 <span>收入差额总量</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.targetIncome}}</span>
-                                <span>{{list.planIncome}}</span>
-                                <span>{{list.incomeDifferences}}</span>
+                                <span mod>{{::list.targetIncome}}</span>
+                                <span mod>{{::list.planIncome}}</span>
+                                <span mod ng-class="{'red':list.incomeDifferences>=maxNum}">{{::list.incomeDifferences}}</span>
                             </p>
                         </li>
                     </ul>
@@ -45,11 +45,17 @@
             </section>
         </li>
     </ul>
-    <footer class="footer">
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+     <footer class="footer">
         <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
 
 
 

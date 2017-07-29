@@ -1,7 +1,8 @@
-<div class="nav-list">
-    <h3 class="header-menu big"><i class="nav-arrow"></i>收入核算资金回笼</h3>
-    <ul class="menu">
-        <li ng-click="navClass('checkindex')" ng-class="{'active':navCla=='checkindex'}"  ui-sref="_root.incomeAccount.check.checkindex.list"><a href="javascript:void(0)">指标设置</a></li>
-        <li ng-click="navClass('checkincome')" ng-class="{'active':navCla=='checkincome'}"  ui-sref="_root.incomeAccount.check.checkincome.list"><a href="javascript:void(0)">收入核算-资金回笼</a></li>
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass('checkindex')" ng-show="checkindex" ng-class="{'active':navCla=='checkindex'}"  ui-sref="_root.incomeAccount.check.checkindex.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('checkincome')" ng-show="checkincome" ng-class="{'active':navCla=='checkincome'}"  ui-sref="_root.incomeAccount.check.checkincome.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
+        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}" ng-show="cuspermission" ui-sref="_root.incomeAccount.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
     </ul>
 </div>

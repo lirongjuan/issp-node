@@ -20,11 +20,19 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.project.projectacceptance.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.project.projectacceptance":{
                 templateUrl : "root/project/projectacceptance/edit/_res/html/index.html",
                 controller:'projectacceptanceEditCtrl'
+            }
+        }
+    }).state("root.project.projectacceptance.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.project.projectacceptance":{
+                templateUrl : "root/project/projectacceptance/list/_res/html/index.html",
+                controller:'projectacceptanceListCtrl'
             }
         }
     })

@@ -1,0 +1,43 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span class="data-id">id</span>
+            <span>项目名称</span>
+            <span>姓名</span>
+            <span>人员性质</span>
+            <span>岗位</span>
+            <span>个人职称</span>
+            <span>工作年限</span>
+            <span>资质</span>
+            <span style="flex: 0 0 16%">项目期间正常人工成本</span>
+            <span style="flex: 0 0 16%">项目期间加班人工成本</span>
+        </li>
+        <li class="list-all">
+            <section >
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList()">
+                    <p mod>{{$index+1}}</p>
+                    <p class="data-id"></p>
+                    <p mod>{{::list.projectName}}</p>
+                    <p mod>{{::list.name}}</p>
+                    <p mod>{{::list.peopleProperty | cover}}</p>
+                    <p mod>{{::list.post}}</p>
+                    <p mod>{{::list.personalTitle}}</p>
+                    <p mod>{{::list.yearsOfWork}}</p>
+                    <p mod>{{::list.aptitude}}</p>
+                    <p mod style="flex: 0 0 16%">{{::list.normalLaborCost}}</p>
+                    <p mod style="flex: 0 0 16%">{{::list.overtimeLaborCost}}</p>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+    </footer>
+</div>

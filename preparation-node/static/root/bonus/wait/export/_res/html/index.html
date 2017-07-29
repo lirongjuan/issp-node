@@ -1,0 +1,49 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><em>年份</em></label>
+                    <input type="text" ng-model="years">
+                </li>
+                <li class="required">
+                    <label><em>开始月份</em></label>
+                    <select class="sele" ng-model="startMonth">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>结束月份</em></label>
+                    <select class="sele" ng-model="endMonth">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>

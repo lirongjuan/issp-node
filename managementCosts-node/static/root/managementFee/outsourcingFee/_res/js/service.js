@@ -1,6 +1,7 @@
 var app = angular.module('outsourcingServer',[]);
 app.factory('outsourcingSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         listOutsourcing : listOutsourcing,
         getOutsourcingYear:getOutsourcingYear,
         addOutsourcing:addOutsourcing,
@@ -17,6 +18,11 @@ app.factory('outsourcingSer',function ($http) {
         getOutProject:getOutProject
 
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/outfee/guidePermission/'+data);
+    }
+    //列表
     function listOutsourcing(data) {
         return $http.get('/outfee/list',{
             params: data

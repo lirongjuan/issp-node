@@ -3,23 +3,26 @@
         <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
         {{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('voucherGeneration')" ng-class="{'active':navCla=='voucherGeneration'}"  ui-sref="_root.recordAccount.voucherGeneration.list">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="voucherGenerate" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.recordAccount.voucherGeneration.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name}}</a>
         </li>
-        <li ng-click="navClass('voucherAudit')" ng-class="{'active':navCla=='voucherAudit'}" ui-sref="_root.recordAccount.voucherAudit.list">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="voucherAudit" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.recordAccount.voucherAudit.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name2}}</a>
         </li>
-        <li ng-click="navClass('auditCredentials')" ng-class="{'active':navCla=='auditCredentials'}" ui-sref="_root.recordAccount.auditCredentials.list">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="voucherHasAudit" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.recordAccount.auditCredentials.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name3}}</a>
         </li>
-        <li ng-click="navClass('posted')" ng-class="{'active':navCla=='posted'}" ui-sref="_root.recordAccount.posted.list">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="voucherPassAccount" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.recordAccount.posted.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name4}}</a>
         </li>
-        <li ng-click="navClass('billRecords')" ng-class="{'active':navCla=='billRecords'}" ui-sref="_root.recordAccount.billRecords.list">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="voucherPayAccount" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.recordAccount.billRecords.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name5}}</a>
         </li>
-        <li ng-click="navClass('voucherRecords')" ng-class="{'active':navCla=='voucherRecords'}" ui-sref="_root.recordAccount.voucherRecords.list">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="voucherRecord" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.recordAccount.voucherRecords.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.recordAccount.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name7}}</a>
         </li>
     </ul>
 </div>

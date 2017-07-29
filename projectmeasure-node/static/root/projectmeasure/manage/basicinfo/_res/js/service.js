@@ -2,6 +2,7 @@ var app = angular.module('basicinfoServe',[]);
 app.factory('basicinfoSer',function ($http) {
     return {
         listMarketserve1 : listMarketserve,
+        menuPermission : menuPermission,
         countBaseInfo1:countBaseInfo,
         addMarketserveapply1:addMarketserveapply,
         addCustomerinfo1:addCustomerinfo,
@@ -9,6 +10,10 @@ app.factory('basicinfoSer',function ($http) {
         marketserveapplyEdit1:marketserveapplyEdit,
         marketserveapplyDel1:marketserveapplyDel
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/baseinfomanage/guidePermission/'+data);
+    }
     //列表
     function listMarketserve(data) {
         return $http.get('/projectmeasure/basicinfo/list',{

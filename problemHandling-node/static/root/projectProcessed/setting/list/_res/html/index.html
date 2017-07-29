@@ -9,7 +9,7 @@
         <li class="list-all" ng-repeat="list in settingLists" >
             <section >
                 <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
+                    <p>{{$index+1+num}}</p>
                     <p>{{list.description}}</p>
                     <p>{{list.type|cover}}</p>
                     <p><span ng-repeat="operators in list.proOperateVO">{{operators.operator}},</span></p>

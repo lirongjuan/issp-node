@@ -37,15 +37,6 @@ app.controller('typeListCtrl',function($scope,businessTypeSer,toastr,$stateParam
         $scope.$emit('page', $location.search().page);
     };
 
-    // //冻结
-    // $scope.$on('congealId',function(event,conid){
-    //     angular.forEach($scope.businessTypeLists,function(obj){
-    //         if(obj.id == conid){
-    //             obj.status = 'CONGEAL';
-    //             obj._selectList = false;
-    //         }
-    //     })
-    // });
     //解冻
     $scope.thaw = function(event){
         var data = {

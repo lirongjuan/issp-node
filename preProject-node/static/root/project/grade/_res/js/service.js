@@ -6,7 +6,8 @@ app.factory('gradeSer',function ($http) {
         addGrade:addGrade,
         getGrade:getGrade,
         editGrade:editGrade,
-        deleteGrade:deleteGrade
+        deleteGrade:deleteGrade,
+        menuPermission:menuPermission
     };
     function listGrade(data) {
         return $http.get('/listGrade/list',{params:data})
@@ -26,5 +27,8 @@ app.factory('gradeSer',function ($http) {
     function deleteGrade(data) {
         return $http.get('/deleteGrade/delete',{params:data})
     }
-
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/grade/guidePermission/'+data);
+    }
 });

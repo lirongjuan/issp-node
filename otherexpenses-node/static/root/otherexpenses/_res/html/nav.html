@@ -1,7 +1,7 @@
 <div class="nav-list" ng-repeat="list in showsList">
-    <h3 class="header-menu big"  ng-click="showMenu(list,true)"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('message')" ng-class="{'active':navCla=='message'}"  ui-sref="_root.otherexpenses.expenses.message.list"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
-        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.otherexpenses.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
+        <li ng-click="navClass('message')" ng-show="otherExpenses" ng-class="{'active':navCla=='message'}"  ui-sref="_root.otherexpenses.expenses.message.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}" ng-show="cuspermission" ui-sref="_root.otherexpenses.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
     </ul>
 </div>

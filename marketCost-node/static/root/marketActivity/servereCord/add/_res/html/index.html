@@ -29,15 +29,17 @@
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
                      <input type="text"  ng-model="data.projectName" ng-verify="{}">
-               </li>
+               </li> 
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目性质</em></label>
-                    <input type="text" class="inputDom" ng-model="data.projectNature" ng-verify="{}">
-                     <select class="sele" ng-model="data.projectNature" ng-init="">
-                        <option value="123">123</option>
-                        <option value="164">164</option>
-                        <option value="9566">9566</option>
-                    </select>
+                    <div class="sele area side">
+                        <select ng-model="data.projectNature" class="sele">
+                            <option value="123">123</option>
+                            <option value="164">164</option>
+                            <option value="9566">9566</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.projectNature" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>预计参加人数</em></label>
@@ -56,16 +58,20 @@
                     <input type="text"  ng-model="data.actualActivityType" ng-verify="{}">
                 </li>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>分类</em></label>
-                    <input type="text"  ng-model="data.classify" ng-verify="{}">
-                </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>运营商务部资金</em></label>
-                    <input type="text"  ng-model="data.yyFundModule" ng-verify="{}"> 
-                </li>
-                <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>决策层</em></label>
                     <input type="text"  ng-model="data.decisionLevel" ng-verify="{}"> 
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>决策层审核意见</em></label>
+                     <select class="sele" ng-model="data.executiveAuditOpinion" ng-init="data.executiveAuditOpinion = 'NONE'">
+                        <option value="NONE">未通过</option>
+                        <option value="ALLOWED">通过</option>
+                        <option value="DENIED">拒绝</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>分类</em></label>
+                    <input type="text"  ng-model="data.classify" ng-verify="{}">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>预计费用</em></label>
@@ -73,19 +79,28 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>招待负责人</em></label>
-                    <input type="text" class="inputDom" ng-model="data.servePrincipal" ng-verify="{}">
-                     <select class="sele" ng-model="data.servePrincipal">
-                        <option value="张三">张三</option>
-                        <option value="李四">李四</option>
-                    </select> 
+                    <div class="sele area side">
+                        <select ng-model="data.servePrincipal" class="sele">
+                            <option value="张三">张三</option>
+                            <option value="李四">李四</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.servePrincipal" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否临时招待</em></label>
-                    <select class="sele" ng-model="data.whetherTemporaryServe" ng-verify="{}">
-                        <option value="">请选择是/否</option>
-                        <option value="true">是</option>
+                    <select class="sele" ng-model="data.whetherTemporaryServe" ng-verify="{}" ng-init="data.whetherTemporaryServe = 'false'">
                         <option value="false">否</option>
+                        <option value="true">是</option>
                     </select> 
+                </li>
+                 <li>
+                    <label><em>运营商务部资金</em></label>
+                    <input type="text"  ng-model="data.yyFundModule"> 
+                </li>
+                <li>
+                    <label><em>资金模块意见</em></label>
+                     <input type="text"  ng-model="data.fundModuleOpinion">
                 </li>
             </ul>
         </section>

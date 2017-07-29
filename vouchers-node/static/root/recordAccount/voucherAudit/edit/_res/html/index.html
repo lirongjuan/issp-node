@@ -112,31 +112,23 @@
                         </p>
                         <p class="input-select">
                             <select class="sele" ng-model="editVoucher.area">
-                                <option value="广州">广州</option>
-                                <option value="湛江">湛江</option>
-                                <option value="深圳">深圳</option>
-                                <option value="佛山">佛山</option>
-                                <option value="江门">江门</option>
+                                <option ng-repeat="area in allArea">{{area.area}}</option>
                             </select>
                             <input type="text" class="inputSelect" ng-verify="{}" ng-model="editVoucher.area">
                         </p>
                         <p class="input-select">
                             <select class="sele" ng-model="editVoucher.projectName">
-                                <option value="名称1">名称1</option>
-                                <option value="名称2">名称2</option>
-                                <option value="名称3">名称3</option>
-                                <option value="名称4">名称4</option>
-                                <option value="名称5">名称5</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
                             </select>
                             <input type="text" class="inputSelect" ng-verify="{}" ng-model="editVoucher.projectName">
                         </p>
                         <p class="input-select">
                             <select class="sele" ng-model="editVoucher.projectGroup">
-                                <option value="项目组1">项目组1</option>
-                                <option value="项目组2">项目组2</option>
-                                <option value="项目组3">项目组3</option>
-                                <option value="项目组4">项目组4</option>
-                                <option value="项目组5">项目组5</option>
+                                <option ng-repeat="team in allTeam">{{team.value}}</option>
                             </select>
                             <input type="text" class="inputSelect" ng-verify="{}" ng-model="editVoucher.projectGroup">
                         </p>
@@ -145,16 +137,12 @@
                         </p>
                         <p class="input-select">
                             <select class="sele" ng-model="editVoucher.ticketer">
-                                <option value="小明">小明</option>
-                                <option value="小红">小红</option>
-                                <option value="小芳">小芳</option>
-                                <option value="小黄">小黄</option>
-                                <option value="小丽">小丽</option>
+                                <option ng-repeat="username in allName">{{username.username}}</option>
                             </select>
                             <input type="text" class="inputSelect" ng-verify="{}" ng-model="editVoucher.ticketer">
                         </p>
                         <p class="input-select">
-                            <input type="number" min="0" placeholder="0" class="same-input" ng-model="editVoucher.moneyTotal">
+                            <input type="number" min="0" placeholder="0" class="same-input" disabled ng-model="editVoucher.moneyTotal">
                         </p>
                         <p class="input-select">
                             <input type="text" class="same-input input-none" ng-model="editVoucher.extraFile">

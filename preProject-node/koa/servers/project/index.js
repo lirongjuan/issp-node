@@ -465,5 +465,66 @@ module.exports = function(){
         };
         return request(options);
     };
+
+    //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/projectmarketfee/v1/setButtonPermission',
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.siginNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/projectmarketfee/v1/sonPermission',
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //等级菜单权限
+    this.gradePermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/grade/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //费用效益分析
+    this.costPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/costanalysis/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //活动菜单权限
+    this.activityPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/projectmarketfee/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
       return this;
 };

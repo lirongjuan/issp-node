@@ -1,48 +1,60 @@
-<div class="content-input add" verify-scope="tipStyle: 1">  <!--表单验证插件-->
+<div class="content-input add" verify-scope="tipStyle: 1">
     <div class="input-list">
         <section>
             <ul>
                   <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
-                    <select class="sele" ng-model="addname2" ng-change="changeSelect()" ng-init="addname2='请选择姓名'">
-                        <option disabled>请选择姓名</option>
+                      <div class="sele side">
+                    <select class="sele" ng-model="addname">
+                        <option disabled value="">请选择</option>
                     </select>
                     <input type="text"  class="inputDom" ng-verify="{}" ng-model="addname">
+                    </div>
                 </li>
                 <li>
                     <label><em>个人资质</em></label>
-                    <select class="sele" ng-model="addcapacity2" ng-change="changeSelect2()" ng-init="addcapacity2='请选择个人资质'">
-                        <option disabled>请选择个人资质</option>
+                    <div class="sele side">
+                    <select class="sele" ng-model="addcapacity">
+                        <option disabled value="">请选择</option>
                     </select>
                     <input type="text"  class="inputDom" ng-model="addcapacity">
+                        </div>
                 </li>
                 <li>
                     <label><em>个人职称</em></label>
-                    <select class="sele" ng-model="addselfJobTitle2" ng-change="changeSelect3()" ng-init="addselfJobTitle2='请选择个人职称'">
-                        <option disabled>请选择个人职称</option>
+                    <div class="sele side">
+                    <select class="sele" ng-model="addselfJobTitle">
+                        <option disabled value="">请选择</option>
                     </select>
                     <input type="text"  class="inputDom"  ng-model="addselfJobTitle">
+                        </div>
                 </li>
                 <li>
                     <label><em>岗位职能</em></label>
-                    <select class="sele" ng-model="addpositionTitle2" ng-change="changeSelect4()" ng-init="addpositionTitle2='请选择岗位职能'">
-                        <option disabled>请选择岗位职能</option>
+                    <div class="sele side">
+                    <select class="sele" ng-model="addpositionTitle">
+                        <option disabled value="">请选择</option>
                     </select>
                     <input type="text"  class="inputDom"  ng-model="addpositionTitle">
+                        </div>
                 </li>
                 <li>
                     <label><em>工作年限</em></label>
-                    <select class="sele" ng-model="addworkYear2" ng-change="changeSelect5()" ng-init="addworkYear2='请选择工作年限'">
-                        <option disabled>请选择工作年限</option>
+                    <div class="sele side">
+                    <select class="sele" ng-model="addworkYear" >
+                        <option disabled value="">请选择</option>
                     </select>
                     <input type="text"  class="inputDom"  ng-model="addworkYear">
+                        </div>
                 </li>
                 <li>
                     <label><em>个人经手项目</em></label>
-                    <select class="sele" ng-model="addselfProject2" ng-change="changeSelect6()" ng-init="addselfProject2='请选择个人经手项目'">
-                        <option disabled>请选择个人经手项目</option>
+                    <div class="sele side">
+                    <select class="sele" ng-model="addselfProject">
+                        <option disabled value="">请选择</option>
                     </select>
                     <input type="text"  class="inputDom" ng-model="addselfProject">
+                        </div>
                 </li>
              </ul>
         </section>

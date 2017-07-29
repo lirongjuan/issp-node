@@ -1,0 +1,60 @@
+<div class="collect">
+    <h3>2017年1-12月成本预算汇总表</h3>
+    <div class="content-input add">
+    <div class="input-list" style="margin-bottom:0">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY'})" class="add_image time">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <div class="content-input add" verify-scope="tipStyle: 1">  <!--表单验证插件-->
+        <p class="dataBottom">
+            <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+            <button ng-verify="{control:'myform'}" ng-click="detailEditFun()">汇总</button>
+        </p>
+    </div>
+</div>
+    <ul class="sum-list">
+        <li class="table_list">
+            <span>科目</span>
+            <span>合计</span>
+            <span>1日</span>
+            <span>2日</span>
+            <span>3日</span>
+            <span>4日</span>
+            <span>5日</span>
+            <span>6日</span>
+            <span>7日</span>
+            <span>8日</span>
+            <span>9日</span>
+            <span>10日</span>
+            <span>11日</span>
+            <span>12日</span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in data">
+            <span>{{::list.subject}}</span>
+            <span>{{::list.combined}}</span>
+            <span>{{::list.januaryValue}}</span>
+            <span>{{::list.februaryValue}}</span>
+            <span>{{::list.marchValue}}</span>
+            <span>{{::list.aprilValue}}</span>
+            <span>{{::list.mayValue}}</span>
+            <span>{{::list.juneValue}}</span>
+            <span>{{::list.julyValue}}</span>
+            <span>{{::list.augustValue}}</span>
+            <span>{{::list.septemberValue}}</span>
+            <span>{{::list.octoberValue}}</span>
+            <span>{{::list.novemberValue}}</span>
+            <span>{{::list.decemberValue}}</span>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    !function () {
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    } ();
+</script>

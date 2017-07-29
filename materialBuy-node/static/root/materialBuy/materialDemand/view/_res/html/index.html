@@ -1,0 +1,69 @@
+<div class="content-tab list">
+    <ul class="table hideView">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>需求人</span>
+            <span>需求日期</span>
+            <span>设备类型</span>
+            <span>设备名称</span>
+            <span>型号</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in demandViewLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text" ng-click="selectList(lists)">
+                    <p mod></p>
+                    <p mod>{{::lists.area}}</p>
+                    <p mod>{{::lists.projectTeam}}</p>
+                    <p mod>{{::lists.needer}}</p>
+                    <p mod>{{::lists.requiredDate}}</p>
+                    <p mod>{{::lists.deviceType}}</p>
+                    <p mod>{{::lists.deviceName}}</p>
+                    <p mod>{{::lists.model}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>数量</span>
+                                <span>单位</span>
+                                <span>需求原因</span>
+                                <span>备注</span>
+                                <span>地区审核人</span>
+                                <span>审核状态</span>
+                                <span>审核意见</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.quantity}}</span>
+                                <span mod>{{::lists.unit}}</span>
+                                <span mod>{{::lists.needReason}}</span>
+                                <span mod>{{::lists.comment}}</span>
+                                <span mod>{{::lists.areaAuditor}}</span>
+                                <span mod>{{::lists.auditState|cover}}</span>
+                                <span mod>{{::lists.auditOpinion}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <!--<footer class="footer">-->
+        <!--<pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>-->
+    <!--</footer>-->
+</div>
+
+
+

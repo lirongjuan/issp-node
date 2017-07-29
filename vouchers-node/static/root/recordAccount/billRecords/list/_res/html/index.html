@@ -14,14 +14,14 @@
         <li class="list-all" ng-repeat="lists in recordsLists">
             <section>
                 <div class="list-text">
-                    <p>{{$index+1}}</p>
-                    <p>{{::lists.voucherNum}}</p>
-                    <p>{{::lists.voucherWord}}</p>
-                    <p>{{::lists.voucherDate}}</p>
-                    <p>{{::lists.firstSubject}}</p>
-                    <p>{{::lists.secondSubject}}</p>
-                    <p>{{::lists.thirdSubject}}</p>
-                    <p>{{::lists.sumary}}</p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.voucherNum}}</p>
+                    <p mod>{{::lists.voucherWord}}</p>
+                    <p mod>{{::lists.voucherDate}}</p>
+                    <p mod>{{::lists.firstSubject}}</p>
+                    <p mod>{{::lists.secondSubject}}</p>
+                    <p mod>{{::lists.thirdSubject}}</p>
+                    <p mod>{{::lists.sumary}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
                     </p>
@@ -39,13 +39,13 @@
                                 <span>票据数量</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::lists.borrowMoney}}</span>
-                                <span>{{::lists.loanMoney}}</span>
-                                <span>{{::lists.area}}</span>
-                                <span>{{::lists.projectName}}</span>
-                                <span>{{::lists.projectGroup}}</span>
-                                <span>{{::lists.ticketer}}</span>
-                                <span>{{::lists.ticketNum}}</span>
+                                <span mod>{{::lists.borrowMoney}}</span>
+                                <span mod>{{::lists.loanMoney}}</span>
+                                <span mod>{{::lists.area}}</span>
+                                <span mod>{{::lists.projectName}}</span>
+                                <span mod>{{::lists.projectGroup}}</span>
+                                <span mod>{{::lists.ticketer}}</span>
+                                <span mod>{{::lists.ticketNum}}</span>
                             </p>
                         </li>
                         <li>
@@ -58,31 +58,30 @@
                                 <span>借贷合计金额</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::lists.extraFile}}</span>
-                                <span>{{::lists.auditor}}</span>
-                                <span>{{::lists.auditStatus|cover}}</span>
-                                <span>{{::lists.transferStatus|money}}</span>
-                                <span>{{::lists.checkStatus|end}}</span>
-                                <span>{{::lists.moneyTotal}}</span>
+                                <span mod>{{::lists.extraFile}}</span>
+                                <span mod>{{::lists.auditor}}</span>
+                                <span mod>{{::lists.auditStatus|cover}}</span>
+                                <span mod>{{::lists.transferStatus|money}}</span>
+                                <span mod>{{::lists.checkStatus|end}}</span>
+                                <span mod>{{::lists.moneyTotal}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                    </div>
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
 
 
 

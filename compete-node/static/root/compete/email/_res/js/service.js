@@ -1,17 +1,22 @@
 var app = angular.module('emailServer',[]);
 app.factory('emailSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         listAbilityEmail : listAbilityEmail,
         countEmail:countEmail,
         congealEmail:congealEmail,
         thawEmail:thawEmail,
         deleteEmail:deleteEmail,
         addEmail:addEmail,
-        listNameType:listNameType,
+        allAreas:allAreas,
         editEmail:editEmail,
         getFourById:getFourById,
         allCollect:allCollect
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/email/guidePermission/'+data);
+    }
     //列表
     function  listAbilityEmail(data) {
         return $http.get('/compete/listAbilityEmail/listEmail',{
@@ -38,9 +43,9 @@ app.factory('emailSer',function ($http) {
     function addEmail(data){
         return $http.post('/compete/addEmail/add',data)
     }
-    //公司名或姓名
-    function listNameType(data) {
-        return $http.get('/compete/listNameType/type',{params:data})
+    //所有地区
+    function allAreas(data) {
+        return $http.get('/compete/email/allAreas',{params:data})
     }
     //编辑
     function editEmail(data){

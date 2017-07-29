@@ -8,45 +8,57 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
-                    <select class="sele" ng-model="editInfo.name2" ng-change="changeSelect()">
+                    <div class="sele side">
+                    <select class="sele" ng-model="editInfo.name">
                         <option value="" disabled>请选择</option>
                     </select>
                     <input type="text"  class="inputDom" ng-verify="{}" ng-model="editInfo.name">
+                   </div>
                 </li>
                 <li>
                     <label><em>个人资质</em></label>
-                    <select class="sele" ng-model="editInfo.capacity2" ng-change="changeSelect2()">
+                    <div class="sele side">
+                    <select class="sele" ng-model="editInfo.capacity">
                         <option value="" disabled>请选择</option>
                     </select>
                     <input type="text"  class="inputDom" ng-model="editInfo.capacity">
+                    </div>
                 </li>
                 <li>
                     <label><em>个人职称</em></label>
-                    <select class="sele" ng-model="editInfo.selfJobTitle2" ng-change="changeSelect3()">
+                    <div class="sele side">
+                    <select class="sele" ng-model="editInfo.selfJobTitle">
                         <option value="" disabled>请选择</option>
                     </select>
                     <input type="text"  class="inputDom"  ng-model="editInfo.selfJobTitle">
+                        </div>
                 </li>
                 <li>
                     <label><em>岗位职能</em></label>
-                    <select class="sele" ng-model="editInfo.positionTitle2" ng-change="changeSelect4()">
+                    <div class="sele side">
+                    <select class="sele" ng-model="editInfo.positionTitle">
                         <option value="" disabled>请选择</option>
                     </select>
                     <input type="text"  class="inputDom"  ng-model="editInfo.positionTitle">
+                        </div>
                 </li>
                 <li>
                     <label><em>工作年限</em></label>
-                    <select class="sele" ng-model="editInfo.workYear2" ng-change="changeSelect5()">
+                    <div class="sele side">
+                    <select class="sele" ng-model="editInfo.workYear">
                         <option value="" disabled>请选择</option>
                     </select>
                     <input type="text"  class="inputDom"  ng-model="editInfo.workYear">
+                        </div>
                 </li>
                 <li>
                     <label><em>个人经手项目</em></label>
-                    <select class="sele" ng-model="editInfo.selfProject2" ng-change="changeSelect6()">
+                    <div class="sele side">
+                    <select class="sele" ng-model="editInfo.selfProject">
                         <option value="" disabled>请选择</option>
                     </select>
                     <input type="text"  class="inputDom" ng-model="editInfo.selfProject">
+                        </div>
                 </li>
             </ul>
         </section>

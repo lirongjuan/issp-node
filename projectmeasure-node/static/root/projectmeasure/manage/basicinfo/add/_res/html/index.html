@@ -11,6 +11,22 @@
                     <input type="number"  ng-verify="{}" ng-model="data.workload">
                 </li>
                 <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工期</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="data.timeLimit">
+                </li>
+                <li>
+                    <label><em>服务费用</em></label>
+                    <input type="number"  ng-model="data.serviceCharge">
+                </li>
+                <li>
+                    <label><em>提成</em></label>
+                    <input type="number"  ng-model="data.royalties">
+                </li>
+                <li>
+                    <label><em>招待费</em></label>
+                    <input type="number"  ng-model="data.serveCharge">
+                </li>
+                <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目开展成本</em></label>
                     <input type="number"  ng-verify="{}" ng-model="data.projectLaunchCost">
                 </li>
@@ -32,9 +48,9 @@
                     <input type="text"  ng-verify="{}" ng-model="data.area">
                 </li>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>起始时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image startTiming">
-                </li>
+                <label><i><img src="/images/mandatory.png"></i><em>起始时间</em></label>
+                <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image startTiming">
+            </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>经历时间</em></label>
                     <input type="text"  ng-verify="{}" ng-model="data.duration">

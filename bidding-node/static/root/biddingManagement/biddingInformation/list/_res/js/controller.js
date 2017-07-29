@@ -34,7 +34,6 @@ app.controller('infoListCtrl',function($scope,infoSer,toastr,$stateParams,$state
                 }else{
                     $state.go('root.biddingManagement.biddingInformation.list[12]',{id:null,name:null,page:$stateParams.page-1});
                 }
-                // $state.go('root.biddingManagement.biddingInformation.list[12]',{id:null,name:null});
             }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
@@ -44,12 +43,31 @@ app.controller('infoListCtrl',function($scope,infoSer,toastr,$stateParams,$state
     $scope.$on('iSsearch',function(event,newIs){
         $scope.isView = newIs;
     });
+    //获取搜索字段
+    $scope.webName = $stateParams.webName?$stateParams.webName:'';
+    $scope.url = $stateParams.url?$stateParams.url:'';
+    $scope.provinces = $stateParams.provinces?$stateParams.provinces:'';
+    $scope.cities = $stateParams.cities?$stateParams.cities:'';
+    if($stateParams.webName || $stateParams.url || $stateParams.provinces || $stateParams.cities){
+        $scope.$emit('isId', false);
+        $scope.isView = false;
+    }else{
+        $scope.$emit('isId', true);
+    }
+    //搜索
+    $scope.collect = function(){
+        $state.go('root.biddingManagement.biddingInformation.list[12]',{webName:$scope.webName,url:$scope.url,provinces:$scope.provinces,cities:$scope.cities,page:1});
+    }
     function activatePage(page) {
-        var listData = {
-            page:page || 1
-        };
-        infoSer.infoList(listData).then(function(response){
-            if(response.data.code==0){
+        var data = {
+                webName: $scope.webName || " ",
+                url: $scope.url || " ",
+                provinces: $scope.provinces || " ",
+                cities: $scope.cities || " ",
+                page: page || 1
+            };
+        infoSer.infoList(data).then(function(response){
+            if(response.data.code == 0){
                 $scope.infoLists = response.data.data;
                 if($stateParams.id){
                     angular.forEach($scope.infoLists,function(obj){
@@ -64,42 +82,14 @@ app.controller('infoListCtrl',function($scope,infoSer,toastr,$stateParams,$state
                 toastr.error( response.data.msg, '温馨提示');
             }
         });
-        //搜索功能
-        $scope.collect = function(){
-            console.log(123)
-            $scope.custom = {
-                itemsCount: 2, //总条数
-                take: 10, //每页显示
-                activatePage: activatePage
-            };
-            var keywords = {
-                webName: $scope.webName,
-                url: $scope.url,
-                provinces: $scope.provinces,
-                cities: $scope.cities
-            };
-            infoSer.countInfo(keywords).then(function (response) {
-                if(response.data.code==0){
-                    $scope.custom.itemsCount = response.data.data;
-                }else{
-                    toastr.error( response.data.msg, '温馨提示');
-                }
-            });
-            var data = {
-                webName: $scope.webName,
-                url: $scope.url,
-                provinces: $scope.provinces,
-                cities: $scope.cities,
-                page: page
-            };
-            infoSer.searchList(data).then(function(response){
-                if(response.data.code == 0){
-                    $scope.infoLists = response.data.data
-                }else{
-                    toastr.error( response.data.msg, '温馨提示');
-                }
-            });
-        };
+        infoSer.countInfo(data).then(function(response){
+            if(response.data.code==0){
+                $scope.custom.itemsCount = response.data.data;
+                $scope.num = $location.search().page*10>10?($location.search().page-1)*10:null;
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        })
     }
     // 搜索功能字段
     $scope.titles = ['网站名称','网址','省份','地市'];
@@ -122,13 +112,6 @@ app.controller('infoListCtrl',function($scope,infoSer,toastr,$stateParams,$state
         });
         event._moreList = !event._moreList;
     };
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.infoLists,function(obj){
-            if(obj.id == delid){
-                obj._delete = delid
-            }
-        })
-    });
 
 //分页
     $scope.custom = {
@@ -136,15 +119,5 @@ app.controller('infoListCtrl',function($scope,infoSer,toastr,$stateParams,$state
         take: 10, //每页显示
         activatePage: activatePage
     };
-
-    infoSer.countInfo().then(function(response){
-        if(response.data.code==0){
-            $scope.custom.itemsCount = response.data.data;
-            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
-        }else{
-            toastr.error( response.data.msg, '温馨提示');
-        }
-    })
-
 });
 

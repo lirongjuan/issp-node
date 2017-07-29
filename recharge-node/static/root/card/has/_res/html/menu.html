@@ -1,0 +1,11 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" class="lis" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="same-two">列表</a>
+    </li>
+    <li ng-click="summary()" ng-class="{'current':menuClass=='summaryMenu'}" ui-sref=".summary[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)"  class="same-three">汇总</a>
+    </li>
+    <li ng-click="contrast()" ng-class="{'current':menuClass=='contrastMenu'}" ui-sref=".contrast[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)"  class="same-three">对比汇总</a>
+    </li>
+</ul>

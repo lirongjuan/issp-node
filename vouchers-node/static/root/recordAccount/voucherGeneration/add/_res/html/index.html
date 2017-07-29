@@ -12,7 +12,7 @@
                     <span><i><img src="/images/mandatory.png"></i>贷方金额</span>
                 </li>
                 <li class="input-body">
-                    <p class="input-select">
+                    <div class="input-select">
                         <select class="sele" ng-model="voucher.voucherWord" ng-init="voucher.voucherWord='付'">
                             <option value="付">付</option>
                             <option value="转">转</option>
@@ -20,11 +20,11 @@
                             <option value="收">收</option>
                         </select>
                         <input type="text" ng-verify="{}"  class="inputSelect different" ng-model="voucher.voucherWord">
-                    </p>
-                    <p class="input-select">
+                    </div>
+                    <div class="input-select">
                         <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image same-input voucherDate" ng-model="voucher.voucherDate">
-                    </p>
-                    <p class="input-select">
+                    </div>
+                    <div class="input-select">
                         <span class="two-select">
                             <select class="sele" ng-model="voucher.firstSubjects1" ng-change="changSelect()">
                                 <option value="">请选择</option>
@@ -39,8 +39,8 @@
                             </select>
                             <input type="text" class="inputSelect" ng-verify="{}" ng-model="voucher.firstSubjects2">
                         </span>
-                    </p>
-                    <p class="input-select">
+                    </div>
+                    <div class="input-select">
                         <span class="two-select">
                             <select class="sele" ng-model="voucher.secondSubjects1" ng-change="changThird()">
                                 <option value="">请选择</option>
@@ -55,8 +55,8 @@
                             </select>
                             <input type="text" class="inputSelect" ng-verify="{}" ng-model="voucher.secondSubjects2">
                         </span>
-                    </p>
-                    <p class="input-select">
+                    </div>
+                    <div class="input-select">
                         <span class="two-select">
                             <select class="sele" ng-model="voucher.thirdSubjects1">
                                 <option value="">请选择</option>
@@ -71,23 +71,23 @@
                             </select>
                             <input type="text" class="inputSelect" ng-model="voucher.thirdSubjects2">
                         </span>
-                    </p>
-                    <p class="input-select">
+                    </div>
+                    <div class="input-select">
                         <span class="two-select">
-                            <input type="number" min="0" placeholder="0" class="same-input" ng-verify="{}" ng-model="voucher.borrowMoneys1">
+                            <input type="number" min="0" placeholder="0" class="same-input" ng-verify="{}" ng-model="voucher.borrowMoneys1" ng-change="addSum()">
                         </span>
                         <span class="two-select">
-                            <input type="number" min="0" placeholder="0" class="same-input" ng-verify="{}" ng-model="voucher.borrowMoneys2">
+                            <input type="number" min="0" placeholder="0" class="same-input" ng-verify="{}" ng-model="voucher.borrowMoneys2" ng-change="addSum()">
                         </span>
-                    </p>
-                    <p class="input-select">
+                    </div>
+                    <div class="input-select">
                         <span class="two-select">
                             <input type="number" min="0" placeholder="0" class="same-input" ng-verify="{}" ng-model="voucher.loanMoneys1">
                         </span>
                         <span class="two-select">
                             <input type="number" min="0" placeholder="0" class="same-input" ng-verify="{}" ng-model="voucher.loanMoneys2">
                         </span>
-                    </p>
+                    </div>
                 </li>
             </ul>
             <ul>
@@ -102,54 +102,42 @@
                     <span>附件</span>
                 </li>
                 <li class="input-body">
-                    <p class="input-select">
+                    <div class="input-select">
                         <input type="text" class="same-input" ng-verify="{}" ng-model="voucher.sumary">
-                    </p>
-                    <p class="input-select">
-                        <select class="sele" ng-model="voucher.area" ng-init="voucher.area='广州'">
-                            <option value="广州">广州</option>
-                            <option value="湛江">湛江</option>
-                            <option value="深圳">深圳</option>
-                            <option value="佛山">佛山</option>
-                            <option value="江门">江门</option>
+                    </div>
+                    <div class="input-select">
+                        <select class="sele" ng-model="voucher.area" ng-init="voucher.area = '请选择'">
+                            <option ng-repeat="area in allArea">{{area.area}}</option>
                         </select>
                         <input type="text" class="inputSelect" ng-verify="{}" ng-model="voucher.area">
-                    </p>
-                    <p class="input-select">
-                        <select class="sele" ng-model="voucher.projectName" ng-init="voucher.projectName='名称1'">
-                            <option value="名称1">名称1</option>
-                            <option value="名称2">名称2</option>
-                            <option value="名称3">名称3</option>
-                            <option value="名称4">名称4</option>
-                            <option value="名称5">名称5</option>
+                    </div>
+                    <div class="input-select">
+                        <select class="sele" ng-model="voucher.projectName">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
                         </select>
                         <input type="text" class="inputSelect" ng-verify="{}" ng-model="voucher.projectName">
-                    </p>
-                    <p class="input-select">
-                        <select class="sele" ng-model="voucher.projectGroup" ng-init="voucher.projectGroup='项目组1'">
-                            <option value="项目组1">项目组1</option>
-                            <option value="项目组2">项目组2</option>
-                            <option value="项目组3">项目组3</option>
-                            <option value="项目组4">项目组4</option>
-                            <option value="项目组5">项目组5</option>
+                    </div>
+                    <div class="input-select">
+                        <select class="sele" ng-model="voucher.projectGroup" ng-init="voucher.projectGroup = '请选择'">
+                            <option ng-repeat="team in allTeam">{{team.value}}</option>
                         </select>
                         <input type="text" class="inputSelect" ng-verify="{}" ng-model="voucher.projectGroup">
-                    </p>
-                    <p class="input-select">
-                        <select class="sele" ng-model="voucher.ticketer" ng-init="voucher.ticketer='小明'">
-                            <option value="小明">小明</option>
-                            <option value="小红">小红</option>
-                            <option value="小芳">小芳</option>
-                            <option value="小黄">小黄</option>
-                            <option value="小丽">小丽</option>
+                    </div>
+                    <div class="input-select">
+                        <select class="sele" ng-model="voucher.ticketer" ng-init="voucher.ticketer = '请选择'">
+                            <option ng-repeat="username in allName">{{username.username}}</option>
                         </select>
                         <input type="text" class="inputSelect" ng-verify="{}" ng-model="voucher.ticketer">
-                    </p>
+                    </div>
                     <p class="input-select">
                         <input type="number" min="0" placeholder="0" class="same-input" ng-verify="{}" ng-model="voucher.ticketNum">
                     </p>
                     <p class="input-select">
-                        <input type="number" min="0" placeholder="0" class="same-input" ng-verify="{}" ng-model="voucher.moneyTotal">
+                        <input type="number" min="0" placeholder="0" class="same-input" disabled ng-model="voucher.moneyTotal">
                     </p>
                     <p class="input-select">
                         <input type="text" class="same-input input-none" ng-model="voucher.extraFile">

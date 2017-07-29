@@ -1,32 +1,23 @@
+
 <div class="content-input" verify-scope="tipStyle: 1">
     <section class="interval">
         <ul class="inter-left">
-            <li class="required">
-                <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
-                <select class="sele" ng-model="data.projects" ng-init="type='3'">
-                    <option value="">请选择</option>
-                    <option value="展示汇总">展示汇总</option>
-                    <option value="展示汇总">展示汇总</option>
-                    <option value="能力汇总">合作对象能力汇总</option>
-                </select>
-            </li>
             <li class="required f-l">
                 <label><i><img src="/images/mandatory.png"></i><em>发送间隔</em></label>
                 <input type="number" ng-model="data.sendInterval" ng-verify="{}">
                 <select class="sele" ng-model="data.cycle" ng-init="data.cycle='MINUTE'">
                     <option value="MINUTE">分钟</option>
-                    <option value="HOURS">小时</option>
+                    <option value="HOUR">小时</option>
                     <option value="DAY">天</option>
                     <option value="WEEK">周</option>
                     <option value="MONTH">月</option>
                     <option value="QUARTER">季</option>
                     <option value="YEAR">年</option>
-                    <option value="NOT">无</option>
                 </select>
             </li>
             <li class="required f-l">
-                <label><i><img src="/images/mandatory.png"></i><em>汇总间隔</em></label>
-                <input type="number" ng-model="data.detailInterval" ng-verify="{}">
+                <label><em>汇总间隔</em></label>
+                <input type="number" ng-model="data.detailInterval">
                 <select class="sele" ng-model="data.detailCycle" ng-init="data.detailCycle='MINUTE'">
                     <option value="MINUTE">分钟</option>
                     <option value="HOUR">小时</option>
@@ -38,19 +29,35 @@
                     <option value="NOT">无</option>
                 </select>
             </li>
+            <li class="required ">
+                <label><i><img src="/images/mandatory.png"></i><em>选择对象</em></label>
+                <select class="sele one-select" ng-model="checkedEmail" ng-init="checkedEmail='自由录入'">
+                    <option ng-repeat="one in emails">{{one}}</option>
+                </select>
+                <input type="text" style=" width:22%;right: 102px; background-color: #fff;" ng-model="sendObjectList">
+                <button type="button" class="data-add" ng-click="addMail()">添加</button>
+            </li>
+
         </ul>
         <ul class="inter-right">
             <li class="required">
-                <label><i><img src="/images/mandatory.png"></i><em>类型</em></label>
-                <select class="sele" ng-model="data.type" ng-verify="{}">
-                    <option value="">请选择</option>
-                    <option value="true">是</option>
-                    <option value="falae">否</option>
+                <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                <select class="sele" ng-model="data.areas">
+                    <option ng-repeat="list in alleAreas">{{ list }}</option>>
                 </select>
             </li>
-             <li class="required">
-                <label><i><img src="/images/mandatory.png"></i><em>发送对象</em></label>
-                <input type="text" ng-model="data.emails" ng-verify="{}">
+            <li >
+                <label><em>备注</em></label>
+                <input type="text" class="remark" ng-model="data.remark">
+            </li>
+            <li class="f-send">
+                <p class="send-o">
+                    <em>发送对象:</em>
+                    <span>(双击可以删除该条邮箱地址)</span>
+                </p>
+                <div class="dclick">
+                    <p ng-repeat="list in objLists track by $index" ng-dblclick="dbSend($index)" >{{list}}</p>
+                </div>
             </li>
         </ul>
     </section>

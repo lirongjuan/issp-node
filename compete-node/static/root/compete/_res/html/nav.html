@@ -1,9 +1,9 @@
 <div class="nav-list" ng-repeat="list in showsList">
-    <h3 class="header-menu big" ng-click="showMenu(list,true)"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
     <ul class="menu" ng-repeat="menuInfo in list.menuList" ng-if="list.menuList.length" ng-show="list.showIs">
-        <li ng-click="navClass('competitor')" ng-class="{'active':navCla=='competitor'}"  ui-sref="_root.compete.competitor.list"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
-        <li ng-click="navClass('email')" ng-class="{'active':navCla=='email'}"  ui-sref="_root.compete.email.list"><a href="javascript:void(0)">{{menuInfo.name2}}
+        <li ng-click="navClass('competitor')" ng-class="{'active':navCla=='competitor'}" ng-show="competitor" ng-class="{'active':navCla=='basicinfo'}"  ui-sref="_root.compete.competitor.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('email')" ng-class="{'active':navCla=='email'}" ng-show="collect" ui-sref="_root.compete.email.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}
 </a></li>
-        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.compete.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
+        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}" ng-show="cuspermission" ui-sref="_root.compete.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
     </ul>
 </div>

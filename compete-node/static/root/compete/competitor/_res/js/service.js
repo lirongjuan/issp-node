@@ -1,6 +1,7 @@
 var app = angular.module('competitorServer',[]);
 app.factory('competitorSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         listAbilityCompanyCap : listAbilityCompanyCap,
         countBaseInfo:countBaseInfo,
         addCompanyAbility:addCompanyAbility,
@@ -9,8 +10,13 @@ app.factory('competitorSer',function ($http) {
         getOneById:getOneById,
         searchCompanyAbility:searchCompanyAbility,
         competitorOrganizeAdd:organizeAdd,
-        putcompetitorEdit:putcompetitorEdit
+        putcompetitorEdit:putcompetitorEdit,
+        viewSigning:viewSigning
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/competetitor/guidePermission/'+data);
+    }
     //列表
     function listAbilityCompanyCap(data) {
         return $http.get('/compete/competecompetitor/listCompetecompetitor',{
@@ -47,5 +53,9 @@ app.factory('competitorSer',function ($http) {
     }
     function putcompetitorEdit(data){
         return $http.post('/compete/CompetitorEdit/edit',data)
+    }
+    //附件列表
+    function viewSigning(data){
+        return $http.get('/compete/listFile',{params:data})
     }
 });

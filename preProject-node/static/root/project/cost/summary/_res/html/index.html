@@ -1,23 +1,29 @@
-<div class="collect ">
-    <div class="collect-select">
-        <div class="select2">
-            <label>年份：</label>
-            <select class="allselect" ng-model="year">
-                <option value="">请选择</option>
-                <option ng-repeat="year in yeardata">{{year}}</option>
-            </select>
-            <input type="text" class="inputDom"   ng-model="year">
-        </div>
-        <div class="select2">
-            <label>月份：</label>
-            <select class="allselect" ng-model="month">
-                <option value="">请选择</option>
-                <option ng-repeat="month in monthdata">{{month}}</option>
-            </select>
-            <input type="text" class="inputDom"   ng-model="month">
-        </div>
-        <button ng-click="collect()">汇总</button>
-    </div>
+<div class="collect">
+    <section class="collect-select">
+        <ul>
+            <li>
+                <label><em>年份</em></label>
+                <div class="sele side">
+                    <select class="sele" ng-model="year">
+                        <option disabled value="">请选择</option>
+                        <option ng-repeat="year in yeardata">{{year}}</option>
+                    </select>
+                    <input type="text"  class="inputDom" ng-model="year">
+                </div>
+            </li>
+            <li>
+                <label><em>月份</em></label>
+                <div class="sele side">
+                    <select class="sele" ng-model="month">
+                        <option disabled value="">请选择</option>
+                        <option ng-repeat="month in monthdata">{{month}}</option>
+                    </select>
+                    <input type="text" class="inputDom"   ng-model="month">
+                </div>
+                <button ng-click="collect()">汇总</button>
+            </li>
+        </ul>
+    </section>
     <ul class="sum-list">
         <li class="sum-thead">
             <span>项目组</span>
@@ -31,9 +37,9 @@
             <span>差额</span>
             <span>预计占比</span>
             <span>实际占比</span>
-            <span style="color: red">预警</span>
+            <span>预警</span>
         </li>
-        <li class="sum-tbody {{summaryList._selectList?'selectList':''}}" ng-click="selectList(summaryList)" ng-repeat="summaryList in summaryLists">
+        <li style="cursor: pointer" class="sum-tbody {{summaryList._selectList?'selectList':''}}" ng-click="selectList(summaryList)" ng-repeat="summaryList in summaryLists">
             <span>{{summaryList.project}}</span>
             <span>{{summaryList.arrival}}</span>
             <span>{{summaryList.year}}</span>
@@ -45,7 +51,7 @@
             <span>{{summaryList.differences}}</span>
             <span>{{summaryList.expectedScale}}</span>
             <span>{{summaryList.actualScale}}</span>
-            <span>{{summaryList.warn}}</span>
+            <span style="color: red">{{summaryList.warn}}</span>
         </li>
     </ul>
 </div>

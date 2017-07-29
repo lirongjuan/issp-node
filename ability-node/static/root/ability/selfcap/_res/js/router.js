@@ -20,35 +20,43 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.ability.selfcap.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.ability.selfcap":{
                 templateUrl : "root/ability/selfcap/edit/_res/html/index.html",
                 controller:'selfcapEditCtrl'
             }
         }
-    }).state("root.ability.selfcap.pedit[12]",{
-        url:"/pedit[12]?id=",
-        views:{
-            "content@root.ability.selfcap":{
-                templateUrl : "root/ability/selfcap/pedit/_res/html/index.html",
-                controller:'selfcapPEditCtrl'
-            }
-        }
-    }).state("root.ability.selfcap.perlist[12]",{
-        url:"/perlist[12]?id=",
-        views:{
-            "content@root.ability.selfcap":{
-                templateUrl : "root/ability/selfcap/perlist/_res/html/index.html",
-                controller:'selfcapListCtrl2'
-            }
-        }
     }).state("root.ability.selfcap.social[12]",{
-        url:"/social[12]?id=",
+        url:"/social[12]?id=&page=",
         views:{
             "content@root.ability.selfcap":{
                 templateUrl : "root/ability/selfcap/social/_res/html/index.html",
                 controller:'socialPAddCtrl'
+            }
+        }
+    }).state("root.ability.selfcap.list[12]",{
+        url:"/list[12]?id=&name=&page=&names=",
+        views:{
+            "content@root.ability.selfcap":{
+                templateUrl : "root/ability/selfcap/list/_res/html/index.html",
+                controller:'selfcapListCtrl'
+            }
+        }
+    }).state("root.ability.selfcap.socialList[12]",{
+        url:"/socialList[12]?id=&subId=&name=&page=",
+        views:{
+            "content@root.ability.selfcap":{
+                templateUrl : "root/ability/selfcap/socialList/_res/html/index.html",
+                controller:'socialListBasicCtrl'
+            }
+        }
+    }).state("root.ability.selfcap.socialEdit[12]",{
+        url:"/socialEdit[12]?id=&subId=&page=",
+        views:{
+            "content@root.ability.selfcap":{
+                templateUrl : "root/ability/selfcap/socialEdit/_res/html/index.html",
+                controller:'socialPEditCtrl'
             }
         }
     })

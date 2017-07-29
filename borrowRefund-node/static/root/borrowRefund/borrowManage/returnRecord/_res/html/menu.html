@@ -1,0 +1,15 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idList}" ng-show="RETURNCHECK" ng-init="menuCheck('RETURNCHECK')">
+        <a href="javascript:void(0)"  class="same-one see" >还款核对</a>
+    </li>
+    <li ng-click="voucher()" ng-class="{'current':menuClass=='voucherMenu','seeParent':idList}" ng-show="VOUCHER" ng-init="menuCheck('VOUCHER')">
+        <a href="javascript:void(0)"  class="same-one see" >生成凭证</a>
+    </li>
+    <li ng-click="export()" ng-class="{'current':menuClass=='exportMenu'}" ui-sref=".export[12]" ng-show="EXPORT" ng-init="menuCheck('EXPORT')">
+        <a href="javascript:void(0)" class="same-one" >导出</a>
+    </li>
+</ul>

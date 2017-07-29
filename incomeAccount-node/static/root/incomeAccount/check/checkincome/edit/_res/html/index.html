@@ -4,49 +4,55 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                    <select class="sele" ng-model="data.area">
-                        <option>广州</option>
-                        <option>珠海</option>
-                        <option>江门</option>
-                        <option>湛江</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="data.area">
+                    <div class="sele area side">
+                        <select ng-model="data.area" class="sele">
+                            <option>广州</option>
+                            <option>珠海</option>
+                            <option>江门</option>
+                            <option>湛江</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.area" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
-                    <select class="sele" ng-model="data.projectGroup">
-                        <option>广州</option>
-                        <option>珠海</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="data.projectGroup">
+                    <div class="sele area side">
+                        <select ng-model="data.projectGroup" class="sele">
+                            <option>广州</option>
+                            <option>珠海</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.projectGroup" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                    <select class="sele" ng-model="data.projectName">
-                        <option>广州</option>
-                        <option>珠海</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="data.projectName">
+                    <div class="sele area side">
+                        <select ng-model="data.projectName" class="sele">
+                            <option>广州</option>
+                            <option>珠海</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.projectName" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image time" >
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image time" ng-model="data.time">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>计划收入</em></label>
-                    <input type="number" ng-model="data.planIncome" ng-verify="{}" ng-init="data.planIncome=0.00">
+                    <input type="number" ng-model="data.planIncome" ng-verify="{}" ng-init="data.planIncome=0">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>实际收入</em></label>
-                    <input type="number" ng-model="data.actualIncome" ng-verify="{}" ng-init="data.actualIncome=0.00">
+                    <input type="number" ng-model="data.actualIncome" ng-verify="{}" ng-init="data.actualIncome=0">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>目标任务量</em></label>
-                    <input type="number" ng-model="data.targetTask" ng-verify="{}" ng-init="data.targetTask=0.00">
+                    <input type="number" ng-model="data.targetTask" ng-verify="{}" ng-init="data.targetTask=0">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>实际任务量</em></label>
-                    <input type="number" ng-verify="{}" ng-model="data.actualTask" ng-init="data.actualTask=0.00">
+                    <input type="number" ng-verify="{}" ng-model="data.actualTask" ng-init="data.actualTask=0">
                 </li>
             </ul>
         </section>

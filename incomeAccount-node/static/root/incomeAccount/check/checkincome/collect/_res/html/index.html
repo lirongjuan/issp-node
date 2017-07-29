@@ -1,72 +1,54 @@
-<div class="content-tab list">
-    <div class="com-search mod" verify-scope="tipStyle: 1">
-        <span class="com-search2">
-            <label>开始日期:</label>
-            <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image start" >
-       </span>
-       <span class="com-search2">
-            <label>结束日期:</label>
-            <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image end" >
-       </span>
-       <span class="com-search2 pr">
-            <label>地区:</label>
-            <select class="sele" ng-model="area">
-                <option ng-repeat="list in areas" value="{{ list }}">{{ list }}</option>
+<div class="collect">
+    <div class="summary-select">
+        <div class="select3">
+            <label>开始时间</label>
+            <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="start">
+        </div>
+        <div class="select3">
+            <label>结束时间</label>
+            <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="end">
+        </div>
+        <div class="select3">
+            <label>地区</label>
+            <select class="sele"  ng-model="area">
+                <option value="">请选择</option>
+                <option ng-repeat="list in areas" value="{{list}}">{{ list }}</option>
             </select>
-          <input type="text"  class="pa ptn" ng-model="area">
-       </span>
-       <p>
-            <button class="collect" ng-verify="{control:'myform'}" ng-click="collectFun()">汇总</button>
-        </p>
+            <input type="text"  class="cInput" ng-model="area">
+        </div>
+        <button class="button" ng-click="collectFun()">汇总</button>
     </div>
-    <ul class="table area-table" style="display: {{ isCollect?'block':'none' }}">
-        <li class="list-head">
-            <span></span>
-            <span class="data-id">id</span>
+    <ul class="sum-list">
+        <li class="sum-thead">
             <span>地区</span>
-            <span>日期</span>
+            <span style="flex: 0 0 16%">日期</span>
             <span>计划收入</span>
             <span>实际收入</span>
             <span>比例</span>
             <span>差额</span>
             <span>目标任务量</span>
             <span>实际任务量</span>
-            <span></span>
+            <span>完工比例</span>
+            <span ng-show="isPay">项目名称</span>
+            <span ng-show="isPay">项目组</span>
         </li>
-        <li class="list-all">
-            <section ng-repeat="list in lists" style="display: {{list._delete?'none':'block'}};">
-                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p class="data-id"></p>
-                    <p>{{::list.area}}</p>
-                    <p>{{::list.time}}</p>
-                    <p>{{::list.planIncome}}</p>
-                    <p>{{::list.actualIncome}}</p>
-                    <p>{{::list.rate}}</p>
-                    <p>{{::list.balance}}</p>
-                    <p>{{::list.targetTask}}</p>
-                    <p>{{::list.actualTask}}</p>
-                    <p>
-                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
-                    </p>
-                </div>
-                <div class="can">
-                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
-                        <li>
-                            <p class="see-parent">
-                                <span>完工比例</span>
-                                <span ng-show="isPay">项目名称</span>
-                                <span ng-show="isPay">项目组</span>
-                            </p>
-                            <p class="see-children">
-                                <span>{{::list.completeRate}}</span>
-                                <span ng-show="isPay">{{::list.projectName}}</span>
-                                <span ng-show="isPay">{{::list.projectGroup}}</span>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+        <li class="sum-tbody" ng-repeat="Lists in listss">
+            <span>{{::Lists.area}}</span>
+            <span style="flex: 0 0 16%">{{::Lists.time}}</span>
+            <span>{{::Lists.planIncome}}</span>
+            <span>{{::Lists.actualIncome}}</span>
+            <span>{{::Lists.rate}}</span>
+            <span>{{::Lists.balance}}</span>
+            <span>{{::Lists.targetTask}}</span>
+            <span>{{::Lists.actualTask}}</span>
+            <span>{{::Lists.completeRate}}</span>
+            <span ng-show="isPay">{{::list.projectName}}</span>
+            <span ng-show="isPay">{{::list.projectGroup}}</span>
         </li>
-     </ul>
+    </ul>
 </div>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

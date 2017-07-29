@@ -1,5 +1,4 @@
 <div class="content-tab list">
-
     <ul class="table">
         <li class="list-head">
             <span></span>
@@ -14,15 +13,15 @@
         </li>
         <li class="list-all" ng-repeat="list in activityLists" style="display: {{list._delete?'none':'block'}};">
             <section>
-                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p>{{list.firstSubject}}</p>
-                    <p>{{list.secondSubject}}</p>
-                    <p>{{list.thirdSubject}}</p>
-                    <p>{{list.area}}</p>
-                    <p>{{list.projectGroup}}</p>
-                    <p>{{list.projectName}}</p>
-                    <p>{{list.voucherDate}}</p>
+                <div class="list-text">
+                    <p>{{$index+1+num}}</p>
+                    <p mod>{{::list.firstSubject}}</p>
+                    <p mod>{{::list.secondSubject}}</p>
+                    <p mod>{{::list.thirdSubject}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.projectGroup}}</p>
+                    <p mod>{{::list.projectName}}</p>
+                    <p mod>{{::list.voucherDate}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
                     </p>
@@ -34,7 +33,7 @@
                                 <span>金额</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.borrowMoney}}</span>
+                                <span mod>{{::list.borrowMoney}}</span>
                             </p>
                         </li>
                     </ul>
@@ -42,11 +41,17 @@
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
 
 
 

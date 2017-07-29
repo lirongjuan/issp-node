@@ -1,6 +1,7 @@
 var app = angular.module('postedServer',[]);
 app.factory('postedSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         listChecked : listChecked,
         countChecked:countChecked,
         findVoucherId:findVoucherId,
@@ -18,6 +19,10 @@ app.factory('postedSer',function ($http) {
         getProject:getProject
 
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/vouchergenerate/guidePermission/'+data);
+    }
     //列表
     function listChecked(data) {
         return $http.get('/vouchergenerate/listChecked',{

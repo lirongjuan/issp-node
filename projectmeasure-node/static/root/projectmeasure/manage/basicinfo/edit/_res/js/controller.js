@@ -5,6 +5,8 @@ app.controller('EditCtrl', function($scope, basicinfoSer,$state,toastr,$statePar
     basicinfoSer.getOneById1(companyId).then(function(response){
         if(response.data.code==0){
             $scope.data = response.data.data;
+        }else{
+            toastr.error( response.data.msg, '温馨提示');
         }
     });
     //点击提交
@@ -14,7 +16,7 @@ app.controller('EditCtrl', function($scope, basicinfoSer,$state,toastr,$statePar
         data.id = companyId.id;;
         basicinfoSer.marketserveapplyEdit1(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.projectmeasure.manage.basicinfo.list');
+                $state.go('root.projectmeasure.manage.basicinfo.list[12]');
                 toastr.success('温馨提示',"此次编辑成功");
             }else{
                 toastr.error( response.data.msg, '温馨提示');

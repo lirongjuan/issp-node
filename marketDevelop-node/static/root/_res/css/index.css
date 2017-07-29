@@ -1742,13 +1742,15 @@ ul li .data-add{
   margin-left:15px;
 }
 .select .select-text{
-  width:65%;
-  line-height:40px;
-  height:40px;
+  width: 60%;
+  line-height: 40px;
+  height: 40px;
   padding-left: 15px;
-  position:absolute;
-  left:0;
-  overflow:hidden;
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .select .select-text.verifyError{
   border: 1px solid #1aafea;

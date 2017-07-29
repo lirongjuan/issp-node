@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"billRecordsMenuCtrl"
             }
         }
+    }).state("root.recordAccount.billRecords.list[12]",{
+        url:"/list[12]?page=",
+        views:{
+            "content@root.recordAccount.billRecords":{
+                templateUrl : "root/recordAccount/billRecords/list/_res/html/index.html",
+                controller:'billRecordsListCtrl'
+            }
+        }
     }).state("root.recordAccount.billRecords.subjectsSummary[12]",{
         url:"/subjectsSummary[12]",
         views:{

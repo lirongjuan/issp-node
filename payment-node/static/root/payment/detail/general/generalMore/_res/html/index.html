@@ -1,6 +1,7 @@
-<div class="content-tab detailsInform mod">
-    <ul class="table table-top">
+<div class="content-tab detailsInform">
+    <ul class="table table-top su2">
         <li class="list-head">
+            <span></span>
             <span>地区</span>
             <span>项目内部名称</span>
             <span>派工单编号</span>
@@ -8,11 +9,12 @@
             <span>合同规模数</span>
             <span>合同规模金额</span>
             <span>已派工量</span>
-            <span></span>
+            <span style="cursor: pointer" ng-click="cancel()">取消</span>
         </li>
         <li class="list-all lists2" ng-repeat="lists in detailListfs">
             <section>
                 <div class="list-text">
+                    <p></p>
                     <p>{{lists.area}}</p>
                     <p>{{lists.innerName}}</p>
                     <p>{{lists.taskNum}}</p>
@@ -113,13 +115,6 @@
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                    </div>
                 </div>
             </section>
         </li>

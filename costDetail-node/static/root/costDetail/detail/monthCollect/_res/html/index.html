@@ -1,0 +1,170 @@
+<div class="collect" verify-scope="tipStyle: 1">
+    <h3>月汇总成本预算明细表</h3>
+    <div class="content-input add">
+    <div class="input-list" style="margin-bottom:0">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image time">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>部门</em></label>
+                    <select class="sele" ng-model="department">
+                        <option ng-repeat="list in allGround">{{ list }}</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <div class="content-input add" verify-scope="tipStyle: 1">  <!--表单验证插件-->
+        <p class="dataBottom">
+            <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+            <button ng-verify="{control:'myform'}" ng-click="detailEditFun()">汇总</button>
+        </p>
+    </div>
+</div>
+    <ul class="sum-list" ng-hide='isView'>
+        <li class="table_list">
+            <span>分类</span>
+            <span>合计</span>
+            <span>10日</span>
+            <span>15日</span>
+            <span>20日</span>
+            <span>30日</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">期初余额</span>
+            <span>{{::detailEdit.beginBalanceSum}}</span>
+            <span>{{::detailEdit.beginBalanceTen}}</span>
+            <span>{{::detailEdit.beginBalanceFift}}</span>
+            <span>{{::detailEdit.beginBalanceTwtenty}}</span>
+            <span>{{::detailEdit.beginBalanceThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">营业成本</span>
+            <span>{{::detailEdit.operatingSum}}</span>
+            <span>{{::detailEdit.operatingTen}}</span>
+            <span>{{::detailEdit.operatingFift}}</span>
+            <span>{{::detailEdit.operatingTwtenty}}</span>
+            <span>{{::detailEdit.operatingThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">劳务成本</span>
+            <span>{{::detailEdit.laborCostSum}}</span>
+            <span>{{::detailEdit.laborCostTen}}</span>
+            <span>{{::detailEdit.laborCostFift}}</span>
+            <span>{{::detailEdit.laborCostTwtenty}}</span>
+            <span>{{::detailEdit.laborCostThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.laborCostDetailList">
+            <span class="">{{::list.typeName}}</span>
+            <span>{{::list.laborCostSum}}</span>
+            <span>{{::list.laborCostTen}}</span>
+            <span>{{::list.laborCostFift}}</span>
+            <span>{{::list.laborCostTwtenty}}</span>
+            <span>{{::list.laborCostThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">应交税金</span>
+            <span>{{::detailEdit.payableTaxSum}}</span>
+            <span>{{::detailEdit.payableTaxTen}}</span>
+            <span>{{::detailEdit.payableTaxFift}}</span>
+            <span>{{::detailEdit.payableTaxTwtenty}}</span>
+            <span>{{::detailEdit.payableTaxThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">公司借入</span>
+            <span>{{::detailEdit.companyBorrowedSum}}</span>
+            <span>{{::detailEdit.companyBorrowedTen}}</span>
+            <span>{{::detailEdit.companyBorrowedFift}}</span>
+            <span>{{::detailEdit.companyBorrowedTwtenty}}</span>
+            <span>{{::detailEdit.companyBorrowedThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.companyBorrowedDetailList">
+            <span class="">{{::list.typeName}}</span>
+            <span>{{::list.companyBorrowedSum}}</span>
+            <span>{{::list.companyBorrowedTen}}</span>
+            <span>{{::list.companyBorrowedFift}}</span>
+            <span>{{::list.companyBorrowedTwtenty}}</span>
+            <span>{{::list.companyBorrowedThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">实收资本</span>
+            <span>{{::detailEdit.companyBorrowedThirty}}</span>
+            <span>{{::detailEdit.paidCapitalTen}}</span>
+            <span>{{::detailEdit.paidCapitalFift}}</span>
+            <span>{{::detailEdit.paidCapitalTwtenty}}</span>
+            <span>{{::detailEdit.paidCapitalThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.paidCapitalDetailList">
+            <span>{{::list.typeName}}</span>
+            <span>{{::list.paidCapitalSum}}</span>
+            <span>{{::list.paidCapitalTen}}</span>
+            <span>{{::list.paidCapitalFift}}</span>
+            <span>{{::list.paidCapitalTwtenty}}</span>
+            <span>{{::list.paidCapitalThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">公司借出</span>
+            <span>{{::detailEdit.companyLendSum}}</span>
+            <span>{{::detailEdit.companyLendTen}}</span>
+            <span>{{::detailEdit.companyLendFift}}</span>
+            <span>{{::detailEdit.companyLendTwtenty}}</span>
+            <span>{{::detailEdit.companyLendThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.companyLendDetailList">
+            <span>{{::list.typeName}}</span>
+            <span>{{::list.companyLendSum}}</span>
+            <span>{{::list.companyLendTen}}</span>
+            <span>{{::list.companyLendFift}}</span>
+            <span>{{::list.companyLendTwtenty}}</span>
+            <span>{{::list.companyLendThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">主营业务收入</span>
+            <span>{{::detailEdit.businessIncomeSum}}</span>
+            <span>{{::detailEdit.businessIncomeTen}}</span>
+            <span>{{::detailEdit.businessIncomeFift}}</span>
+            <span>{{::detailEdit.businessIncomeTwtenty}}</span>
+            <span>{{::detailEdit.businessIncomeThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.businessIncomeDetailList">
+            <span>{{::list.typeName}}</span>
+            <span>{{::list.businessIncomeSum}}</span>
+            <span>{{::list.businessIncomeTen}}</span>
+            <span>{{::list.businessIncomeFift}}</span>
+            <span>{{::list.businessIncomeTwtenty}}</span>
+            <span>{{::list.businessIncomeThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">预估应收账款</span>
+            <span>{{::detailEdit.forecastAccountSum}}</span>
+            <span>{{::detailEdit.forecastAccountTen}}</span>
+            <span>{{::detailEdit.forecastAccountFift}}</span>
+            <span>{{::detailEdit.forecastAccountTwtenty}}</span>
+            <span>{{::detailEdit.forecastAccountThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">实际资金缺口</span>
+            <span>{{::detailEdit.actualGapSum}}</span>
+            <span>{{::detailEdit.actualGapTen}}</span>
+            <span>{{::detailEdit.actualGapFift}}</span>
+            <span>{{::detailEdit.actualGapTwtenty}}</span>
+            <span>{{::detailEdit.actualGapThirty}}</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">按时回款预估结余资金</span>
+            <span>{{::detailEdit.forecastBalanceMoSum}}</span>
+            <span>{{::detailEdit.forecastBalanceMoGapTen}}</span>
+            <span>{{::detailEdit.forecastBalanceMoGapFift}}</span>
+            <span>{{::detailEdit.forecastBalanceMoTwtenty}}</span>
+            <span>{{::detailEdit.forecastBalanceMoThirty}}</span>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    !function () {
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    } ();
+</script>

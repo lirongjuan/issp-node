@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "area": "广州",
+      "projectGroup": "研发项目组",
+      "project": "issp系统开发",
+      "type": "项目上",
+      "year": "2017",
+      "month": "6",
+      "targetFee": "100",
+      "actualFee": "1100",
+      "rate": "1.1",
+      "balance": "100"
+    }
+  ]
+}

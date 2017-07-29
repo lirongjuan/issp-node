@@ -47,13 +47,6 @@ $scope.getSummary ={onSelectionChanged(){
     $scope.condis= [];
     $scope.stringSettings = {template : '{{option}}', smartButtonTextConverter(skip, option) { return option; }};
     $scope.workOptions=['财务部门-预算','财务部门-账务','财务部门-资金','综合资源部-福利','综合资源部-素养','综合资源部-规划','一线实施体系-项目组','一线实施体系-研发部','商务发展部-客户管理','商务发展部-业务管理','商务发展部-进度管理'];
-    //可手填的下拉框
-    // $scope.changeSelect = function () {
-    //     $scope.results.projectType = $scope.results.projectType1;
-    // };
-    // $scope.changeSelect2 = function () {
-    //     $scope.results.problemObject = $scope.results.problemObject1;
-    // };
 
 });
 

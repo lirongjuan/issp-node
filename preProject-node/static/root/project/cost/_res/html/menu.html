@@ -1,32 +1,32 @@
 <ul class="list">
-    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list" >
-        <a href="javascript:void(0)" >列表<span>Tabulate</span></a>
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" class="lis" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" >列表</a>
     </li>
-    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" >
-        <a href="javascript:void(0)"  class="add">添加<span>Add</span></a>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="add">添加</a>
     </li>
-    <li  ng-click="edit()" ng-class="{'current':menuClass=='editMenu'}" >
-        <a href="javascript:void(0)"  class="same-one" >编辑<span>Edit</span></a>
+    <li  ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':getId}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see">编辑</a>
     </li>
-    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu'}" >
-        <a href="javascript:void(0)" class="same-two">删除<span>Delete</span></a>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':getId}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
     </li>
-    <li ng-click="collect()" ng-class="{'current':menuClass=='collectMenu'}"  ui-sref=".collect">
-        <a href="javascript:void(0)" class="same-three">地区汇总<span>Collects</span></a>
+    <li ng-click="collect()" ng-class="{'current':menuClass=='collectMenu'}"  ui-sref=".collect" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">地区汇总</a>
     </li>
-    <li ng-click="details()" ng-class="{'current':menuClass=='detailsMenu'}">
-        <a href="javascript:void(0)" class="same-two">地区汇总明细<span>Details</span></a>
+    <li ng-click="details()" ng-class="{'current':menuClass=='detailsMenu','seeParent':idSocialList}" ng-show="DETAIL" ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-two see">地区明细</a>
     </li>
-    <li ng-click="summary()" ng-class="{'current':menuClass=='summaryMenu'}"  ui-sref=".summary">
-        <a href="javascript:void(0)" class="same-two">项目名称汇总<span>Summary</span></a>
+    <li ng-click="summary()" ng-class="{'current':menuClass=='summaryMenu'}"  ui-sref=".summary" ng-show="DETAIL" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two">项目汇总</a>
     </li>
-    <li ng-click="detailName()" ng-class="{'current':menuClass=='detailNameMenu'}">
-        <a href="javascript:void(0)" class="same-three">项目名称汇总明细<span>detailName</span></a>
+    <li ng-click="detailName()" ng-class="{'current':menuClass=='detailNameMenu','seeParent':idSocialList}" ng-show="DETAIL" ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-three see">项目明细</a>
     </li>
-    <li ng-click="collectPro()" ng-class="{'current':menuClass=='collectProMenu'}"  ui-sref=".collectPro">
-        <a href="javascript:void(0)" class="same-one">项目组汇总<span>CollectPro</span></a>
+    <li ng-click="collectPro()" ng-class="{'current':menuClass=='collectProMenu'}"  ui-sref=".collectPro" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-one">项目组汇总</a>
     </li>
-    <li ng-click="detailGroup()" ng-class="{'current':menuClass=='detailGroupMenu'}">
-        <a href="javascript:void(0)" class="same-three">项目组汇总明细<span>detailGroup</span></a>
+    <li ng-click="detailGroup()" ng-class="{'current':menuClass=='detailGroupMenu','seeParent':idSocialList}" ng-show="DETAIL" ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-three see">项目组明细</a>
     </li>
 </ul>

@@ -1,0 +1,50 @@
+<div class="collect">
+    <div class="thead">
+        <span>凭证字:
+            <!--<select ng-model="data[0].words">
+                <option value="PAY">付</option>
+                <option value="TURN">转</option>
+                <option value="GIVEWAY">让</option>
+                <option value="COLLECT">收</option>
+            </select>-->
+            <input type="text" class="number" ng-value="data[0].words | cover">
+            <input type="number" class="number"> 号
+             日期：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="date lendDate" ng-model="data[0].dates">
+        </span>
+        <span class="theme">
+                <h2>记账凭证</h2>
+                <em>{{ data[0].stage }}</em>
+        </span>
+        <span class="end">
+                附单据 <input type="text" class="bills" ng-model="data[0].ticketNum"> 张
+        </span>
+    </div>
+    <ul class="sum-list">
+        <li class="table_list">
+            <span>借款事由</span>
+            <span>会计记账科目</span>
+            <span>借款金额</span>
+            <span>贷款金额</span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in data">
+            <span>{{::list.borrowResion}}</span>
+            <span>{{::list.subject}}</span>
+            <span>{{::list.borrowMoney}}</span>
+            <span>{{::list.loanMoney}}</span>
+        </li>
+        <li class="span-col" >
+            <span class="col-thead">合计</span>
+            <span class="col-tbody">{{::data[0].explains}}</span>
+        </li>
+        <p style="width:90%;line-height: 30px;">
+            制单人：<em>{{ data[0].ticketUser}}</em>
+        </p>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    !function () {
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    } ();
+
+</script>

@@ -1,7 +1,5 @@
-/**
- */
-var app = angular.module('checkincomeAdd', ['toastr','ipCookie']);
-app.controller('checkincomeAddCtrl', function($scope, checkincomeSer,$state,toastr,$location,ipCookie){
+var app = angular.module('checkincomeAdd', ['toastr']);
+app.controller('checkincomeAddCtrl', function($scope, checkincomeSer,$state,toastr){
 
     //添加
     $scope.AddFun = function(){
@@ -9,15 +7,10 @@ app.controller('checkincomeAddCtrl', function($scope, checkincomeSer,$state,toas
         var data = $scope.data;
         checkincomeSer.addData(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.incomeAccount.check.checkincome.list');
+                $state.go('root.incomeAccount.check.checkincome.list[12]');
                 toastr.success( "已成功添加", '温馨提示');
-            }else if(response.data.code==403){
-                toastr.error( "请登录用户,3秒后跳至登陆页面", '温馨提示');
-                var absurl = $location.absUrl();
-                ipCookie('absurl', absurl,{ expires:3,expirationUnit: 'minutes',domain:'issp.bjike.com' });
-                setTimeout(function(){
-                    window.location.href='http://localhost/login'
-                },3000)
+            }else{
+                toastr.error( response.data.msg , '温馨提示');
             }
         });
     };

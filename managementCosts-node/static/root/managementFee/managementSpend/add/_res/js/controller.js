@@ -13,7 +13,7 @@ app.controller('spendAddCtrl', function($scope, spendSer,$state,toastr){
         var vm = $scope;
         spendSer.addSpend(vm.spend).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.managementFee.managementSpend.list');
+                $state.go('root.managementFee.managementSpend.list[12]');
                 toastr.success("已成功添加", '温馨提示');
             }else{
                 toastr.error( response.data.msg, '温馨提示');

@@ -34,7 +34,7 @@ app.controller('emailListCtrl',function($scope,emailSer,toastr,$stateParams,$sta
                 }else{
                     $state.go('root.projectProcessed.email.list[12]',{id:null,name:null,page:$stateParams.page-1});
                 }
-                // $state.go('root.projectProcessed.email.list[12]',{id:null,name:null});
+                
             }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
@@ -98,13 +98,7 @@ app.controller('emailListCtrl',function($scope,emailSer,toastr,$stateParams,$sta
         event._moreList = !event._moreList;
     };
 
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.mailLists,function(obj){
-            if(obj.id == delid){
-                obj._delete = delid
-            }
-        })
-    });
+
     //冻结
     $scope.$on('congealId',function(event,conid){
         angular.forEach($scope.mailLists,function(obj){

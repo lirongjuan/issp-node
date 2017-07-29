@@ -18,7 +18,7 @@ app.controller('spendEditCtrl', function($scope, spendSer,$stateParams,$state,to
         var vm = $scope;
         spendSer.editSpend(vm.editFee).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.managementFee.managementSpend.list');
+                $state.go('root.managementFee.managementSpend.list[12]');
                 toastr.success( "编辑成功", '温馨提示');
             }else{
                 toastr.error( response.data.msg, '温馨提示');

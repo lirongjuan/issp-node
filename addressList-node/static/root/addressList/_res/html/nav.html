@@ -1,0 +1,31 @@
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+    <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+    {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass('inner')" ng-show="internalcontacts"  ng-class="{'active':navCla=='inner'}"  ui-sref="_root.addressList.inner.list[12]" >
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass('outer')"  ng-show="externalcontacts" ng-class="{'active':navCla=='outer'}"  ui-sref="_root.addressList.outer.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass('business')"  ng-show="commercecontacts" ng-class="{'active':navCla=='business'}"  ui-sref="_root.addressList.business.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass('businessVip')"  ng-show="commercemember" ng-class="{'active':navCla=='businessVip'}"  ui-sref="_root.addressList.businessVip.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass('other')"  ng-show="othercontacts" ng-class="{'active':navCla=='other'}"  ui-sref="_root.addressList.other.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass('public')"  ng-show="commonalityserimpl" ng-class="{'active':navCla=='public'}"  ui-sref="_root.addressList.public.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass('qq')"  ng-show="qqgroup" ng-class="{'active':navCla=='qq'}"  ui-sref="_root.addressList.qq.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name7}}</a>
+        </li>
+        <li ng-click="navClass('setting')"  ng-show="cuspermission" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.addressList.setting.list[12]" >
+            <a href="javascript:void(0)">{{menuInfo.name8}}</a>
+        </li>
+    </ul>
+</div>

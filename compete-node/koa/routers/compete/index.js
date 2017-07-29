@@ -4,10 +4,48 @@ var sendfile = require('koa-sendfile');
 var server = require(path.resolve('koa/servers/' + path.basename(path.resolve(__filename,'../'))+'/index.js'));
 var config = require(path.resolve('plugins/read-config.js'));
 var fetch = require('node-fetch');//url转发
+var koaBody = require('koa-body');
+var request = require('request-promise');
+var uploadFile = require(path.resolve('plugins/uploadFile.js'));
+var urlEncode = require(path.resolve('plugins/urlEncode.js'));
+var fileType = require(path.resolve('plugins/fileType.js'));
 module.exports = function(){
     var router = new Router();
-     //列表
-    router.get('/compete/competecompetitor/listCompetecompetitor', function*(){
+
+    router.get('/compete/setButtonPermission', function*(){ //设置导航权限
+        var $self = this;
+        var navToken = {userToken:$self.cookies.get('token')};
+        yield (server().settingNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/compete/sonPermission', function*(){ //导航权限
+        var $self = this;
+        var navToken = {userToken:$self.cookies.get('token')};
+        yield (server().siginNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/competetitor/guidePermission/:guideAddrStatus', function*(){ //菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,userToken:$self.cookies.get('token')};
+        yield (server().competetitorPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/compete/competecompetitor/listCompetecompetitor', function*(){
        var $self = this;
        var page = this.request.query;
        page.userToken = this.cookies.get('token');
@@ -114,7 +152,107 @@ module.exports = function(){
                 $self.set('Content-Type','application/json;charset=utf-8');
                 $self.body=error.error;
                 console.error(error.error);
-            }));//竞争对手信息结束
+            }));
+    }).get('/compete/listFile', function*(){ //查看附件 竞争对手
+        var $self = this;
+        var enData = $self.request.query;
+        enData.userToken = $self.cookies.get('token');
+        yield (server().seeFile(enData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/compete/download', function*(){//下载文件 竞争对手
+        var $self = this;
+        var count = $self.request.query;
+        var data = {
+            path:count.path
+        };
+        yield (fetch(config()['rurl']+`/competitor/v1/download${urlEncode(data,true)}`, {
+            method : 'GET',
+            headers : {'userToken' : $self.cookies.get('token')}
+        }).then((res)=>{
+            fileType(count,this);
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).post('/compete/delFile', koaBody({multipart:true}), function*(){//竞争对手 删除文件
+        var $self = this;
+        var delData = $self.request.body;
+        delData.userToken = $self.cookies.get('token');
+        yield (server().delFile(delData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).post('/compete/upload', koaBody({multipart:true}),function *(next) {//上传文件 竞争对手
+        var $self = this;
+        var uploadData = $self.request.body;
+        uploadData.userToken = $self.cookies.get("token");
+        yield (server().competeUploadFile(uploadData)
+            .then((parsedBody) =>{
+                $self.body = parsedBody;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).post('/compete/import', koaBody({multipart:true}),function *(next) {//导入 竞争对手
+        var $self = this;
+        var fileData = $self.request.body;
+        fileData.userToken = $self.cookies.get("token");
+        yield (server().competeImport(fileData)
+            .then((parsedBody) =>{
+                $self.body = parsedBody;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/compete/templateExport', function*(){//导入模板下载 竞争对手
+        var $self = this;
+        var fileName = '竞争对手模板.xlsx';
+        yield (fetch(config()['rurl']+`/competitor/v1/module`, {
+            method : 'GET',
+        }).then(function(res){
+            $self.set('content-type', 'application/vnd.ms-excel;charset=utf-8');
+            $self.set('Content-Disposition', 'attachment;  filename='+encodeURI(fileName));
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).get('/compete/exportFile', function*(){//导出 竞争对手
+        var $self = this;
+        var count = $self.request.query;
+        yield (fetch(config()['rurl']+`/competitor/v1/export${urlEncode(count,true)}`, {
+            method : 'GET',
+            headers : {'userToken' : $self.cookies.get('token')}
+        }).then(function(res){
+            $self.set('content-type', 'application/vnd.ms-excel;charset=utf-8');
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).get('/email/guidePermission/:guideAddrStatus', function*(){ //汇总列表   菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,userToken:$self.cookies.get('token')};
+        yield (server().emailPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
     }).get('/compete/listAbilityEmail/listEmail', function*(){//汇总和邮件发送
         var $self = this;
         var page = this.request.query;
@@ -207,11 +345,11 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
-    }).get('/compete/listNameType/type', function*(){
+    }).get('/compete/email/allAreas', function*(){
         var $self = this;
         var getTyoeData = $self.request.query;
         getTyoeData.userToken = this.cookies.get('token');
-        yield (server().typelistName(getTyoeData)
+        yield (server().allAreas(getTyoeData)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;

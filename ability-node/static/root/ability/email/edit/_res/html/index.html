@@ -3,7 +3,7 @@
         <ul class="inter-left">
             <li class="required">
                 <label><i><img src="/images/mandatory.png"></i><em>汇总类型</em></label>
-                <select class="sele" ng-model="editInfo.type" ng-change="myFunc()" ng-init="type='3'">
+                <select class="sele" ng-model="editInfo.type" ng-change="myFunc(true)">
                     <option value="3">请选择</option>
                     <option value="0">商业能力展示汇总</option>
                     <option value="1">个人能力展示汇总</option>
@@ -13,7 +13,7 @@
             <li class="required f-l">
                 <label><i><img src="/images/mandatory.png"></i><em>发送间隔</em></label>
                 <input type="number" ng-model="editInfo.sendNum" ng-verify="{}">
-                <select class="sele" ng-model="editInfo.collectSendUnit" ng-init="editInfo.collectSendUnit='MINUTE'">
+                <select class="sele" ng-model="editInfo.collectSendUnit">
                     <option value="MINUTE">分钟</option>
                     <option value="HOURS">小时</option>
                     <option value="DAY">天</option>
@@ -25,31 +25,55 @@
             </li>
             <li class="required">
                 <label><i><img src="/images/mandatory.png"></i><em>汇总间隔</em></label>
-                <select class="sele" ng-model="editInfo.collectUnit" ng-init="editInfo.collectUnit='EVERYDAY'">
+                <select class="sele" ng-model="editInfo.collectUnit">
                     <option value="EVERYDAY">每天</option>
                     <option value="EVERYWEEK">每周</option>
                     <option value="EVERYMONTH">每月</option>
-                </select>
-            </li>
-        </ul>
-        <ul class="inter-right">
-            <li class="required">
-                <label><i><img src="/images/mandatory.png"></i><em>公司名称/个人姓名</em></label>
-                <select class="sele" ng-model="editInfo.comNames">
-                    <option value="">请选择</option>
-                    <option ng-repeat="name in companyNames">{{name}}</option>
                 </select>
             </li>
             <li>
                 <label><em>备注</em></label>
                 <input type="text" class="remark" ng-model="editInfo.remark">
             </li>
+        </ul>
+        <ul class="inter-right">
+            <li class="sum-select">
+                <label><i><img src="/images/mandatory.png"></i><em>公司名称/个人姓名</em></label>
+                <div class="select">
+                    <p class="select-text">
+                        <span ng-repeat="work in condis">{{work}}, </span>
+                    </p>
+                    <div class="mymultiselect" ng-dropdown-multiselect="" options="companyNames" selected-model="condis" extra-settings="stringSettings"></div>
+                </div>
+            </li>
+            <li class="required">
+                <label><i><img src="/images/mandatory.png"></i><em>选择对象</em></label>
+                <select class="sele one-select" ng-model="checkedEmail" ng-init="checkedEmail='自由录入'">
+                    <option ng-repeat="one in emails">{{one}}</option>
+                </select>
+                <input type="text" style=" width:22%;right: 102px; background-color: #fff;" ng-model="sendObjectList" ng-show="checkedEmail=='自由录入'">
+                <div class="select two-select" ng-show="checkedEmail=='个人邮箱'">
+                    <p class="select-text" >
+                        <span></span>
+                    </p>
+                    <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="" selected-model="names" extra-settings="stringSettings"></div>
+                </div>
+                <div class="select two-select" ng-show="checkedEmail=='公邮'">
+                    <p class="select-text" >
+                        <span></span>
+                    </p>
+                    <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="" selected-model="names" extra-settings="stringSettings"></div>
+                </div>
+                <button type="button" class="data-add" ng-click="addMails()">添加</button>
+            </li>
             <li class="f-send">
                 <p class="send-o">
                     <em>发送对象:</em>
                     <span>(双击可以删除该条邮箱地址)</span>
                 </p>
-                <p class="dclick">{{sendObjectList}}</p>
+                <div class="dclick">
+                    <p ng-repeat="item in objLists track by $index" ng-dblclick="dbSend($index)" >{{item}}</p>
+                </div>
             </li>
         </ul>
     </section>

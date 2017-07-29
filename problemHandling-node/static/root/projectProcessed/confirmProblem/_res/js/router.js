@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.projectProcessed.confirmProblem.list[12]",{
-        url:"/list[12]?id=&name=&page=",
+        url:"/list[12]?id=&name=&page=&internalProjectName=&projectType=&problemObject=",
         views:{
             "content@root.projectProcessed.confirmProblem":{
                 templateUrl : "root/projectProcessed/confirmProblem/list/_res/html/index.html",

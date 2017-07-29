@@ -16,7 +16,7 @@ app.factory('emailSer',function ($http) {
         getPersonNames:getPersonNames,
         ectSummaryCooperation:ectSummaryCooperation,
         getCooperationNames:getCooperationNames,
-
+        menuPermission:menuPermission,
     };
     //列表
     function  listAbilityEmail(data) {
@@ -79,5 +79,9 @@ app.factory('emailSer',function ($http) {
     //汇总合作名称
     function getCooperationNames() {
         return $http.get('/ability/getCooperationNames')
+    }
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/email/guidePermission/'+data);
     }
 });

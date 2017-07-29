@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"accountMenuCtrl"
             }
         }
+    }).state("root.initialize.sort.account.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.initialize.sort.account":{
+                templateUrl : "root/initialize/sort/account/list/_res/html/index.html",
+                controller:'accountListCtrl'
+            }
+        }
     }).state("root.initialize.sort.account.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.initialize.sort.account.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.initialize.sort.account":{
                 templateUrl : "root/initialize/sort/account/edit/_res/html/index.html",

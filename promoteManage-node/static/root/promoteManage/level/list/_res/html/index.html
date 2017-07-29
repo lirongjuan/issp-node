@@ -1,0 +1,66 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>体系</span>
+            <span>分类</span>
+            <span>地区</span>
+            <span>项目组/部门</span>
+            <span>岗位</span>
+            <span>姓名</span>
+            <span>员工编号</span>
+            <span>管理方向</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in levelLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.system}}</p>
+                    <p mod>{{::lists.classification}}</p>
+                    <p mod>{{::lists.area}}</p>
+                    <p mod>{{::lists.projectGroup}}</p>
+                    <p mod>{{::lists.job}}</p>
+                    <p mod>{{::lists.name}}</p>
+                    <p mod>{{::lists.employeeId}}</p>
+                    <p mod>{{::lists.direction}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>转正时间</span>
+                                <span>当前管理等级</span>
+                                <span>在管理岗位时间</span>
+                                <span>已晋升次数</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.positiveDate}}</span>
+                                <span mod>{{::lists.currentLevel}}</span>
+                                <span mod>{{::lists.inManageTime}}</span>
+                                <span mod>{{::lists.promotionNum}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+
+
+
+

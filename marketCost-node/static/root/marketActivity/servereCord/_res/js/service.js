@@ -1,6 +1,7 @@
 var app = angular.module('servereCordSer',[]);
 app.factory('servereCordSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         listservereCord:listservereCord,
         countBaseInfo:countBaseInfo,
         addMarketserveapply:addMarketserveapply,
@@ -11,8 +12,14 @@ app.factory('servereCordSer',function ($http) {
         fundModuleOpinionEidt:fundModuleOpinionEidt,
         executiveOpinionEidt:executiveOpinionEidt,
         viewCustomer:viewCustomer,
-        editCustomer:editCustomer
+        editCustomer:editCustomer,
+        viewSigning:viewSigning,
+        getAllAreas:getAllAreas
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/servereCord/guidePermission/'+data);
+    }
     //列表
     function listservereCord(data) {
         return $http.get('/marketActivity/servereCord/list',{
@@ -60,5 +67,15 @@ app.factory('servereCordSer',function ($http) {
     //编辑 客户信息
     function editCustomer(data) {
         return $http.post('/marketActivity/servereCord/editCustomer',data)
+    }
+     //查看附件列表
+    function viewSigning(data) {
+        return $http.get('/serveRecord/viewFile',{
+            params:data
+        })
+    }
+    //获取所有的地区
+    function getAllAreas(){
+        return $http.get('/serveRecord/allreas')
     }
 });

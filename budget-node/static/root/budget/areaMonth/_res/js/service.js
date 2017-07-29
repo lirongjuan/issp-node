@@ -7,6 +7,8 @@ app.factory('areaMonthSer',function ($http) {
         collectByArea:collectByArea,
         collectByArea2:collectByArea2,
         listTheMonthArea:listTheMonthArea,
+        menuPermission:menuPermission,
+        warningCostProjects:warningCostProjects,
     };
     function listAreaMonth(data) {
         return $http.get('/listAreaMonth/list',{params:data})
@@ -29,5 +31,13 @@ app.factory('areaMonthSer',function ($http) {
     //查询当月明细
     function  listTheMonthArea(data) {
         return $http.get('/listTheMonthArea/id',{params:data})
+    }
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/areaMonth/guidePermission/'+data);
+    }
+    //预警
+    function warningCostProjects() {
+        return $http.get('/warning/id')
     }
 });

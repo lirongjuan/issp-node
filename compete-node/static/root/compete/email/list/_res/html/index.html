@@ -10,24 +10,20 @@
             <span>发送间隔</span>
             <span>汇总间隔</span>
             <span>发送对象</span>
-            <span>状态</span>
-            <span>备注</span>
             <span></span>
         </li>
-        <li class="list-all">
-            <section ng-repeat="list in emailLists.data" class="{{list.status=='CONGEAL'?'congeal':''}}" style="display: {{list._delete?'none':'block'}};">
+        <li class="list-all" ng-repeat="list in emailLists.data"  style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}">
                 <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
                     <p>{{$index+1}}</p>
                     <p class="data-id"></p>
-                    <p>{{::list.area}}</p>
-                    <p>{{::list.operateUser}}</p>
-                    <p>{{::list.modifyTime}}</p>
-                    <p>{{list.lastSendTime}}</p>
-                    <p>{{list.sendInterval}}</p>
-                    <p>{{list.collectInterval | cover}}</p>
-                    <p>{{list.sendUser}}</p>
-                    <p>{{list.status | cover}}</p>
-                    <p>{{list.remark}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.operateUser}}</p>
+                    <p mod>{{::list.modifyTime}}</p>
+                    <p mod>{{list.lastSendTime}}</p>
+                    <p mod>{{list.sendInterval}}</p>
+                    <p mod>{{list.collectInterval | cover}}</p>
+                    <p mod>{{list.sendUser}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(list)">更多详细</a>
                     </p>
@@ -36,20 +32,15 @@
                     <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
                         <li>
                             <p class="see-parent">
-                                <span>id编号</span>
+                                <span>状态</span>
+                                <span>备注</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.id}}</span>
+                                <span mod>{{list.status | cover}}</span>
+                                <span mod>{{list.remark}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                    </div>
                 </div>
                 <div class="thaw-modal">
                     <button ng-click="thaw(list)">解冻</button>
@@ -57,8 +48,39 @@
             </section>
         </li>
      </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div class="delete mod" ng-show="congealShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要冻结这条数据？</p>
+        <div class="btn">
+            <button ng-click="conFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow||congealShow"></div>

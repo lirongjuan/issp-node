@@ -15,7 +15,7 @@ app.controller('companyEditCtrl', function($scope, servereCordSer,$state,toastr,
         var data = vm.data
         servereCordSer.marketserveapplyEdit(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.marketActivity.servereCord.list');
+                $state.go('root.marketActivity.servereCord.list[12]');
                 toastr.success('温馨提示',"此次编辑成功");
             }else{
                 toastr.error(response.data.msg ,'温馨提示');

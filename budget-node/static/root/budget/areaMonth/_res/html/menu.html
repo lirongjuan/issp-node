@@ -1,11 +1,11 @@
 <ul class="list">
-    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list" >
-        <a href="javascript:void(0)" >列表<span>Tabulate</span></a>
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" >列表</a>
     </li>
-    <li ng-click="collect()" ng-class="{'current':menuClass=='collectMenu'}" ui-sref=".collect[12]">
-        <a href="javascript:void(0)" class="same-three">汇总<span>Collect</span></a>
+    <li ng-click="collect()" ng-class="{'current':menuClass=='collectMenu'}" ui-sref=".collect[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">汇总</a>
     </li>
-    <li ng-click="theMonth()" ng-class="{'current':menuClass=='theMonthMenu'}">
-        <a href="javascript:void(0)" class="same-two">查询当月明细<span>TheMonth</span></a>
+    <li ng-click="theMonth()" ng-class="{'current':menuClass=='theMonthMenu','seeParent':getId}" ng-show="DETAIL" ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-two see">查询当月明细</a>
     </li>
 </ul>

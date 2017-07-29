@@ -1,0 +1,77 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>姓名</span>
+            <span>员工编号</span>
+            <span>项目组</span>
+            <span>岗位</span>
+            <span>自愿放弃购买社保协议书</span>
+            <span>转正定级档案收集</span>
+            <span></span>
+        </li>
+        <li class="list-all">
+            <section ng-repeat="list in collectLists.data">
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.username}}</p>
+                    <p mod>{{::list.serialNumber}}</p>
+                    <p mod>{{::list.project}}</p>
+                    <p mod>{{::list.position}}</p>
+                    <p mod>{{::list.abandon|cover}}</p>
+                    <p mod>{{::list.become|cover}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>调动/任命</span>
+                                <span>岗位晋升</span>
+                                <span>技能评定</span>
+                                <span>特批补助</span>
+                                <span>技能证书</span>
+                                <span>其他档案</span>
+                           </p>
+                            <p class="see-children">
+                                <span mod>{{::list.transfer}}</span>
+                                <span mod>{{::list.promotion}}</span>
+                                <span mod>{{::list.evaluate}}</span>
+                                <span mod>{{::list.subsidy}}</span>
+                                <span mod>{{::list.skill}}</span>
+                                <span mod>{{::list.other}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

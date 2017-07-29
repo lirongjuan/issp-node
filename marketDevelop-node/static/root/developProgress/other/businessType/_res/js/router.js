@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.developProgress.other.businessType.list[12]",{
-        url:"/list[12]?id=&name=&page",
+        url:"/list[12]?id=&name=&page=",
         views:{
             "content@root.developProgress.other.businessType":{
                 templateUrl : "root/developProgress/other/businessType/list/_res/html/index.html",
@@ -28,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.developProgress.other.businessType.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.developProgress.other.businessType":{
                 templateUrl : "root/developProgress/other/businessType/edit/_res/html/index.html",

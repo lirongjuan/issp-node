@@ -13,10 +13,10 @@ app.controller('servereCordOrganizeCtr',function($scope,servereCordSer,$state,to
         servereCordSer.fundModuleOpinionEidt(data).then(function(response){
             if(response.data.code == 0){
                 toastr.success('温馨提示','提交成功');
-                $state.go('root.marketActivity.servereCord.list')
+                $state.go('root.marketActivity.servereCord.list[12]');
             }else{
                 toastr.error(response.data.msg ,'温馨提示');
             }
-        })
-    }
+        });
+    };
 });

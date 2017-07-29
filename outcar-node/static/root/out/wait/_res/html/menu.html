@@ -1,0 +1,8 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" class="lis" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="same-two">列表</a>
+    </li>
+    <li ng-click="pay()" ng-class="{'current':menuClass=='payMenu','seeParent':idList}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-three see">确认付款</a>
+    </li>
+</ul>

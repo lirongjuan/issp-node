@@ -1,23 +1,23 @@
 <ul class="list width-10">
-    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list">
-        <a href="javascript:void(0)" class="lis">列表<span>Tabulate</span></a>
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
     </li>
-    <li ng-click="posting()" ng-class="{'current':menuClass=='postingMenu'}">
-        <a href="javascript:void(0)" class="same-two" >过帐<span>Posting</span></a>
+    <li ng-click="posting()" ng-class="{'current':menuClass=='postingMenu','seeParent':ids}" ng-show="PASSACCOUNT" ng-init="menuCheck('PASSACCOUNT')">
+        <a href="javascript:void(0)" class="add see">过帐</a>
     </li>
-    <li ng-click="anti()" ng-class="{'current':menuClass=='antiMenu'}">
-        <a href="javascript:void(0)" class="same-two" >反审核<span>AntiReview</span></a>
+    <li ng-click="anti()" ng-class="{'current':menuClass=='antiMenu','seeParent':idListd}" ng-show="ANTIAUDIT" ng-init="menuCheck('ANTIAUDIT')">
+        <a href="javascript:void(0)" class="same-two see">反审核</a>
     </li>
-    <li ng-click="subjectsSummary()" ng-class="{'current':menuClass=='subjectsSummaryMenu'}" ui-sref=".subjectsSummary[12]">
-        <a href="javascript:void(0)" class="same-three" >科目汇总<span>CategorySummary</span></a>
+    <li ng-click="subjectsSummary()" ng-class="{'current':menuClass=='subjectsSummaryMenu'}" ui-sref=".subjectsSummary[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three" >科目汇总</a>
     </li>
-    <li ng-click="areasSummary()" ng-class="{'current':menuClass=='areasSummaryMenu'}" ui-sref=".areasSummary[12]">
-        <a href="javascript:void(0)"  class="same-one">地区汇总<span>AreasSummary</span></a>
+    <li ng-click="areasSummary()" ng-class="{'current':menuClass=='areasSummaryMenu'}" ui-sref=".areasSummary[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)"  class="same-one">地区汇总</a>
     </li>
-    <li ng-click="teamSummary()" ng-class="{'current':menuClass=='teamSummaryMenu'}" ui-sref=".teamSummary[12]">
-        <a href="javascript:void(0)" class="same-two" >项目组汇总<span>TeamSummary</span></a>
+    <li ng-click="teamSummary()" ng-class="{'current':menuClass=='teamSummaryMenu'}" ui-sref=".teamSummary[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two" >项目组汇总</a>
     </li>
-    <li ng-click="projectSummary()" ng-class="{'current':menuClass=='projectSummaryMenu'}" ui-sref=".projectSummary[12]">
-        <a href="javascript:void(0)"  class="same-one">项目名称汇总<span>ProjectSummary</span></a>
+    <li ng-click="projectSummary()" ng-class="{'current':menuClass=='projectSummaryMenu'}" ui-sref=".projectSummary[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)"  class="same-one">项目名称汇总</a>
     </li>
 </ul>

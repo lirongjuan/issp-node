@@ -14,14 +14,14 @@
         <li class="list-all" ng-repeat="lists in outsourcingLists" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p>{{$index+1}}</p>
-                    <p>{{lists.area}}</p>
-                    <p>{{lists.projectGroup}}</p>
-                    <p>{{lists.project}}</p>
-                    <p>{{lists.type}}</p>
-                    <p>{{lists.year}}</p>
-                    <p>{{lists.month}}</p>
-                    <p>{{lists.targetFee}}</p>
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.area}}</p>
+                    <p mod>{{::lists.projectGroup}}</p>
+                    <p mod>{{::lists.project}}</p>
+                    <p mod>{{::lists.type}}</p>
+                    <p mod>{{::lists.year}}</p>
+                    <p mod>{{::lists.month}}</p>
+                    <p mod>{{::lists.targetFee}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
                     </p>
@@ -35,28 +35,40 @@
                                 <span>差额</span>
                             </p>
                             <p class="see-children">
-                                <span>{{lists.actualFee}}</span>
-                                <span>{{lists.rate}}</span>
-                                <span>{{lists.balance}}</span>
+                                <span mod>{{::lists.actualFee}}</span>
+                                <span mod>{{::lists.rate}}</span>
+                                <span mod>{{::lists.balance}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                    </div>
                 </div>
             </section>
         </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
 
 
 

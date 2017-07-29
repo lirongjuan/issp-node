@@ -1,0 +1,33 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <section class="interval">
+        <ul class="inter-left">
+            <li class="required">
+                <label><em>开始时间</em></label>
+                <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image startTime">
+            </li>
+            <li class="required">
+                <label><em>结束时间</em></label>
+                <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image endTime">
+            </li>
+        </ul>
+        <ul class="inter-right">
+            <li class="sum-select">
+                <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                <div class="select">
+                    <p class="select-text">
+                        <span ng-repeat="work in firstCompany">{{work}}, </span>
+                    </p>
+                    <div class="mymultiselect" ng-dropdown-multiselect="" options="alleAreas" selected-model="firstCompany" extra-settings="stringSettings"></div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

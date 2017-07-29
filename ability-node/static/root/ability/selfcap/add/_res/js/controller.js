@@ -13,34 +13,13 @@ app.controller('selfcapAddCtrl', function($scope, selfcapSer,$state,toastr){
            };
         selfcapSer.addSelfCapAbility(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.ability.selfcap.list');
+                $state.go('root.ability.selfcap.list[12]');
                 toastr.success( vm.addname+"已成功添加", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');
             }
         });
 
-    };
-    //可手填的下拉框
-    $scope.changeSelect=function(){
-        $scope.addname = $scope.addname2;
-    };
-    $scope.changeSelect2=function(){
-        $scope.addcapacity = $scope.addcapacity2;
-    };
-    $scope.changeSelect3=function(){
-        $scope.addselfJobTitle = $scope.addselfJobTitle2
-
-    };
-    $scope.changeSelect4=function(){
-
-        $scope.addpositionTitle = $scope.addpositionTitle2;
-    };
-    $scope.changeSelect5=function(){
-        $scope.addworkYear = $scope.addworkYear2;
-    };
-    $scope.changeSelect6=function(){
-        $scope.addselfProject = $scope.addselfProject2;
     };
 });
 

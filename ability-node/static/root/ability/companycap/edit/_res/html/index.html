@@ -1,4 +1,4 @@
-<div class="content-input edit" verify-scope="tipStyle: 1">  <!--表单验证插件-->
+<div class="content-input add" verify-scope="tipStyle: 1">
     <div class="input-list">
         <section>
             <ul>
@@ -6,49 +6,55 @@
                     <label><i><img src="/images/mandatory.png"></i><em>公司名称</em></label>
                     <input type="text"  ng-verify="{}" ng-model="editInfo.company">
                 </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>专业资质认证</em></label>
-                    <select class="sele" ng-model="editInfo.professionAuthen2" ng-change="changeSelect()">
-                        <option value="" disabled>请选择</option>
-                        <option value="通信工程施工总承包企业资质">通信工程施工总承包企业资质</option>
-                        <option value="通信息系网络系统集成企业资质">通信息系网络系统集成企业资质</option>
-                        <option value="电子通信广电行业的工程设计资质">电子通信广电行业的工程设计资质</option>
-                        <option value="通信信息专业工程咨询资质">通信信息专业工程咨询资质</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="editInfo.professionAuthen">
+                <li>
+                    <label><em>专业资质认证</em></label>
+                    <div class="select select2">
+                        <p class="select-text">
+                            <input  type="text" class="inputDom2"  ng-model="word">
+                        </p>
+                        <div class="mymultiselect" events="getSummary"  ng-dropdown-multiselect="" options="modelOptions" selected-model="yhModel" checkboxes="true"
+                             extra-settings="stringSettings"></div>
+                    </div>
                 </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>管理资质认证</em></label>
-                    <select class="sele" ng-model="editInfo.manageAuthen2" ng-change="changeSelect2()">
-                        <option value="" disabled>请选择</option>
-                        <option>9000族质量管理体系或同类认证</option>
-                        <option>27000族信息安全管理体系或同类认证</option>
-                        <option>14000族环境管理体系认证证书</option>
-                        <option>建筑业企业资质证书</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="editInfo.manageAuthen">
+                <li>
+                    <label><em>管理资质认证</em></label>
+                    <div class="select select2">
+                        <p class="select-text" >
+                            <input type="text" class="inputDom2" ng-model="work">
+                        </p>
+                        <div class="mymultiselect" events="getSummary2" ng-dropdown-multiselect="" options="modelOptions2" selected-model="yhModel2" checkboxes="true"
+                             extra-settings="stringSettings">
+                        </div>
+                    </div>
                 </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>公司合作对象</em></label>
-                    <select class="sele" ng-model="editInfo.cooperate2" ng-change="changeSelect7()">
-                        <option value="" disabled>请选择</option>
-                        <option>运营商</option>
-                        <option>厂商</option>
-                        <option>集成商</option>
-                        <option>政府机关</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="editInfo.cooperate">
+                <li>
+                    <label><em>公司合作对象</em></label>
+                    <div class="select select2">
+                        <p class="select-text" >
+                            <input type="text" class="inputDom2" ng-model="coop">
+                        </p>
+                        <div class="mymultiselect" events="getSummary3" ng-dropdown-multiselect="" options="modelOptions3" selected-model="yhModel3" checkboxes="true"
+                             extra-settings="stringSettings"></div>
+                    </div>
                 </li>
                 <li>
                     <label><em>公司荣誉证书</em></label>
-                    <input type="text"  ng-model="editInfo.companyCertificate" >
+                    <div class="select select2">
+                        <p class="select-text" >
+                            <input type="text" class="inputDom2" ng-model="certificate">
+                        </p>
+                        <div class="mymultiselect" events="getSummary4" ng-dropdown-multiselect="" options="" selected-model="yhModel4" checkboxes="true"
+                             extra-settings="stringSettings"></div>
+                    </div>
                 </li>
                 <li>
                     <label><em>公司发展规划</em></label>
-                    <select class="sele" ng-model="editInfo.companyDevelop2" ng-change="changeSelect3()" ng-change="changeSelect()">
-                        <option value="" disabled>请选择</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-model="editInfo.companyDevelop">
+                    <div class="sele side">
+                        <select class="sele" ng-model="editInfo.companyDevelop">
+                            <option disabled>请选择</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="editInfo.companyDevelop">
+                    </div>
                 </li>
                 <li>
                     <label><em>项目发展规划</em></label>
@@ -56,53 +62,66 @@
                 </li>
                 <li>
                     <label><em>公司所在地区</em></label>
-                    <select class="sele" ng-model="editInfo.area2" ng-change="changeSelect4()">
-                        <option value="" disabled>请选择</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-model="editInfo.area">
+                    <div class="sele side">
+                        <select class="sele" ng-model="editInfo.area">
+                            <option disabled>请选择</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="editInfo.area">
+                    </div>
                 </li>
                 <li>
                     <label><em>公司资金</em></label>
-                    <select class="sele" ng-model="editInfo.money2" ng-change="changeSelect5()">
-                        <option value="" disabled>请选择</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-model="editInfo.money">
+                    <div class="sele side">
+                        <select class="sele" ng-model="editInfo.money">
+                            <option disabled>请选择</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="editInfo.money">
+                    </div>
                 </li>
                 <li>
                     <label><em>人员组成</em></label>
-                    <select class="sele" ng-model="editInfo.personForm2" ng-change="changeSelect6()">
-                        <option value="" disabled>请选择</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-model="editInfo.personForm">
+                    <div class="sele side">
+                        <select class="sele" ng-model="editInfo.personForm">
+                            <option disabled>请选择</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="editInfo.personForm">
+                    </div>
                 </li>
                 <li>
                     <label><em>配置</em></label>
-                    <input type="text"  ng-model="editInfo.config" ng-value="editInfo.config">
+                    <input type="text"  ng-model="editInfo.config">
                 </li>
                 <li>
                     <label><em>设备</em></label>
-                    <input type="text"  ng-model="editInfo.device" ng-value="editInfo.device">
+                    <input type="text"  ng-model="editInfo.device">
                 </li>
                 <li>
                     <label><em>公司占地面积</em></label>
-                    <input type="text"  ng-model="editInfo.companyArea" ng-value="editInfo.companyArea">
+                    <input type="text"  ng-model="editInfo.companyArea">
                 </li>
                 <li>
                     <label><em>公司业务</em></label>
-                    <input type="text"  ng-model="editInfo.companyBusiness" ng-value="editInfo.companyBusiness">
+                    <input type="text"  ng-model="editInfo.companyBusiness">
                 </li>
                 <li>
                     <label><em>已完成项目</em></label>
-                    <select class="sele" ng-model="editInfo.completePro" ng-init="editInfo.completePro='INDEPENDENT'">
-                        <option value="" disabled>请选择</option>
-                        <option value="INDEPENDENT">独立完成</option>
-                        <option value="COOPER">合作完成</option>
-                        <option value="STAGEPARTICIPATION">阶段完成</option>
-                    </select>
+                    <div class="select2 select">
+                        <p class="select-text" >
+                            <input type="text" class="inputDom2" ng-model="companyProjects">
+                        </p>
+                        <div class="mymultiselect" events="getSummary6" ng-dropdown-multiselect="" options="modelOptions4" selected-model="yhModel6" checkboxes="true"
+                             extra-settings="stringSettings"></div>
+                    </div>
                 </li>
                 <li>
                     <label><em>尚在进行中项目</em></label>
-                    <input type="text"  ng-model="editInfo.inProjct">
+                    <div class="select2 select">
+                        <p class="select-text" >
+                            <input type="text" class="inputDom2" ng-model="inProjct">
+                        </p>
+                        <div class="mymultiselect" events="getSummary5" ng-dropdown-multiselect="" options="" selected-model="yhModel5" checkboxes="true"
+                             extra-settings="stringSettings"></div>
+                    </div>
                 </li>
                 <li>
                     <label><em>公司文化体系交流</em></label>
@@ -110,13 +129,13 @@
                 </li>
                 <li>
                     <label><em>员工节假日活动</em></label>
-                    <input type="text"  ng-model="editInfo.holidayActive" >
+                    <input type="text"  ng-model="editInfo.holidayActive">
                 </li>
                 <li>
                     <label><em>公司公告栏</em></label>
-                    <input type="text"  ng-model="editInfo.bulletinBoard" >
+                    <input type="text"  ng-model="editInfo.bulletinBoard">
                 </li>
-               </ul>
+            </ul>
         </section>
     </div>
     <p class="dataBottom">
@@ -129,6 +148,4 @@
     !function(){
         laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
     }();
-
-
 </script>

@@ -1,0 +1,18 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list width-12">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="lender()" ng-class="{'current':menuClass=='lenderMenu'}" ui-sref=".lender[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')" class="lis">
+        <a href="javascript:void(0)" class="same-two" >借款人汇总</a>
+    </li>
+    <li ng-click="pGroup()" ng-class="{'current':menuClass=='pGroupMenu'}" ui-sref=".pGroup[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')" class="lis">
+        <a href="javascript:void(0)" class="same-two">项目组汇总</a>
+    </li>
+    <li ng-click="area()" ng-class="{'current':menuClass=='areaMenu'}" ng-show="COLLECT" ng-init="menuCheck('COLLECT')" ui-sref=".area[12]" class="lis">
+        <a href="javascript:void(0)" class="same-two">地区汇总</a>
+    </li>
+    <li ng-click="pName()" ng-class="{'current':menuClass=='pNameMenu'}" ng-show="COLLECT" ng-init="menuCheck('COLLECT')" ui-sref=".pName[12]" class="lis">
+        <a href="javascript:void(0)" class="same-two">项目名汇总</a>
+    </li>
+</ul>

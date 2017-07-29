@@ -1,0 +1,55 @@
+<div class="collect ">
+    <div class="summary-select">
+        <div class="select3">
+            <label><em>汇总类型：</em></label>
+            <select ng-model="type" ng-change="selectType(type)">
+                <option value="true">计划汇总</option>
+                <option value="false">实际汇总</option>
+            </select>
+        </div>
+        <div class="select3">
+            <label><em>开始时间：</em></label>
+            <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image startTime">
+        </div>
+        <div class="select3">
+            <label><em>结束时间：</em></label>
+            <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image endTime">
+        </div>
+        <div class="select3" style="width: 35%">
+            <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                <div class="select">
+                    <p class="select-text">
+                        <span ng-repeat="work in firstCompany">{{work}}, </span>
+                    </p>
+                    <div class="mymultiselect" ng-dropdown-multiselect="" options="alleAreas" selected-model="firstCompany" extra-settings="stringSettings"></div>
+                </div>
+        </div>
+        <button class="button" ng-click="collect()">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>项目名称</span>
+            <span>地区</span>
+            <span>招待负责人</span>
+            <span>客户姓名</span>
+            <span>实际/计划活动类型</span>
+            <span style="flex:0 0 16%">实际/计划活动时间</span>
+            <span>临时招待</span> 
+            <span>实际参加人数</span>
+            <span>实际费用</span>
+            <span>实际报销/借款金额</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="Lists in summaryLists" style="background-color:{{Lists.projectName=='合计'?'yellow':''}};">
+            <span>{{::Lists.projectName}}</span>
+            <span>{{::Lists.area}}</span>
+            <span>{{::Lists.servePrincipal}}</span>
+            <span>{{::Lists.clientName}}</span>
+            <span>{{::Lists.activityType}}</span>
+            <span style="flex:0 0 16%">{{::Lists.activityTiming}}</span>
+            <span>{{::Lists.whetherTemporaryServe}}</span>
+            <span>{{::Lists.attendPeopleNo}}</span>
+            <span>{{::Lists.charge}}</span>
+            <span>{{::Lists.amount}}</span>
+        </li>
+    </ul>
+</div>

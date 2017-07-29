@@ -3,7 +3,7 @@ app.config(function ($provide, $stateProvider) {
     $stateProvider.state("root.initialize.setting", {
         url: "/setting",
         views: {
-            "content@root": {
+            "content@root.initialize": {
                 templateUrl: "root/initialize/setting/_res/html/index.html",
                 controller: "settingCtrl"
             }

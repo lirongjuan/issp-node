@@ -1,0 +1,95 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <!--<div class="sele side">-->
+                        <!--<select class="sele" ng-init="1">-->
+                            <!--<option value="">请选择</option>-->
+                            <!--<option value="">1</option>-->
+                            <!--<option value="">2</option>-->
+                            <!--<option value="">3</option>-->
+                            <!--&lt;!&ndash;<option ng-repeat="area in areas">{{area}}</option>&ndash;&gt;-->
+                        <!--</select>-->
+                        <!--<input type="text"  class="inputDom">-->
+                    <!--</div>-->
+                    <div class="sele side">
+                        <select class="sele" ng-model="area" ng-init="area='请选择'" ng-verify="option:0">
+                            <option value="">请选择</option>
+                            <option ng-repeat="area in areas">{{area}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="area">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-init="projectName='请选择'" ng-verify="option:0" ng-model="projectName">
+                            <option value="">请选择</option>
+                            <option ng-repeat="proName in projectNames">{{proName}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="projectName">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>数据状态</em></label>
+                    <select class="sele" ng-verify="option:0" ng-model="exportStatus">
+                        <option value="">请选择</option>
+                        <option value="NONE">未审核状态</option>
+                        <option value="AUDIT">已审核状态</option>
+                        <option value="TRANS">已过账状态</option>
+                        <option value="CHECK">已结帐状态</option>
+                        <option value="RECORD">记账凭证记录状态</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>一级科目</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="firstSubject" ng-change="changSelect()">
+                            <option value="">请选择</option>
+                            <option ng-repeat="first in firstLevel">{{first}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="firstSubject">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>二级科目</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="secondSubject" ng-change="changThird()">
+                            <option value="">请选择</option>
+                            <option ng-repeat="second in secondLevel">{{second}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="secondSubject">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>三级科目</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="thirdSubject">
+                            <option value="">请选择</option>
+                            <option ng-repeat="third in thirdLevel">{{third}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="thirdSubject">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>开始时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image start" ng-model="startTime">
+                </li>
+                <li class="required">
+                    <label><em>结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image end" ng-model="endTime">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

@@ -1,6 +1,6 @@
 <div class="content-tab list">
-    <div class="search-big">
-        <select class="salc" ng-model="checkedName">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select class="salc" ng-model="checkedName" ng-init="checkedName='合同签订情况'">
             <option ng-repeat="item in titles">{{item}}</option>
         </select>
         <input type="text" ng-model="signCondition" ng-show="checkedName=='合同签订情况'">
@@ -13,7 +13,6 @@
     <ul class="table com-table">
         <li class="list-head">
             <span></span>
-            <span class="data-id">id</span>
             <span>合同外部项目名称</span>
             <span>内部项目名称</span>
             <span>合同签订情况</span>
@@ -26,15 +25,14 @@
         <li class="list-all">
             <section ng-repeat="list in implementationLists.data" style="display: {{list._delete?'none':'block'}};">
                 <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p class="data-id"></p>
-                    <p>{{list.outerName}}</p>
-                    <p>{{list.innerName}}</p>
-                    <p>{{list.signCondition}}</p>
-                    <p>{{list.signProject}}</p>
-                    <p>{{list.depatchNum}}</p>
-                    <p>{{list.area}}</p>
-                    <p>{{list.businessType}}</p>
+                    <p>{{$index+1+num}}</p>
+                    <p mod>{{::list.outerName}}</p>
+                    <p mod>{{::list.innerName}}</p>
+                    <p mod>{{::list.signCondition}}</p>
+                    <p mod>{{::list.signProject}}</p>
+                    <p mod>{{::list.depatchNum}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.businessType}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
                     </p>
@@ -53,14 +51,14 @@
                                 <span>完工数</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.businessSubject}}</span>
-                                <span>{{list.projectGroup}}</span>
-                                <span>{{list.projectSize}}</span>
-                                <span>{{list.bbuSize}}</span>
-                                <span>{{list.rruSize}}</span>
-                                <span>{{list.openStationPoints}}</span>
-                                <span>{{list.noOpenPoints}}</span>
-                                <span>{{list.completeNum}}</span>
+                                <span mod>{{::list.businessSubject}}</span>
+                                <span mod>{{::list.projectGroup}}</span>
+                                <span mod>{{::list.projectSize}}</span>
+                                <span mod>{{::list.bbuSize}}</span>
+                                <span mod>{{::list.rruSize}}</span>
+                                <span mod>{{::list.openStationPoints}}</span>
+                                <span mod>{{::list.noOpenPoints}}</span>
+                                <span mod>{{::list.completeNum}}</span>
                             </p>
                         </li>
                         <li>
@@ -75,30 +73,42 @@
                                 <span>备注</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.openBbuPoints}}</span>
-                                <span>{{list.openRruPoints}}</span>
-                                <span>{{list.noOpenBbuPoints}}</span>
-                                <span>{{list.noOpenRruPoints}}</span>
-                                <span>{{list.startTestCondition}}</span>
-                                <span>{{list.startTestCondition}}</span>
-                                <span>{{list.finalTestCondition}}</span>
-                                <span>{{list.remark}}</span>
+                                <span mod>{{::list.openBbuPoints}}</span>
+                                <span mod>{{::list.openRruPoints}}</span>
+                                <span mod>{{::list.noOpenBbuPoints}}</span>
+                                <span mod>{{::list.noOpenRruPoints}}</span>
+                                <span mod>{{::list.startTestCondition}}</span>
+                                <span mod>{{::list.startTestCondition}}</span>
+                                <span mod>{{::list.finalTestCondition}}</span>
+                                <span mod>{{::list.remark}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                </div>
                 </div>
             </section>
         </li>
      </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

@@ -1098,7 +1098,7 @@ body {
   -ms-flex-pack: start;
   justify-content: flex-start;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 /*菜单功能当前状态*/
 .right-section .top-content .content .menu .list li.current {
@@ -1172,7 +1172,10 @@ body {
   border-color: #fff;
   font-size: 16px;
   height: 42px;
-  margin-left: 10px;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 /*新的结束*/
 @media screen and (max-width: 1680px) {
@@ -1198,11 +1201,6 @@ body {
   align-items: center;
   margin-top: 50px;
 }
-.right-section .top-content .content .menu .list li a span {
-  display: block;
-  font-size: 12px;
-  color: #c2c2c2;
-}
 
 .right-section .top-content .content .menu .list li a.lis {
   border-color: #06afe1;
@@ -1222,10 +1220,6 @@ body {
 
 .right-section .top-content .content .menu .list li a.same-three {
   border-color: #6fa2ac;
-}
-
-.right-section .top-content .content .menu .list li a span {
-  display: block;
 }
 
 .right-section .top-content .content .content-wrap {
@@ -1685,7 +1679,7 @@ body {
   margin-left: 14px;
 }
 ul li .one-select{
-  width: 20% !important;
+  width: 28% !important;
 }
 ul li .select{
   width: 60%;
@@ -1699,13 +1693,13 @@ ul li .two-select .mymultiselect .btn{
   height: 35px;
 }
 ul li .data-add{
-  width: 50px;
+  width: 55px;
   height: 35px;
   background-color: #54CBA1;
   color: #fff;
   font-size: 15px;
   border-radius: 5px;
-  margin-left: 10px;
+  margin-left: 8px;
   cursor: pointer;
 }
 .right-section .top-content .content .content-wrap .content-input .input-list section ul li .sele option {
@@ -2770,11 +2764,20 @@ ul li .data-add{
 }
 
 .interval label {
-  width: 158px;
+  width:30%;
   display: inline-block;
-  text-align: right;
+  text-align: center;
 }
-
+@media screen and (max-width: 1440px) {
+  .interval label {
+    width: 50% !important;
+  }
+}
+@media screen and (max-width: 1680px) {
+  .interval label {
+    width: 36%;
+  }
+}
 .interval label:after {
   content: '\FF1A';
 }
@@ -2807,7 +2810,7 @@ ul li .data-add{
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 5px;
-  margin-left: 14px;
+  margin-left: 10px;
 }
 
 .interval .required input, .interval .required .summary .sele, .summary .interval .required .sele, .interval .required .notice .notice-all .select-left .select-object .select-sele .sele, .notice .notice-all .select-left .select-object .select-sele .interval .required .sele, .interval .required .com-search .com-search2 select, .com-search .com-search2 .interval .required select {

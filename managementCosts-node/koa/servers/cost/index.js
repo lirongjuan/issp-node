@@ -4,7 +4,42 @@ var config = require(path.resolve('plugins/read-config.js'));
 var form = require(path.resolve('plugins/form.js'));
 var urlEncode = require(path.resolve('plugins/urlEncode.js'));
 module.exports = function(){
-
+    //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/outfee/v1/setButtonPermission',//2017-07-01
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.manageFeeNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/outfee/v1/sonPermission',//2017-06-10
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //菜单功能权限
+    this.manageFeePermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/managefee/v1/guidePermission?guideAddrStatus=`+argvs.name,//2017-06-08
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     //管理费列表
     this.feeList = function(argvs){
         var options = {
@@ -173,6 +208,18 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + '/managefee/v1/listProject',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //菜单功能权限
+    this.outFeePermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/outfee/v1/guidePermission?guideAddrStatus=`+argvs.name,//2017-07-01
             headers:{
                 userToken:argvs.userToken
             }
@@ -350,6 +397,55 @@ module.exports = function(){
             headers:{
                 userToken:argvs.userToken
             }
+        };
+        return request(options);
+    };
+    //权限设置
+    this.listSetting = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/list?limit=10&page=${argvs.page}`,
+            headers : {
+                userToken : argvs.userToken
+            }
+
+        };
+        return request(options);
+    };
+    this.countSetting = function(){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/cuspermission/v1/count',
+        };
+        return request(options);
+    };
+    this.getpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/getOneById/${argvs.id}`,
+        };
+        return request(options);
+    };
+    this.getListpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/listOperateById/${argvs.id}`,
+        };
+        return request(options);
+    };
+    this.editSetting = function(argvs){
+        var options = {
+            method : 'PUT',
+            timeout : 3000,
+            uri : config()['rurl'] + '/cuspermission/v1/edit',
+            headers:{
+                userToken:argvs.userToken
+            },
+            form:argvs
         };
         return request(options);
     };

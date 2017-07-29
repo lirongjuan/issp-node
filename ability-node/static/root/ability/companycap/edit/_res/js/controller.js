@@ -1,5 +1,34 @@
-var app = angular.module('companyEdit', ['toastr']);
+var app = angular.module('companyEdit', ['toastr','angularjs-dropdown-multiselect']);
 app.controller('companyEditCtrl', function($scope, companycapSer,$state,toastr,$stateParams){
+    $scope.modelOptions = ['电信工程专业承包企业资质','通信工程施工总承包企业资质','通信息系网络系统集成企业资质','电子通信广电行业的工程设计资质','通信信息专业工程咨询资质'];
+    $scope.modelOptions2 = ['9000族质量管理体系或同类认证','14000族环境管理体系认证证书','建筑业企业资质证书'];
+    $scope.modelOptions3 = ['运营商','厂商','集成商','政府机关'];
+    $scope.modelOptions4 = ['独立完成','合作完成','阶段完成'];
+    $scope.yhModel = [];
+    $scope.yhModel2 = [];
+    $scope.yhModel3 = [];
+    $scope.yhModel4 = [];
+    $scope.yhModel5 = [];
+    $scope.yhModel6 = [];
+    $scope.stringSettings = {template : '{{option}}', smartButtonTextConverter(skip, option) { return option; }};
+    $scope.getSummary ={onSelectionChanged(){
+        $scope.word = $scope.yhModel.join(',');
+    }};
+    $scope.getSummary2 ={onSelectionChanged(){
+        $scope.work = $scope.yhModel2.join(',');
+    }};
+    $scope.getSummary3 ={onSelectionChanged(){
+        $scope.coop = $scope.yhModel3.join(',');
+    }};
+    $scope.getSummary4 ={onSelectionChanged(){
+        $scope.certificate = $scope.yhModel4.join(',');
+    }};
+    $scope.getSummary5 ={onSelectionChanged(){
+        $scope.inProjct = $scope.yhModel5.join(',');
+    }};
+    $scope.getSummary6 ={onSelectionChanged(){
+        $scope.companyProjects = $scope.yhModel6.join(',');
+    }};
     var companyId = {id : $stateParams.id};
     //获取值
     companycapSer.getOneById(companyId).then(function(response){
@@ -14,9 +43,12 @@ app.controller('companyEditCtrl', function($scope, companycapSer,$state,toastr,$
         var data = {
             id:vm.editInfo.id,
             company: vm.editInfo.company,
-            professionAuthen: vm.editInfo.professionAuthen,
-            manageAuthen: vm.editInfo.manageAuthen,
-            companyCertificate: vm.editInfo.companyCertificate,
+            professionAuthens: vm.word,
+            manageAuthens:vm.work,
+            cooperates:vm.coop,
+            companyProjects:vm.companyProjects,
+            companyCertificates:vm.certificate,
+            inProjcts:vm.inProjct,
             companyDevelop: vm.editInfo.companyDevelop,
             projectDevelop: vm.editInfo.projectDevelop,
             area: vm.editInfo.area,
@@ -28,28 +60,17 @@ app.controller('companyEditCtrl', function($scope, companycapSer,$state,toastr,$
             companyBusiness: vm.editInfo.companyBusiness,
             cooperate: vm.editInfo.cooperate,
             completePro: vm.editInfo.completePro,
-            inProjct: vm.editInfo.inProjct,
             culture: vm.editInfo.culture,
             holidayActive: vm.editInfo.holidayActive,
             bulletinBoard: vm.editInfo.bulletinBoard,
-            createTime: vm.editInfo.createTime,
-            modifyTime: vm.editInfo.modifyTime,
         };
         companycapSer.editCompanyAbility(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.ability.companycap.list');
+                $state.go('root.ability.companycap.list[12]');
                 toastr.success( "已成功编辑", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');
             }
         });
     };
-    //可手填的下拉框
-    $scope.changeSelect=function(){$scope.editInfo.professionAuthen = $scope.editInfo.professionAuthen2;};
-    $scope.changeSelect2=function(){$scope.editInfo.manageAuthen = $scope.editInfo.manageAuthen2;};
-    $scope.changeSelect3=function(){$scope.editInfo.companyDevelop = $scope.editInfo.companyDevelop2;};
-    $scope.changeSelect4=function(){$scope.editInfo.area = $scope.editInfo.area2;};
-    $scope.changeSelect5=function(){$scope.editInfo.money = $scope.editInfo.money2;};
-    $scope.changeSelect6=function(){$scope.editInfo.personForm = $scope.editInfo.personForm2;};
-    $scope.changeSelect7=function(){$scope.editInfo.cooperate = $scope.editInfo.cooperate2;};
 });

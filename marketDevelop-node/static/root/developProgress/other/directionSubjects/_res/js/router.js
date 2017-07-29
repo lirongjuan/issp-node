@@ -28,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.developProgress.other.directionSubjects.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.developProgress.other.directionSubjects":{
                 templateUrl : "root/developProgress/other/directionSubjects/edit/_res/html/index.html",

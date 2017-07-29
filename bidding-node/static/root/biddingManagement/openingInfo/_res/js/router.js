@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.biddingManagement.openingInfo.list[12]",{
-        url:"/list[12]?id=&name=&page=",
+        url:"/list[12]?id=&name=&page=&competitive=",
         views:{
             "content@root.biddingManagement.openingInfo":{
                 templateUrl : "root/biddingManagement/openingInfo/list/_res/html/index.html",

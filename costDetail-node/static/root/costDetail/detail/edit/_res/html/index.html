@@ -1,0 +1,169 @@
+<div class="collect">
+    <h3>2017年1月成本预算明细表</h3>
+    <div class="content-input add">
+    <div class="input-list" style="margin-bottom:0">
+        <section>
+            <ul>
+                <li>
+                    <label><em>日期</em></label>
+                    <input type="text" disabled ng-model="detailEdit.costTime">
+                </li>
+                <li>
+                    <label><em>部门</em></label>
+                    <input type="text" disabled ng-model="detailEdit.department">
+                </li>
+            </ul>
+        </section>
+    </div>
+    </p>
+</div>
+    <ul class="sum-list">
+        <li class="table_list">
+            <span>分类</span>
+            <span>合计</span>
+            <span>10日</span>
+            <span>15日</span>
+            <span>20日</span>
+            <span>30日</span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">期初余额</span>
+            <span><input type="number" ng-model="detailEdit.beginBalanceSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.beginBalanceTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.beginBalanceFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.beginBalanceTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.beginBalanceThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">营业成本</span>
+            <span><input type="number" disabled ng-model="detailEdit.operatingSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.operatingTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.operatingFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.operatingTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.operatingThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">劳务成本</span>
+            <span><input type="number" disabled ng-model="detailEdit.laborCostSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.laborCostTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.laborCostFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.laborCostTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.laborCostThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.businessIncomeDetailList">
+            <span class="">{{::list.typeName}}</span>
+            <span><input type="number" disabled ng-model="detailEdit.businessIncomeSum"></span>
+            <span><input type="number" ng-model="list.businessIncomeTen"></span>
+            <span><input type="number" ng-model="list.businessIncomeFift"></span>
+            <span><input type="number" ng-model="list.businessIncomeTwtenty"></span>
+            <span><input type="number" ng-model="list.businessIncomeThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">应交税金</span>
+            <span><input type="number" disabled ng-model="detailEdit.payableTaxSum"></span>
+            <span><input type="number" ng-model="detailEdit.payableTaxTen"></span>
+            <span><input type="number" ng-model="detailEdit.payableTaxFift"></span>
+            <span><input type="number" ng-model="detailEdit.payableTaxTwtenty"></span>
+            <span><input type="number" ng-model="detailEdit.payableTaxThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">公司借入</span>
+            <span><input type="number" disabled ng-model="detailEdit.companyBorrowedSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.companyBorrowedTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.companyBorrowedFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.companyBorrowedTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.companyBorrowedThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.companyBorrowedDetailList">
+            <span class="">{{::list.typeName}}</span>
+            <span><input type="number" disabled ng-model="list.companyBorrowedSum"></span>
+            <span><input type="number" ng-model="list.companyBorrowedTen"></span>
+            <span><input type="number" ng-model="list.companyBorrowedFift"></span>
+            <span><input type="number" ng-model="list.companyBorrowedTwtenty"></span>
+            <span><input type="number" ng-model="list.companyBorrowedThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">实收资本</span>
+            <span><input type="number" disabled ng-model="detailEdit.paidCapitalSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.paidCapitalTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.paidCapitalFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.paidCapitalTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.paidCapitalThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.paidCapitalDetailList">
+            <span class="">{{::list.typeName}}</span>
+            <span><input type="number" disabled ng-model="list.paidCapitalSum"></span>
+            <span><input type="number" ng-model="list.paidCapitalTen"></span>
+            <span><input type="number" ng-model="list.paidCapitalFift"></span>
+            <span><input type="number" ng-model="list.paidCapitalTwtenty"></span>
+            <span><input type="number" ng-model="list.paidCapitalThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">公司借出</span>
+            <span><input type="number" disabled ng-model="detailEdit.companyLendSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.companyLendTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.companyLendFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.companyLendTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.companyLendThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.companyLendDetailList">
+            <span class="">{{::list.typeName}}</span>
+            <span><input type="number" disabled ng-model="list.companyLendSum"></span>
+            <span><input type="number" ng-model="list.companyLendTen"></span>
+            <span><input type="number" ng-model="list.companyLendFift"></span>
+            <span><input type="number" ng-model="list.companyLendTwtenty"></span>
+            <span><input type="number" ng-model="list.companyLendThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">主营业务收入</span>
+            <span><input type="number" disabled ng-model="detailEdit.businessIncomeSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.businessIncomeTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.businessIncomeFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.businessIncomeTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.businessIncomeThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody" ng-repeat="list in detailEdit.businessIncomeDetailList">
+            <span class="">{{::list.typeName}}</span>
+            <span><input type="number" disabled ng-model="list.businessIncomeSum"></span>
+            <span><input type="number" ng-model="list.businessIncomeTen"></span>
+            <span><input type="number" ng-model="list.businessIncomeFift"></span>
+            <span><input type="number" ng-model="list.businessIncomeTwtenty"></span>
+            <span><input type="number" ng-model="list.businessIncomeThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">预估应收账款</span>
+            <span><input type="number" disabled ng-model="detailEdit.forecastAccountSum"></span>
+            <span><input type="number" ng-model="detailEdit.forecastAccountTen"></span>
+            <span><input type="number" ng-model="detailEdit.forecastAccountFift"></span>
+            <span><input type="number" ng-model="detailEdit.forecastAccountTwtenty"></span>
+            <span><input type="number" ng-model="detailEdit.forecastAccountThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">实际资金缺口</span>
+            <span><input type="number" disabled ng-model="detailEdit.actualGapSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.actualGapTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.actualGapFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.actualGapTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.actualGapThirty"></span>
+        </li>
+        <li class="sum-tbody table-tbody">
+            <span class="fontWeight">按时回款预估结余资金</span>
+            <span><input type="number" disabled ng-model="detailEdit.forecastBalanceMoSum"></span>
+            <span><input type="number" disabled ng-model="detailEdit.forecastBalanceMoGapTen"></span>
+            <span><input type="number" disabled ng-model="detailEdit.forecastBalanceMoGapFift"></span>
+            <span><input type="number" disabled ng-model="detailEdit.forecastBalanceMoTwtenty"></span>
+            <span><input type="number" disabled ng-model="detailEdit.forecastBalanceMoThirty"></span>
+        </li>
+    </ul>
+</div>
+<div class="content-input add" verify-scope="tipStyle: 1">  <!--表单验证插件-->
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="detailEditFun()">提交</button>
+    </p>
+</div>
+<script type="text/javascript">
+    !function () {
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    } ();
+</script>

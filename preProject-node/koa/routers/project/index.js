@@ -534,6 +534,61 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
+    }).get('/projectManage/setButtonPermission', function*(){ //设置导航权限
+        var $self = this;
+        var navToken = {token:$self.cookies.get('token')};
+        yield (server().settingNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/projectManage/sonPermission', function*(){ //导航权限
+        var $self = this;
+        var navToken = {token:$self.cookies.get('token')};
+        yield (server().siginNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/grade/guidePermission/:guideAddrStatus', function*(){ //等级菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().gradePermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/cost/guidePermission/:guideAddrStatus', function*(){ //等级菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().costPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/activity/guidePermission/:guideAddrStatus', function*(){ //活动菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().activityPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
     })
     return router;
 };

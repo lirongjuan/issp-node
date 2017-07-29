@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.businessContract.dispatchList.list[12]",{
-        url:"/list[12]?id=&name=&page=",
+        url:"/list[12]?id=&name=&page=&inner=&outNum=&saleNum=&businessType=&subject=&cooperate=&major=&sub=&area=&dispatchProject=&dispatchNum=",
         views:{
             "content@root.businessContract.dispatchList":{
                 templateUrl : "root/businessContract/dispatchList/list/_res/html/index.html",

@@ -1,0 +1,63 @@
+<div class="collect">
+    <div class="summary-select">
+    </div>
+    <div class="summary-select">
+        <div class="select3">
+            <label>月份：</label>
+            <input type="text" ng-model="month">
+        </div>
+        <div class="select3">
+            <label>地区:</label>
+            <input type="text" ng-model="area">
+        </div>
+        <div class="select3">
+            <label>项目组:</label>
+            <input type="text" ng-model="project">
+        </div>
+        <div class="select3">
+            <label>项目名称:</label>
+            <input type="text" ng-model="name">
+        </div>
+        <div class="select3">
+            <label>年份:</label>
+            <input type="text" ng-model="year">
+        </div>
+        <button class="button" ng-click="collectFun()">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>地区</span>
+            <span>目标收入</span>
+            <span>实际收入</span>
+            <span>目标人工成本</span>
+            <span>实际人工成本</span>
+            <span>目标车辆费用</span>
+            <span>实际车辆费用</span>
+            <span>目标其他费用</span>
+            <span>实际其他费用</span>
+            <span>目标费用合计</span>
+            <span>实际费用合计</span>
+            <span>目标利润</span>
+            <span>实际利润</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="summaryList in summaryLista">
+            <span>{{summaryList.area}}</span>
+            <span>{{summaryList.targetIncome}}</span>
+            <span>{{summaryList.actualIncome}}</span>
+            <span>{{summaryList.targetCost}}</span>
+            <span>{{summaryList.actualCost}}</span>
+            <span>{{summaryList.targetCar}}</span>
+            <span>{{summaryList.actualCar}}</span>
+            <span>{{summaryList.targetOther}}</span>
+            <span>{{summaryList.actualOther}}</span>
+            <span>{{summaryList.targetTotal}}</span>
+            <span>{{summaryList.actualTotal}}</span>
+            <span>{{summaryList.targetProfit}}</span>
+            <span>{{summaryList.actualProfit}}</span>
+        </li>
+    </ul>
+</div>
+<canvas id="bar" class="chart chart-bar" chart-legend="true"
+        chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series">
+</canvas>
+

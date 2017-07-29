@@ -6,15 +6,27 @@
         <input type="text" ng-model="innerProject" ng-show="checkedName=='内部项目名称'">
         <input type="text" ng-model="outProjectNum" ng-show="checkedName=='合同外部编号'">
         <input type="text" ng-model="saleContractNum" ng-show="checkedName=='对应销售合同号'">
-        <input type="text" ng-model="businessType" ng-show="checkedName=='业务类型'">
+        <select class="sle" ng-model="businessType" ng-show="checkedName=='业务类型'">
+            <option value=""></option>
+            <option value="MOBILECOMMUNICATION">移动通信类</option>
+            <option value="SOFTDEVELOP">软件开发类</option>
+            <option value="INTELLIGENCESYSTEM">智能系统集成类</option>
+            <option value="ADVERT">广告策划营销类</option>
+        </select>
         <input type="text" ng-model="businessSubject" ng-show="checkedName=='业务方向科目'">
-        <input type="text" ng-model="businessCooperate" ng-show="checkedName=='合作方式'">
+        <select class="sle" ng-model="businessCooperate" ng-show="checkedName=='合作方式'">
+            <option value=""></option>
+            <option value="RENTCONTRACT">租赁合同</option>
+            <option value="CHARCONTRACT">承包的项目合同</option>
+            <option value="DISTRIBUTECONTRACT">分包项目合同</option>
+            <option value="SALECONTRACT">销售合同</option>
+        </select>
         <input type="text" ng-model="majorCompany" ng-show="checkedName=='总包单位名称'">
         <input type="text" ng-model="subCompany" ng-show="checkedName=='分包单位名称'">
         <input type="text" ng-model="area" ng-show="checkedName=='地区'">
         <input type="text" ng-model="dispatchProject" ng-show="checkedName=='派工单名称'">
         <input type="text" ng-model="dispatchNum" ng-show="checkedName=='派工单编号'">
-        <a href="javascript:void(0)" ng-click="collect()"><img src="/images/search2.png"></a>
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
     </div>
     <ul class="table">
         <li class="list-head">
@@ -28,7 +40,7 @@
             <span>合作方式</span>
             <span></span>
         </li>
-        <li class="list-all" ng-repeat="lists in dispatchLists|filter:teamInfo" style="display: {{lists._delete?'none':'block'}};">
+        <li class="list-all" ng-repeat="lists in dispatchLists" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
                     <p mod>{{$index+1+num}}</p>

@@ -2,10 +2,6 @@
     <div class="input-list">
         <section>
             <ul>
-               <!--  <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em></em></label>
-                    <input type="text" ng-verify="{}" ng-model="answer.biddingNumber">
-                </li> -->
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>编号</em></label>
                     <select class="sele num" ng-model="answer.biddingNumber" ng-change="changSelect()">
@@ -15,15 +11,8 @@
 
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                    <!-- <select class="sele pro" ng-model="answer.projectName">
-                        <option value="{{projectNames.projectName}}">{{projectNames.projectName}}</option>
-                    </select> -->
                     <input type="text" value="{{projectNames.projectName}}" class="na">
                 </li>
-                <!-- <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em></em></label>
-                    <input type="text" ng-verify="{}" ng-model="answer.projectName">
-                </li> -->
 
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>答疑准备人</em></label>

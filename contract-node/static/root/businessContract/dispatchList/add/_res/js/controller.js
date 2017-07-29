@@ -8,6 +8,55 @@ app.controller('dispatchAddCtrl', function($scope, dispatchSer,$state,toastr){
             toastr.error(response.data.msg, '温馨提示');
         }
     });
+    // var selects = [
+    //     {
+    //         name:'businessType',
+    //         list:{
+    //             MOBILECOMMUNICATION: '移动通信类',
+    //             SOFTDEVELOP: '软件开发类',
+    //             INTELLIGENCESYSTEM: '智能系统集成类',
+    //             ADVERT: '广告策划营销类'
+    //         }
+    //     },
+    //     {
+    //         name:'businessCooperate',
+    //         list:{
+    //             RENTCONTRACT: '租赁合同',
+    //             CHARCONTRACT: '承包的项目合同',
+    //             DISTRIBUTECONTRACT: '分包项目合同',
+    //             SALECONTRACT: '销售合同',
+    //             FRAMECONTRACT: '框架合同',
+    //             SINGLECONTRACT: '单次合同'
+    //         }
+    //     }
+    // ];
+    // console.log(selects);
+    // selects.forEach(function (select) {
+    //     if($scope.workers[select.name]){
+    //         var isFind;
+    //             for (var name in select.list) {
+    //                 var text = select.list[name];
+    //                 if ($scope.workers[select.name] == text) {
+    //                     $scope.workers[select.name] = name;
+    //                     isFind = name;
+    //                     break;
+    //                 }
+    //             }
+    //             if(isFind){
+    //                 $scope.workers[select.name] = isFind;
+    //             }else{
+    //                 for (var name in select.list) {
+    //                     var text = select.list[name];
+    //                     if ($scope.workers[select.name+"_default"] == text) {
+    //                         $scope.workers[select.name+"_default"] = name;
+    //                         isFind = name;
+    //                         break;
+    //                     }
+    //                 }
+    //                 $scope.workers[select.name] = isFind;
+    //             }
+    //     }
+    // });
     //获取项目合同
     $scope.selPro = function(val){
         if(val){
@@ -42,6 +91,7 @@ app.controller('dispatchAddCtrl', function($scope, dispatchSer,$state,toastr){
     };
 
 });
+
 function clone(obj1,obj2){
     if(obj1){
         for(key in obj1){
@@ -51,7 +101,45 @@ function clone(obj1,obj2){
         }
     }
 }
-
+//自定义过滤器
+app.filter('cover',function(){
+    return function(val){
+        var result;
+        switch(val){
+            case "MOBILECOMMUNICATION":
+                result = "移动通信类";
+                break;
+            case "SOFTDEVELOP":
+                result = "软件开发类";
+                break;
+            case "INTELLIGENCESYSTEM":
+                result = "智能系统集成类";
+                break;
+            case "ADVERT":
+                result = "广告策划营销类";
+                break;
+            case "RENTCONTRACT":
+                result = "租赁合同";
+                break;
+            case "CHARCONTRACT":
+                result = "承包的项目合同";
+                break;
+            case "DISTRIBUTECONTRACT":
+                result = "分包项目合同";
+                break;
+            case "SALECONTRACT":
+                result = "销售合同";
+                break;
+            case "FRAMECONTRACT":
+                result = "框架合同";
+                break;
+            case "SINGLECONTRACT":
+                result = "单次合同";
+                break;
+        }
+        return result;
+    }
+});
 
 
 

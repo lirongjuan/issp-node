@@ -2,7 +2,6 @@ var app = angular.module('demandAnalysisList', ['ng-pagination','toastr']);
 app.controller('demandAnalysisListCtrl',function($scope,demandAnalysisSer,toastr,$stateParams,$state,$location){
     $scope.$emit('changeId', null);
     function activatePage(page) {
-
         var listData = {
             page:page || 1
         };

@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"rightsinterestsMenuCtrl"
             }
         }
+    }).state("root.initialize.sort.rightsinterests.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.initialize.sort.rightsinterests":{
+                templateUrl : "root/initialize/sort/rightsinterests/list/_res/html/index.html",
+                controller:'rightsinterestsListCtrl'
+            }
+        }
     }).state("root.initialize.sort.rightsinterests.add[12]",{
         url:"/add[12]",
         views:{

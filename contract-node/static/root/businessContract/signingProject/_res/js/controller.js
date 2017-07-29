@@ -91,52 +91,10 @@ app.controller('signingCtrl',function ($scope,$state) {
 });
 
 //自定义过滤器
-app.filter('cover',function(){
+app.filter('sign',function(){
    return function(val){
        var result;
        switch(val){
-           case "LIST":
-               result = "查看或列表";
-               break;
-           case "ADD":
-               result = "添加";
-               break;
-           case "EDIT":
-               result = "编辑";
-               break;
-           case "AUDIT":
-               result = "审核";
-               break;
-           case "DELETE":
-               result = "删除";
-               break;
-           case "CONGEL":
-               result = "冻结";
-               break;
-           case "THAW":
-               result = "解冻";
-               break;
-           case "COLLECT":
-               result = "汇总";
-               break;
-           case "UPLOAD":
-               result = "上传附件";
-               break;
-           case "DOWNLOAD":
-               result = "下载附件";
-               break;
-           case "IMPORT":
-               result = "导入";
-               break;
-           case "EXPORT":
-               result = "导出";
-               break;
-           case "SEE":
-               result = "查看";
-               break;
-           case "SEEFILE":
-               result = "查看附件";
-               break;
            case "MOBILECOMMUNICATION":
                result = "移动通信类";
                break;

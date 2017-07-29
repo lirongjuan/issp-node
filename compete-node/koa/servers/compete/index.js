@@ -2,7 +2,44 @@ var request = require('request-promise');
 var path = require('path');
 var config = require(path.resolve('plugins/read-config.js'));
 var form = require(path.resolve('plugins/form.js'));
+var urlEncode = require(path.resolve('plugins/urlEncode.js'));
+var uploadFile = require(path.resolve('plugins/uploadFile.js'));
 module.exports = function(){
+    //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/competitor/v1/setButtonPermission',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.siginNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/competitor/v1/sonPermission',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    this.competetitorPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/competitor/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     //列表
     this.companycapbaseinfoList= function(argvs){
         var options = {
@@ -88,7 +125,71 @@ module.exports = function(){
         };
         return request(options);
     };
-                        //邮件发送
+    //竞争对手 上传附件
+    this.competeUploadFile = function(argvs){
+        var options = {
+            url: config()['rurl']+`/competitor/v1/upload/${argvs.fields.id}`,
+            method: 'POST',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //竞争对手 查看附件
+    this.seeFile = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/competitor/v1/files/${argvs.id}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //竞争对手 删除文件
+    this.delFile = function(argvs){
+        var options = {
+            method : 'POST',
+            timeout : 3000,
+            uri : config()['rurl'] + `/competitor/v1/delfile`,
+            headers:{
+                userToken:argvs.userToken
+            },
+            form:argvs.fields
+        };
+        return request(options);
+    };
+    //项目签订与立项 导入
+    this.competeImport = function(argvs){
+        var options = {
+            url: config()['rurl']+'/competitor/v1/lead',
+            method: 'POST',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+      //邮件发送汇总
+    this.emailPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/collect/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     this.collectemaillist= function(argvs){
         var options = {
             method : 'GET',
@@ -115,7 +216,7 @@ module.exports = function(){
     //冻结
     this.EmailCongeal = function(argvs){
         var options = {
-            method : 'PATCH',
+            method : 'PUT',
             timeout : 3000,
             uri : config()['rurl'] + '/collect/v1/freeze/' + argvs.id,
             headers:{
@@ -127,7 +228,7 @@ module.exports = function(){
     //解冻
     this.competitorBreakfreeze = function(argvs){
         var options = {
-            method : 'PATCH',
+            method : 'PUT',
             timeout : 3000,
             uri : config()['rurl'] + '/collect/v1/breakfreeze/' + argvs.id,
             headers:{
@@ -173,11 +274,11 @@ module.exports = function(){
         return request(options);
     };
 
-    this.typelistName= function(argvs){
+    this.allAreas= function(argvs){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + '/cusemail/v1/listName?type='+argvs.type,
+            uri : config()['rurl'] + '/collect/v1/areas',
             headers:{
                 userToken : argvs.userToken
             }

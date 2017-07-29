@@ -9,7 +9,7 @@ app.controller('proWeekEditCtrl', function($scope,$state,$stateParams,toastr,pro
     $scope.proEditFun = function(){
         proWeekSer.editProWeek($scope.edit).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.budget.proWeek.list');
+                $state.go('root.budget.proWeek.list[12]');
                 toastr.success( "已成功添加", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');

@@ -1,0 +1,47 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="flag">
+        <a href="javascript:void(0)" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="flag">
+        <a href="javascript:void(0)" class="add">申请离职<span></span></a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="flag">
+        <a href="javascript:void(0)"  class="same-one see">编辑<span></span></a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="flag">
+        <a href="javascript:void(0)" class="same-two see" >删除<span></span></a>
+    </li>
+    <li ng-click="head()" ng-class="{'current':menuClass=='headMenu','seeParent':idListd}" ng-show="flag">
+        <a href="javascript:void(0)"  class="same-one see">负责人面谈<span></span></a>
+    </li>
+    <li ng-click="manager()" ng-class="{'current':menuClass=='managerMenu','seeParent':idListd}" ng-show="flag">
+        <a href="javascript:void(0)"  class="same-one see">项目经理面谈<span></span></a>
+    </li>
+    <li ng-click="audit()" ng-class="{'current':menuClass=='auditMenu','seeParent':idListd}" ng-show="flag">
+        <a href="javascript:void(0)"  class="same-one see">总经办审核<span></span></a>
+    </li>
+    <li ng-click="salary()" ng-class="{'current':menuClass=='salaryMenu','seeParent':idListd}" ng-show="noflag">
+        <a href="javascript:void(0)" class="same-two see" >确认薪资情况<span></span></a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idListd}" ng-show="noflag">
+        <a href="javascript:void(0)" class="same-one see" >上传<span></span></a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':idListd}" ng-show="noflag">
+        <a href="javascript:void(0)" class="same-one see" >查看附件<span></span></a>
+    </li>
+    <li ng-click="editDeparture()" ng-class="{'current':menuClass=='editDepartureMenu','seeParent':idListd}" ng-show="noflag">
+        <a href="javascript:void(0)"  class="same-one see">修改离职类型<span></span></a>
+    </li>
+    <li ng-click="departure()" ng-class="{'current':menuClass=='departureMenu','seeParent':idListd}" ng-show="noflag">
+        <a href="javascript:void(0)" class="same-two see" >确认离职<span></span></a>
+    </li>
+    <li ng-click="summary()" ng-class="{'current':menuClass=='summaryMenu'}" ui-sref=".summary[12]" ng-show="noflag">
+        <a href="javascript:void(0)" class="same-one" >汇总<span></span></a>
+    </li>
+    <li ng-click="summaryWhy()" ng-class="{'current':menuClass=='summaryWhyMenu'}" ui-sref=".summaryWhy[12]" ng-show="noflag">
+        <a href="javascript:void(0)" class="same-one" >原因汇总<span></span></a>
+    </li>
+    <li>
+        <button class="togonbutton" ng-click="flagtoggon()">显示更多>></button>
+    </li>
+</ul>

@@ -1,6 +1,7 @@
 var app = angular.module('auditCredentialsServer',[]);
 app.factory('credentialsSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         listCredentials : listCredentials,
         countCredentials:countCredentials,
         findVoucherId:findVoucherId,
@@ -18,6 +19,11 @@ app.factory('credentialsSer',function ($http) {
         getProject:getProject
 
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/vouchergenerate/guidePermission/'+data);
+    }
+    //列表
     function listCredentials(data) {
         return $http.get('/vouchergenerate/listAudited',{
             params: data

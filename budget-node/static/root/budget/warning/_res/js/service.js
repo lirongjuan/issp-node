@@ -7,11 +7,10 @@ app.factory('warningSer',function ($http) {
         getWarning:getWarning,
         editWarning:editWarning,
         deleteWarning:deleteWarning,
-        allCostProjects:allCostProjects,
-        allCostArea:allCostArea,
+        menuPermission:menuPermission,
     };
     function listWarning(data) {
-        return $http.get('/listWarning/lit',{params:data})
+        return $http.get('/listWarning/list',{params:data})
     }
     function countWarning() {
         return $http.get('/countWarning/count')
@@ -28,12 +27,8 @@ app.factory('warningSer',function ($http) {
     function deleteWarning(data) {
         return $http.get('/deleteWarning/delete',{params:data})
     }
-  //项目所有周
-    function allCostProjects() {
-        return $http.get('/allCostProjects/id')
-    }
-    //地区所有周
-    function allCostArea() {
-        return $http.get('/allCostArea/id')
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/warning/guidePermission/'+data);
     }
 });

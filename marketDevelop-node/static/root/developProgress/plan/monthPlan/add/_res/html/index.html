@@ -4,14 +4,15 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>年计划</em></label>
-                    <select class="sele" ng-verify="{}" ng-model="addMonth.yearId" >
+                    <select class="sele" ng-verify="{}" ng-model="addMonth.yearId"  ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="choiceGetYear in choiceGetYears" value="{{choiceGetYear.id}}" >{{choiceGetYear.showValue}}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>月份</em></label>
-                    <select class="sele" ng-model="addMonth.month" ng-init="addMonth.month='JAN'">
+                    <select class="sele" ng-model="addMonth.month" ng-verify="option:0">
+                        <option value=""></option>
                         <option value="JAN">一月</option>
                         <option value="FEB">二月</option>
                         <option value="MAR">三月</option>
@@ -23,7 +24,7 @@
                         <option value="SEP">九月</option>
                         <option value="OCT">十月</option>
                         <option value="NOV">十一月</option>
-                        <option value="DEC">十二月</option>
+                        <o请选择ption value="DEC">十二月</o请选择ption>
                     </select>
                 </li>
                 <li class="required">

@@ -24,8 +24,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>月份</em></label>
-                    <select class="sele" ng-model="data.month"  ng-verify="{}">
-                        <!--<option>请选择</option>-->
+                    <select class="sele" ng-model="data.month">
                         <option ng-repeat="month in monthList" ng-value="month">{{ month }}</option>
                 </select>
                 </li>

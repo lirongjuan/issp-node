@@ -1,0 +1,66 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                       <div class="sele side">
+                        <select class="sele" ng-model="add.area">
+                            <option value="" disabled>请选择</option>
+                        </select>
+                        <input type="text"  ng-verify="{}" class="inputDom" ng-model="add.area">
+                    </div>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>类别</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="add.type">
+                            <option value="" disabled>请选择</option>
+                            <option value="有效成本">有效成本</option>
+                            <option value="无效成本">无效成本</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>节点</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="add.node">
+                            <option value="" disabled>请选择</option>
+                        </select>
+                        <input type="text"  ng-verify="{}" class="inputDom" ng-model="add.node">
+                    </div>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>日期</em></label>
+                    <input def-laydate type="text"  ng-model="date.targetDate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="targetDate">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>计划任务数</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="add.taskPlan">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>实际完工数</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="add.taskActual">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>计划人工</em></label>
+                   <input type="number"  ng-verify="{}" ng-model="add.artificialPlan">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>实际人工</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="add.artificialActual">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="basicAddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

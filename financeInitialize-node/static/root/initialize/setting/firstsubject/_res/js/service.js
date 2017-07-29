@@ -1,6 +1,7 @@
 var app = angular.module('firstsubjectServe',[]);
 app.factory('firstsubjectSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         listMarketserve1 : listMarketserve,
         countBaseInfo1:countBaseInfo,
         addMarketserveapply1:addMarketserveapply,
@@ -8,6 +9,10 @@ app.factory('firstsubjectSer',function ($http) {
         marketserveapplyEdit1:marketserveapplyEdit,
         marketserveapplyDel1:marketserveapplyDel
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/firstsubject/guidePermission/'+data);
+    }
     //列表
     function listMarketserve(data) {
         return $http.get('/setting/firstsubject/list',{

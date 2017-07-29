@@ -1,0 +1,109 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>地区简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.areaAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>代表性简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.representativeAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>员工姓名</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.employeeName">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>运营商简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.operatorAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>厂家简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.factoryAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>总包商简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.contractorAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>符号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.symbol">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>所属公司简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.accountSubordinateCompanyAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>所属部门简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.subordinateDepartmentAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>所属模块简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.subordinateModuleAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>简称后缀</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.abbreviationSuffix">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>邮箱号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.email">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>公司正式员工简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.companyStaffAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>社保人员简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.socialSecurityStaffAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>外帐人员简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.accountStaffAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>游客简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.touristAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>数字序号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.accountNum">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>密码所属公司简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.pwdSubordinateCompanyAbbreviation">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>密码所属项目组简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.subordinateProjectTeamAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>密码初始英文简称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.initialEnglishAbbreviation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>密码数字序号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.pwdNum">
+                </li>
+                <li>
+                    <label ><em>账号备注</em></label>
+                    <input type="text" ng-model="add.accountRemark">
+                </li>
+                <li>
+                    <label ><em>密码备注</em></label>
+                    <input type="text" ng-model="add.pwdRemark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="numberAddFun()">提交</button>
+    </p>
+</div>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

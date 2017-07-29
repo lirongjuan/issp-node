@@ -232,7 +232,7 @@ module.exports = function(){
     //付款
     this.paymentWait = function(argvs){
         var options = {
-            method : 'PATCH',
+            method : 'PUT',
             timeout : 3000,
             uri : config()['rurl'] + `/waitpay/v1/payment/${argvs.id}`,
             headers:{

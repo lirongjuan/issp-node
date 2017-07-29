@@ -1,13 +1,13 @@
 var app = angular.module('billRecordsList', ['ng-pagination','toastr']);
-app.controller('billRecordsListCtrl',function($scope,billRecordsSer,toastr){
+app.controller('billRecordsListCtrl',function($scope,billRecordsSer,toastr,$location){
 
     function activatePage(page) {
         var listData = {
-            page:page
-        }
+            page:page || 1
+        };
         billRecordsSer.listBillRecords(listData).then(function(response){
             if(response.data.code==0){
-                $scope.recordsLists = response.data.data
+                $scope.recordsLists = response.data.data;
             }else{
                 toastr.error(response.data.msg, '温馨提示');
             }
@@ -34,6 +34,7 @@ app.controller('billRecordsListCtrl',function($scope,billRecordsSer,toastr){
     billRecordsSer.countBillRecords().then(function(response){
         if(response.data.code==0){
             $scope.custom.itemsCount = response.data.data;
+            $scope.num = $location.search().page*10>10?($location.search().page-1)*10:null;
         }else{
             toastr.error(response.data.msg, '温馨提示');
         }

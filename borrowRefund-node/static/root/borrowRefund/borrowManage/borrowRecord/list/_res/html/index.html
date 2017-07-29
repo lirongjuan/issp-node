@@ -1,0 +1,165 @@
+<div class="content-tab list"   >
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span class="data-id">id</span>
+            <span>填单人</span>
+            <span>借款日期</span>
+            <span>预计借款日期</span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>项目名称</span>
+            <span>借款人</span>
+            <span>一级科目</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in borrowRecordLists.data">
+            <section>
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p>{{$index+1+num}}</p>
+                    <p class="data-id"></p>
+                    <p mod>{{::list.fillSingler}}</p>
+                    <p mod>{{::list.lendDate}}</p>
+                    <p mod>{{::list.estimateLendDate}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.projectGroup}}</p>
+                    <p mod>{{::list.projectName}}</p>
+                    <p mod>{{::list.lender}}</p>
+                    <p mod>{{::list.firstSubject}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>二级科目</span>
+                                <span>三级科目</span>
+                                <span>借款事由</span>
+                                <span>备注</span>
+                                <span>金额</span>
+                                <span>说明</span>
+                                <span>是否补写</span>
+                                <span>补写情况</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.secondSubject}}</span>
+                                <span mod>{{::list.thirdSubject}}</span>
+                                <span mod>{{::list.lendReson}}</span>
+                                <span mod>{{::list.remark}}</span>
+                                <span mod>{{::list.money}}</span>
+                                <span mod>{{::list.plainInfo}}</span>         
+                                <span mod>{{::list.writeUp}}</span>
+                                <span mod>{{::list.writeUpCondition}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>参与人</span>
+                                <span>借款方式</span>
+                                <span>商品链接</span>
+                                <span>负责人</span>
+                                <span>负责审核意见</span>
+                                <span>财务运营部</span>
+                                <span>财务运营部审核意见</span>
+                                <span>总经办</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.attender}}</span>
+                                <span mod>{{::list.lendWay}}</span>
+                                <span mod>{{::list.goodsLink}}</span>
+                                <span mod>{{::list.charger}}</span>
+                                <span mod>{{::list.chargerOpinion}}</span>
+                                <span mod>{{::list.finacer}}</span>
+                                <span mod>{{::list.fincerOpinion}}</span>
+                                <span mod>{{::list.manager}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>总经办审核意见</span>
+                                <span>代理审核备注</span>
+                                <span>是否付款</span>
+                                <span>付款人</span>
+                                <span>付款日期</span>
+                                <span>支付来源</span>
+                                <span>单据数量</span>
+                                <span>报销金额</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.managerOpinion}}</span>
+                                <span mod>{{::list.proxyAuditRemark}}</span>
+                                <span mod>{{::list.payCondition}}</span>
+                                <span mod>{{::list.payer}}</span>
+                                <span mod>{{::list.payDate}}</span>
+                                <span mod>{{::list.payOrigin}}</span>
+                                <span mod>{{::list.documentQuantity}}</span>
+                                <span mod>{{::list.reimMoney}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>借款金额</span>
+                                <span>退回金额</span>
+                                <span>归还日期</span>
+                                <span>归还方式</span>
+                                <span>还款账户</span>
+                                <span>寄件人</span>
+                                <span>寄件日期</span>
+                                <span>寄件情况</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.lendMoney}}</span>
+                                <span mod>{{::list.returnMoney}}</span>
+                                <span mod>{{::list.returnDate}}</span>
+                                <span mod>{{::list.returnWays}}</span>
+                                <span mod>{{::list.returnAccount}}</span>
+                                <span mod>{{::list.sender}}</span>
+                                <span mod>{{::list.sendDate}}</span>
+                                <span mod>{{::list.sendCondition}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>收件地址</span>
+                                <span>收票人</span>
+                                <span>售票日期</span>
+                                <span>收票情况</span>
+                                <span>核对人</span>
+                                <span>核对日期</span>
+                                <span>核对修改内容</span>
+                                <span> </span> 
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.receiveAddr}}</span>
+                                <span mod>{{::list.receiveAddr}}</span>
+                                <span mod>{{::list.ticketDate}}</span>
+                                <span mod>{{::list.ticketCondition}}</span>
+                                <span mod>{{::list.checker}}</span>
+                                <span mod>{{::list.checkDate}}</span>
+                                <span mod>{{::list.checkcontent}}</span>
+                                <span> </span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+     <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

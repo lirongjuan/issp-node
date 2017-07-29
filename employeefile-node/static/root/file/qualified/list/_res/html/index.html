@@ -1,0 +1,75 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span>姓名</span>
+            <span>性别</span>
+            <span>身份证号</span>
+            <span>劳动关系类型</span>
+            <span>社保购买类型</span>
+            <span>资质证书1</span>
+            <span>查询网站链接1</span>
+            <span></span>
+        </li>
+        <li class="list-all">
+            <section ng-repeat="list in qualifiedLists.data">
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.username}}</p>
+                    <p mod>{{::list.sex}}</p>
+                    <p mod>{{::list.identityCard}}</p>
+                    <p mod>{{::list.laborName}}</p>
+                    <p mod>{{::list.socialName}}</p>
+                    <p mod>{{::list.certificateOne}}</p>
+                    <p mod>{{::list.websiteOne}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>证件有效期限1</span>
+                                <span>资质证书2</span>
+                                <span>查询网站链接2</span>
+                                <span>证书有效期限2</span>
+                                <span>备注信息</span>
+                           </p>
+                            <p class="see-children">
+                                <span mod>{{::list.effectiveOne}}</span>
+                                <span mod>{{::list.certificateTwo}}</span>
+                                <span mod>{{::list.websiteTwo}}</span>
+                                <span mod>{{::list.effectiveTwo}}</span>
+                                <span mod>{{::list.remark}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

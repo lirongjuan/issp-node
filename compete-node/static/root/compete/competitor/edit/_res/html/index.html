@@ -16,17 +16,16 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
-                    <select class="sele" ng-model="editInfo.cooperate2" >
+                    <select class="sele" ng-model="data.businessType" ng-init="businessType='通信类'">
                         <option value="COMMUNICATE">通信类</option>
                         <option value="SOFTWARE">软件类</option>
                         <option value="MARKETINGPLAN">营销策划类</option>
                         <option value="INTELLIGENTIZE">智能化类</option>
-                        <option value=",ELECTRONICCOMMERCE">电子商务类</option>
+                        <option value="ELECTRONICCOMMERCE">电子商务类</option>
                         <option value="REALTY">房地产类</option>
                         <option value="FINANCIAL">理财类</option>
                         <option value="FOOD">食品类</option>
                     </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-value="editInfo.cooperate2 | coverEdit">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>基本资料描述</em></label>

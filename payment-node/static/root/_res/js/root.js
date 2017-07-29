@@ -25,7 +25,7 @@ app.controller('root', function ($rootScope, $urlRouter, $ocLazyLoad, $location)
 });
 
 function loadModule($ocLazyLoad, $urlRouter, moduleName, filter, fun) {
-    moduleName = moduleName[0] != '/' ? ('/' + moduleName) : moduleName
+    moduleName = moduleName[0] != '/' ? ('/' + moduleName) : moduleName;
     var loadFiles = ['/module/_config' + moduleName + '.js', moduleName + '/_res/js/router.js', moduleName + '/_res/js/controller.js'];
     if (filter) {
         var filterStr = filter.pop();
@@ -181,10 +181,10 @@ app.config(function ($provide, $urlRouterProvider) {
         onHidden: null,
         onShown: null,
         onTap: null,
-        progressBar: false,
+        progressBar: true,
         tapToDismiss: true,
 
-        timeOut: 5000,
+        timeOut: 3000,
         titleClass: 'toast-title',
         toastClass: 'toast'
     });
@@ -192,22 +192,22 @@ app.config(function ($provide, $urlRouterProvider) {
 
 app.factory('HttpInterceptor', ['$q', HttpInterceptor]);
 
-function HttpInterceptor($q,toastr,$location){
+function HttpInterceptor($q,toastr){
+
     return {
         request : function(config){
             return config;
         },
         requestError : function(err){
-            console.info(err);
             return $q.reject(err);
         },
         response : function(res){
-            if(res.data.code==403||res.data.code==401){
-                toastr.error( "请登录用户,2秒后跳至登陆页面", '温馨提示');
-                var absurl = $location.absUrl();
-                setTimeout(function(){
-                    window.location.href='http://localhost/login?url='+absurl
-                },2000)
+            if(res.data.code==403){
+                toastr.info( "请登录用户", '温馨提示');
+            }else if(res.data.code == 401){
+                toastr.info('登录已过期', '温馨提示');
+            }else if(res.data.code == 'ETIMEDOUT'){
+                toastr.warning('连接超时，请稍后重试！','温馨提示')
             }else if(res.data.code==1){
                 toastr.error(res.data.msg, '温馨提示');
             }
@@ -217,13 +217,12 @@ function HttpInterceptor($q,toastr,$location){
             if(-1 === err.status){
                 // 远程服务器无响应
             } else if(500 === err.status){
-                // 处理各类自定义错误
+                toastr.error('服务器出错，请联系管理员','温馨提示')
             } else if(501 === err.status){
                 // ...
             }else if(404===err.status){
-                toastr.error('服务器出错，请联系管理员', '温馨提示');
+                toastr.error('页面找不到，请联系管理员', '温馨提示');
             }
-            console.log(err);
             return $q.reject(err);
         }
     };

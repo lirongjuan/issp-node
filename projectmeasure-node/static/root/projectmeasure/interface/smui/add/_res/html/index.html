@@ -4,28 +4,38 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                     <input type="text"  ng-model="data.projectName" ng-verify="{}">
-               </li>
+                    <div class="sele area side">
+                        <select ng-model="data.projectName" class="sele">
+                            <option value="请选择">请选择</option>
+                            <option ng-repeat="list in allNames">{{list}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="data.projectName" ng-verify="{}">
+                    </div>
+                </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目类别</em></label>
-                    <input type="text" class="inputDom" ng-value="data.projectCategory | cover" ng-verify="{}">
-                     <select class="sele" ng-model="data.projectCategory" ng-init="data.projectCategory=''">
-                        <option value="SINGLE_SINGLE">单项目单个界面</option>
-                        <option value="SINGLE_MULTIPLE">单项目多个界面</option>
-                        <option value="MULTIPLE_SINGLE">多项目单个界面</option>
-                        <option value="MULTIPLE_MULTIPLE">多项目多个界面</option>
-                    </select>
+                    <div class="sele area side">
+                        <select ng-model="data.projectCategory" class="sele">
+                            <option value="请选择">请选择</option>
+                            <option value="SINGLE_SINGLE">单项目单个界面</option>
+                            <option value="SINGLE_MULTIPLE">单项目多个界面</option>
+                            <option value="MULTIPLE_SINGLE">多项目单个界面</option>
+                            <option value="MULTIPLE_MULTIPLE">多项目多个界面</option>
+                        </select>
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>界面选择</em></label>
-                    <input type="text" class="inputDom"  ng-value="data.interfaceSelect | cover" ng-verify="{}">
-                    <select class="sele" ng-model="data.interfaceSelect" ng-init="data.interfaceSelect='interfaceSelect'">
-                        <option value="CONSTRUCTION">施工</option>
-                        <option value="DESIGN">设计</option>
-                        <option value="SUPERVISE">督导</option>
-                        <option value="SOLUTION_PROVIDER">方案提供</option>
-                        <option value="CONTROL">监理</option>
-                    </select>
+                    <div class="sele  area side">
+                        <select ng-model="data.interfaceSelect" class="sele">
+                            <option value="请选择">请选择</option>
+                            <option value="CONSTRUCTION">施工</option>
+                            <option value="DESIGN">设计</option>
+                            <option value="SUPERVISE">督导</option>
+                            <option value="SOLUTION_PROVIDER">方案提供</option>
+                            <option value="CONTROL">监理</option>
+                        </select>
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>工作量</em></label>
@@ -33,7 +43,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>利润</em></label>
-                    <input type="number" ng-model="num" ng-verify="{}">
+                    <input type="number" ng-model="data.profit" ng-verify="{}">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>界面利润对比</em></label>

@@ -1618,9 +1618,7 @@ body {
   width: 22%;
 }
 
-.right-section .top-content .content .content-wrap .content-input .input-list section ul li.required input:hover {
-  box-shadow: 0 0 3px #1aafea;
-}
+
 
 .right-section .top-content .content .content-wrap .content-input .input-list section ul li.required select {
   border: 1px solid #1aafea;
@@ -1728,16 +1726,13 @@ ul li .data-add{
   margin-left:15px;
 }
 .select .select-text{
-   width: 60%;
-  line-height: 40px;
-  height: 40px;
+  width:65%;
+  line-height:40px;
+  height:40px;
   padding-left: 15px;
-  position: absolute;
-  left: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
+  position:absolute;
+  left:0;
+  overflow:hidden;
 }
 .select .select-text.verifyError{
   border: 1px solid #1aafea;
@@ -2373,7 +2368,7 @@ ul li .data-add{
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 10;
+  z-index: 110;
   margin-top: -100px;
   margin-left: -170px;
 }
@@ -2965,7 +2960,7 @@ ul li .data-add{
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 9;
+  z-index: 100;
   background: rgba(255, 255, 255, 0.3);
 }
 .inter-right .sum-select{

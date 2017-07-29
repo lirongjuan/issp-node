@@ -1,6 +1,14 @@
 var app = angular.module('ssuiEdit', ['toastr']);
 app.controller('ssuiEditCtrl', function($scope, ssuiSer,$state,toastr,$stateParams){
     var companyId = {id : $stateParams.id};
+    //获取值项目名称
+    ssuiSer.projectNames().then(function(response){
+        if(response.data.code==0){
+            $scope.allNames = response.data.data;
+        }else{
+            toastr.error( response.data.msg, '温馨提示');
+        }
+    });
     //获取值
     ssuiSer.getOneById(companyId).then(function(response){
         if(response.data.code==0){
@@ -15,7 +23,7 @@ app.controller('ssuiEditCtrl', function($scope, ssuiSer,$state,toastr,$statePara
         data.id = companyId.id;
         ssuiSer.marketserveapplyEdit(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.projectmeasure.interface.ssui.list');
+                $state.go('root.projectmeasure.interface.ssui.list[12]');
                 toastr.success('温馨提示',"此次编辑成功");
             }else{
                 toastr.error( response.data.msg, '温馨提示');

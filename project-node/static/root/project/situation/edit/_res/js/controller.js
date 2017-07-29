@@ -14,7 +14,7 @@ app.controller('projectEditCtrl', function($scope, situationSer,$state,toastr,$s
         vm.editInfo.completeTime = angular.element('.completeTime').val();
         situationSer.editProjectSituation(vm.editInfo).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.project.situation.list');
+                $state.go('root.project.situation.list[12]');
                 toastr.success( "已成功编辑", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');

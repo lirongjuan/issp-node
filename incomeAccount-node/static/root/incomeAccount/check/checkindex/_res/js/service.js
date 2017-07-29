@@ -1,6 +1,7 @@
 var app = angular.module('checkindexServe',[]);
 app.factory('checkindexSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         allList:allList,
         allCount:allCount,
         addData:addData,
@@ -8,6 +9,10 @@ app.factory('checkindexSer',function ($http) {
         editData:editData,
         deleteData:deleteData
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/checkindex/guidePermission/'+data);
+    }
     //列表
     function allList(data) {
         return $http.get('/check/checkindex/list',{

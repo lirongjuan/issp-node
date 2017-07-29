@@ -1,0 +1,103 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span>地区简称</span>
+            <span>代表性简称</span>
+            <span>员工姓名</span>
+            <span>运营商简称</span>
+            <span>厂家简称</span>
+            <span>总包商简称</span>
+            <span>符号</span>
+            <span></span>
+        </li>
+        <li class="list-all">
+            <section ng-repeat="list in numberLists.data" style="display: {{list._delete?'none':'block'}};">
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.areaAbbreviation}}</p>
+                    <p mod>{{::list.representativeAbbreviation}}</p>
+                    <p mod>{{::list.employeeName}}</p>
+                    <p mod>{{::list.operatorAbbreviation}}</p>
+                    <p mod>{{::list.factoryAbbreviation}}</p>
+                    <p mod>{{::list.contractorAbbreviation}}</p>
+                    <p mod>{{::list.symbol}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>所属公司简称</span>
+                                <span>所属部门简称</span>
+                                <span>所属模块简称</span>
+                                <span>简称后缀</span>
+                                <span>邮箱号</span>
+                                <span>公司正式员工简称</span>
+                                <span>社保人员简称</span>
+                                <span>外帐人员简称</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.accountSubordinateCompanyAbbreviation}}</span>
+                                <span mod>{{::list.subordinateDepartmentAbbreviation}}</span>
+                                <span mod>{{::list.subordinateModuleAbbreviation}}</span>
+                                <span mod>{{::list.abbreviationSuffix}}</span>
+                                <span mod>{{::list.email}}</span>
+                                <span mod>{{::list.companyStaffAbbreviation}}</span>
+                                <span mod>{{::list.socialSecurityStaffAbbreviation}}</span>
+                                <span mod>{{::list.accountStaffAbbreviation}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>游客简称</span>
+                                <span>数字序号</span>
+                                <span>备注</span>
+                                <span>密码所属公司简称</span>
+                                <span>密码所属项目组简称</span>
+                                <span>密码初始英文简称</span>
+                                <span>密码数字序号</span>
+                                <span>密码备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.touristAbbreviation}}</span>
+                                <span mod>{{::list.accountNum}}</span>
+                                <span mod>{{::list.accountRemark}}</span>
+                                <span mod>{{::list.pwdSubordinateCompanyAbbreviation}}</span>
+                                <span mod>{{::list.subordinateProjectTeamAbbreviation}}</span>
+                                <span mod>{{::list.initialEnglishAbbreviation}}</span>
+                                <span mod>{{::list.pwdNum}}</span>
+                                <span mod>{{::list.pwdRemark}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

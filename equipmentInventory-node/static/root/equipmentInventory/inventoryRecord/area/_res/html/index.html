@@ -1,0 +1,48 @@
+<div class="collect">
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>盘点时间</span>
+            <span>编号</span>
+            <span>地区</span>
+            <span>部门</span>
+            <span>物资名称</span>
+            <span>单位</span>
+            <span>单价</span>
+            <span>购买时间</span>
+            <span>保修期</span>
+            <span>账面数</span>
+            <span>盘点数</span>
+            <span>盈亏数</span>
+            <span>盈亏合计</span>
+            <span>差异说明</span>
+            <span>责任人</span>
+            <span>使用状态</span>
+            <span>盘点人</span>
+            <span>备注</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="lists in recordAreas">
+            <span mod>{{lists.inventoryTime}}</span>
+            <span mod>{{::lists.stockEncoding}}</span>
+            <span mod>{{::lists.storageArea}}</span>
+            <span mod>{{::lists.projectGroup}}</span>
+            <span mod>{{::lists.materialName}}</span>
+            <span mod>{{::lists.unit}}</span>
+            <span mod>{{::lists.unitPrice}}</span>
+            <span mod>{{::lists.purchaseDate}}</span>
+            <span mod>{{::lists.warrantyExpire}}</span>
+            <span mod>{{::lists.quantity}}</span>
+            <span mod>{{::lists.inventoryNum}}</span>
+            <span mod>{{::lists.profitLoss}}</span>
+            <span mod>{{::lists.profitLossCount}}</span>
+            <span mod>{{::lists.differThat}}</span>
+            <span mod>{{::lists.responsible}}</span>
+            <span mod>{{::lists.state}}</span>
+            <span mod>{{::lists.inventoryMan}}</span>
+            <span mod>{{::lists.note}}</span>
+        </li>
+    </ul>
+</div>
+
+
+
+

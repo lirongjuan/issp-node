@@ -1,0 +1,85 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>姓名</span>
+            <span>员工编号</span>
+            <span>部门/项目组</span>
+            <span>职位</span>
+            <span>联系电话</span>
+            <span>邮箱</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in basicLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.area}}</p>
+                    <p mod>{{::lists.username}}</p>
+                    <p mod>{{::lists.number}}</p>
+                    <p mod>{{::lists.department}}</p>
+                    <p mod>{{::lists.position}}</p>
+                    <p mod>{{::lists.phone}}</p>
+                    <p mod>{{::lists.email}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>集团号</span>
+                                <span>联系电话2</span>
+                                <span>QQ号</span>
+                                <span>微信号</span>
+                                <span>紧急联系人</span>
+                                <span>紧急联系人电话</span>
+                                <span>备注</span>
+                                <span>状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.bloc}}</span>
+                                <span mod>{{::lists.phoneNumber}}</span>
+                                <span mod>{{::lists.qq}}</span>
+                                <span mod>{{::lists.weChat}}</span>
+                                <span mod>{{::lists.emergency}}</span>
+                                <span mod>{{::lists.emergencyPhone}}</span>
+                                <span mod>{{::lists.remark}}</span>
+                                <span mod>{{::lists.status}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

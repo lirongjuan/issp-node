@@ -1,43 +1,50 @@
-<div class="content-input add" verify-scope="tipStyle: 1">  <!--表单验证插件-->
+<div class="content-input add" verify-scope="tipStyle: 1">
     <div class="input-list">
         <section>
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>公司名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="addcompanyName">
+                    <input type="text" ng-verify="{}" ng-model="add.companyName">
                 </li>
-                  <li>
-                    <label><em>专业资质认证</em></label>
-                    <select class="sele" ng-model="addprofessionAuthen2" ng-change="changeSelect()" ng-init="addprofessionAuthen2='电信工程专业承包企业资质'">
+                  <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>专业资质认证</em></label>
+                      <div class="sele side">
+                    <select class="sele" ng-model="add.professionAuthen">
+                        <option value="" disabled>请选择</option>
                         <option>电信工程专业承包企业资质</option>
                         <option>通信工程施工总承包企业资质</option>
                         <option>通信息系网络系统集成企业资质</option>
                         <option>电子通信广电行业的工程设计资质</option>
                         <option>通信信息专业工程咨询资质</option>
                     </select>
-                    <input type="text"  class="inputDom" ng-model="addprofessionAuthen">
+                    <input type="text" ng-verify="{}" class="inputDom" ng-model="add.professionAuthen">
+                   </div>
                 </li>
-                <li>
-                    <label><em>管理资质认证</em></label>
-                    <select class="sele" ng-model="addmanageAuthen2" ng-change="changeSelect2()" ng-init="addmanageAuthen2='9000族质量管理体系或同类认证'">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>管理资质认证</em></label>
+                    <div class="sele side">
+                    <select class="sele" ng-model="add.manageAuthen">
+                        <option value="" disabled>请选择</option>
                         <option>9000族质量管理体系或同类认证</option>
                         <option>27000族信息安全管理体系或同类认证</option>
                         <option>14000族环境管理体系认证证书</option>
                         <option>建筑业企业资质证书</option>
                     </select>
-                    <input type="text"  class="inputDom" ng-model="addmanageAuthen">
+                    <input type="text" ng-verify="{}" class="inputDom" ng-model="add.manageAuthen">
+                   </div>
                 </li>
-                <li>
-                    <label><em>公司荣誉证书</em></label>
-                    <input type="text" ng-model="addcompanyCertificate">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>公司荣誉证书</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.companyCertificate">
                 </li>
-                <li>
-                    <label><em>公司参与项目</em></label>
-                    <input type="text" ng-model="addcompanyProject">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>公司参与项目</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.companyProject">
                 </li>
-                <li>
-                    <label><em>是否独立完成</em></label>
-                    <select class="sele" ng-model="addcompletePro" ng-change="changeSelect3()" ng-init="addcompletePro='INDEPENDENT'">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否独立完成</em></label>
+                    <select class="sele" ng-model="add.completePro"  ng-verify="{}">
+                        <option value="" disabled>请选择</option>
                         <option value="INDEPENDENT">独立完成</option>
                         <option value="COOPER">合作完成</option>
                         <option value="STAGEPARTICIPATION">阶段参与</option>

@@ -4,10 +4,139 @@ var sendfile = require('koa-sendfile');
 var server = require(path.resolve('koa/servers/' + path.basename(path.resolve(__filename,'../'))+'/index.js'));
 var config = require(path.resolve('plugins/read-config.js'));
 var fetch = require('node-fetch');//url转发
+var koaBody = require('koa-body');
+var request = require('request-promise');
+var uploadFile = require(path.resolve('plugins/uploadFile.js'));
+var urlEncode = require(path.resolve('plugins/urlEncode.js'));
+var fileType = require(path.resolve('plugins/fileType.js'));
 module.exports = function(){
     var router = new Router();
 
-    router.get('/vouchergenerate/list', function*(){ //记账凭证生成设置列表
+    router.get('/vouchergenerate/setButtonPermission', function*(){ //设置导航权限
+        var $self = this;
+        var navToken = {userToken:$self.cookies.get('token')};
+        yield (server().settingNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/vouchergenerate/sonPermission', function*(){ //导航权限
+        var $self = this;
+        var navToken = {userToken:$self.cookies.get('token')};
+        yield (server().voucherNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/vouchergenerate/guidePermission/:guideAddrStatus', function*(){ //菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,userToken:$self.cookies.get('token')};
+        yield (server().voucherPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).post('/vouchergenerate/importExcel', koaBody({multipart:true}),function *(next) {//导入 记账凭证生成设置
+        var $self = this;
+        var fileData = $self.request.body;
+        fileData.userToken = $self.cookies.get("token");
+        yield (server().generateImport(fileData)
+            .then((parsedBody) =>{
+                $self.body = parsedBody;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/vouchergenerate/templateExport', function*(){//导入模板下载 记账凭证生成设置
+        var $self = this;
+        var fileName = '记账凭证导入模板.xlsx';
+        yield (fetch(config()['rurl']+`/vouchergenerate/v1/templateExport`, {
+            method : 'GET',
+        }).then(function(res){
+            $self.set('content-type', 'application/vnd.ms-excel;charset=utf-8');
+            $self.set('Content-Disposition', 'attachment;  filename='+encodeURI(fileName));
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).post('/vouchergenerate/uploadFile', koaBody({multipart:true}),function *(next) {//上传文件 记账凭证记录
+        var $self = this;
+        var uploadData = $self.request.body;
+        uploadData.userToken = $self.cookies.get("token");
+        yield (server().voucherUploadFile(uploadData)
+            .then((parsedBody) =>{
+                $self.body = parsedBody;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/vouchergenerate/listFile', function*(){ //查看附件 记账凭证记录
+        var $self = this;
+        var enData = $self.request.query;
+        enData.userToken = $self.cookies.get('token');
+        yield (server().voucherEnclosure(enData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/vouchergenerate/downloadFile', function*(){//下载文件 记账凭证记录
+        var $self = this;
+        var count = $self.request.query;
+        var data = {
+            path:count.path
+        };
+        yield (fetch(config()['rurl']+`/vouchergenerate/v1/downloadFile${urlEncode(data,true)}`, {
+            method : 'GET',
+            headers : {'userToken' : $self.cookies.get('token')}
+        }).then((res)=>{
+            fileType(count,this);
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).post('/vouchergenerate/deleteFile', koaBody({multipart:true}), function*(){//记账凭证记录 删除文件
+        var $self = this;
+        var delData = $self.request.body;
+        delData.userToken = $self.cookies.get('token');
+        yield (server().voucherDelFile(delData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/vouchergenerate/export', function*(){//导出 记账凭证记录
+        var $self = this;
+        var count = $self.request.query;
+        var fileName = "记账凭证记录"+'.xlsx';
+        yield (fetch(config()['rurl']+`/vouchergenerate/v1/export${urlEncode(count,true)}`, {
+            method : 'GET',
+            headers : {'userToken' : $self.cookies.get('token')}
+        }).then(function(res){
+            $self.set('content-type', 'application/vnd.ms-excel;charset=utf-8');
+            $self.set('Content-Disposition', 'attachment;  filename='+encodeURI(fileName));
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).get('/vouchergenerate/list', function*(){ //记账凭证生成设置列表
         var $self = this;
         var page = $self.request.query;
         page.userToken = $self.cookies.get('token');
@@ -114,6 +243,42 @@ module.exports = function(){
         var deleteData = $self.request.query;
         deleteData.userToken = $self.cookies.get('token');
         yield (server().generateDelete(deleteData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/vouchergenerate/listOrganArea', function*(){//获取组织结构所有地区
+        var $self = this;
+        var areaToken = {userToken:$self.cookies.get('token')};
+        yield (server().listArea(areaToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/vouchergenerate/listOrganDepart', function*(){//获取组织结构所有项目组和部门
+        var $self = this;
+        var departToken = {userToken:$self.cookies.get('token')};
+        yield (server().listDepart(departToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/vouchergenerate/listOrganUser', function*(){//获取组织结构所有用户
+        var $self = this;
+        var userToken = {userToken:$self.cookies.get('token')};
+        yield (server().listUser(userToken)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;
@@ -569,13 +734,67 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
-    }).get('/user/logout', function*(next){
-        var url = this.request.query;
-        this.cookies.set("absUrl",url.absurl);
-        this.body = {
-            code:0,
-            msg:"重定向"
-        };
+    }).get('/listSetting', function*(){
+        var $self = this;
+        var setting = this.request.query;
+        setting.userToken = $self.cookies.get('token');
+        yield (server().listSetting(setting)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/countSetting', function*(){
+        var $self = this;
+        yield (server().countSetting()
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getpermit', function*(){
+        var $self = this;
+        var getId = $self.request.query;
+        yield (server().getpermit(getId)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getListpermit', function*(){
+        var $self = this;
+        var listPermit = $self.request.query;
+        yield (server().getListpermit(listPermit)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).post('/editSetting', function*(){
+        var $self = this;
+        var editSet = $self.request.body;
+        editSet.userToken = $self.cookies.get("token");
+        yield (server().editSetting(editSet)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
     })
     return router;
 };

@@ -1,6 +1,55 @@
 var app = angular.module('emailList', ['ng-pagination','toastr']);
-app.controller('emailListCtrl',function($scope,emailSer,toastr,$state,$location) {
+app.controller('emailListCtrl',function($scope,emailSer,toastr,$state,$stateParams) {
     $scope.$emit('changeId', null);
+    //获取id
+    if($stateParams.id){
+        switch ($stateParams.name){
+            case 'delete':
+                $scope.delShow = true;
+                break;
+            case 'congeal':
+                $scope.congealShow = true;
+                break;
+        }
+    }
+    $scope.cancel = function(){//取消删除/冻结
+        $scope.delShow = false;
+        $scope.congealShow = false;
+        $state.go('root.compete.email.list[12]',{id:null,name:null});
+    };
+    $scope.delFn = function(){//确认删除
+        var data = {
+            id:$stateParams.id
+        };
+        emailSer.deleteEmail(data).then(function(response){
+            if(response.data.code==0){
+                toastr.info( "信息已删除", '温馨提示');
+                $scope.deledId = $stateParams.id;
+                $scope.$emit('changeId', null);
+                $scope.delShow = false;
+                $state.go('root.compete.email.list[12]',{id:null,name:null});
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        });
+    };
+    $scope.conFn = function(){//确认冻结
+        var data = {
+            id:$stateParams.id
+        };
+        emailSer.congealEmail(data).then(function(response){
+            if(response.data.code==0){
+                toastr.info( "信息已冻结", '温馨提示');
+                $scope.deledId = $stateParams.id;
+                $scope.$emit('changeId', null);
+                $scope.congealShow = false;
+                $state.go('root.compete.email.list[12]',{id:null,name:null});
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        })
+    };
+
     //分页
     function activatePage(page) {
         var listData = {
@@ -8,7 +57,16 @@ app.controller('emailListCtrl',function($scope,emailSer,toastr,$state,$location)
         };
         emailSer.listAbilityEmail(listData).then(function(response){
             if(response.data.code==0){
-                $scope.emailLists = response.data
+                $scope.emailLists = response.data;
+                if($stateParams.id){
+                    angular.forEach($scope.emailLists.data,function(obj){
+                        if(obj.id == $stateParams.id){
+                            obj._selectList = true;
+                        }
+                    });
+                    //向父Ctrl传递事件
+                    $scope.$emit('changeId', $stateParams.id);
+                }
             }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
@@ -60,21 +118,4 @@ app.controller('emailListCtrl',function($scope,emailSer,toastr,$state,$location)
         });
         event._moreList = !event._moreList;
     };
-    //删除
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.emailLists.data,function(obj){
-            if(obj.id == delid){
-                obj._delete = true;
-            }
-        })
-    });
-    //冻结
-    $scope.$on('congealId',function(event,conid){
-        angular.forEach($scope.emailLists.data,function(obj){
-            if(obj.id == conid){
-                obj._selectList = false;
-                obj.status = 'CONGEAL'
-            }
-        })
-    });
 });

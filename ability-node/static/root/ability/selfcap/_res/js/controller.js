@@ -5,17 +5,56 @@ var app = angular.module('selfcap', [{
 }]);
 app.controller('selfcapCtrl',function ($scope,$state) {
     if ($state.current.url == '/selfcap') {
-        $state.go('root.ability.selfcap.list');
+        $state.go('root.ability.selfcap.list[12]');
     }
-}).controller('selfcapMenuCtrl',function($scope,$state,$rootScope,$location){
+    $scope.$emit('isVi',true);//判断是否出现搜索按钮
+}).controller('selfcapMenuCtrl',function($scope,$state,$rootScope,$location,selfcapSer){
     var urlName = $state.current.url.split('/')[1].split('[')[0];
-    $scope.menuClass=urlName+"Menu";
+    $scope.menuClass = urlName.split('?')[0] + "Menu";
     $rootScope.$on('$locationChangeSuccess', function () {//url地扯改变或者刷新
-        if($location.path().split('/').slice(-1)=='list'){
+        if($location.path().split('/').slice(-1)=='list[12]' && window.location.href.indexOf('id=') == -1){
             $scope.menuClass = 'listMenu';
-            searchShow();
+        }
+        if($location.path().split('/').slice(-1)=='socialList[12]' && window.location.href.indexOf('subId=') == -1){
+            $scope.menuClass = 'socialListMenu';
         }
     });
+    if (window.location.href.split('id=')[1]) {//如果是刷新进来的页面，没有经过list
+        $scope.idList = window.location.href.split('id=')[1];
+        if($location.search().name){
+            $scope.menuClass = $location.search().name + 'Menu';
+        }
+    }
+    if (window.location.href.split('subId=')[1]) {//如果是刷新进来的页面，没有经过list
+        $scope.idSocialList = window.location.href.split('subId=')[1];
+        if($location.search().name){
+            $scope.menuClass = $location.search().name + 'Menu';
+        }
+    }
+    $scope.menuCheck = function (name) {
+        var buttonName = name;
+        $scope.buttonShow = true;
+        selfcapSer.menuPermission(buttonName).then(function(response){
+            if(response.data.code == 0 && response.data.data){
+                $scope[buttonName] = true;
+            }else{
+                $scope[buttonName] = false;
+            }
+        });
+        $scope.menuAdd = false;
+    };
+    $scope.menuCheck2 = function (name) {
+        var buttonName = name;
+        $scope.buttonShow = true;
+        selfcapSer.menuPermission2(buttonName).then(function(response){
+            if(response.data.code == 0 && response.data.data){
+                $scope[buttonName] = true;
+            }else{
+                $scope[buttonName] = false;
+            }
+        });
+        $scope.menuAdd = false;
+    };
     //监听到父Ctrl后改变事件
     $scope.$on("listId", function(event, id){
         $scope.idList = id;
@@ -24,72 +63,61 @@ app.controller('selfcapCtrl',function ($scope,$state) {
     $scope.$on("socialListId", function(event, subId){
         $scope.idSocialList = subId;
     });
+    $scope.$on('pageId',function(event,flag){
+        $scope.page = flag;
+    });
     //关于删除
     $scope.delete = function(){
         if($scope.idList){
-            $state.go('root.ability.selfcap.list.delete[12]',{id:$scope.idList});
+            $state.go('root.ability.selfcap.list[12]',{id:$scope.idList,names:'delete',page:$scope.page});
             $scope.menuClass = 'deleteMenu'
-        }
-    };
-    //关于添加
-    $scope.padd = function(){
-        if($scope.idList){
-            $state.go('root.ability.selfcap.padd[12]',{id:$scope.idList});
-            $scope.menuClass = 'paddMenu'
-        }
-    };
-    $scope.pedit = function(){
-        if($scope.idList){
-            $state.go('root.ability.selfcap.pedit[12]',{id:$scope.idList});
-            $scope.menuClass = 'peditMenu'
         }
     };
     //编辑
     $scope.edit = function(){
         if($scope.idList){
-            $state.go('root.ability.selfcap.edit[12]',{id:$scope.idList});
+            $state.go('root.ability.selfcap.edit[12]',{id:$scope.idList,page:$scope.page});
             $scope.menuClass = 'editMenu'
         }
     };
     $scope.list = function(){
-        $scope.menuClass = 'listMenu'
+        $scope.menuClass = 'listMenu';
+        $scope.idList = '';
+        $scope.idSocialList = ''
     };
     $scope.add = function(){
-        $scope.menuClass = 'addMenu'
+        $scope.menuClass = 'addMenu';
+        $scope.idList = '';
+        $scope.idSocialList = ''
     };
-    $scope.perlist = function(){
-        if($scope.idList){
-            $state.go('root.ability.selfcap.perlist[12]',{id:$scope.idList});
-            $scope.menuClass = 'perlistMenu'
-       }
-    };
-    //个人社交添加
+     //个人社交添加
     $scope.social = function(){
         if($scope.idList){
-            $state.go('root.ability.selfcap.social[12]',{id:$scope.idList});
+            $state.go('root.ability.selfcap.social[12]',{id:$scope.idList,page:$scope.page});
             $scope.menuClass = 'socialMenu'
         }
     };
     //个人社交列表
     $scope.socialList = function(){
         if($scope.idList){
-            $state.go('root.ability.selfcap.socialList',{id:$scope.idList});
-            $scope.menuClass = 'socialList?id=Menu'
+            $state.go('root.ability.selfcap.socialList[12]',{id:$scope.idList,page:$scope.page});
+            $scope.menuClass = 'socialListMenu';
         }
     };
     //个人社交删除
     $scope.socialDelete = function(){
         if($scope.idSocialList){
-            $state.go('root.ability.selfcap.socialList.socialDelete[12]',{subId:$scope.idSocialList});
+            $state.go('root.ability.selfcap.socialList[12]',{subId:$scope.idSocialList,name:'socialDelete',page:$scope.page});
+            $scope.menuClass = 'socialDeleteMenu';
         }
     };
     //个人社交编辑
     $scope.socialEdit = function(){
         if($scope.idSocialList){
-            $state.go('root.ability.selfcap.socialList.socialEdit[12]',{subId:$scope.idSocialList});
+            $state.go('root.ability.selfcap.socialEdit[12]',{subId:$scope.idSocialList,id:$scope.idList,page:$scope.page});
             $scope.menuClass = 'socialEditMenu'
         }
-    };
+    }
 });
 //自定义过滤器
 app.filter('cover', function(){

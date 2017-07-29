@@ -13,7 +13,7 @@ app.controller('marketserveOrganizeCtr',function($scope,marketserveSer,$state,to
         marketserveSer.fundModuleOpinionEidt(data).then(function(response){
             if(response.data.code == 0){
                 toastr.success('温馨提示','编辑资金模块意见成功');
-                $state.go('root.marketActivity.marketserve.list')
+                $state.go('root.marketActivity.marketserve.list[12]')
             }else{
                 toastr.error(response.data.msg ,'温馨提示');
             }

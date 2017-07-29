@@ -1,0 +1,24 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idList}" ng-show="PAY" ng-init="menuCheck('PAY')">
+        <a href="javascript:void(0)"  class="same-one see" >付款</a>
+    </li>
+    <li ng-click="editSend()" ng-class="{'current':menuClass=='editSendMenu','seeParent':idList}" ng-show="RETURN" ng-init="menuCheck('RETURN')">
+        <a href="javascript:void(0)"  class="same-one see" >寄件</a>
+    </li>
+    <li ng-click="voucher()" ng-class="{'current':menuClass=='voucherMenu','seeParent':idList}" ng-show="VOUCHER" ng-init="menuCheck('VOUCHER')">
+        <a href="javascript:void(0)"  class="same-one see" >生成凭证</a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idList}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)"  class="same-one see">上传附件</a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':idList}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)" class="same-two see" >查看附件</a>
+    </li>
+    <li ng-click="export()" ng-class="{'current':menuClass=='exportMenu'}" ui-sref=".export[12]" ng-show="EXPORT" ng-init="menuCheck('EXPORT')">
+        <a href="javascript:void(0)" class="same-one" >导出</a>
+    </li>
+</ul>

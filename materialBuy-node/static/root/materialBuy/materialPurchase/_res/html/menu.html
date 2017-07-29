@@ -1,0 +1,26 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" class="add">添加</a>
+    </li>
+    <li ng-click="amend()" ng-class="{'current':menuClass=='amendMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see">修改补全信息</a>
+    </li>
+       <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idListd}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)"  class="same-two see">上传附件</a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':idListd}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)"  class="same-three see">查看附件</a>
+    </li>
+    <li ng-click="see()" ng-class="{'current':menuClass=='seeMenu','seeParent':idListd}" ng-show="SEE" ng-init="menuCheck('SEE')">
+        <a href="javascript:void(0)" class="same-one see" >查看详情</a>
+    </li>
+    <li ng-click="review()" ng-class="{'current':menuClass=='reviewMenu','seeParent':idListd}" ng-show="AUDIT" ng-init="menuCheck('AUDIT')">
+        <a href="javascript:void(0)" class="same-two see" >地区负责人审核</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-three see" >删除</a>
+    </li>
+</ul>

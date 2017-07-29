@@ -1,16 +1,19 @@
 <div class="content-tab list">
-    <div class="search-big">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
         <select class="salc" ng-model="checkedName">
             <option ng-repeat="item in titles">{{item}}</option>
         </select>
         <input type="text" ng-model="enginPlace" ng-show="checkedName=='工程地点'">
-        <input type="text" ng-model="completeCondition" ng-show="checkedName=='完工情况'">
+        <select class="sle" ng-model="completeCondition" ng-show="checkedName=='完工情况'">
+            <option value=""></option>
+            <option value="是">是</option>
+            <option value="否">否</option>
+        </select>
         <a href="javascript:void(0)" ng-click="collect()"><img src="/images/search2.png"></a>
     </div>
     <ul class="table com-table">
         <li class="list-head">
             <span></span>
-            <span class="data-id">id</span>
             <span>合同外部项目名称</span>
             <span>内部项目名称</span>
             <span>合同签订情况</span>
@@ -23,15 +26,13 @@
         <li class="list-all">
             <section ng-repeat="list in situationLists.data" style="display: {{list._delete?'none':'block'}};">
                 <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
-                    <p class="data-id"></p>
-                    <p>{{list.outerName}}</p>
-                    <p>{{list.innerName}}</p>
-                    <p>{{list.signCondition}}</p>
-                    <p>{{list.saleNum}}</p>
-                    <p>{{list.depatchNum}}</p>
-                    <p>{{list.startWorkTime}}</p>
-                    <p>{{list.planCompleteTime}}</p>
+                    <p>{{$index+1+num}}</p>
+                    <p mod>{{::list.outerName}}</p>
+                    <p mod>{{::list.innerName}}</p>
+                    <p mod>{{::list.signCondition}}</p>
+                    <p mod>{{::list.depatchNum}}</p>
+                    <p mod>{{::list.startWorkTime}}</p>
+                    <p mod>{{::list.planCompleteTime}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
                     </p>
@@ -50,14 +51,14 @@
                                 <span>内容</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.customerName}}</span>
-                                <span>{{list.customerCharger}}</span>
-                                <span>{{list.customerTel}}</span>
-                                <span>{{list.constructionUnit}}</span>
-                                <span>{{list.enginSupervision}}</span>
-                                <span>{{list.enginPlace}}</span>
-                                <span>{{list.projectManager}}</span>
-                                <span>{{list.contents}}</span>
+                                <span mod>{{::list.customerName}}</span>
+                                <span mod>{{::list.customerCharger}}</span>
+                                <span mod>{{::list.customerTel}}</span>
+                                <span mod>{{::list.constructionUnit}}</span>
+                                <span mod>{{::list.enginSupervision}}</span>
+                                <span mod>{{::list.enginPlace}}</span>
+                                <span mod>{{::list.projectManager}}</span>
+                                <span mod>{{::list.contents}}</span>
                             </p>
                         </li>
                         <li>
@@ -69,27 +70,39 @@
                                 <span>备注</span>
                             </p>
                             <p class="see-children">
-                                <span>{{list.completeTime}}</span>
-                                <span>{{list.completeCondition}}</span>
-                                <span>{{list.completeReport}}</span>
-                                <span>{{list.contractFollow}}</span>
-                                <span>{{list.remark}}</span>
+                                <span mod>{{::list.completeTime}}</span>
+                                <span mod>{{::list.completeCondition}}</span>
+                                <span mod>{{::list.completeReport}}</span>
+                                <span mod>{{::list.contractFollow}}</span>
+                                <span mod>{{::list.remark}}</span>
                             </p>
                         </li>
                     </ul>
-                    <div class="module">
-                        <div class="see-module">
-                            <p class="see-type">体现类型</p>
-                            <p class="see-description"></p>
-                            <button class="btn">关闭</button>
-                        </div>
-                </div>
                 </div>
             </section>
         </li>
      </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

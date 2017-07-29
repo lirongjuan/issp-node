@@ -203,7 +203,7 @@ module.exports = function(){
         var options = {
             method : 'DELETE',
             timeout : 3000,
-            uri : config()['plan']['rurl'] + `/monthplan/v1/delete/${argvs.id}?userToken=${argvs.userToken}`,
+            uri : config()['plan']['rurl'] + `/monthplan/v1/delete/${argvs.id}`,
             headers : {
                 userToken : argvs.userToken
             }

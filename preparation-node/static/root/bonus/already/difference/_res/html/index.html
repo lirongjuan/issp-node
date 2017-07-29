@@ -1,0 +1,50 @@
+<div class="collect ">
+    <section class="collect-select">
+        <ul>
+            <li>
+                <label><em>年份</em></label>
+                <input type="text" ng-model="years">
+            </li>
+            <li>
+                <label><em>月份</em></label>
+                <select ng-model="month" class="sele">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+                <button ng-click="collect()">汇总</button>
+            </li>
+        </ul>
+    </section>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>年份</span>
+            <span>月份</span>
+            <span>项目组</span>
+            <span>科目</span>
+            <span>本月奖金准备金</span>
+            <span>实际支付金额</span>
+            <span>差额</span>
+            <span>增长率</span>
+        </li>
+        <li class="sum-tbody"  ng-repeat="summaryList in summaryLists">
+            <span>{{summaryList.years}}</span>
+            <span>{{summaryList.month}}</span>
+            <span>{{summaryList.projectGroup}}</span>
+            <span>{{summaryList.subjects}}</span>
+            <span>{{summaryList.thisMonthReserve}}</span>
+            <span>{{summaryList.actualPay}}</span>
+            <span>{{summaryList.difference}}</span>
+            <span>{{summaryList.growthRate}}</span>
+        </li>
+    </ul>
+</div>

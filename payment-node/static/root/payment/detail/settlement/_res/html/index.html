@@ -2,10 +2,10 @@
     <div class="input-list">
         <section>
             <ul>
-                <li class="required">
+                <!--<li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>id</em></label>
                     <input type="text" ng-model="settleInfo.id">
-                </li>
+                </li>-->
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>分组</em></label>
                     <select class="sele" ng-model="group" ng-change="myFunc()">
@@ -14,10 +14,12 @@
                     </select>
                 </li>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>分组</em></label>
-                    <select class="sele" ng-model="progress" ng-init="progress=selectOptions[0]" ng-options="progress.name for progress in selectOptions">
-                        <!-- <option ng-repeat="progress in selectOptions" value="{{progress.name}}">{{progress.name}}</option>-->
-                    </select>
+                    <label><i><img src="/images/mandatory.png"></i><em>结算进度</em></label>
+                   <!-- <input type="text" ng-repeat="group in groups" ng-model="name" ng-value="progress.name">-->
+                    <select class="sele" ng-model="progress" ng-options="progress.name for progress in selectOptions"></select>
+                   <!-- <select class="sele" ng-model="progress">
+                        <option ng-repeat="group in groups">{{group.progress}}</option>
+                    </select>-->
                 </li>
             </ul>
         </section>

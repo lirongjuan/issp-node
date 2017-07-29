@@ -15,27 +15,35 @@ app.controller('settingCtrl',function ($scope,$state) {
     $rootScope.$on('$locationChangeSuccess', function () {//url地扯改变或者刷新
         if($location.path().split('/').slice(-1)=='list[12]'){
             $scope.menuClass = 'listMenu';
-            searchHide();
         }
     });
-
-    $scope.$on('listId',function(event,id){
-        $scope.editId=id;
+    if (window.location.href.split('id=')[1]) {//如果是刷新进来的页面，没有经过list
+        $scope.getId = window.location.href.split('id=')[1];
+        if($location.search().name){
+            $scope.menuClass = $location.search().name + 'Menu';
+        }
+    }
+    $scope.$on("passId",function(event,id){
+        $scope.getId = id;
     });
-
+    $scope.$on('pageId',function(event,flag){
+        $scope.page = flag;
+    });
+    if(!$scope.page){
+        $scope.page = $location.search().page;
+    }
     $scope.list = function(){
         $state.go('root.project.setting.list[12]');
-        $scope.menuClass = 'listMenu'
+        $scope.menuClass = 'listMenu';
+        $scope.getId = '';
     };
     $scope.edit = function(){
-        if($scope.editId){
-            $state.go('root.project.setting.edit[12]',{id:$scope.editId});
+        if($scope.getId){
+            $state.go('root.project.setting.edit[12]',{id:$scope.getId,page:$scope.page});
             $scope.menuClass = 'editMenu'
         }
-
     }
 });
-
 app.filter('cover', function(){
     return function(val){
         var result;

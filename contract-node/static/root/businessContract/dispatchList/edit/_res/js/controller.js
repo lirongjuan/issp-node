@@ -29,7 +29,45 @@ app.controller('dispatchEditCtrl', function($scope, dispatchSer,$stateParams,$st
 
     };
 });
-
+//自定义过滤器
+app.filter('cover',function(){
+    return function(val){
+        var result;
+        switch(val){
+            case "MOBILECOMMUNICATION":
+                result = "移动通信类";
+                break;
+            case "SOFTDEVELOP":
+                result = "软件开发类";
+                break;
+            case "INTELLIGENCESYSTEM":
+                result = "智能系统集成类";
+                break;
+            case "ADVERT":
+                result = "广告策划营销类";
+                break;
+            case "RENTCONTRACT":
+                result = "租赁合同";
+                break;
+            case "CHARCONTRACT":
+                result = "承包的项目合同";
+                break;
+            case "DISTRIBUTECONTRACT":
+                result = "分包项目合同";
+                break;
+            case "SALECONTRACT":
+                result = "销售合同";
+                break;
+            case "FRAMECONTRACT":
+                result = "框架合同";
+                break;
+            case "SINGLECONTRACT":
+                result = "单次合同";
+                break;
+        }
+        return result;
+    }
+});
 
 
 

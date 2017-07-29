@@ -1,0 +1,93 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>地区英文代号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.areaEnglishCode">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>项目组英文代号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.projectTeamEnglishCode">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>大模块英文字符</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.largeModuleEnglishCharacter">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>小模块英文字符</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.smallModuleEnglishCharacter">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>小项目数字字段</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.smallProjectNumField">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>属性数字字段</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.attributeNumField">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>类型英文代号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.typeEnglishCode">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>目录数字字段</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.directoryNumField">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>事件内容</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.eventContent">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>物品内容</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.articleContent">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>文献主题</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.theme">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>内容概况数字字段</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.contentSummaryNumField">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>序号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.no">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>地区数字字段</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.areaNumField">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>部门数字字段</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.departmentNumField">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>员工编号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.employeeNum">
+                </li>
+                <li>
+                    <label ><em>岗位数字字段</em></label>
+                    <input type="text"  ng-model="add.postNumField">
+                </li>
+                <li>
+                    <label ><em>时间年月日字段</em></label>
+                    <input type="text"  ng-model="add.timeField">
+                </li>
+                <li>
+                    <label ><em>备注</em></label>
+                    <input type="text"  ng-model="add.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="accAddFun()">提交</button>
+    </p>
+</div>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

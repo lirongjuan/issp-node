@@ -1,0 +1,115 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>姓名</span>
+            <span>员工编号</span>
+            <span>项目组</span>
+            <span>岗位</span>
+            <span>技能等级</span>
+            <span>管理等级</span>
+            <span></span>
+        </li>
+        <li class="list-all">
+            <section ng-repeat="list in qualifiedLists.data">
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.username}}</p>
+                    <p mod>{{::list.serialNumber}}</p>
+                    <p mod>{{::list.project}}</p>
+                    <p mod>{{::list.position}}</p>
+                    <p mod>{{::list.skill}}</p>
+                    <p mod>{{::list.manage}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>奖励</span>
+                                <span>处罚</span>
+                                <span>身份证有效期</span>
+                                <span>劳动合同</span>
+                                <span>培训协议</span>
+                                <span>保密协议</span>
+                                <span>竞业协议</span>
+                                <span>简历</span>
+                           </p>
+                            <p class="see-children">
+                                <span mod>{{::list.reward}}</span>
+                                <span mod>{{::list.push}}</span>
+                                <span mod>{{::list.identityCardTerm}}</span>
+                                <span mod>{{::list.contractLabor|cover}}</span>
+                                <span mod>{{::list.learnerShip|cover}}</span>
+                                <span mod>{{::list.secrecyAgreement|cover}}</span>
+                                <span mod>{{::list.protocol|cover}}</span>
+                                <span mod>{{::list.resume|cover}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>照片</span>
+                                <span>身份证</span>
+                                <span>学历证</span>
+                                <span>银行卡</span>
+                                <span>求职登记表</span>
+                                <span>入职登记表</span>
+                                <span>面谈确认单</span>
+                                <span>转正审批表</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.photo|cover}}</span>
+                                <span mod>{{::list.identityCard|cover}}</span>
+                                <span mod>{{::list.education|cover}}</span>
+                                <span mod>{{::list.bankCard|cover}}</span>
+                                <span mod>{{::list.rollCall|cover}}</span>
+                                <span mod>{{::list.entryCall|cover}}</span>
+                                <span mod>{{::list.interviewConfirmation|cover}}</span>
+                                <span mod>{{::list.positiveApproval|cover}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>资格证书</span>
+                                <span>存放路径</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.qualification|cover}}</span>
+                                <span mod>{{::list.storage}}</span>
+                                <span mod>{{::list.remark}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

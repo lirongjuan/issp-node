@@ -19,7 +19,9 @@ app.controller('informationCtrl',function ($scope,$state) {
 //如果是刷新进来的页面，没有经过list
     if (window.location.href.split('id=')[1]) {
         $scope.idListd = window.location.href.split('id=')[1];
-        $scope.menuClass = $location.search().name + 'Menu';
+        if($location.search().name){
+            $scope.menuClass = $location.search().name + 'Menu';
+        }
 
     }
     $scope.menuCheck = function (name) {

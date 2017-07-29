@@ -7,6 +7,8 @@ app.factory('monthSer',function ($http) {
         collectMonthProject:collectMonthProject,
         collectMonthProject2:collectMonthProject2,
         listTheMonthProject:listTheMonthProject,
+        menuPermission:menuPermission,
+        warningCostProjects:warningCostProjects,
     };
     function listProMonth(data) {
         return $http.get('/listProMonth/list',{params:data})
@@ -29,5 +31,13 @@ app.factory('monthSer',function ($http) {
     //查询当月明细
     function  listTheMonthProject(data) {
         return $http.get('/listTheMonthProject/id',{params:data})
+    }
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/month/guidePermission/'+data);
+    }
+    //预警
+    function warningCostProjects() {
+        return $http.get('/warning/id')
     }
 });

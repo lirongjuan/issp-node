@@ -1,10 +1,10 @@
 var app = angular.module('voucherRecordsList', ['ng-pagination','toastr']);
-app.controller('voucherRecordsListCtrl',function($scope,voucherRecordsSer,toastr){
+app.controller('voucherRecordsListCtrl',function($scope,voucherRecordsSer,toastr,$location){
 
     function activatePage(page) {
         var listData = {
-            page:page
-        }
+            page:page || 1
+        };
         voucherRecordsSer.listVoucherRecords(listData).then(function(response){
             if(response.data.code==0){
                 $scope.recordsLists = response.data.data
@@ -13,7 +13,18 @@ app.controller('voucherRecordsListCtrl',function($scope,voucherRecordsSer,toastr
             }
         });
     }
+    //选择
+    $scope.selectList = function(event){
+        angular.forEach($scope.recordsLists,function(obj){
+            obj._selectList = false
+        });
+        event._selectList = true;
+        $scope.idListd = event.id;
+        //向父Ctrl传递事件
+        $scope.$emit('changeId', $scope.idListd);
+        $scope.$emit('page', $location.search().page);
 
+    };
     //点击更多详细
     $scope.moreList = function(event){
         angular.forEach($scope.recordsLists,function(obj){
@@ -34,6 +45,7 @@ app.controller('voucherRecordsListCtrl',function($scope,voucherRecordsSer,toastr
     voucherRecordsSer.countVoucherRecords().then(function(response){
         if(response.data.code==0){
             $scope.custom.itemsCount = response.data.data;
+            $scope.num = $location.search().page*10>10?($location.search().page-1)*10:null;
         }else{
             toastr.error(response.data.msg, '温馨提示');
         }

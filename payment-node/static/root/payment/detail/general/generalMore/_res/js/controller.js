@@ -1,5 +1,5 @@
 var app = angular.module('detailGeneralMore', ['toastr']);
-app.controller('detailGeneralMoreCtrl', function($scope, detailSer,toastr,$stateParams){
+app.controller('detailGeneralMoreCtrl', function($scope, detailSer,toastr,$stateParams,$state){
     var dataId = {
         id :$stateParams.suId
     };
@@ -10,6 +10,9 @@ app.controller('detailGeneralMoreCtrl', function($scope, detailSer,toastr,$state
             toastr.error(response.data.msg,'温馨提示')
         }
     });
+    $scope.cancel = function(){
+        $state.go('root.payment.detail.general');
+    };
     //点击更多详细
     $scope.moreList = function(event){
         angular.forEach($scope.detailListfs,function(obj){

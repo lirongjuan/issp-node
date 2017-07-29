@@ -18,8 +18,8 @@
             <option value="DISTRIBUTECONTRACT">分包项目合同</option>
             <option value="SALECONTRACT">销售合同</option>
         </select>
-        <input type="text" ng-model="firstCompany" ng-show="checkedName=='甲方公司'">
-        <input type="text" ng-model="secondCompany" ng-show="checkedName=='乙方公司'">
+        <input type="text" ng-model="firstCompany" ng-show="checkedName=='甲方公司名称'">
+        <input type="text" ng-model="secondCompany" ng-show="checkedName=='乙方公司名称'">
         <input type="text" ng-model="area" ng-show="checkedName=='地区'">
         <select class="sle" ng-model="contractProperty" ng-show="checkedName=='合同属性'">
             <option value=""></option>
@@ -27,7 +27,7 @@
             <option value="SINGLECONTRACT">单次合同</option>
         </select>
         <input type="text" ng-model="makeProject" ng-show="checkedName=='立项情况'">
-        <a href="javascript:void(0)" ng-click="collect()"><img src="/images/search2.png"></a>
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
     </div>
     <ul class="table">
         <li class="list-head">
@@ -45,9 +45,9 @@
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
                     <p mod>{{$index+1+num}}</p>
-                    <p mod>{{::lists.businessType|cover}}</p>
+                    <p mod>{{::lists.businessType|sign}}</p>
                     <p mod>{{::lists.businessSubject}}</p>
-                    <p mod>{{::lists.businessCooperate|cover}}</p>
+                    <p mod>{{::lists.businessCooperate|sign}}</p>
                     <p mod>{{::lists.outerProject}}</p>
                     <p mod>{{::lists.firstCompany}}</p>
                     <p mod>{{::lists.secondCompany}}</p>
@@ -74,7 +74,7 @@
                                 <span mod>{{::lists.startProjectTime}}</span>
                                 <span mod>{{::lists.endProjectTime}}</span>
                                 <span mod>{{::lists.siginStatus}}</span>
-                                <span mod>{{::lists.contractProperty|cover}}</span>
+                                <span mod>{{::lists.contractProperty|sign}}</span>
                                 <span mod>{{::lists.makeProject}}</span>
                                 <span mod>{{::lists.innerProject}}</span>
                                 <span mod>{{::lists.projectGroup}}</span>

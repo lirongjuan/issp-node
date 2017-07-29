@@ -1,0 +1,95 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <!--表单验证插件-->
+    <div class="collect">
+        <ul class="sum-list">
+            <li class="table_list">
+                <span><i><img src="/images/mandatory.png"></i> 报销发生日期</span>
+                <span><i><img src="/images/mandatory.png"></i> 报销人</span>
+                <span><i><img src="/images/mandatory.png"></i> 负责人</span>
+                <span>参与人</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span><input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image time" ng-model="data.occureDate"></span>
+                <span><input type="text" ng-model="data.reimer" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.charger" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.attender"></span>
+            </li>
+            <li class="table_list">
+                <span><i><img src="/images/mandatory.png"></i> 地区</span>
+                <span><i><img src="/images/mandatory.png"></i> 项目组</span>
+                <span><i><img src="/images/mandatory.png"></i> 项目名称 </span>
+                <span>单据数量</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span><input type="text" ng-model="data.area" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.projectGroup" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.project" ng-verify="{}"></span>
+                <span><input type="number" ng-model="data.ticketQuantity"></span>
+            </li>
+            <li class="table_list">
+                <span><i><img src="/images/mandatory.png"></i> 一级科目</span>
+                <span><i><img src="/images/mandatory.png"></i> 二级科目</span>
+                <span><i><img src="/images/mandatory.png"></i> 三级科目</span>
+                <span>报销当天任务</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span><input type="text" ng-model="data.firstSubject" ng-verify="{}" disabled></span>
+                <span><input type="text" ng-model="data.secondSubject" ng-verify="{}" disabled></span>
+                <span>
+                    <select ng-model="data.thirdSubject" ng-change="sjChange(data.thirdSubject)">
+                        <option value="">请选择三级科目</option>
+                        <option ng-repeat="subject in subjects" value="{{ subject.thirdSubject }}">{{ subject.thirdSubject}}</option>
+                    </select>
+                </span>
+                <span><input type="text" ng-model="data.dayTask" ng-verify="{}"></span>
+            </li>
+            <li class="table_list">
+                <span><i><img src="/images/mandatory.png"></i>补充内容</span>
+                <span><i><img src="/images/mandatory.png"></i>金额</span>
+                <span>报销人备注</span>
+                <span><i><img src="/images/mandatory.png"></i> 摘要</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span><input type="text" ng-model="data.addContent" ng-verify="{}"></span>
+                <span><input type="number" ng-model="data.reimMoney" ng-verify="{}"></span>
+                <span><input type="text" ng-model="data.reimerRemark"></span>
+                <span><input type="text" ng-model="data.summary" ng-verify="{}"></span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead"><i><img src="/images/mandatory.png"></i> 说明</span>
+                <span class="col-tbody">
+                    <select class="sele" ng-model="data.plainInfo" ng-change="explainFn(data.plainInfo)" ng-verify="option:'0'">
+                        <option value="">请选择说明</option>
+                        <option ng-repeat="list in PlainsList" ng-value="list.remark">{{ list.remark }}</option>
+                    </select>
+                </span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead"><i><img src="/images/mandatory.png"></i>是否有发票</span>
+                <span class="col-tbody"><select class="sele" ng-model="data.ticketCondition" ng-verify="option:'0'">
+                        <option value="">请选择是否有发票</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead"><i><img src="/images/mandatory.png"></i>无发票情况</span>
+                <span class="col-tbody"><input type="text" ng-model="data.noTicketRemark" ng-verify="{}"></span>
+            </li>
+        </ul>
+        <p class="font-red">摘要格式：交代清楚报销事由，如201X年X月X日，某人因某事产生什么费用</p>
+        <p class="font-red">备注事由：打入某人的工资卡（非本公司员工的标注清除银行开户名，卡号，开户行）</p>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="AddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+    !function () {
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    } ();
+
+</script>

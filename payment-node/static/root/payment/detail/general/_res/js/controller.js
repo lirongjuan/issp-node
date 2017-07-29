@@ -13,7 +13,6 @@ app.controller('detailGeneralCtrl', function($scope, detailSer,$state){
         $scope.idSocialList = event.remark;
         //向父Ctrl传递事件
         $scope.$emit('changeSocialListId',$scope.idSocialList);
-        console.log($scope.idSocialList)
     };
     $scope.contractors = [];
     $scope.stringSettings = {template : '{{option}}', smartButtonTextConverter(skip, option) { return option; }};
@@ -32,7 +31,7 @@ app.controller('detailGeneralCtrl', function($scope, detailSer,$state){
             }
         })
     }};
-    $scope.generalMore = function(){
+    $scope.generalMore = function(response){
         if($scope.idSocialList){
             $state.go('root.payment.detail.general.generalMore[12]',{suId:$scope.idSocialList});
         }else{

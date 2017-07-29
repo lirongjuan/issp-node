@@ -275,8 +275,8 @@ module.exports = function(){
             }));
     }).post('/collectArea/area', function*(){ //地区汇总
         var $self = this;
-        var summaryData = $self.request.body;
-        summaryData.token = $self.cookies.get('token');
+        var summaryData = this.request.body;
+        summaryData.token=this.cookies.get('token');
         yield (server().areaCollectByWeek(summaryData)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
@@ -385,7 +385,7 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
-    }).get('/listWarning/lit', function*(){
+    }).get('/listWarning/list', function*(){
         var $self = this;
         var page = this.request.query;
         page.token = $self.cookies.get('token');
@@ -462,30 +462,6 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
-    }).get('/allCostProjects/id', function*(){//项目所有周
-        var $self = this;
-        var token={token:$self.cookies.get('token')};
-        yield (server().projectsAllCostById(token)
-            .then((parsedBody) =>{
-                var responseText = JSON.parse(parsedBody);
-                $self.body = responseText;
-            }).catch((error) =>{
-                $self.set('Content-Type','application/json;charset=utf-8');
-                $self.body=error.error;
-                console.error(error.error);
-            }));
-    }).get('/allCostArea/id', function*(){//地区所有周
-        var $self = this;
-        var token={token:$self.cookies.get('token')};
-        yield (server().areaAllCostById(token)
-            .then((parsedBody) =>{
-                var responseText = JSON.parse(parsedBody);
-                $self.body = responseText;
-            }).catch((error) =>{
-                $self.set('Content-Type','application/json;charset=utf-8');
-                $self.body=error.error;
-                console.error(error.error);
-            }));
     }).get('/user/logout', function*(next){
         var url = this.request.query;
         this.cookies.set("absUrl",url.absurl);
@@ -508,7 +484,8 @@ module.exports = function(){
             }));
     }).get('/countSetting', function*(){
         var $self = this;
-        yield (server().countSetting()
+        var token={token:$self.cookies.get('token')};
+        yield (server().countSetting(token)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;
@@ -520,6 +497,7 @@ module.exports = function(){
     }).get('/getpermit', function*(){
         var $self = this;
         var getId = $self.request.query;
+        getId.token = $self.cookies.get('token');
         yield (server().getpermit(getId)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
@@ -532,6 +510,7 @@ module.exports = function(){
     }).get('/getListpermit', function*(){
         var $self = this;
         var listPermit = $self.request.query;
+        listPermit.token = $self.cookies.get('token');
         yield (server().getListpermit(listPermit)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
@@ -553,6 +532,95 @@ module.exports = function(){
                 $self.set('Content-Type','application/json;charset=utf-8');
                 $self.body=error.error;
                 console.error(error.error);
+            }));
+    }).get('/budget/setButtonPermission', function*(){ //设置导航权限
+        var $self = this;
+        var navToken = {token:$self.cookies.get('token')};
+        yield (server().settingNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/budget/sonPermission', function*(){ //导航权限
+        var $self = this;
+        var navToken = {token:$self.cookies.get('token')};
+        yield (server().siginNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/proWeek/guidePermission/:guideAddrStatus', function*(){ //项目收入周菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().proWeekPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/warning/id', function*(){//预警
+        var $self = this;
+        var token={token:$self.cookies.get('token')};
+        yield (server().warningAllCostById(token)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/month/guidePermission/:guideAddrStatus', function*(){ //项目收入月菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().monthPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/areaWeek/guidePermission/:guideAddrStatus', function*(){ //地区收入周菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().areaWeekPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/areaMonth/guidePermission/:guideAddrStatus', function*(){ //地区收入周菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().areaMonthPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/warning/guidePermission/:guideAddrStatus', function*(){ //预警菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().warningPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
             }));
     })
     return router;

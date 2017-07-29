@@ -59,5 +59,13 @@ app.config(function($provide, $stateProvider){
                 controller:'projectNameDetailsMenu'
             }
         }
+    }).state("root.project.activity.list[12]",{
+        url:"/list[12]?id=&page=",
+        views:{
+            "content@root.project.activity":{
+                templateUrl : "root/project/activity/list/_res/html/index.html",
+                controller:'activityListCtrl'
+            }
+        }
     })
 });

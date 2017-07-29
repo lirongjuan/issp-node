@@ -3,19 +3,19 @@
         <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
         {{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('problemAccepted')" ng-class="{'active':navCla=='problemAccepted'}"  ui-sref="_root.projectProcessed.problemAccepted.list[12]" ng-show="problemaccept">
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.projectProcessed.problemAccepted.list[12]" ng-show="problemaccept">
             <a href="javascript:void(0)">{{menuInfo.name}}</a>
         </li>
-        <li ng-click="navClass('confirmProblem')" ng-class="{'active':navCla=='confirmProblem'}" ui-sref="_root.projectProcessed.confirmProblem.list[12]" ng-show="problemhandlingresult">
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.projectProcessed.confirmProblem.list[12]" ng-show="problemhandlingresult">
             <a href="javascript:void(0)">{{menuInfo.name2}}</a>
         </li>
-        <li ng-click="navClass('personalTask')" ng-class="{'active':navCla=='personalTask'}" ui-sref="_root.projectProcessed.personalTask.list[12]" ng-show="involvedprocessingtask">
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.projectProcessed.personalTask.list[12]" ng-show="involvedprocessingtask">
             <a href="javascript:void(0)">{{menuInfo.name3}}</a>
         </li>
-        <li ng-click="navClass('email')" ng-class="{'active':navCla=='email'}" ui-sref="_root.projectProcessed.email.list[12]" ng-show="collectemail">
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.projectProcessed.email.list[12]" ng-show="collectemail">
             <a href="javascript:void(0)">{{menuInfo.name4}}</a>
         </li>
-        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.projectProcessed.setting.list[12]" >
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.projectProcessed.setting.list[12]" ng-show="propermission">
             <a href="javascript:void(0)">{{menuInfo.name5}}</a>
         </li>
     </ul>

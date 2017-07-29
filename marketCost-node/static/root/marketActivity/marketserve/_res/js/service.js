@@ -1,6 +1,7 @@
 var app = angular.module('marketserveSer',[]);
 app.factory('marketserveSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         listMarketserve : listMarketserve,
         countBaseInfo:countBaseInfo,
         addMarketserveapply:addMarketserveapply,
@@ -11,8 +12,14 @@ app.factory('marketserveSer',function ($http) {
         fundModuleOpinionEidt:fundModuleOpinionEidt,
         executiveOpinionEidt:executiveOpinionEidt,
         viewCustomer:viewCustomer,
-        editCustomer:editCustomer
+        editCustomer:editCustomer,
+        viewSigning:viewSigning,
+        getAllAreas:getAllAreas
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/marketserve/guidePermission/'+data);
+    }
     //列表
     function listMarketserve(data) {
         return $http.get('/marketActivity/marketserve/list',{
@@ -62,5 +69,15 @@ app.factory('marketserveSer',function ($http) {
     //编辑 客户信息
     function editCustomer(data) {
         return $http.post('/marketActivity/servereCordApply/editCustomer',data)
+    }
+     //查看附件列表
+    function viewSigning(data) {
+        return $http.get('/marketActivity/viewFile',{
+            params:data
+        })
+    }
+    //获取所有的地区
+    function getAllAreas(){
+        return $http.get('/marketActivity/allreas')
     }
 });

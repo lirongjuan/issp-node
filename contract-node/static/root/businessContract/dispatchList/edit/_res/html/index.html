@@ -13,7 +13,7 @@
                 </li>
                 <li class="required">
                     <label><em>业务类型</em></label>
-                    <input type="text" disabled ng-model="editSheet.businessType">
+                    <input type="text" disabled ng-model="editSheet.businessType" ng-value="editSheet.businessType | cover">
                 </li>
                 <li class="required">
                     <label><em>业务方向科目</em></label>
@@ -33,7 +33,7 @@
                 </li>
                 <li class="required">
                     <label><em>合作方式</em></label>
-                    <input type="text" disabled ng-model="editSheet.businessCooperate">
+                    <input type="text" disabled ng-model="editSheet.businessCooperate" ng-value="editSheet.businessCooperate | cover">
                 </li>
                 <li class="required">
                     <label><em>内部项目名称</em></label>
@@ -73,7 +73,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>客户名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="editSheet.customerName">
+                    <input type="text" disabled ng-model="editSheet.customerName">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工内容</em></label>
@@ -93,14 +93,14 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否完工</em></label>
-                    <select class="sele" ng-model="editSheet.completeProject" ng-init="editSheet.completeProject='已完工'" ng-verify="option:0">
+                    <select class="sele" ng-model="editSheet.completeProject" ng-init="editSheet.completeProject='已完工'">
                         <option value="已完工">已完工</option>
                         <option value="未完工">未完工</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同是否已归档</em></label>
-                    <select class="sele" ng-model="editSheet.fileCondition" ng-init="editSheet.fileCondition='已归档'" ng-verify="option:0">
+                    <select class="sele" ng-model="editSheet.fileCondition" ng-init="editSheet.fileCondition='已归档'">
                         <option value="已归档">已归档</option>
                         <option value="未归档">未归档</option>
                     </select>

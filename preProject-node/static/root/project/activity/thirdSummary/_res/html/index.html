@@ -1,13 +1,17 @@
 <div class="collect ">
-    <div class="collect-select">
-        <div class="select3">
-            <label>开始日期：</label><input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="startTime" class="startTime">
-        </div>
-        <div class="select3">
-            <label>开始日期：</label><input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="endTime" class="endTime">
-        </div>
-        <button ng-click="collect()">汇总</button>
-    </div>
+    <section class="collect-select">
+        <ul>
+            <li>
+                <label><em>开始日期</em></label>
+                <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="startTime" class="startTime">
+            </li>
+            <li>
+                <label><em>结束日期</em></label>
+                <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="endTime" class="endTime">
+                <button ng-click="collect()">汇总</button>
+            </li>
+        </ul>
+    </section>
     <ul class="sum-list">
         <li class="sum-thead">
             <span>一级科目</span>
@@ -17,7 +21,7 @@
             <span>日期</span>
             <span>金额</span>
         </li>
-        <li class="sum-tbody {{summaryList._selectList?'selectList':''}}" ng-click="selectList(summaryList)" ng-repeat="summaryList in summaryLists">
+        <li style="cursor: pointer" class="sum-tbody {{summaryList._selectList?'selectList':''}}" ng-click="selectList(summaryList)" ng-repeat="summaryList in summaryLists">
             <span>{{summaryList.firstSubject}}</span>
             <span>{{summaryList.secondSubject}}</span>
             <span>{{summaryList.thirdSubject}}</span>

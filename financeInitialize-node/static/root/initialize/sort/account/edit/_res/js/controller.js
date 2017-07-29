@@ -1,22 +1,23 @@
-/**
- * Created by ike on 2017/4/18.
- */
-var app = angular.module('firstsubjectEdit', ['toastr','ipCookie']);
-app.controller('accountEditCtrl', function($scope, accountSer,$state,toastr,$stateParams,ipCookie,$location){
+var app = angular.module('firstsubjectEdit', ['toastr']);
+app.controller('accountEditCtrl', function($scope, accountSer,$state,toastr,$stateParams){
     var companyId = {id : $stateParams.id};
     //获取值
     accountSer.getOneById1(companyId).then(function(response){
         if(response.data.code==0){
             $scope.data = response.data.data;
+            $scope.firstFn($scope.data.firstSubject);
+            $scope.scondFn($scope.data.secondSubject);
+        }else{
+            toastr.error( response.data.msg, '温馨提示');
         }
     });
     //获取一级列表
     accountSer.allFirstsubject().then(function(response){
         if(response.data.code == 0){
                 $scope.firstList = response.data.data;
-            }else if(response.data.code==403){
-                toastr.error( "请登录用户", '温馨提示');
-        }
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
     })
     //获取二级列表
     function secondSub(data){
@@ -27,13 +28,8 @@ app.controller('accountEditCtrl', function($scope, accountSer,$state,toastr,$sta
         accountSer.SecondList(secondData).then(function(response){
             if(response.data.code == 0){
                     $scope.secondList = response.data.data;
-                }else if(response.data.code==403 || response.data.code == 401){
-                    toastr.error( "请登录用户,3秒后跳至登陆页面", '温馨提示');
-                    var absurl = $location.absUrl();
-                    ipCookie('absurl', absurl,{ expires:3,expirationUnit: 'minutes',domain:'issp.bjike.com' });
-                    setTimeout(function(){
-                        window.location.href='http://localhost/login'
-                    },3000)
+                }else{
+                    toastr.error( response.data.msg, '温馨提示');
                 }
             })
     }
@@ -50,8 +46,8 @@ app.controller('accountEditCtrl', function($scope, accountSer,$state,toastr,$sta
         accountSer.ThirdList(ThirdData).then(function(response){
             if(response.data.code == 0){
                     $scope.thirdList = response.data.data;
-                }else if(response.data.code==403){
-                    toastr.error( "请登录用户", '温馨提示');
+                }else{
+                    toastr.error( response.data.msg, '温馨提示');
                 }
             })
     }
@@ -70,10 +66,10 @@ app.controller('accountEditCtrl', function($scope, accountSer,$state,toastr,$sta
         data.id = companyId.id;
         accountSer.marketserveapplyEdit1(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.initialize.sort.account.list');
+                $state.go('root.initialize.sort.account.list[12]');
                 toastr.success('温馨提示',"此次编辑成功");
-            }if(response.data.code == 403){
-                toastr.error('温馨提示','提交错误')
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
             }
         })
     }

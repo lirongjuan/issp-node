@@ -1,0 +1,18 @@
+<!--Angular-UI-Router里的指令ui-sref-active 查看当前激活状态并设置 Class-->
+<ul class="list width-12">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="chargerAudit()" ng-class="{'current':menuClass=='chargerAuditMenu','seeParent':idList}" ng-show="CHARGEAUDIT" ng-init="menuCheck('CHARGEAUDIT')">
+        <a href="javascript:void(0)"  class="same-one see" >负责人审核</a>
+    </li>
+    <li ng-click="congeal()" ng-class="{'current':menuClass=='congealMenu','seeParent':idList}" ng-show="CHARGEAUDIT" ng-init="menuCheck('CHARGEAUDIT')">
+        <a href="javascript:void(0)"  class="same-one" >确定冻结</a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idList}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)"  class="same-one see">上传附件</a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':idList}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)" class="same-two see" >查看附件</a>
+    </li>
+</ul>

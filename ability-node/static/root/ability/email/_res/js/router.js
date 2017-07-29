@@ -51,5 +51,13 @@ app.config(function($provide, $stateProvider){
                 controller:'emailCooperationOneCtrl'
             }
         }
+    }).state("root.ability.email.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.ability.email":{
+                templateUrl : "root/ability/email/list/_res/html/index.html",
+                controller:'emailListCtrl'
+            }
+        }
     })
 });

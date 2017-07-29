@@ -1,27 +1,25 @@
-<div ui-view="content">
     <div class="content-tab socialList">
         <ul class="table com-table">
             <li class="list-head">
                 <span></span>
-                <span class="data-id">id</span>
                 <span>个人社交资源姓名</span>
                 <span>性别</span>
                 <span>联系方式</span>
                 <span>邮箱</span>
                 <span>QQ/微信</span>
                 <span>籍贯</span>
+                <span></span>
             </li>
             <li class="list-all">
                 <section ng-repeat="list in socialListBasics.data" style="display: {{list._delete?'none':'block'}};">
                     <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                        <p>{{$index+1}}</p>
-                        <p class="data-id"></p>
-                        <p>{{list.contactName}}</p>
-                        <p>{{list.sex}}</p>
-                        <p>{{list.contactWay}}</p>
-                        <p>{{list.emailName}}</p>
-                        <p>{{list.qqOrWechat}}</p>
-                        <p>{{list.natives}}</p>
+                        <p>{{$index+1+num}}</p>
+                        <p mod>{{::list.contactName}}</p>
+                        <p mod>{{::list.sex}}</p>
+                        <p mod>{{::list.contactWay}}</p>
+                        <p mod>{{::list.emailName}}</p>
+                        <p mod>{{::list.qqOrWechat}}</p>
+                        <p mod>{{::list.natives}}</p>
                         <p>
                             <a href="javascript:void(0)" class="more" ng-click="moreList(list)">更多详细</a>
                         </p>
@@ -40,40 +38,60 @@
                                     <span>生活地区</span>
                                 </p>
                                 <p class="see-children">
-                                    <span>{{list.hobby}}</span>
-                                    <span>{{list.charact}}</span>
-                                    <span>{{list.family}}</span>
-                                    <span>{{list.familyRelation}}</span>
-                                    <span>{{list.studyExperience}}</span>
-                                    <span>{{list.connectExperience}}</span>
-                                    <span>{{list.oldWorkPlace}}</span>
-                                    <span>{{list.livePlace}}</span>
+                                    <span mod>{{::list.hobby}}</span>
+                                    <span mod>{{::list.charact}}</span>
+                                    <span mod>{{::list.family}}</span>
+                                    <span mod>{{::list.familyRelation}}</span>
+                                    <span mod>{{::list.studyExperience}}</span>
+                                    <span mod>{{::list.connectExperience}}</span>
+                                    <span mod>{{::list.oldWorkPlace}}</span>
+                                    <span mod>{{::list.livePlace}}</span>
                                 </p>
                             </li>
                             <li>
                                 <p class="see-parent">
                                     <span>成长地区</span>
+                                    <span>组织机构</span>
+                                    <span>现在工作地区</span>
+                                    <span>所在公司</span>
+                                    <span>岗位</span>
+                                    <span>职权</span>
                                 </p>
                                 <p class="see-children">
-                                    <span>{{list.growthPlace}}</span>
+                                    <span mod>{{::list.growthPlace}}</span>
+                                    <span mod>{{::list.organization}}</span>
+                                    <span mod>{{::list.nowWorkPlace}}</span>
+                                    <span mod>{{::list.nowCompany}}</span>
+                                    <span mod>{{::list.station}}</span>
+                                    <span mod>{{::list.duty}}</span>
                                 </p>
                             </li>
                         </ul>
-                        <div class="module">
-                            <div class="see-module">
-                                <p class="see-type">体现类型</p>
-                                <p class="see-description"></p>
-                                <button class="btn">关闭</button>
-                            </div>
-                        </div>
                     </div>
                 </section>
             </li>
         </ul>
+        <div class="module">
+            <div class="see-module">
+                <p class="see-type">体现类型</p>
+                <p class="see-description"></p>
+                <button class="btn" modclose>关闭</button>
+            </div>
+        </div>
         <footer class="footer">
             <pagination count="abili2.itemsCount" take="abili2.take" activate="abili2.activatePage"></pagination>
         </footer>
     </div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
 </div>
-
-<div ui-view="modal"></div>
+<div id="modalbg" ng-show="delShow"></div>

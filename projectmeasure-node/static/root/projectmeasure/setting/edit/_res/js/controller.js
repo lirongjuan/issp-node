@@ -1,4 +1,4 @@
-var app = angular.module('settingEdit', ['toastr','ipCookie','angularjs-dropdown-multiselect']);
+var app = angular.module('settingEdit', ['toastr','angularjs-dropdown-multiselect']);
 app.controller('settingEditCtrl', function($scope, settingSer, $state,$stateParams,toastr){
 
     $scope.getId = {id:$stateParams.id};
@@ -36,7 +36,6 @@ app.controller('settingEditCtrl', function($scope, settingSer, $state,$statePara
                 toastr.error( response.data.msg, '温馨提示');
             }
         });
-
     }
 
 });

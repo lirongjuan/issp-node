@@ -1,0 +1,39 @@
+<div class="nav-list" ng-repeat="list in showsList">
+       <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="staffrecords" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.management.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="personnelqualification"  ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.qualified.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name1}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="archiveaccess" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.archives.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="archivedetail" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.detailed.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="archivegather"  ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.collect.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="foreignstaffingset"  ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.basic.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="foreignstaffing"  ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.message.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="socialsecuritytype" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.social.list[12]">
+        <a href="javascript:void(0)">{{menuInfo.name7}}</a>
+       </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="laborrelation" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.labour.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name8}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="enclosuretype" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.annex.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name9}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.file.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name10}}</a>
+        </li>
+    </ul>
+</div>

@@ -14,14 +14,14 @@
         <li class="list-all" ng-repeat="lists in postedLists" style="display: {{lists._billed?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
-                    <p><input type="checkbox" ng-click="check(lists)"></p>
-                    <p>{{::lists.voucherNum}}</p>
-                    <p>{{::lists.voucherWord}}</p>
-                    <p>{{::lists.voucherDate}}</p>
-                    <p>{{::lists.firstSubject}}</p>
-                    <p>{{::lists.secondSubject}}</p>
-                    <p>{{::lists.thirdSubject}}</p>
-                    <p>{{::lists.sumary}}</p>
+                    <p><input type="checkbox" ng-click="check(lists)" ng-checked="lists.isV"></p>
+                    <p mod>{{::lists.voucherNum}}</p>
+                    <p mod>{{::lists.voucherWord}}</p>
+                    <p mod>{{::lists.voucherDate}}</p>
+                    <p mod>{{::lists.firstSubject}}</p>
+                    <p mod>{{::lists.secondSubject}}</p>
+                    <p mod>{{::lists.thirdSubject}}</p>
+                    <p mod>{{::lists.sumary}}</p>
                     <p>
                         <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
                     </p>
@@ -39,13 +39,13 @@
                                 <span>票据数量</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::lists.borrowMoney}}</span>
-                                <span>{{::lists.loanMoney}}</span>
-                                <span>{{::lists.area}}</span>
-                                <span>{{::lists.projectName}}</span>
-                                <span>{{::lists.projectGroup}}</span>
-                                <span>{{::lists.ticketer}}</span>
-                                <span>{{::lists.ticketNum}}</span>
+                                <span mod>{{::lists.borrowMoney}}</span>
+                                <span mod>{{::lists.loanMoney}}</span>
+                                <span mod>{{::lists.area}}</span>
+                                <span mod>{{::lists.projectName}}</span>
+                                <span mod>{{::lists.projectGroup}}</span>
+                                <span mod>{{::lists.ticketer}}</span>
+                                <span mod>{{::lists.ticketNum}}</span>
                             </p>
                         </li>
                         <li>
@@ -58,12 +58,12 @@
                                 <span>借贷合计金额</span>
                             </p>
                             <p class="see-children">
-                                <span>{{::lists.extraFile}}</span>
-                                <span>{{::lists.auditor}}</span>
-                                <span>{{::lists.auditStatus|cover}}</span>
-                                <span>{{::lists.transferStatus|money}}</span>
-                                <span>{{::lists.checkStatus|end}}</span>
-                                <span>{{::lists.moneyTotal}}</span>
+                                <span mod>{{::lists.extraFile}}</span>
+                                <span mod>{{::lists.auditor}}</span>
+                                <span mod>{{::lists.auditStatus|cover}}</span>
+                                <span mod>{{::lists.transferStatus|money}}</span>
+                                <span mod>{{::lists.checkStatus|end}}</span>
+                                <span mod>{{::lists.moneyTotal}}</span>
                             </p>
                         </li>
                     </ul>
@@ -82,7 +82,32 @@
         <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要反过账么？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div class="delete mod" ng-show="billShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要结账么？</p>
+        <div class="btn">
+            <button ng-click="billFn()">确定</button>
+            <button ng-click="billCancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow || billShow"></div>
+
 
 
 

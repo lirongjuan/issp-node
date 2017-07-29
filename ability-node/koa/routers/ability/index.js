@@ -4,6 +4,11 @@ var sendfile = require('koa-sendfile');
 var server = require(path.resolve('koa/servers/' + path.basename(path.resolve(__filename,'../'))+'/index.js'));
 var config = require(path.resolve('plugins/read-config.js'));
 var fetch = require('node-fetch');//url转发
+var koaBody = require('koa-body');
+var request = require('request-promise');
+var uploadFile = require(path.resolve('plugins/uploadFile.js'));
+var urlEncode = require(path.resolve('plugins/urlEncode.js'));
+var fileType = require(path.resolve('plugins/fileType.js'));
 module.exports = function(){
     var router = new Router();
      //列表
@@ -22,8 +27,9 @@ module.exports = function(){
             }));
     }).get('/abilitycompanycap/count', function*(){
         var $self = this;
-        var token={token:$self.cookies.get('token')};
-        yield (server().countBaseInfos(token)
+        var countData = $self.request.query;
+        countData.token = this.cookies.get('token');
+        yield (server().countBaseInfos(countData)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;
@@ -87,47 +93,7 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
-    }).post('/ability/searchCompanyAbility', function*(){
-        var $self = this;
-        var searchName = this.request.body;
-        searchName.token = $self.cookies.get('token');
-        yield (server().companySeachByname(searchName)
-            .then((parsedBody) =>{
-                var responseText = JSON.parse(parsedBody);
-                $self.body = responseText;
-            }).catch((error) =>{
-                $self.set('Content-Type','application/json;charset=utf-8');
-                $self.body=error.error;
-                console.error(error.error);
-            }));
-    }).post('/ability/searchPersonAbility', function*(){
-        var searchName = this.request.body;
-        var $self = this;
-        searchName.token = $self.cookies.get('token');
-        yield (server().personSeachByname(searchName)
-            .then((parsedBody) =>{
-                var responseText = JSON.parse(parsedBody);
-                $self.body = responseText;
-            }).catch((error) =>{
-                $self.set('Content-Type','application/json;charset=utf-8');
-                $self.body=error.error;
-                console.error(error.error);
-            }));
-    }).get('/ability/searchCooperationAbility', function*(){
-        var $self = this;
-        var searchName = this.request.query;
-        searchName.token = $self.cookies.get('token');
-        yield (server().cooperationSeachByName(searchName)
-            .then((parsedBody) =>{
-                var responseText = JSON.parse(parsedBody);
-                $self.body = responseText;
-            }).catch((error) =>{
-                $self.set('Content-Type','application/json;charset=utf-8');
-                $self.body=error.error;
-                console.error(error.error);
-            }));
-    })
-        .get('/ability/abilitySelfCap/listAbilitySelfCap', function*(){
+    }).get('/ability/abilitySelfCap/listAbilitySelfCap', function*(){
         var $self = this;
         var page2 = this.request.query;
             page2.token = $self.cookies.get('token');
@@ -142,47 +108,9 @@ module.exports = function(){
             }));
     }).get('/abilitySelfCap/count', function*(){
         var $self = this;
-        var token={token:$self.cookies.get('token')};
-        yield (server().countSelfCapInfo(token)
-            .then((parsedBody) =>{
-                var responseText = JSON.parse(parsedBody);
-                $self.body = responseText;
-            }).catch((error) =>{
-                $self.set('Content-Type','application/json;charset=utf-8');
-                $self.body=error.error;
-                console.error(error.error);
-            }));
-    }).get('/countSelfCap2/count', function*(){
-        var $self = this;
         var countData = this.request.query;
         countData.token = $self.cookies.get('token');
-        yield (server().countSelfCap2Info(countData)
-            .then((parsedBody) =>{
-                var responseText = JSON.parse(parsedBody);
-                $self.body = responseText;
-            }).catch((error) =>{
-                $self.set('Content-Type','application/json;charset=utf-8');
-                $self.body=error.error;
-                console.error(error.error);
-            }));
-    }).get('/countBaseInfo2/count', function*(){
-        var $self = this;
-        var countData = this.request.query;
-        countData.token = $self.cookies.get('token');
-        yield (server().countBaseInfo2Info(countData)
-            .then((parsedBody) =>{
-                var responseText = JSON.parse(parsedBody);
-                $self.body = responseText;
-            }).catch((error) =>{
-                $self.set('Content-Type','application/json;charset=utf-8');
-                $self.body=error.error;
-                console.error(error.error);
-            }));
-    }).get('/countCooperation2/count', function*(){
-        var $self = this;
-        var countData = this.request.query;
-        countData.token = $self.cookies.get('token');
-        yield (server().countCooperation2Info(countData)
+        yield (server().countSelfCapInfo(countData)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;
@@ -247,7 +175,7 @@ module.exports = function(){
             }));
     }).post('/ability/editEditSocial/editsocial', function*(){
         var editData = this.request.body;
-        editData.userToken = this.cookies.get('token');
+        editData.token = this.cookies.get('token');
         var $self = this;
         yield (server().SocialEdit(editData)
             .then((parsedBody) =>{
@@ -262,7 +190,7 @@ module.exports = function(){
     }).get('/ability/listAbilityCooperation/listCoop', function*(){
         var $self = this;
         var page = this.request.query;
-        page.userToken = this.cookies.get('token');
+        page.token = this.cookies.get('token');
         yield (server().abilityCooperationList(page)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
@@ -274,8 +202,9 @@ module.exports = function(){
             }));
     }).get('/countCooperation/count', function*(){
         var $self = this;
-        var token={token:$self.cookies.get('token')};
-        yield (server().CooperationInfo(token)
+        var page = this.request.query;
+        page.token = this.cookies.get('token');
+        yield (server().CooperationInfo(page)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;
@@ -688,6 +617,292 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
+    }).get('/abilityManage/setButtonPermission', function*(){ //设置导航权限
+        var $self = this;
+        var navToken = {token:$self.cookies.get('token')};
+        yield (server().settingNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/abilityManage/sonPermission', function*(){ //导航权限
+        var $self = this;
+        var navToken = {token:$self.cookies.get('token')};
+        yield (server().siginNav(navToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/companyCap/guidePermission/:guideAddrStatus', function*(){ //公司能力菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().guidePermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/selfcap/guidePermission/:guideAddrStatus', function*(){ //个人能力菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().selfcapPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/selfcap2/guidePermission/:guideAddrStatus', function*(){ //个人能力社交菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().selfcapPermission2(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/cooperation/guidePermission/:guideAddrStatus', function*(){ //公司合作菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().cooperPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/email/guidePermission/:guideAddrStatus', function*(){ //汇总和邮件菜单权限
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,token:$self.cookies.get('token')};
+        yield (server().emailPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    })
+        .post('/companyManage/import', koaBody({multipart:true}),function *(next) {//公司能力展示导入
+        var $self = this;
+        var fileData = $self.request.body;
+        fileData.token = $self.cookies.get("token");
+        yield (server().companyImport(fileData)
+            .then((parsedBody) =>{
+                $self.body = parsedBody;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/companyManage/templateExport', function*(){//公司能力导入模板下载
+        var $self = this;
+        var fileName = '公司能力展示导入模板.xlsx';
+        yield (fetch(config()['ability']['rurl']+`/companycapability/v1/templateExport`, {
+            method : 'GET',
+        }).then(function(res){
+            $self.set('content-type', 'application/vnd.ms-excel;charset=utf-8');
+            $self.set('Content-Disposition', 'attachment;  filename='+encodeURI(fileName));
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).get('/allCompanyName/company', function*(){// 获取所有公司名称
+        var $self = this;
+        var comData = $self.request.query;
+        comData.token = $self.cookies.get('token');
+        yield (server().companyByName(comData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/companyName/exportFile', function*(){//公司能力展示导出
+        var $self = this;
+        var count = $self.request.query;
+        var fileName = count.companyName+'.xlsx';
+        yield (fetch(config()['ability']['rurl']+`/companycapability/v1/exportExcel${urlEncode(count,true)}`, {
+            method : 'GET',
+            headers : {'userToken' : $self.cookies.get('token')}
+        }).then(function(res){
+            $self.set('content-type', 'application/vnd.ms-excel;charset=utf-8');
+            $self.set('Content-Disposition', 'attachment;  filename='+encodeURI(fileName));
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).post('/companyManage/upload', koaBody({multipart:true}),function *(next) {//公司能力上传文件
+        var $self = this;
+        var uploadData = $self.request.body;
+        uploadData.token = $self.cookies.get("token");
+        yield (server().companyUploadFile(uploadData)
+            .then((parsedBody) =>{
+                $self.body = parsedBody;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/viewCompany/listFile', function*(){ //公司能力查看附件
+        var $self = this;
+        var enData = $self.request.query;
+        enData.token = $self.cookies.get('token');
+        yield (server().companyEnclosure(enData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).post('/company/delFile', koaBody({multipart:true}), function*(){//公司能力删除文件
+        var $self = this;
+        var delData = $self.request.body;
+        delData.token = $self.cookies.get('token');
+        yield (server().delFile(delData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/company/download', function*(){//公司能力附件下载文件
+        var $self = this;
+        var count = $self.request.query;
+        var data = {
+            path:count.path
+        };
+        yield (fetch(config()['ability']['rurl']+`/companycapability/v1/download${urlEncode(data,true)}`, {
+            method : 'GET',
+            headers : {'userToken' : $self.cookies.get('token')}
+        }).then((res)=>{
+            fileType(count,this);
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).post('/cooperation/import', koaBody({multipart:true}),function *(next) {//合作对象导入
+        var $self = this;
+        var fileData = $self.request.body;
+        fileData.token = $self.cookies.get("token");
+        yield (server().cooperationImport(fileData)
+            .then((parsedBody) =>{
+                $self.body = parsedBody;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/cooperation/templateExport', function*(){//合作对象模板下载
+        var $self = this;
+        var fileName = '合作对象商务展示导入模板.xlsx';
+        yield (fetch(config()['ability']['rurl']+`/coopercapability/v1/templateExport`, {
+            method : 'GET',
+        }).then(function(res){
+            $self.set('content-type', 'application/vnd.ms-excel;charset=utf-8');
+            $self.set('Content-Disposition', 'attachment;  filename='+encodeURI(fileName));
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).get('/allCooperationName/company', function*(){// 合作对象获取所有公司名称
+        var $self = this;
+        var comData = $self.request.query;
+        comData.token = $self.cookies.get('token');
+        yield (server().cooperationByName(comData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/cooperationName/exportFile', function*(){//合作对象导出
+        var $self = this;
+        var count = $self.request.query;
+        var fileName = count.companyName+'.xlsx';
+        yield (fetch(config()['ability']['rurl']+`/coopercapability/v1/exportExcel${urlEncode(count,true)}`, {
+            method : 'GET',
+            headers : {'userToken' : $self.cookies.get('token')}
+        }).then(function(res){
+            $self.set('content-type', 'application/vnd.ms-excel;charset=utf-8');
+            $self.set('Content-Disposition', 'attachment;  filename='+encodeURI(fileName));
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
+    }).post('/cooperationManage/upload', koaBody({multipart:true}),function *(next) {//公司能力上传文件
+        var $self = this;
+        var uploadData = $self.request.body;
+        uploadData.token = $self.cookies.get("token");
+        yield (server().cooperationUploadFile(uploadData)
+            .then((parsedBody) =>{
+                $self.body = parsedBody;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/viewCooperation/listFile', function*(){ //合作对象查看附件
+        var $self = this;
+        var enData = $self.request.query;
+        enData.token = $self.cookies.get('token');
+        yield (server().cooperationEnclosure(enData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).post('/cooperation/delFile', koaBody({multipart:true}), function*(){//合作对象删除文件
+        var $self = this;
+        var delData = $self.request.body;
+        delData.token = $self.cookies.get('token');
+        yield (server().cooperationFile(delData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/cooperation/download', function*(){//合作对象附件下载文件
+        var $self = this;
+        var count = $self.request.query;
+        var data = {
+            path:count.path
+        };
+        yield (fetch(config()['ability']['rurl']+`/coopercapability/v1/download${urlEncode(data,true)}`, {
+            method : 'GET',
+            headers : {'userToken' : $self.cookies.get('token')}
+        }).then((res)=>{
+            fileType(count,this);
+            return res.buffer();
+        }).then(function(data){
+            $self.body = data;
+        }));
     })
     return router;
 };

@@ -1,0 +1,94 @@
+<div class="content-tab list">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select class="salc" ng-model="checkedName" ng-init="checkedName='时间'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image costTime" ng-show="checkedName=='时间'" ng-model="costTime">
+        <!--<input type="text" ng-model="department" ng-show="checkedName=='部门'">-->
+        <select class="sel" ng-model="department" ng-show="checkedName=='部门'">
+            <option ng-repeat="list in allGround">{{ list }}</option>
+        </select>
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
+    </div>
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>时间</span>
+            <span>部门</span>
+            <span>营业成本合计</span>
+            <span>劳务成本合计</span>
+            <span>应交税金合计</span>
+            <span>公司借入合计</span>
+            <span>实收资本合计</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in detailLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.costTime}}</p>
+                    <p mod>{{::lists.department}}</p>
+                    <p mod>{{::lists.operatingSum}}</p>
+                    <p mod>{{::lists.laborCostSum}}</p>
+                    <p mod>{{::lists.payableTaxSum}}</p>
+                    <p mod>{{::lists.companyBorrowedSum}}</p>
+                    <p mod>{{::lists.paidCapitalSum}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>公司借出合计</span>
+                                <span>主营业务收入合计</span>
+                                <span>预估应收账款合计</span>
+                                <span>实际资金缺口合计</span>
+                                <span>按时回款预估金额合计</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.companyLendSum}}</span>
+                                <span mod>{{::lists.businessIncomeSum}}</span>
+                                <span mod>{{::lists.forecastAccountSum}}</span>
+                                <span mod>{{::lists.actualGapSum}}</span>
+                                <span mod>{{::lists.forecastBalanceMoSum}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+<script type="text/javascript">
+    !function () {
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    } ();
+</script>
+
+
+

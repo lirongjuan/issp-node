@@ -1,6 +1,7 @@
 var app = angular.module('spendServer',[]);
 app.factory('spendSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         listSpend : listSpend,
         getYear:getYear,
         addSpend:addSpend,
@@ -17,10 +18,14 @@ app.factory('spendSer',function ($http) {
         getProject:getProject
 
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/managefee/guidePermission/'+data);
+    }
+    //列表
     function listSpend(data) {
         return $http.get('/managefee/list',{
             params: data
-
         })
     }
     //获取所有年份
@@ -54,6 +59,7 @@ app.factory('spendSer',function ($http) {
     }
     //地区汇总
     function areasSummary(data) {
+        console.log(data);
         return $http.post('/managefee/ctArea',data)
     }
     //获取合同签订与立项汇总所有地区

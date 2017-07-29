@@ -54,9 +54,21 @@ app.controller('biddingCtrl', function ($scope,$state) {
         }
     });
     $scope.showsList = [
-        {id:"1",item:"招投标管理",menuList:[{name:'招投标网站信息'},{name2:"招标信息"},{name3:"投标答疑问题记录"},{name4:"标书资料"},{name5:"开标信息"},{name6:"招投标信息邮件发送"}],showIs:true},
-        {id:"2",item:"设置",menuList:[{name7:'设置'}],showIs:true}
+        {id:"1",item:"招投标管理",menuList:[{name:'招投标网站信息',msg:'websiteInfo'},{name2:'招标信息',msg:'biddingInformation'},{name3:'投标答疑问题记录',msg:'tenderQuestion'},{name4:'标书资料',msg:'tenderMaterial'},{name5:'开标信息',msg:'openingInfo'},{name6:'招投标信息邮件发送',msg:'email'}],showIs:false},
+        {id:"2",item:"设置",menuList:[{name7:'设置',msg:'setting'}],showIs:false}
     ];
+    if(active){
+        for(var i=0;i<$scope.showsList.length;i++){
+            var n=$scope.showsList[i].menuList;
+            for(var j=0;j<n.length;j++){
+                var m=n[j].msg;
+                if(m==active){
+                    $scope.showsList[i].showIs=true;
+                    break;
+                }
+            }
+        }
+    }
     $scope.showMenu = function(obj,event) {
         if(event){
             if(obj.showIs){

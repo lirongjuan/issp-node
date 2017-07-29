@@ -4,7 +4,7 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
-                    <select class="sele" ng-model="course.typeId" >
+                    <select class="sele" ng-model="course.typeId" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="GetType in courseType" value="{{GetType.id}}" >{{GetType.type}}</option>
                     </select>

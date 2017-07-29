@@ -20,11 +20,51 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.ability.companycap.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.ability.companycap":{
                 templateUrl : "root/ability/companycap/edit/_res/html/index.html",
                 controller:'companyEditCtrl'
+            }
+        }
+    }).state("root.ability.companycap.list[12]",{
+        url:"/list[12]?id=&name=&page=&company=",
+        views:{
+            "content@root.ability.companycap":{
+                templateUrl : "root/ability/companycap/list/_res/html/index.html",
+                controller:'companycapListCtrl'
+            }
+        }
+    }).state("root.ability.companycap.import[12]",{
+        url:"/import[12]",
+        views:{
+            "content@root.ability.companycap":{
+                templateUrl : "root/ability/companycap/import/_res/html/index.html",
+                controller:'companyImportCtrl'
+            }
+        }
+    }).state("root.ability.companycap.export[12]",{
+        url:"/export[12]",
+        views:{
+            "content@root.ability.companycap":{
+                templateUrl : "root/ability/companycap/export/_res/html/index.html",
+                controller:'companyExportCtrl'
+            }
+        }
+    }).state("root.ability.companycap.upload[12]",{
+        url:"/upload[12]?id=&page=",
+        views:{
+            "content@root.ability.companycap":{
+                templateUrl : "root/ability/companycap/upload/_res/html/index.html",
+                controller:'companyUploadCtrl'
+            }
+        }
+    }).state("root.ability.companycap.view[12]",{
+        url:"/view[12]?id=&view=&page=",
+        views:{
+            "content@root.ability.companycap":{
+                templateUrl : "root/ability/companycap/view/_res/html/index.html",
+                controller:'companyViewCtrl'
             }
         }
     })

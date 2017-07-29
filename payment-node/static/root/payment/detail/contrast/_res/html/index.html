@@ -1,0 +1,85 @@
+<div class="content-input" verify-scope="tipStyle: 1">
+    <section class="interval" style="position: relative">
+        <ul class="inter-left">
+            <li class="required" style="justify-content:flex-end;">
+                <label><i><img src="/images/mandatory.png"></i><em>对比时间</em></label>
+                <select class="sele one-select" ng-model="timeStatus" ng-change="myFunc(timeStatus)" ng-init="timeStatus='MONTH'">
+                    <option value="MONTH">月份</option>
+                    <option value="QUARTER">季度</option>
+                    <option value="YEAR">年份</option>
+                 </select>
+                <select class="sele" style=" width:22%;right: 102px; background-color: #fff;"
+                        ng-options='x.id as x.name for x  in [{id:1,name:"1"},
+                        {id:2,name:"2"},{id:3,name:"3"},{id:4,name:"4"},{id:5,name:"5"},{id:6,name:"6"}
+                        ,{id:7,name:"7"},{id:8,name:"8"},{id:9,name:"9"},{id:10,name:"10"},{id:11,name:"11"},{id:12,name:"12"}]'
+                        ng-init="month" ng-model="month" ng-show="timeStatus=='MONTH'">
+                    <option value="" disabled>请选择</option>
+                    <option value="1" ></option>
+                </select>
+                <select class="sele" style=" width:22%;right: 102px; background-color: #fff;"
+                        ng-options='x.id as x.name for x  in [{id:1,name:"1"},
+                        {id:2,name:"2"},{id:3,name:"3"},{id:4,name:"4"}]'
+                        ng-init="quarter" ng-model="quarter" ng-show="timeStatus=='QUARTER'">
+                       <option value="" disabled>请选择</option>
+                </select>
+                <input type="text" style=" width:22%;right: 102px; background-color: #fff;" ng-init="year" ng-model="year" ng-show="timeStatus=='YEAR'">
+            </li>
+        </ul>
+        <ul class="inter-right">
+            <li class="required" style="justify-content:flex-start">
+                <label><i><img src="/images/mandatory.png"></i><em>对比条件</em></label>
+                <select class="sele" ng-model="compareStatus">
+                    <option value="" disabled>请选择</option>
+                    <option value="AREA">地区</option>
+                    <option value="PROJECT">项目</option>
+                    <option value="UNIT">总包单位</option>
+                </select>
+            </li>
+        </ul>
+        <button ng-click="collect()" class="collect-but" style="position: absolute; right: 15px; top: 42px;">汇总</button>
+    </section>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>地区</span>
+            <span>派工单价</span>
+            <span>已派工量</span>
+            <span>到账金额</span>
+            <span>差额</span>
+            <span>增长率</span>
+            <span>百分比</span>
+            <span>管理费</span>
+            <span>差额</span>
+            <span>增长率</span>
+            <span>百分比</span>
+            <span>税金</span>
+            <span>差额</span>
+            <span>增长率</span>
+            <span>百分比</span>
+            <span>税后金额</span>
+            <span>差额</span>
+            <span>增长率</span>
+            <span>百分比</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="summaryList in summaryLists">
+            <span>{{summaryList.groupField}}</span>
+            <span>{{summaryList.taskPrice}}</span>
+            <span>{{summaryList.pactSize}}</span>
+            <span>{{summaryList.accountMoney}}</span>
+            <span>{{summaryList.phaseAccount}}</span>
+            <span>{{summaryList.rateAccount}}</span>
+            <span>{{summaryList.percentAccount}}</span>
+            <span>{{summaryList.managementFee}}</span>
+            <span>{{summaryList.phaseFee}}</span>
+            <span>{{summaryList.rateFee}}</span>
+            <span>{{summaryList.percentFee}}</span>
+            <span>{{summaryList.taxes}}</span>
+            <span>{{summaryList.phaseTaxes}}</span>
+            <span>{{summaryList.rateTaxes}}</span>
+            <span>{{summaryList.percentTaxes}}</span>
+            <span>{{summaryList.afterTax}}</span>
+            <span>{{summaryList.phaseAfterTax}}</span>
+            <span>{{summaryList.rateAfterTax}}</span>
+            <span>{{summaryList.percentAfterTax}}</span>
+        </li>
+    </ul>
+</div>

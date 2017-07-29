@@ -1,6 +1,7 @@
 var app = angular.module('emailServer',[]);
 app.factory('emailSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         listSummary : listSummary,
         countSummary:countSummary,
         congealSummary:congealSummary,
@@ -8,8 +9,14 @@ app.factory('emailSer',function ($http) {
         deleteSummary:deleteSummary,
         addSummery:addSummery,
         editEmail:editEmail,
-        getFourById:getFourById
+        getFourById:getFourById,
+        allProject:allProject,
+        summarize:summarize
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/summary/guidePermission/'+data);
+    }
     //列表
     function  listSummary(data) {
         return $http.get('/marketActivity/summary/list',{
@@ -43,5 +50,15 @@ app.factory('emailSer',function ($http) {
     //id编辑
     function getFourById(data) {
         return $http.post('/marketActivity/summary/EditId',data)
+    }
+    //获取所有项目组
+    function allProject(data){
+        return $http.get('/marketActivity/summary/allProject',{
+            params:data
+        })
+    }
+    //汇总
+    function summarize(data) {
+        return $http.post('/marketActivity/summarize',data)
     }
 });

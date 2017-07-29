@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"outsourcingFeeMenuCtrl"
             }
         }
+    }).state("root.managementFee.outsourcingFee.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.managementFee.outsourcingFee":{
+                templateUrl : "root/managementFee/outsourcingFee/list/_res/html/index.html",
+                controller:'outsourcingListCtrl'
+            }
+        }
     }).state("root.managementFee.outsourcingFee.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.managementFee.outsourcingFee.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.managementFee.outsourcingFee":{
                 templateUrl : "root/managementFee/outsourcingFee/edit/_res/html/index.html",

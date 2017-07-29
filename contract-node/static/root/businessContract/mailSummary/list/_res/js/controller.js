@@ -87,12 +87,11 @@ app.controller('mailSummaryListCtrl',function($scope,emailSer,toastr,$stateParam
                 break;
         }
     }
-    $scope.cancel = function(){//取消删除/冻结
+    $scope.cancel = function(){//取消删除
         $scope.delShow = false;
-        $scope.congealShow = false;
         $state.go('root.businessContract.mailSummary.list[12]',{id:null,name:null});
     };
-    $scope.conCancel = function(){//取消/冻结
+    $scope.conCancel = function(){//取消冻结
         $scope.congealShow = false;
         $state.go('root.businessContract.mailSummary.list[12]',{id:null,name:null});
     };
@@ -123,7 +122,6 @@ app.controller('mailSummaryListCtrl',function($scope,emailSer,toastr,$stateParam
         };
         emailSer.congealEmail(data).then(function(response){
             if(response.data.code==0){
-                count++;
                 toastr.info( "信息已冻结", '温馨提示');
                 $scope.$emit('changeId', null);
                 $scope.congealShow = false;

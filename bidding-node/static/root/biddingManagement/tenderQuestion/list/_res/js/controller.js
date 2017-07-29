@@ -81,13 +81,6 @@ app.controller('questionListCtrl',function($scope,questionSer,toastr,$stateParam
         });
         event._moreList = !event._moreList;
     };
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.answerLists,function(obj){
-            if(obj.id == delid){
-                obj._delete = delid
-            }
-        })
-    });
 
 //分页
     $scope.custom = {

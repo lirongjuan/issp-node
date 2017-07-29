@@ -1,0 +1,25 @@
+<div class="content-tab list" style="margin-top: -70px;">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span class="data-id">id</span>
+            <span>客户信息编号</span>
+            <span>客户姓名</span>
+            <span>重要性级别</span>
+            <span><button ng-click="del()">删除</button> <button ng-click="add()">添加</button> <button ng-click="submit()">提交</button> </span>
+        </li>
+        <li class="list-all">
+            <section ng-repeat="list in marketserveLists" style="display: {{list._delete?'none':'block'}};">
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list,$index)">
+                    <p>{{$index+1}}</p>
+                    <p class="data-id"></p>
+                    <p> <input type="text" ng-model="list.clientInfoNo">  </p>
+                    <p><input type="text" ng-model="list.clientName"></p>
+                    <p><input type="text" ng-model="list.importanceLevel"></p>
+                    <p></p>
+                </div>
+            </section>
+        </li>
+     </ul>
+</div>
+<!--{::list.clientInfoNo}-->

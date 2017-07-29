@@ -1,5 +1,5 @@
 var app = angular.module('detailCollectPro', ['toastr','angularjs-dropdown-multiselect']);
-app.controller('detailCollectProCtrl', function($scope, detailSer,$state){
+app.controller('detailCollectProCtrl', function($scope,toastr,detailSer,$state){
     $scope.$on("socialListId", function(event, suId){
         $scope.idSocialList = suId;
     });
@@ -30,7 +30,7 @@ app.controller('detailCollectProCtrl', function($scope, detailSer,$state){
             }
         })
     }};
-    $scope.collectProMore = function(){
+    $scope.collectProMore = function(response){
         if($scope.idSocialList){
             $state.go('root.payment.detail.collectPro.collectProMore[12]',{suId:$scope.idSocialList});
         }else{

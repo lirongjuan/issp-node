@@ -1,4 +1,4 @@
-<div class="content-input social" verify-scope="tipStyle: 1">  <!--表单验证插件-->
+<div class="content-input social" verify-scope="tipStyle: 1">
     <div class="input-list">
         <section>
             <ul>
@@ -10,61 +10,81 @@
                     <label><i><img src="/images/mandatory.png"></i><em>个人社交资源姓名</em></label>
                     <input type="text" ng-verify="{}"  ng-model="peditInfo.contactName2">
                 </li>
-                <li>
-                    <label><em>性别</em></label>
-                    <input type="text" ng-model="peditInfo.sex2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>性别</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.sex2">
                 </li>
-                <li>
-                    <label><em>联系方式</em></label>
-                    <input type="text" ng-model="peditInfo.contactWay2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>联系方式</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.contactWay2">
                 </li>
-                <li>
-                    <label><em>邮箱</em></label>
-                    <input type="text" ng-model="peditInfo.emailName2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>邮箱</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.emailName2">
                 </li>
-                <li>
-                    <label><em>QQ/微信</em></label>
-                    <input type="text" ng-model="peditInfo.qqOrWechat2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>QQ/微信</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.qqOrWechat2">
                 </li>
-                <li>
-                    <label><em>籍贯</em></label>
-                    <input type="text" ng-model="peditInfo.natives2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>籍贯</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.natives2">
                 </li>
-                <li>
-                    <label><em>爱好</em></label>
-                    <input type="text" ng-model="peditInfo.hobby2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>爱好</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.hobby2">
                 </li>
-                <li>
-                    <label><em>性格评价</em></label>
-                    <input type="text" ng-model="peditInfo.charact2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>性格评价</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="peditInfo.charact2">
                 </li>
-                <li>
-                    <label><em>家庭成员</em></label>
-                    <input type="text" ng-model="peditInfo.family2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>家庭成员</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.family2">
                 </li>
-                <li>
-                    <label><em>家庭成员与本人关系</em></label>
-                    <input type="text" ng-model="peditInfo.familyRelation2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>家庭成员与本人关系</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.familyRelation2">
                 </li>
-                <li>
-                    <label><em>求学和培训经历</em></label>
-                    <input type="text" ng-model="peditInfo.studyExperience2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>求学和培训经历</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.studyExperience2">
                 </li>
-                <li>
-                    <label><em>接触经历</em></label>
-                    <input type="text" ng-model="peditInfo.connectExperience2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>接触经历</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.connectExperience2">
                 </li>
-                <li>
-                    <label><em>以往工作地区</em></label>
-                    <input type="text" ng-model="peditInfo.oldWorkPlace2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>以往工作地区</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.oldWorkPlace2">
                 </li>
-                <li>
-                    <label><em>生活地区</em></label>
-                    <input type="text" ng-model="peditInfo.livePlace2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>生活地区</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.livePlace2">
                 </li>
-                <li>
-                    <label><em>成长地区</em></label>
-                    <input type="text" ng-model="peditInfo.growthPlace2">
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>成长地区</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.growthPlace2">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>组织机构</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.organization">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>现在工作地区</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.nowWorkPlace">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>所在公司</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.nowCompany">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.station">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>职权</em></label>
+                    <input type="text" ng-verify="{}" ng-model="peditInfo.duty">
                 </li>
             </ul>
         </section>

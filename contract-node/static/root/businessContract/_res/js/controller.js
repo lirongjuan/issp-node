@@ -115,6 +115,7 @@ app.directive('mod',function(){
                     $('.see-type').text(title);
                     $('.see-description').text(conText)
                 }
+
             })
         }
     }

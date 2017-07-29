@@ -4,20 +4,24 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                    <input type="text" class="inputDom" ng-model="data.projectName" ng-verify="{}">
-                     <select class="sele" ng-model="data.projectName">
-                        <option value="鹿晗">鹿晗</option>
-                        <option value="邓超">邓超</option>
-                        <option value="黄蓉">黄蓉</option>
-                    </select>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="data.projectName" class="sele">
+                            <option value="请选择1">请选择1</option>
+                            <option ng-repeat="list in allNames">{{list}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-model="data.projectName" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
                     <input type="text"  ng-verify="{}" ng-model="data.name">
                 </li>
                 <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>人工总成本</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="data.totalCost">
+                </li>
+                <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>人员性质</em></label>
-                    <input type="text" class="inputDom"  ng-verify="{}" ng-model="data.peopleProperty">
                      <select class="sele" ng-model="data.peopleProperty">
                         <option>请选择</option>
                         <option value="INTERIOR">内部</option>
@@ -26,13 +30,15 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
-                    <input type="text" class="inputDom"  ng-verify="{}" ng-model="data.post">
-                    <select class="sele" ng-model="data.post">
-                        <option>请选择</option>
-                        <option value="CTO">CTO</option>
-                        <option value="经理">经理</option>
-                        <option value="主管">主管</option>
-                    </select>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="data.post" class="sele">
+                            <option value="请选择1">请选择1</option>
+                            <option value="CTO">CTO</option>
+                            <option value="经理">经理</option>
+                            <option value="主管">主管</option>
+                        </select>
+                        <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="data.post" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>个人职称</em></label>

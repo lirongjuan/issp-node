@@ -1,0 +1,42 @@
+<div class="collect ">
+    <section class="collect-select">
+        <ul>
+            <li>
+                <label><em>月份</em></label>
+                <select class="sele" ng-model="month">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+                <button ng-click="collect()">汇总</button>
+            </li>
+        </ul>
+    </section>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>月份</span>
+            <span>项目组</span>
+            <span>上月准备金</span>
+            <span>本月准备金</span>
+            <span>差额</span>
+            <span>增长率</span>
+        </li>
+        <li class="sum-tbody"  ng-repeat="summaryList in summaryLists">
+            <span>{{summaryList.month}}</span>
+            <span>{{summaryList.groupTeam}}</span>
+            <span>{{summaryList.lastMonthReserveSum}}</span>
+            <span>{{summaryList.currentMonthReserveSum}}</span>
+            <span>{{summaryList.differences}}</span>
+            <span>{{summaryList.growth}}</span>
+        </li>
+    </ul>
+</div>

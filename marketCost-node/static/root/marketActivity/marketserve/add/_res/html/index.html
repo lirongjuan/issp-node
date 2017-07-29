@@ -7,10 +7,6 @@
                     <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image addPlanTime" ng-model="data.planActivityTiming">
                 </li>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>实际活动时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image addActualTime">
-                </li>
-                <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
                     <input type="text"  ng-verify="{}" ng-model="data.area">
                 </li>
@@ -32,21 +28,14 @@
                </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目性质</em></label>
-                    <input type="text" class="inputDom" ng-model="data.yyFundModule" ng-verify="{}">
-                     <select class="sele" ng-model="data.yyFundModule" ng-init="">
-                        <option value="123">123</option>
-                        <option value="164">164</option>
-                        <option value="9566">9566</option>
-                    </select>
-                </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>运营商务部资金模块</em></label>
-                    <input type="text" class="inputDom" ng-model="data.projectNature" ng-verify="{}">
-                     <select class="sele" ng-model="data.projectNature" ng-init="">
-                        <option value="123">123</option>
-                        <option value="164">164</option>
-                        <option value="9566">9566</option>
-                    </select>
+                    <div class="sele area side">
+                        <select ng-model="data.projectNature" class="sele">
+                            <option value="123">123</option>
+                            <option value="164">164</option>
+                            <option value="9566">9566</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.projectNature" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>预计参加人数</em></label>
@@ -55,10 +44,6 @@
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>计划活动类型 </em></label>
                     <input type="text"  ng-model="data.planActivityType" ng-verify="{}">
-                </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>实际活动类型 </em></label>
-                    <input type="text"  ng-model="data.actualActivityType" ng-verify="{}">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>分类</em></label>
@@ -70,20 +55,24 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>招待负责人</em></label>
-                    <input type="text" class="inputDom" ng-model="data.servePrincipal" ng-verify="{}">
-                     <select class="sele" ng-model="data.servePrincipal">
-                        <option value="张三">张三</option>
-                        <option value="李四">李四</option>
-                    </select> 
+                    <div class="sele area side">
+                        <select ng-model="data.servePrincipal" class="sele">
+                            <option value="张三">张三</option>
+                            <option value="李四">李四</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.servePrincipal" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>决策层</em></label>
-                    <input type="text" class="inputDom" ng-model="data.decisionLevel" ng-verify="{}">
-                     <select class="sele" ng-model="data.decisionLevel" ng-init="">
-                        <option value="123">123</option>
-                        <option value="164">164</option>
-                        <option value="9566">9566</option>
-                    </select>
+                    <div class="sele area side">
+                        <select ng-model="data.decisionLevel" class="sele">
+                            <option value="123">123</option>
+                            <option value="164">164</option>
+                            <option value="9566">9566</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.decisionLevel" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否临时招待</em></label>
@@ -92,6 +81,17 @@
                         <option value="true">是</option>
                         <option value="false">否</option>
                     </select> 
+                </li>
+                <li>
+                    <label><em>运营商务部资金模块</em></label>
+                    <div class="sele area side">
+                        <select ng-model="data.yyFundModule" class="sele">
+                            <option value="123">123</option>
+                            <option value="164">164</option>
+                            <option value="9566">9566</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.yyFundModule">
+                    </div>
                 </li>
             </ul>
         </section>

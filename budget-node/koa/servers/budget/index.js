@@ -76,7 +76,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + `/projectweek/v1/conditionsCount/${encodeURIComponent(argvs)}`,
+            uri : config()['rurl'] + '/projectweek/v1/conditionsCount?projects='+encodeURIComponent(argvs.join(',')),
             headers : {
                 userToken:argvs.token
             }
@@ -147,7 +147,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + `/projectmonth/v1/conditionsCount/${encodeURIComponent(argvs)}`,
+            uri : config()['rurl'] + '/projectmonth/v1/conditionsCount?projects='+encodeURIComponent(argvs.join(',')),
             headers : {
                 userToken:argvs.token
             }
@@ -250,7 +250,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + `/arrivalweek/v1/conditionsCount/${encodeURIComponent(argvs)}`,
+            uri : config()['rurl'] + '/arrivalweek/v1/conditionsCount?arrivals='+encodeURIComponent(argvs.join(',')),
             headers : {
                 userToken:argvs.token
             }
@@ -306,7 +306,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + `/arrivalmonth/v1/conditionsCount/${encodeURIComponent(argvs)}`,
+            uri : config()['rurl'] + '/arrivalmonth/v1/conditionsCount?arrivals='+encodeURIComponent(argvs.join(',')),
             headers : {
                 userToken:argvs.token
             }
@@ -414,29 +414,6 @@ module.exports = function(){
         };
         return request(options);
     };
-    //项目收入周
-    this.projectsAllCostById = function(argvs){
-        var options = {
-            method : 'GET',
-            timeout : 3000,
-            uri : config()['rurl'] + '/projectweek/v1/list?_includes=workDifferences,incomeDifferences',
-            headers : {
-                userToken:argvs.token
-            }
-        };
-        return request(options);
-    };
-    this.areaAllCostById = function(argvs){
-        var options = {
-            method : 'GET',
-            timeout : 3000,
-            uri : config()['rurl'] + '/arrivalweek/v1/list?_includes=workDifferences,incomeDifferences',
-            headers : {
-                userToken:argvs.token
-            }
-        };
-        return request(options);
-    };
     this.listSetting = function(argvs){
         var options = {
             method : 'GET',
@@ -490,6 +467,103 @@ module.exports = function(){
                 userToken:argvs.token
             },
             form:argvs
+        };
+        return request(options);
+    };
+
+    //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/arrivalweek/v1/setButtonPermission',
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.siginNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/arrivalweek/v1/sonPermission',
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+//项目收入周
+    this.proWeekPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/projectweek/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //预警
+    this.warningAllCostById = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/warn/v1/list?_includes=warnValue',
+            headers : {
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //项目收入月
+    this.monthPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/projectmonth/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //地区收入周
+    this.areaWeekPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/arrivalweek/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //地区收入月
+    this.areaMonthPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/arrivalmonth/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //预警
+    this.warningPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/warn/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
         };
         return request(options);
     };

@@ -1,13 +1,19 @@
 var app = angular.module('coststatusSer',[]);
 app.factory('coststatusSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         listMarketserve : listMarketserve,
         countBaseInfo:countBaseInfo,
         addMarketserveapply:addMarketserveapply,
         getOneById:getOneById,
         marketserveapplyEdit:marketserveapplyEdit,
-        marketserveapplyDel:marketserveapplyDel
+        marketserveapplyDel:marketserveapplyDel,
+        projectNames:projectNames
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/coststatus/guidePermission/'+data);
+    }
     //列表
     function listMarketserve(data) {
         return $http.get('/projectmeasure/coststatus/list',{
@@ -33,5 +39,9 @@ app.factory('coststatusSer',function ($http) {
     //删除
     function marketserveapplyDel(data){
         return $http.post('/projectmeasure/coststatus/delete',data)
+    }
+    //获取所有的项目名称
+    function projectNames(){
+        return $http.get('/projectmeasure/coststatus/projectNames')
     }
 });

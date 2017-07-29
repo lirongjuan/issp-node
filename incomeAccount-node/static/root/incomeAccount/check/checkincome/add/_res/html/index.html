@@ -4,29 +4,35 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                    <select class="sele" ng-model="data.area">
-                        <option>广州</option>
-                        <option>珠海</option>
-                        <option>江门</option>
-                        <option>湛江</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="data.area">
+                    <div class="sele area side">
+                        <select ng-model="data.area" class="sele">
+                            <option>广州</option>
+                            <option>珠海</option>
+                            <option>江门</option>
+                            <option>湛江</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.area" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
-                    <select class="sele" ng-model="data.projectGroup">
-                        <option>广州</option>
-                        <option>珠海</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="data.projectGroup">
+                    <div class="sele area side">
+                        <select ng-model="data.projectGroup" class="sele">
+                            <option>广州</option>
+                            <option>珠海</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.projectGroup" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                    <select class="sele" ng-model="data.projectName">
-                        <option>广州</option>
-                        <option>珠海</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="data.projectName">
+                    <div class="sele area side">
+                        <select ng-model="data.projectName" class="sele">
+                            <option>广州</option>
+                            <option>珠海</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.projectName" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>时间</em></label>

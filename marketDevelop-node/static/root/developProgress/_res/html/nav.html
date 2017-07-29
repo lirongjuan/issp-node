@@ -1,42 +1,42 @@
 <div class="nav-list" ng-repeat="list in showsList">
-    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide">
         <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
         {{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('yearPlan')" ng-show="yearplan" ng-class="{'active':navCla=='yearPlan'}"  ui-sref="_root.developProgress.plan.yearPlan.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="yearplan" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.developProgress.plan.yearPlan.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name}}</a>
         </li>
-        <li ng-click="navClass('monthPlan')" ng-show="monthplan" ng-class="{'active':navCla=='monthPlan'}" ui-sref="_root.developProgress.plan.monthPlan.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="monthplan" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.plan.monthPlan.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name2}}</a>
         </li>
-        <li ng-click="navClass('weekPlan')" ng-show="weekplan" ng-class="{'active':navCla=='weekPlan'}" ui-sref="_root.developProgress.plan.weekPlan.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="weekplan" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.plan.weekPlan.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name3}}</a>
         </li>
-        <li ng-click="navClass('dayPlan')" ng-show="dayplan" ng-class="{'active':navCla=='dayPlan'}" ui-sref="_root.developProgress.plan.dayPlan.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="dayplan" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.plan.dayPlan.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name4}}</a>
         </li>
-        <li ng-click="navClass('demandAnalysis')" ng-show="demandanalysis" ng-class="{'active':navCla=='demandAnalysis'}" ui-sref="_root.developProgress.market.demandAnalysis.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="demandanalysis" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.market.demandAnalysis.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name5}}</a>
         </li>
-        <li ng-click="navClass('targetInfo')" ng-show="targetinformation" ng-class="{'active':navCla=='targetInfo'}" ui-sref="_root.developProgress.market.targetInfo.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="targetinformation" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.market.targetInfo.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name6}}</a>
         </li>
-        <li ng-click="navClass('marketMining')" ng-show="marketchannel" ng-class="{'active':navCla=='marketMining'}" ui-sref="_root.developProgress.market.marketMining.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="marketchannel" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.market.marketMining.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name7}}</a>
         </li>
-        <li ng-click="navClass('marketResearch')" ng-show="marketresearch" ng-class="{'active':navCla=='marketResearch'}" ui-sref="_root.developProgress.market.marketResearch.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="marketresearch" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.market.marketResearch.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name8}}</a>
         </li>
-        <li ng-click="navClass('marketMeasured')" ng-show="marketmeasure" ng-class="{'active':navCla=='marketMeasured'}" ui-sref="_root.developProgress.market.marketMeasured.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="marketmeasure" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.market.marketMeasured.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name9}}</a>
         </li>
-        <li ng-click="navClass('businessType')" ng-show="businesstype" ng-class="{'active':navCla=='businessType'}" ui-sref="_root.developProgress.other.businessType.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="businesstype" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.other.businessType.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name10}}</a>
         </li>
-        <li ng-click="navClass('directionSubjects')" ng-show="businesscourse" ng-class="{'active':navCla=='directionSubjects'}" ui-sref="_root.developProgress.other.directionSubjects.list[12]">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="businesscourse" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.developProgress.other.directionSubjects.list[12]">
             <a href="javascript:void(0)">{{menuInfo.name11}}</a>
         </li>
-        <li ng-click="navClass('setting')" ng-show="cuspermission" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.developProgress.other.setting.list[12]" >
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.developProgress.other.setting.list[12]" >
             <a href="javascript:void(0)">{{menuInfo.name12}}</a>
         </li>
     </ul>

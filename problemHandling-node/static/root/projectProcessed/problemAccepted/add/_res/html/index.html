@@ -6,14 +6,6 @@
                     <label><i><img src="/images/mandatory.png"></i><em>内部项目名称</em></label>
                     <input type="text" ng-verify="{}" ng-model="accepted.internalProjectName">
                 </li>
-                <!-- <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>工程类型</em></label>
-                    <select class="sele" ng-model="accepted.projectType1" ng-change="changeSelect()" ng-init="accepted.projectType1='外包'">
-                        <option value="外包">外包</option>
-                        <option value="租赁">租赁</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="accepted.projectType" ng-init="accepted.projectType='外包'">
-                </li> -->
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>工程类型</em></label>
                     <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
@@ -90,14 +82,6 @@
                         <option value="THREEDEPARTMENT">影响3个部门以上</option>
                     </select>
                 </li>
-               <!--  <li class="required">
-                    <label><em>问题紧急程度</em></label>
-                    <select class="sele" ng-model="accepted.problemEmergencyDegree" ng-init="accepted.problemEmergencyDegree='PRIMARY'">
-                        <option value="PRIMARY">初级</option>
-                        <option value="INTERMEDIATE">中级</option>
-                        <option value="EMERGENCY">紧急</option>
-                    </select>
-                </li> -->
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>问题紧急程度</em></label>
                     <input type="text" value="{{projectNames}}" class="na">

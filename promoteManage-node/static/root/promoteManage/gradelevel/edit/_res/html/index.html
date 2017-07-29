@@ -1,0 +1,68 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>分类</em></label>
+                    <select class="sele" ng-model="gradelevel.classification" ng-change="classChange(gradelevel.classification)">
+                        <option value="">请选择分类</option>
+                        <option ng-repeat="(key,value) in allClass track by key">{{ value }}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>管理方向</em></label>
+                    <select class="sele" ng-model="gradelevel.direction" ng-change="directionChange(gradelevel.classification,gradelevel.direction)">
+                        <option value="">请选择分类</option>
+                        <option ng-repeat="(key,value) in allDirections track by key">{{ value }}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>体系</em></label>
+                    <select class="sele" ng-model="gradelevel.system">
+                        <option value="">请选择体系</option>
+                        <option ng-repeat="(key,value) in allSystem track by key">{{ value }}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>技能等级</em></label>
+                    <select class="sele" ng-model="gradelevel.skillLevel">
+                        <option value="">请选择技能等级</option>
+                        <option ng-repeat="(key,value) in allSkillLevels track by key">{{ value }}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>职衔补助分数</em></label>
+                    <input type="number" ng-model="gradelevel.allowanceRank" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>转换额度（1分）</em></label>
+                    <input type="number" ng-model="gradelevel.convertLine" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>条件</em></label>
+                    <input type="text" ng-model="gradelevel.condition" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>判断条件</em></label>
+                    <input type="text" ng-model="gradelevel.judgeCondition" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>标准</em></label>
+                    <input type="text" ng-model="gradelevel.standard" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>数据来源</em></label>
+                    <input type="text" ng-model="gradelevel.dataSource" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>补助额度（元）</em></label>
+                    <input type="number" ng-model="gradelevel.subsidyAmount" ng-verify>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="gradelevelEditFun()">提交</button>
+    </p>
+</div>

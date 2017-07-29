@@ -1,0 +1,38 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>管理层</span>
+            <span>管理层意见</span>
+            <span>评分等级</span>
+            <span>具体分数</span>
+            <span>员工转正id</span>
+        </li>
+        <li class="list-all" ng-repeat="lists in employeess" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.management}}</p>
+                    <p mod>{{lists.opinion}}</p>
+                    <p mod>{{lists.scoreGrade}}</p>
+                    <p mod>{{lists.specificScore}}</p>
+                    <p mod>{{lists.regularizationId}}</p>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+
+
+
+

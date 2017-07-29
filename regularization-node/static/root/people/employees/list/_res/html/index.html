@@ -1,0 +1,142 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>姓名</span>
+            <span>性别</span>
+            <span>学历</span>
+            <span>专业</span>
+            <span>入职时间</span>
+            <span>员工编号</span>
+            <span>地区</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in employeess" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.name}}</p>
+                    <p mod>{{lists.gender}}</p>
+                    <p mod>{{lists.education}}</p>
+                    <p mod>{{lists.profession}}</p>
+                    <p mod>{{lists.hiredate}}</p>
+                    <p mod>{{lists.empNo}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>项目组</span>
+                                <span>岗位</span>
+                                <span>试用期月份</span>
+                                <span>入职以来月平考勤扣分量</span>
+                                <span>奖励分数</span>
+                                <span>处罚分数</span>
+                                <span>工作自述</span>
+                                <span>工作总结</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.projectGroup}}</span>
+                                <span mod>{{lists.post}}</span>
+                                <span mod>{{lists.probationPeriod}}</span>
+                                <span mod>{{lists.monthAverageDeductMark}}</span>
+                                <span mod>{{lists.awardSoce}}</span>
+                                <span mod>{{lists.penaltyScore}}</span>
+                                <span mod>{{lists.jobReadme}}</span>
+                                <span mod>{{lists.jobSummary}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>条件相关说明</span>
+                                <span>转正条件确认</span>
+                                <span>管理层评分平均分</span>
+                                <span>决策层</span>
+                                <span>决策层评价</span>
+                                <span>决策层评分等级</span>
+                                <span>决策层具体评分</span>
+                                <span>规划模块</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.criteriaAttention}}</span>
+                                <span mod>{{lists.posCriteriaConfirmed}}</span>
+                                <span mod>{{lists.managementAverage}}</span>
+                                <span mod>{{lists.decisionLevel}}</span>
+                                <span mod>{{lists.decisionLevelEvaluate}}</span>
+                                <span mod>{{lists.decisionLevelRank}}</span>
+                                <span mod>{{lists.decisionLevelScore}}</span>
+                                <span mod>{{lists.planModule}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>转正后岗位</span>
+                                <span>转正技能定级</span>
+                                <span>规划模块转正意见</span>
+                                <span>预算模块</span>
+                                <span>预算模块转正意见</span>
+                                <span>总经办</span>
+                                <span>转正类型</span>
+                                <span>总经办评价</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.afterPost}}</span>
+                                <span mod>{{lists.afterSkillRank}}</span>
+                                <span mod>{{lists.planPositiveComment}}</span>
+                                <span mod>{{lists.budgetModule}}</span>
+                                <span mod>{{lists.budgetPositiveComment}}</span>
+                                <span mod>{{lists.gmOffice}}</span>
+                                <span mod>{{lists.positiveType}}</span>
+                                <span mod>{{lists.zjbAppraise}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>转正时间</span>
+                                <span>转正面谈信息</span>
+                                
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.positiveDate}}</span>
+                                <span mod>{{lists.posFacialInfor}}</span>
+                                
+                            </p>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+

@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"liabilitiesMenuCtrl"
             }
         }
+    }).state("root.initialize.sort.liabilities.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.initialize.sort.liabilities":{
+                templateUrl : "root/initialize/sort/liabilities/list/_res/html/index.html",
+                controller:'liabilitiesListCtrl'
+            }
+        }
     }).state("root.initialize.sort.liabilities.add[12]",{
         url:"/add[12]",
         views:{

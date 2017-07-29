@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"checkindexMenuCtrl"
             }
         }
+    }).state("root.incomeAccount.check.checkindex.list[12]",{
+        url:"/list[12]?id=&name&page=",
+        views:{
+            "content@root.incomeAccount.check.checkindex":{
+                templateUrl : "root/incomeAccount/check/checkindex/list/_res/html/index.html",
+                controller:'checkindexListCtrl'
+            }
+        }
     }).state("root.incomeAccount.check.checkindex.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.incomeAccount.check.checkindex.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.incomeAccount.check.checkindex":{
                 templateUrl : "root/incomeAccount/check/checkindex/edit/_res/html/index.html",

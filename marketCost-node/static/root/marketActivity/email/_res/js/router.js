@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"emailMenuCtrl"
             }
         }
+    }).state("root.marketActivity.email.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.marketActivity.email":{
+                templateUrl : "root/marketActivity/email/list/_res/html/index.html",
+                controller:'emailListCtrl'
+            }
+        }
     }).state("root.marketActivity.email.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,11 +28,19 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.marketActivity.email.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.marketActivity.email":{
                 templateUrl : "root/marketActivity/email/edit/_res/html/index.html",
                 controller:'emailEditCtrl'
+            }
+        }
+    }).state("root.marketActivity.email.collect[12]",{
+        url:"/collect[12]",
+        views:{
+            "content@root.marketActivity.email":{
+                templateUrl : "root/marketActivity/email/collect/_res/html/index.html",
+                controller:'emailCollectCtrl'
             }
         }
     })

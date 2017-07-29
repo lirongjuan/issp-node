@@ -5,7 +5,7 @@ app.controller('settingEditCtrl', function($scope, settingSer, $state,$statePara
     settingSer.getpermit($scope.getId).then(function(response){
         if(response.data.code==0){
             $scope.edit = response.data.data;
-            $scope.positions=$scope.edit.proOperateVO
+            $scope.positions=$scope.edit.cusOperateVO;
         }else {
             toastr.error( response.data.msg, '温馨提示');
         }
@@ -42,8 +42,4 @@ app.controller('settingEditCtrl', function($scope, settingSer, $state,$statePara
     }
 
 });
-
-
-
-
 

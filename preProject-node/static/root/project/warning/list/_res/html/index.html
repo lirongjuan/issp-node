@@ -1,13 +1,11 @@
 <div class="content-tab list">
     <ul class="table">
         <li class="list-head">
-            <span></span>
-            <span>预警的值(超出该值的预警)</span>
+            <span style="flex: 0 0 150px;">预警的值(超出该值的预警)</span>
         </li>
         <li class="list-all" ng-repeat="list in warningLists" ng-class="{'red':list.warnValue>=maxNum}" style="display: {{list._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{$index+1}}</p>
                     <p>{{list.warnValue}}</p>
                 </div>
             </section>
@@ -17,7 +15,6 @@
         <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
 
 
 

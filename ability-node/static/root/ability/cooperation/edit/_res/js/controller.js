@@ -11,29 +11,13 @@ app.controller('cooperationEditCtrl', function($scope, cooperationSer,$state,toa
     });
     $scope.coopcapIdEditFun = function(){
         var vm = $scope;
-        var data = {
-            id:vm.editInfo.id,
-            companyName: vm.editInfo.companyName,
-            professionAuthen: vm.editInfo.professionAuthen,
-            manageAuthen: vm.editInfo.manageAuthen,
-            companyCertificate: vm.editInfo.companyCertificate,
-            companyProject: vm.editInfo.companyProject,
-            completePro: vm.editInfo.completePro,
-        };
-        cooperationSer.editCooperationAbility(data).then(function(response){
+        cooperationSer.editCooperationAbility(vm.editInfo).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.ability.cooperation.list');
-                toastr.success(vm.editInfo.companyName+ "已成功编辑", '温馨提示');
+                $state.go('root.ability.cooperation.list[12]');
+                toastr.success("已成功编辑", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');
             }
       });
-    };
-    //可手填的下拉框
-    $scope.changeSelect=function(){
-        $scope.editInfo.professionAuthen = $scope.editInfo.professionAuthen2;
-    };
-    $scope.changeSelect2=function(){
-        $scope.editInfo.manageAuthen = $scope.editInfo.manageAuthen2;
     };
 });

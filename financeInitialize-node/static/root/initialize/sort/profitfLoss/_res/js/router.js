@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"profitfLossMenuCtrl"
             }
         }
+    }).state("root.initialize.sort.profitfLoss.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.initialize.sort.profitfLoss":{
+                templateUrl : "root/initialize/sort/profitfLoss/list/_res/html/index.html",
+                controller:'profitfLossListCtrl'
+            }
+        }
     }).state("root.initialize.sort.profitfLoss.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.initialize.sort.profitfLoss.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.initialize.sort.profitfLoss":{
                 templateUrl : "root/initialize/sort/profitfLoss/edit/_res/html/index.html",

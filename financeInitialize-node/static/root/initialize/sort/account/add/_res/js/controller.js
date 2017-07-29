@@ -1,15 +1,12 @@
-/**
- * Created by ike on 2017/4/17.
- */
-var app = angular.module('firstsubjectAdd', ['toastr','ipCookie']);
-app.controller('accountAddCtrl', function($scope, accountSer,$state,toastr,ipCookie,$location){
+var app = angular.module('firstsubjectAdd', ['toastr']);
+app.controller('accountAddCtrl', function($scope, accountSer,$state,toastr){
     //获取一级列表
     accountSer.allFirstsubject().then(function(response){
         if(response.data.code == 0){
                 $scope.firstList = response.data.data;
-            }else if(response.data.code==403){
-                toastr.error( "请登录用户", '温馨提示');
-        }
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
     })
     //获取二级列表
     function secondSub(data){
@@ -20,8 +17,8 @@ app.controller('accountAddCtrl', function($scope, accountSer,$state,toastr,ipCoo
         accountSer.SecondList(secondData).then(function(response){
             if(response.data.code == 0){
                     $scope.secondList = response.data.data;
-                }else if(response.data.code==403){
-                    toastr.error( "获取列表失败", '温馨提示');
+                }else{
+                    toastr.error( response.data.msg, '温馨提示');
                 }
             })
     }
@@ -38,13 +35,8 @@ app.controller('accountAddCtrl', function($scope, accountSer,$state,toastr,ipCoo
         accountSer.ThirdList(ThirdData).then(function(response){
             if(response.data.code == 0){
                     $scope.thirdList = response.data.data;
-                }else if(response.data.code==403 || response.data.code == 401){
-                    toastr.error( "请登录用户,3秒后跳至登陆页面", '温馨提示');
-                    var absurl = $location.absUrl();
-                    ipCookie('absurl', absurl,{ expires:3,expirationUnit: 'minutes',domain:'issp.bjike.com' });
-                    setTimeout(function(){
-                        window.location.href='http://localhost/login'
-                    },3000)
+                }else{
+                    toastr.error( response.data.msg, '温馨提示');
                 }
             })
     }
@@ -61,10 +53,10 @@ app.controller('accountAddCtrl', function($scope, accountSer,$state,toastr,ipCoo
         var data = $scope.data;
         accountSer.addMarketserveapply1(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.initialize.sort.account.list');
+                $state.go('root.initialize.sort.account.list[12]');
                 toastr.success( "已成功添加", '温馨提示');
-            }else if(response.data.code==403){
-                toastr.error( "请登录用户", '温馨提示');
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
             }
         });
     };

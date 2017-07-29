@@ -8,21 +8,22 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务状态</em></label>
-                    <select class="sele" ng-model="day.business" ng-init="day.business='true'">
+                    <select class="sele" ng-model="day.business" ng-verify="option:0">
+                        <option value="">请选择</option>
                         <option value=true>立项前</option>
                         <option value=false>立项后</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
-                    <select class="sele" ng-model="day.type" >
+                    <select class="sele" ng-model="day.type" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="type in types">{{type.type}}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务方向科目</em></label>
-                    <select class="sele" ng-model="day.source" >
+                    <select class="sele" ng-model="day.source" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="course in courses">{{course.course}}</option>
                     </select>

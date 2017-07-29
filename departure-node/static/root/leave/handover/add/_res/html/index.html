@@ -1,0 +1,81 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>当前工作范围</em></label>
+                    <input type="text" ng-verify="{}" ng-model="handover.cycle">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>当前工作目的</em></label>
+                    <input type="text" ng-verify="{}" ng-model="handover.purpose">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>当前工作范围的权限</em></label>
+                    <input type="text" ng-verify="{}" ng-model="handover.authority">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>当前工作资料</em></label>
+                    <input type="text" ng-verify="{}" ng-model="handover.material">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>文件内容明细</em></label>
+                    <input type="text" ng-verify="{}" ng-model="handover.detail">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>文件存储路径</em></label>
+                    <input type="text" ng-verify="{}" ng-model="handover.storage">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务交接类型</em></label>
+                    <input type="text" ng-verify="{}" ng-model="handover.handoverType">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务交接内容明细</em></label>
+                    <input type="text" ng-verify="{}" ng-model="handover.handoverDetail">
+                </li>
+                <li class="required">
+                    <label><em>设备交接型号</em></label>
+                    <input type="text" ng-model="handover.handoverModel">
+                </li>
+                <li class="required">
+                    <label><em>设备交接内容</em></label>
+                    <input type="text" ng-model="handover.handoverContent">
+                </li>
+                <li class="required">
+                    <label><em>设备交接存储内容</em></label>
+                    <input type="text" ng-model="handover.handoverStorage">
+                </li>
+                <li class="required">
+                    <label><em>股权或期权交接类型</em></label>
+                    <input type="text" ng-model="handover.stockType">
+                </li>
+                <li class="required">
+                    <label><em>股权或期权交接内容</em></label>
+                    <input type="text" ng-model="handover.stockContent">
+                </li>
+                <li class="required">
+                    <label><em>办公用品交接类型</em></label>
+                    <input type="text" ng-model="handover.suppliesType">
+                </li>
+                <li class="required">
+                    <label><em>办公用品交接内容</em></label>
+                    <input type="text" ng-model="handover.suppliesContent">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="handAddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

@@ -1,21 +1,27 @@
 <div class="content-tab list">
     <ul class="table">
         <li class="list-head">
-            <span>预警的值(超出该值的预警)</span>
+            <span style="flex: 0 0 150px;">预警的值(超出该值的预警)</span>
         </li>
          <li class="list-all" ng-repeat="list in warningLists" style="display: {{list._delete?'none':'block'}};">
-            <section ng-class="{'red':list.warnValue>=maxNum||maxNum2}">
+            <section>
                 <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
-                    <p>{{list.warnValue}}</p>
+                    <p mod>{{::list.warnValue}}</p>
                 </div>
             </section>
           </li>
     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
     <footer class="footer">
         <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>
 
 
 

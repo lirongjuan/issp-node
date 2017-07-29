@@ -3,8 +3,97 @@ var path = require('path');
 var config = require(path.resolve('plugins/read-config.js'));
 var form = require(path.resolve('plugins/form.js'));
 var urlEncode = require(path.resolve('plugins/urlEncode.js'));
+var uploadFile = require(path.resolve('plugins/uploadFile.js'));
 module.exports = function(){
-
+    //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/vouchergenerate/v1/setButtonPermission',//2017-07-04
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.voucherNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/vouchergenerate/v1/sonPermission',//2017-07-04
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //菜单功能权限
+    this.voucherPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/vouchergenerate/v1/guidePermission?guideAddrStatus=`+argvs.name,//2017-07-04
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //记账凭证生成设置 导入
+    this.generateImport = function(argvs){
+        var options = {
+            method: 'POST',
+            url: config()['rurl']+'/vouchergenerate/v1/importExcel',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //记账凭证记录 上传附件
+    this.voucherUploadFile = function(argvs){
+        var options = {
+            url: config()['rurl']+`/vouchergenerate/v1/uploadFile/${argvs.fields.id}`,
+            method: 'POST',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    // 记账凭证记录 查看附件
+    this.voucherEnclosure = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/vouchergenerate/v1/listFile/${argvs.id}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //记账凭证记录 删除文件
+    this.voucherDelFile = function(argvs){
+        var options = {
+            method : 'POST',
+            timeout : 3000,
+            uri : config()['rurl'] + `/vouchergenerate/v1/deleteFile`,
+            headers:{
+                userToken:argvs.userToken
+            },
+            form:argvs.fields
+        };
+        return request(options);
+    };
     //记账凭证生成设置列表
     this.generateList = function(argvs){
         var options = {
@@ -109,6 +198,42 @@ module.exports = function(){
             method : 'DELETE',
             timeout : 3000,
             uri : config()['rurl'] + `/vouchergenerate/v1/delete/${argvs.id}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取组织结构所有地区
+    this.listArea = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/vouchergenerate/v1/listOrganArea',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取组织结构所有项目组和部门
+    this.listDepart = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/vouchergenerate/v1/listOrganDepart',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取组织结构所有用户
+    this.listUser = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/vouchergenerate/v1/listOrganUser',
             headers:{
                 userToken:argvs.userToken
             }
@@ -478,7 +603,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + `/vouchergenerate/v1/listCkRecord?limit=10&page=${argvs.page}`,
+            uri : config()['rurl'] + `/vouchergenerate/v1/listRecord?limit=10&page=${argvs.page}`,
             headers:{
                 userToken:argvs.userToken
             }
@@ -490,7 +615,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + '/vouchergenerate/v1/countCkRecord',
+            uri : config()['rurl'] + '/vouchergenerate/v1/countRecord',
             headers:{
                 userToken:argvs.userToken
             }
@@ -548,5 +673,54 @@ module.exports = function(){
 
         return request(options);
     };
+    //权限设置
+    this.listSetting = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/voucherpermission/v1/list?limit=10&page=${argvs.page}`,
+            headers : {
+                userToken : argvs.userToken
+            }
+
+        };
+        return request(options);
+    };
+    this.countSetting = function(){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/voucherpermission/v1/count',
+        };
+        return request(options);
+    };
+    this.getpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/voucherpermission/v1/getOneById/${argvs.id}`,
+        };
+        return request(options);
+    };
+    this.getListpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/voucherpermission/v1/listOperateById/${argvs.id}`,
+        };
+        return request(options);
+    };
+    this.editSetting = function(argvs){
+        var options = {
+            method : 'PUT',
+            timeout : 3000,
+            uri : config()['rurl'] + '/voucherpermission/v1/edit',
+            headers:{
+                userToken:argvs.userToken
+            },
+            form:argvs
+        };
+        return request(options);
+    };
     return this;
-}
+};

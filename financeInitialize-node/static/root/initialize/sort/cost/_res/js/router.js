@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"costMenuCtrl"
             }
         }
+    }).state("root.initialize.sort.cost.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.initialize.sort.cost":{
+                templateUrl : "root/initialize/sort/cost/list/_res/html/index.html",
+                controller:'costListCtrl'
+            }
+        }
     }).state("root.initialize.sort.cost.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.initialize.sort.cost.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.initialize.sort.cost":{
                 templateUrl : "root/initialize/sort/cost/edit/_res/html/index.html",

@@ -20,11 +20,19 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.project.situation.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.project.situation":{
                 templateUrl : "root/project/situation/edit/_res/html/index.html",
                 controller:'projectEditCtrl'
+            }
+        }
+    }).state("root.project.situation.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.project.situation":{
+                templateUrl : "root/project/situation/list/_res/html/index.html",
+                controller:'situationListCtrl'
             }
         }
     })

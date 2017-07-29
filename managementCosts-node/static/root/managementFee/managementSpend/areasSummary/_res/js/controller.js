@@ -18,6 +18,7 @@ app.controller('areasSummaryCtrl', function($scope, spendSer,toastr){
             area:vm.area
         };
         spendSer.areasSummary(vm.sum).then(function(response){
+            console.log(response);
             if(response.data.code == 0){
                 if( vm.sum.area == undefined || vm.sum.area == ''){
                     $scope.showed=true

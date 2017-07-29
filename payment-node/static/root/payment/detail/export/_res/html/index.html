@@ -1,0 +1,27 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><em>开始时间</em></label>
+                    <input type="text" ng-model="startTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})"
+                           class="add_image startTime" >
+                </li>
+                <li class="required">
+                    <label><em>结束时间</em></label>
+                    <input type="text" ng-model="endTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})"
+                           class="add_image endTime">
+                </li>
+                <li class="required">
+                    <label><em>地区</em></label>
+                    <select class="sele" ng-model="area">
+                        <option ng-repeat="name in areas" ng-verify="{}">{{name}}</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>

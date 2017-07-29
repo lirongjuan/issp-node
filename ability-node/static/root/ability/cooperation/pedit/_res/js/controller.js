@@ -28,13 +28,16 @@ app.controller('cooperationPEditCtrl', function($scope, cooperationSer,$state,to
             oldWorkPlace: vm.peditInfo.oldWorkPlace,
             livePlace: vm.peditInfo.livePlace,
             growthPlace: vm.peditInfo.growthPlace,
-            createTime: vm.peditInfo.createTime,
-            modifyTime: vm.peditInfo.modifyTime,
+            duty: vm.peditInfo.duty,
+            station: vm.peditInfo.station,
+            nowCompany: vm.peditInfo.nowCompany,
+            nowWorkPlace: vm.peditInfo.nowWorkPlace,
+            organization: vm.peditInfo.organization,
         };
         cooperationSer.editRelation(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.ability.cooperation.list');
-                toastr.success( vm.peditInfo.contactName+"已成功编辑", '温馨提示');
+                $state.go('root.ability.cooperation.list[12]');
+                toastr.success("已成功编辑", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');
             }

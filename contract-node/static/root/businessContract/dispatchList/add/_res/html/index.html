@@ -11,47 +11,47 @@
                 </li>
                 <li class="required">
                     <label ><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.businessType">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.businessType" ng-value="projectNum.businessType | cover">
                 </li>
                 <li class="required">
                     <label ><i><img src="/images/mandatory.png"></i><em>业务方向科目</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.businessSubject">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.businessSubject">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同外部项目名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.outerProject">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.outerProject">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同外部项目编号</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.outProjectNum">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.outProjectNum">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>对应销售合同编号</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.saleContractNum">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.saleContractNum">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合作方式</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.businessCooperate">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.businessCooperate" ng-value="projectNum.businessCooperate | cover">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>内部项目名称</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.innerProject">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.innerProject">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.area">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.area">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>所属项目组</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.projectGroup">
+                    <input type="text" ng-verify="{}" disabled ng-model="projectNum.projectGroup">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>签订时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image siginTime" ng-model="projectNum.siginTime">
+                    <input type="text" disabled onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image siginTime" ng-model="projectNum.siginTime">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目负责人</em></label>
-                    <input type="text" ng-verify="{}" ng-model="projectNum.projectCharge">
+                    <input type="text" disabled ng-verify="{}" ng-model="projectNum.projectCharge">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工单名称</em></label>
@@ -91,14 +91,14 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否完工</em></label>
-                    <select class="sele" ng-model="workers.completeProject" ng-init="workers.completeProject='已完工'" ng-verify="option:0">
+                    <select class="sele" ng-model="workers.completeProject" ng-init="workers.completeProject='已完工'">
                         <option value="已完工">已完工</option>
                         <option value="未完工">未完工</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同是否已归档</em></label>
-                    <select class="sele" ng-model="workers.fileCondition" ng-init="workers.fileCondition='已归档'" ng-verify="option:0">
+                    <select class="sele" ng-model="workers.fileCondition" ng-init="workers.fileCondition='已归档'">
                         <option value="已归档">已归档</option>
                         <option value="未归档">未归档</option>
                     </select>

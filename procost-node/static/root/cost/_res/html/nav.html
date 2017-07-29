@@ -1,0 +1,21 @@
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass('menuInfo.msg')" ng-show="carcost"  ng-class="{'active':navCla=='menuInfo.msg'}"  ui-sref="_root.cost.car.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass('menuInfo.msg')" ng-show="artificialcost"  ng-class="{'active':navCla=='menuInfo.msg'}"  ui-sref="_root.cost.artificial.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass('menuInfo.msg')" ng-show="otherexpenses"  ng-class="{'active':navCla=='menuInfo.msg'}"  ui-sref="_root.cost.other.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass('menuInfo.msg')" ng-show="costcontrol"  ng-class="{'active':navCla=='menuInfo.msg'}"  ui-sref="_root.cost.control.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass('menuInfo.msg')" ng-show="cuspermission"  ng-class="{'active':navCla=='menuInfo.msg'}"  ui-sref="_root.cost.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+    </ul>
+</div>

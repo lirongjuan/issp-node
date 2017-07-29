@@ -1,0 +1,59 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span class="data-id">id</span>
+            <span>项目名称</span>
+            <span>付款形式</span>
+            <span>汇款内容</span>
+            <span>发票形式 </span>
+            <span>税金</span>
+            <span>服务费用</span>
+            <span>提成</span>
+            <span>招待费</span>
+             <span></span>
+        </li>
+        <li class="list-all">
+            <section>
+                <div  class="list-text" ng-click="selectList(list)">
+                    <p mod>{{$index+1}}</p>
+                    <p class="data-id"></p>
+                    <p mod>{{::list.projectName}}</p>
+                    <p mod>{{::list.paymentForm | cover}}</p>
+                    <p mod>{{::list.remitContent | cover}}</p>
+                    <p mod>{{::list.invoiceForm | cover}}</p>
+                    <p mod>{{::list.taxes}}</p>
+                    <p mod>{{::list.serviceCharge}}</p>
+                    <p mod>{{::list.royalties}}</p>
+                    <p mod>{{::list.serveCharge}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList()">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{isShow?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>需求费用</span>
+                                <span>其它</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.demandCharge}}</span>
+                                <span mod>{{::list.other}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+    </footer>
+</div>

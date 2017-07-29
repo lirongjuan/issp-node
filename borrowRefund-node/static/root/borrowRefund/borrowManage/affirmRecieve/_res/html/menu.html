@@ -1,0 +1,8 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idList}" ng-show="PAY" ng-init="menuCheck('PAY')">
+        <a href="javascript:void(0)"  class="same-one see" >付款</a>
+    </li>
+</ul>

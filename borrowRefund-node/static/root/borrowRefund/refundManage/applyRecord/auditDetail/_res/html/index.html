@@ -1,0 +1,90 @@
+<div class="collect">
+    <ul class="sum-list">
+            <li class="table_list">
+                <span> 报销发生日期</span>
+                <span> 报销人</span>
+                <span> 负责人</span>
+                <span>参与人</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span>{{::data.occureDate}}</span>
+                <span>{{::data.reimer}}</span>
+                <span>{{::data.charger}}</span>
+                <span>{{::data.attender}}</span>
+            </li>
+            <li class="table_list">
+                <span> 地区</span>
+                <span> 项目组</span>
+                <span> 项目名称 </span>
+                <span>单据数量</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span>{{::data.area}}</span>
+                <span>{{::data.projectGroup}}</span>
+                <span>{{::data.project}}</span>
+                <span>{{::data.ticketQuantity}}</span>
+            </li>
+            <li class="table_list">
+                <span> 一级科目</span>
+                <span> 二级科目</span>
+                <span> 三级科目</span>
+                <span>报销当天任务</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span>{{::data.firstSubject}}</span>
+                <span>{{::data.secondSubject}}</span>
+                <span>{{::data.thirdSubject}}</span>
+                <span>{{::data.money}}</span>
+            </li>
+            <li class="table_list">
+                <span>补充内容</span>
+                <span>金额</span>
+                <span>报销人备注</span>
+                <span> 摘要</span>
+            </li>
+            <li class="sum-tbody table-tbody">
+                <span>{{::data.addContent}}</span>
+                <span>{{::data.reimMoney}}</span>
+                <span>{{::data.reimerRemark}}</span>
+                <span>{{::data.summary}}</span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead"> 说明</span>
+                <span class="col-tbody">{{::data.plainInfo}}</span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead">是否有发票</span>
+                <span class="col-tbody">{{::data.ticketCondition}}</span>
+            </li>
+            <li class="span-col">
+                <span class="col-thead">无发票情况</span>
+                <span class="col-tbody">{{::data.noTicketRemark}}</span>
+            </li>
+        </ul>
+</div>
+<div class="content-tab list">
+<ul class="table com-table">
+            <li class="list-head">
+                <span></span>
+                <span class="data-id">id</span>
+                <span>职位名称</span>
+                <span>审核人</span>
+                <span>审核意见</span>
+                <span>审核时间</span>
+                <span>是否通过</span>
+            </li>
+            <li class="list-all"  ng-repeat="list in detailList">
+                <section>
+                    <div class="list-text">
+                        <p>{{$index+1}}</p>
+                        <p class="data-id"></p>
+                        <p>{{::list.position}}</p>
+                        <p>{{::list.userName}}</p>
+                        <p>{{::list.content}}</p>
+                        <p>{{::list.auditTime}}</p>
+                        <p>{{::list.auditStatus}}</p>
+                    </div>
+                </section>
+            </li>
+     </ul>
+</div>

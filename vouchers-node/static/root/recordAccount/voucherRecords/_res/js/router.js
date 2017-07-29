@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"voucherRecordsMenuCtrl"
             }
         }
+    }).state("root.recordAccount.voucherRecords.list[12]",{
+        url:"/list[12]?page=",
+        views:{
+            "content@root.recordAccount.voucherRecords":{
+                templateUrl : "root/recordAccount/voucherRecords/list/_res/html/index.html",
+                controller:'voucherRecordsListCtrl'
+            }
+        }
     }).state("root.recordAccount.voucherRecords.subjectsSummary[12]",{
         url:"/subjectsSummary[12]",
         views:{
@@ -41,6 +49,30 @@ app.config(function($provide, $stateProvider){
             "content@root.recordAccount.voucherRecords":{
                 templateUrl : "root/recordAccount/voucherRecords/projectSummary/_res/html/index.html",
                 controller:'projectNameSummaryCtrl'
+            }
+        }
+    }).state("root.recordAccount.voucherRecords.upload[12]",{
+        url:"/upload[12]?id=&page=",
+        views:{
+            "content@root.recordAccount.voucherRecords":{
+                templateUrl : "root/recordAccount/voucherRecords/upload/_res/html/index.html",
+                controller:'recordsUploadCtrl'
+            }
+        }
+    }).state("root.recordAccount.voucherRecords.view[12]",{
+        url:"/view[12]?id=&view=&page=",
+        views:{
+            "content@root.recordAccount.voucherRecords":{
+                templateUrl : "root/recordAccount/voucherRecords/view/_res/html/index.html",
+                controller:'recordsViewCtrl'
+            }
+        }
+    }).state("root.recordAccount.voucherRecords.export[12]",{
+        url:"/export[12]",
+        views:{
+            "content@root.recordAccount.voucherRecords":{
+                templateUrl : "root/recordAccount/voucherRecords/export/_res/html/index.html",
+                controller:'exportCtrl'
             }
         }
     })

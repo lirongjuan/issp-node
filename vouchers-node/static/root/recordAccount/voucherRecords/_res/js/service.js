@@ -1,6 +1,7 @@
 var app = angular.module('voucherRecordsServer',[]);
 app.factory('voucherRecordsSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         listVoucherRecords : listVoucherRecords,
         countVoucherRecords:countVoucherRecords,
         subjectSummary:subjectSummary,
@@ -12,9 +13,14 @@ app.factory('voucherRecordsSer',function ($http) {
         teamSummary:teamSummary,
         getTeam:getTeam,
         projectSummary:projectSummary,
-        getProject:getProject
+        getProject:getProject,
+        viewFiles:viewFiles
 
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/vouchergenerate/guidePermission/'+data);
+    }
     //列表
     function listVoucherRecords(data) {
         return $http.get('/vouchergenerate/listRecord',{
@@ -66,5 +72,8 @@ app.factory('voucherRecordsSer',function ($http) {
     function getProject(){
         return $http.get('/vouchergenerate/listProject')
     }
-
+    //附件列表
+    function viewFiles(data){
+        return $http.get('/vouchergenerate/listFile',{params:data})
+    }
 });

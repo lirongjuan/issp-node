@@ -35,5 +35,13 @@ app.config(function($provide, $stateProvider){
                 controller:'collectSummaryCtrl'
             }
         }
+    }).state("root.budget.proWeek.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.budget.proWeek":{
+                templateUrl : "root/budget/proWeek/list/_res/html/index.html",
+                controller:'proWeekListCtrl'
+            }
+        }
     })
 });

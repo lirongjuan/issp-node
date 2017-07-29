@@ -4,35 +4,43 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>合同外部项目名称</em></label>
+                    <div class="sele side">
                     <select class="sele"  ng-model="editInfo.outerName">
                         <option value="" disabled>请选择</option>
                         <option ng-repeat="pros in proData">{{pros.outerName}}</option>
                     </select>
                     <input type="text"  class="inputDom" ng-verify="{}" ng-model="editInfo.outerName">
+                        </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>内部项目名称</em></label>
+                    <div class="sele side">
                     <select class="sele" ng-model="editInfo.innerName">
                         <option value="" disabled>请选择</option>
                         <option ng-repeat="pros in proData">{{pros.innerName}}</option>
                     </select>
                     <input type="text"  class="inputDom" ng-verify="{}" ng-model="editInfo.innerName">
+                        </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>立项情况</em></label>
+                    <div class="sele side">
                     <select class="sele"  ng-model="editInfo.signProject">
                         <option value="" disabled>请选择</option>
                         <option ng-repeat="pros in proData">{{pros.signProject}}</option>
                     </select>
                     <input type="text"  class="inputDom" ng-verify="{}" ng-model="editInfo.signProject">
+                        </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工单编号</em></label>
+                    <div class="sele side">
                     <select class="sele" ng-model="editInfo.depatchNum">
                         <option value="" disabled>请选择</option>
                         <option ng-repeat="pros in proData">{{pros.depatchNum}}</option>
                     </select>
                     <input type="text"  class="inputDom" ng-verify="{}" ng-model="editInfo.depatchNum">
+                        </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
@@ -40,19 +48,23 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
+                    <div class="sele side">
                     <select class="sele"  ng-model="editInfo.businessType">
                         <option value="" disabled>请选择</option>
                         <option ng-repeat="pros in proData">{{pros.businessType}}</option>
                     </select>
                     <input type="text" class="inputDom" ng-verify="{}" ng-model="editInfo.businessType">
+                        </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务方向科目</em></label>
+                    <div class="sele side">
                     <select class="sele" ng-model="editInfo.businessSubject">
                         <option value="" disabled>请选择</option>
                         <option ng-repeat="pros in proData">{{pros.businessType}}</option>
                     </select>
                     <input type="text" class="inputDom"   ng-verify="{}" ng-model="editInfo.businessSubject">
+                        </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>是否初验</em></label>

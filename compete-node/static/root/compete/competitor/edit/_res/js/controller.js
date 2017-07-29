@@ -13,46 +13,11 @@ app.controller('companyEditCtrl', function($scope,competitorSer,$state,toastr,$s
         var data = vm.data
         competitorSer.putcompetitorEdit(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.compete.competitor.list');
+                $state.go('root.compete.competitor.list[12]');
                 toastr.success('温馨提示',"此次编辑成功");
             }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
         })
     }
-});
-    //自定义过滤器
-app.filter('coverEdit', function(){
-    return function(val){
-        var result;
-        switch(val){
-            case "COMMUNICATE":
-                result = "通信类";
-                break;
-            case "SOFTWARE":
-                result = "软件类";
-                break;
-            case "MARKETINGPLAN":
-                result = "营销策划类";
-                break;
-            case "INTELLIGENTIZE":
-                result = "智能化类";
-                break;
-            case "ELECTRONICCOMMERCE":
-                result = "电子商务类";
-                break;
-            case "REALTY":
-                result = "房地产类";
-                break;
-            case "FINANCIAL":
-                result = "理财类";
-                break;
-            case "FOOD":
-                result = "食品类";
-                break;
-        }
-        return result;
-    }
-
-
 });

@@ -4,51 +4,62 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                    <select class="sele" ng-model="outsourcing.area" ng-init="outsourcing.area='广州'">
-                        <option value="广州">广州</option>
-                        <option value="北京">北京</option>
-                        <option value="深圳">深圳</option>
-                        <option value="佛山">佛山</option>
-                        <option value="江门">江门</option>
-                        <option value="湛江">湛江</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="outsourcing.area" ng-init="outsourcing.area='广州'">
+                    <div class="sele side">
+                        <select class="sele" ng-model="outsourcing.area">
+                            <option value="">请选择</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="outsourcing.area">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
-                    <select class="sele" ng-model="outsourcing.projectGroup" ng-init="outsourcing.projectGroup='项目组1'">
-                        <option value="项目组1">项目组1</option>
-                        <option value="项目组2">项目组2</option>
-                        <option value="项目组3">项目组3</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="outsourcing.projectGroup" ng-init="outsourcing.projectGroup='项目组1'">
+                    <div class="sele side">
+                        <select class="sele" ng-model="outsourcing.projectGroup">
+                            <option value="">请选择</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="outsourcing.projectGroup">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
-                    <select class="sele" ng-model="outsourcing.project" ng-init="outsourcing.project='系统'">
-                        <option value="系统">系统</option>
-                        <option value="通信">通信</option>
-                        <option value="社群联盟">社群联盟</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="outsourcing.project" ng-init="outsourcing.project='系统'">
+                    <div class="sele side">
+                        <select class="sele" ng-model="outsourcing.project">
+                            <option value="">请选择</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="outsourcing.project">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>类型</em></label>
-                    <select class="sele" ng-model="outsourcing.type" ng-init="outsourcing.type='项目上'">
-                        <option value="项目上">项目上</option>
-                        <option value="项目外">项目外</option>
-                    </select>
-                    <input type="text"  class="inputDom" ng-verify="{}" ng-model="outsourcing.type" ng-init="outsourcing.type='项目上'">
+                    <div class="sele side">
+                        <select class="sele" ng-model="outsourcing.type">
+                            <option value="">请选择</option>
+                            <option value="项目上">项目上</option>
+                            <option value="项目外">项目外</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="outsourcing.type" ng-init="outsourcing.type='请选择'">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>年份</em></label>
-                    <select class="sele" ng-model="outsourcing.year" ng-init="outsourcing.year='2017'">
+                    <select class="sele" ng-model="outsourcing.year" ng-verify="option:0">
+                        <option value="">请选择</option>
                         <option ng-repeat="year in outsourcingYear" value="{{year}}">{{year}}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>月份</em></label>
-                    <select class="sele" ng-model="outsourcing.month" ng-init="outsourcing.month='5'">
+                    <select class="sele" ng-model="outsourcing.month" ng-verify="option:0">
+                        <option value="">请选择</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

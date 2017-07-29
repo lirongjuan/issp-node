@@ -6,6 +6,7 @@ app.controller('commonEditCtrl', function ($scope, assetsSer, $state, toastr, $s
     assetsSer.getOneById1(companyId).then(function (response) {
         if (response.data.code == 0) {
             $scope.data = response.data.data;
+            $scope.data.firstSubjectName = $scope.data.firstSubjectVO.name
             var firstData = {
                 categoryName: 'COMMON'
             }

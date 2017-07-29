@@ -62,7 +62,6 @@ module.exports = function(){
         var $self = this;
         var addData = $self.request.body;
         addData.userToken = $self.cookies.get('token');
-
         yield (server().signAdd(addData)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);

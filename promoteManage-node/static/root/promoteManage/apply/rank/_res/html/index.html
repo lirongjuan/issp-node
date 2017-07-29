@@ -1,0 +1,31 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>管理等级</span>
+            <span>等级</span>
+            <span>级别</span>
+            <span>姓名</span>
+            <span>晋升标准达标数</span>
+            <span>排名</span>
+        </li>
+        <li class="list-all" ng-repeat="lists in getRank">
+            <section>
+                <div class="list-text">
+                    <p></p>
+                    <p>{{::lists.currentLevel}}</p>
+                    <p>{{::lists.skillLevel}}</p>
+                    <p>{{::lists.grade}}</p>
+                    <p>{{::lists.name}}</p>
+                    <p>{{::lists.promotionCriteria}}</p>
+                    <p>{{::lists.rank}}</p>
+                </div>
+            </section>
+        </li>
+    </ul>
+    </div>
+</div>
+
+
+
+

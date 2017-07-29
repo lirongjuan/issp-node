@@ -1,0 +1,117 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>体系</span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>岗位</span>
+            <span>姓名</span>
+            <span>员工编号</span>
+            <span>分类</span>
+            <span>管理方向</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in applyLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.system}}</p>
+                    <p mod>{{::lists.area}}</p>
+                    <p mod>{{::lists.projectGroup}}</p>
+                    <p mod>{{::lists.job}}</p>
+                    <p mod>{{::lists.name}}</p>
+                    <p mod>{{::lists.employeeId}}</p>
+                    <p mod>{{::lists.classification}}</p>
+                    <p mod>{{::lists.direction}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>技能等级</span>
+                                <span>申请晋升时间</span>
+                                <span>在我司工龄</span>
+                                <span>转正时间</span>
+                                <span>当前管理等级</span>
+                                <span>在管理岗位时间</span>
+                                <span>已晋升时间</span>
+                                <span>距上次晋升时长</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.skillLevel}}</span>
+                                <span mod>{{::lists.applyDate}}</span>
+                                <span mod>{{::lists.workAge}}</span>
+                                <span mod>{{::lists.positiveDate}}</span>
+                                <span mod>{{::lists.currentLevel}}</span>
+                                <span mod>{{::lists.inManageTime}}</span>
+                                <span mod>{{::lists.promotionNum}}</span>
+                                <span mod>{{::lists.lastPromotionTime}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>本次晋升等级</span>
+                                <span>是否符合晋升条件</span>
+                                <span>晋升标准达标数</span>
+                                <span>本次晋升等级获得时间</span>
+                                <span>项目经理审核意见</span>
+                                <span>综合资源部规划模块审核意见</span>
+                                <span>运营商务部预算模块审核意见</span>
+                                <span>模块负责人审核意见</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.promotionLevel}}</span>
+                                <span mod>{{::lists.isConform | cov}}</span>
+                                <span mod>{{::lists.promotionCriteria}}</span>
+                                <span mod>{{::lists.promotionTakeTime}}</span>
+                                <span mod>{{::lists.projectManagerOpinion}}</span>
+                                <span mod>{{::lists.resourceDepartmentOpinion}}</span>
+                                <span mod>{{::lists.commerceDepartmentOpinion}}</span>
+                                <span mod>{{::lists.modulerOpinion}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>总经办审核意见</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.managerOpinion | cov}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

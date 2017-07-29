@@ -20,11 +20,19 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.payment.contractor.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.payment.contractor":{
                 templateUrl : "root/payment/contractor/edit/_res/html/index.html",
                 controller:'contractorEditCtrl'
+            }
+        }
+    }).state("root.payment.contractor.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.payment.contractor":{
+                templateUrl : "root/payment/contractor/list/_res/html/index.html",
+                controller:'contractorListCtrl'
             }
         }
     })

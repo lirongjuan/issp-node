@@ -1,0 +1,27 @@
+<div class="collect ">
+    <div class="sum-select">
+        <label><i><img src="/images/mandatory.png"></i><em>公司名称</em></label>
+        <div class="select">
+        <p class="select-text" >
+        <span ng-repeat="name in firstCompany">{{name}}, </span>
+       </p>
+        <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="firstCompany" extra-settings="stringSettings"></div>
+       </div>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>公司</span>
+            <span>所属月份</span>
+            <span>税种</span>
+            <span>税率</span>
+            <span>税金</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="list in summaryLists" style="background-color:{{list.company=='合计'?'yellow':''}};">
+            <span>{{::list.company}}</span>
+            <span>{{::list.month}}</span>
+            <span>{{::list.taxType}}</span>
+            <span>{{::list.rate}}</span>
+            <span>{{::list.tax}}</span>
+        </li>
+    </ul>
+</div>

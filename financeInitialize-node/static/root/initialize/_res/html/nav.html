@@ -1,26 +1,22 @@
-<div class="nav-list">
-    <h3 class="header-menu big"><i class="nav-arrow"></i>设置</h3>
-    <ul class="menu">
-        <li ng-click="navClass('currency')" ng-class="{'active':navCla=='currency'}"  ui-sref="_root.initialize.setting.currency.list"><a href="javascript:void(0)">币别设置</a></li>
-        <li ng-click="navClass('firstsubject')" ng-class="{'active':navCla=='firstsubject'}"  ui-sref="_root.initialize.setting.firstsubject.list"><a href="javascript:void(0)">一级科目设置</a></li>
-    </ul>
-</div>  
-<div class="nav-list">
-        <h3 class="header-menu big"><i class="nav-arrow"></i>财务初始化</h3>
-        <ul class="menu">
-            <li ng-click="navClass('assets')" ng-class="{'active':navCla=='assets'}"  ui-sref="_root.initialize.sort.assets.list"><a href="javascript:void(0)">资产类
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass('currency')" ng-show="currency" ng-class="{'active':navCla=='currency'}"  ui-sref="_root.initialize.setting.currency.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('firstsubject')" ng-show="firstsubject" ng-class="{'active':navCla=='firstsubject'}"  ui-sref="_root.initialize.setting.firstsubject.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
+        <li ng-click="navClass('assets')" ng-show="category" ng-class="{'active':navCla=='assets'}"  ui-sref="_root.initialize.sort.assets.list"><a href="javascript:void(0)">{{menuInfo.name3}}
         </a></li>
-            <li ng-click="navClass('liabilities')" ng-class="{'active':navCla=='liabilities'}"  ui-sref="_root.initialize.sort.liabilities.list"><a href="javascript:void(0)">负债类
+            <li ng-click="navClass('liabilities')" ng-show="category" ng-class="{'active':navCla=='liabilities'}"  ui-sref="_root.initialize.sort.liabilities.list"><a href="javascript:void(0)">{{menuInfo.name4}}
         </a></li>
-            <li ng-click="navClass('common')" ng-class="{'active':navCla=='common'}"  ui-sref="_root.initialize.sort.common.list"><a href="javascript:void(0)">共同类
+            <li ng-click="navClass('common')" ng-show="category" ng-class="{'active':navCla=='common'}"  ui-sref="_root.initialize.sort.common.list[12]"><a href="javascript:void(0)">{{menuInfo.name5}}
         </a></li>
-            <li ng-click="navClass('rightsinterests')" ng-class="{'active':navCla=='rightsinterests'}"  ui-sref="_root.initialize.sort.rightsinterests.list"><a href="javascript:void(0)">权益类
+            <li ng-click="navClass('rightsinterests')" ng-show="category" ng-class="{'active':navCla=='rightsinterests'}"  ui-sref="_root.initialize.sort.rightsinterests.list"><a href="javascript:void(0)">{{menuInfo.name6}}
         </a></li> 
-            <li ng-click="navClass('cost')" ng-class="{'active':navCla=='cost'}"  ui-sref="_root.initialize.sort.cost.list"><a href="javascript:void(0)">成本类
+            <li ng-click="navClass('cost')" ng-show="category" ng-class="{'active':navCla=='cost'}"  ui-sref="_root.initialize.sort.cost.list"><a href="javascript:void(0)">{{menuInfo.name7}}
         </a></li>  
-            <li ng-click="navClass('profitfLoss')" ng-class="{'active':navCla=='profitfLoss'}"  ui-sref="_root.initialize.sort.profitfLoss.list"><a href="javascript:void(0)">损益类
+            <li ng-click="navClass('profitfLoss')" ng-show="category" ng-class="{'active':navCla=='profitfLoss'}"  ui-sref="_root.initialize.sort.profitfLoss.list"><a href="javascript:void(0)">{{menuInfo.name8}}
         </a></li>
-            <li ng-click="navClass('account')" ng-class="{'active':navCla=='account'}"  ui-sref="_root.initialize.sort.account.list"><a href="javascript:void(0)">账户来源
+            <li ng-click="navClass('account')" ng-show="account" ng-class="{'active':navCla=='account'}"  ui-sref="_root.initialize.sort.account.list"><a href="javascript:void(0)">{{menuInfo.name9}}
         </a></li>
+            <li ng-click="navClass('settingMore')"  ng-show="cuspermission" ng-class="{'active':navCla=='settingMore'}"  ui-sref="_root.initialize.settingMore.list[12]" ><a href="javascript:void(0)">{{menuInfo.name10}}</a></li>
         </ul>
 </div>

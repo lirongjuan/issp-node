@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"assetsMenuCtrl"
             }
         }
+    }).state("root.initialize.sort.assets.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.initialize.sort.assets":{
+                templateUrl : "root/initialize/sort/assets/list/_res/html/index.html",
+                controller:'assetsListCtrl'
+            }
+        }
     }).state("root.initialize.sort.assets.add[12]",{
         url:"/add[12]",
         views:{

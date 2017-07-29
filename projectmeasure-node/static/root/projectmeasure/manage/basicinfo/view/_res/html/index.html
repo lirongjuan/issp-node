@@ -1,0 +1,67 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span class="data-id">id</span>
+            <span>项目名称</span>
+            <span>工作量</span>
+            <span>项目开展成本</span>
+            <span>金额</span>
+            <span>合作方式</span>
+            <span>地区</span>
+            <span>起始时间</span>
+            <span>经历时间</span>
+            <span></span>
+        </li>
+        <li class="list-all">
+            <section >
+                <div  class="list-text">
+                    <p mod>{{$index+1}}</p>
+                    <p class="data-id"></p>
+                    <p mod>{{::list.projectName}}</p>
+                    <p mod>{{::list.workload}}</p>
+                    <p mod>{{::list.projectLaunchCost}}</p>
+                    <p mod>{{::list.amount}}</p>
+                    <p mod>{{::list.cooperationType | cover}}</p>
+                    <p mod>{{::list.area}}</p>
+                    <p mod>{{::list.startTime}}</p>
+                    <p mod>{{::list.duration}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList()">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{isShow?'block':'none'}}">
+                        <li>
+                            <p class="see-parent">
+                                <span>人工</span>
+                                <span>人员数量</span>
+                                <span>设备费用</span>
+                                <span>车辆费用</span>
+                                <span>配置费用</span>
+                                <span>其它费用</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.labour}}</span>
+                                <span mod>{{::list.numberOfStaff}}</span>
+                                <span mod>{{::list.deviceCharge}}</span>
+                                <span mod>{{::list.vehicleCharge}}</span>
+                                <span mod>{{::list.configCharge}}</span>
+                                <span mod>{{::list.otherCharge}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+    </footer>
+</div>

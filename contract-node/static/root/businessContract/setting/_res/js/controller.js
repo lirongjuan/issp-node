@@ -36,7 +36,6 @@ app.controller('settingCtrl',function ($scope,$state) {
             $state.go('root.businessContract.setting.edit[12]',{id:$scope.editId,page:$scope.page});
             $scope.menuClass = 'editMenu'
         }
-
     }
 });
 

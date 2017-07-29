@@ -6,7 +6,7 @@ app.controller('companyAddCtrl', function($scope, competitorSer,$state,toastr,$l
         var vm =this;
         competitorSer.addCompanyAbility(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.compete.competitor.list');
+                $state.go('root.compete.competitor.list[12]');
                 toastr.success( "已成功添加", '温馨提示');
             }else{
                 toastr.error( response.data.msg, '温馨提示');

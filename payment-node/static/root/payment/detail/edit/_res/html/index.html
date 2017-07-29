@@ -11,17 +11,21 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele side">
                     <select class="sele" ng-model="editInfo.area">
                         <option value="" disabled>请选择</option>
                     </select>
                     <input type="text"  ng-verify="{}" class="inputDom" ng-model="editInfo.area">
+                        </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>项目内部名称</em></label>
+                    <div class="sele side">
                     <select class="sele" ng-model="editInfo.innerName">
                         <option value="" disabled>请选择</option>
                     </select>
                     <input type="text"  ng-verify="{}" class="inputDom" ng-model="editInfo.innerName">
+                        </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>派工单价</em></label>
@@ -95,27 +99,7 @@
                     <label><i><img src="/images/mandatory.png"></i><em>验收交维时间</em></label>
                     <input type="text"  ng-model="editInfo.checkTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image checkTime" >
                 </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>签字审批时间</em></label>
-                    <input type="text"  ng-model="editInfo.auditTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image auditTime" >
-                </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>结算审批时间</em></label>
-                    <input type="text"  ng-model="editInfo.countTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image countTime" >
-                </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>发票审核时间</em></label>
-                    <input type="text" ng-model="editInfo.billTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image billTime" >
-                </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>预计支付时间</em></label>
-                    <input type="text" ng-model="editInfo.planTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image planTime" >
-                </li>
-                <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>到账时间</em></label>
-                    <input type="text" ng-model="editInfo.accountTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image accountTime" >
-                </li>
-                <li>
+               <li>
                     <label><em>派工单编号</em></label>
                     <input type="text"  ng-model="editInfo.taskNum">
                 </li>

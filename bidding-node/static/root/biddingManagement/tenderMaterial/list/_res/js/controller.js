@@ -81,13 +81,6 @@ app.controller('MaterialListCtrl',function($scope,MaterialSer,toastr,$stateParam
         });
         event._moreList = !event._moreList;
     };
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.materialLists,function(obj){
-            if(obj.id == delid){
-                obj._delete = delid
-            }
-        })
-    });
 
 //分页
     $scope.custom = {

@@ -22,20 +22,22 @@ app.controller('socialPAddCtrl', function($scope, selfcapSer,$state,toastr,$stat
             natives: vm.peditInfo.natives2,
             hobby: vm.peditInfo.hobby2,
             charact: vm.peditInfo.charact2,
-            family: vm.peditInfo.family2,
             familyRelation: vm.peditInfo.familyRelation2,
             studyExperience: vm.peditInfo.studyExperience2,
             connectExperience: vm.peditInfo.connectExperience2,
             oldWorkPlace: vm.peditInfo.oldWorkPlace2,
             livePlace: vm.peditInfo.livePlace2,
             growthPlace: vm.peditInfo.growthPlace2,
-            createTime: vm.peditInfo.createTime2,
-            modifyTime: vm.peditInfo.modifyTime2,
+            organization: vm.peditInfo.organization,
+            nowWorkPlace: vm.peditInfo.nowWorkPlace,
+            nowCompany: vm.peditInfo.nowCompany,
+            station: vm.peditInfo.station,
+            duty: vm.peditInfo.duty,
         };
         selfcapSer.addSocialSelf(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.ability.selfcap.list');
-                toastr.success( vm.peditInfo.contactName2+"已成功添加", '温馨提示');
+                $state.go('root.ability.selfcap.socialList[12]',{id:$stateParams.id});
+                toastr.success( "已成功添加", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');
             }

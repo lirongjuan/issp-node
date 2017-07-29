@@ -1,0 +1,113 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>客户信息编号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.customerNum">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>客户姓名</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.customerName">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.area">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>性别</em></label>
+                    <select ng-model="business.customerSex" class="sele" ng-init="business.customerSex='WOMAN'">
+                        <option value="WOMAN">女</option>
+                        <option value="MAN">男</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>客户类别</em></label>
+                    <select ng-model="business.customerType" class="sele">
+                        <option value="VIP">VIP客户</option>
+                        <option value="OLD">老客户</option>
+                        <option value="COOPERATOR">合作伙伴</option>
+                        <option value="ORDINARY">普通客户</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>客户状态</em></label>
+                    <select ng-model="business.customerStatus" class="sele">
+                        <option value="COMPLETEPROJECT">已完成项目客</option>
+                        <option value="PROJECTING">现项目客户</option>
+                        <option value="POTENTIAL">潜在客户</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>关系程度</em></label>
+                    <input type="number" ng-verify="{}" ng-model="business.relation">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>重要性级别</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.customerLevelName">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>客户来源</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.origin">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>第一介绍人姓名</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.introducer">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>邮箱</em></label>
+                    <input type="email" ng-model="business.cusEmail" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>手机</em></label>
+                    <input type="text" ng-model="business.tel" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.workPosition">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>职级</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.workLevel">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>职权</em></label>
+                    <input type="text" ng-verify="{}" ng-model="business.workRight">
+                </li>
+                <li>
+                    <label ><em>座机</em></label>
+                    <input type="text" ng-model="business.phone">
+                </li>
+                <li>
+                    <label><em>微信</em></label>
+                    <input type="text" ng-model="business.weChart">
+                </li>
+                <li>
+                    <label><em>QQ号</em></label>
+                    <input type="text" ng-model="business.qq">
+                </li>
+                <li>
+                    <label><em>是否发送邮件</em></label>
+                    <select ng-model="business.send" class="sele">
+                        <option value="">请填写是否发送邮件</option>
+                        <option value=false >否</option>
+                        <option value=true >是</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="businessAddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

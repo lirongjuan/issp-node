@@ -14,6 +14,7 @@ app.factory('costSer',function ($http) {
         collectProject:collectProject,
         collectAreaDetails:collectAreaDetails,
         listCostById2:listCostById2,
+        menuPermission:menuPermission,
     };
     function listCost(data) {
         return $http.get('/listCost/list',{params:data})
@@ -60,5 +61,9 @@ app.factory('costSer',function ($http) {
   //地区汇总详情
     function collectAreaDetails(data) {
         return $http.get('/collectAreaDetails/id',{params:data})
+    }
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/cost/guidePermission/'+data);
     }
 });

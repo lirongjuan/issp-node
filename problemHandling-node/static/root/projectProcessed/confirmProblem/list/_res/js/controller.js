@@ -44,60 +44,52 @@ app.controller('confirmListCtrl',function($scope,confirmSer,toastr,$stateParams,
             }
         });
     };
+    //获取搜索字段
+    $scope.internalProjectName = $stateParams.internalProjectName?$stateParams.internalProjectName:'';
+    $scope.projectType = $stateParams.projectType?$stateParams.projectType:'';
+    $scope.problemObject = $stateParams.problemObject?$stateParams.problemObject:'';
+    if($stateParams.internalProjectName || $stateParams.projectType || $stateParams.problemObject){
+        $scope.$emit('isId', false);
+        $scope.isView = false;
+    }else{
+        $scope.$emit('isId', true);
+    }
+    //搜索
+    $scope.collect = function(){
+        $state.go('root.projectProcessed.confirmProblem.list[12]',{internalProjectName:$scope.internalProjectName,projectType:$scope.projectType,problemObject:$scope.problemObject,page:1});
+    }
     function activatePage(page) {
         var listData = {
+            internalProjectName:$scope.internalProjectName || " ",
+            projectType:$scope.projectType || " ",
+            problemObject:$scope.problemObject || " " ,
             page:page || 1
         };
-        confirmSer.resultList(listData).then(function(response){
-            if(response.data.code==0){
+        confirmSer.searchList(listData).then(function(response){
+            if(response.data.code == 0){
                 $scope.confirmLists = response.data.data;
-                if($stateParams.id){
-                    angular.forEach($scope.confirmLists,function(obj){
-                        if(obj.id == $stateParams.id){
-                            obj._selectList = true;
-                        }
-                    });
-                    //向父Ctrl传递事件
-                    $scope.$emit('changeId', $stateParams.id);
-                }
-            }else {
+            if($stateParams.id){
+                angular.forEach($scope.confirmLists,function(obj){
+                    if(obj.id == $stateParams.id){
+                        obj._selectList = true;
+                    }
+                });
+                //向父Ctrl传递事件
+                $scope.$emit('changeId', $stateParams.id);
+            }
+            }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
         });
-        //搜索功能
-        $scope.collect = function(){
-            $scope.custom = {
-                itemsCount: 2, //总条数
-                take: 10, //每页显示
-                activatePage: activatePage
-            };
-            var keywords = {
-                internalProjectName: $scope.internalProjectName,
-                projectType: $scope.projectType,
-                problemObject: $scope.problemObject
-            };
-            confirmSer.countResult(keywords).then(function (response) {
-                if(response.data.code==0){
-                    $scope.custom.itemsCount = response.data.data;
-                    $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
-                }else{
-                    toastr.error( response.data.msg, '温馨提示');
-                }
-            });
-            var data = {
-                internalProjectName: $scope.internalProjectName,
-                projectType: $scope.projectType,
-                problemObject: $scope.problemObject,
-                page: page
-            };
-            confirmSer.searchList(data).then(function(response){
-                if(response.data.code == 0){
-                    $scope.confirmLists = response.data.data
-                }else{
-                    toastr.error( response.data.msg, '温馨提示');
-                }
-            });
-        };
+        confirmSer.countResult(listData).then(function(response){
+            if(response.data.code==0){
+                $scope.custom.itemsCount = response.data.data;
+                $scope.num = $location.search().page*10>10?($location.search().page-1)*10:null;
+            }else {
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        })
+        // };
     }
     // 搜索功能字段
     $scope.titles = ['内部项目名称','工程类型','问题对象'];
@@ -120,13 +112,6 @@ app.controller('confirmListCtrl',function($scope,confirmSer,toastr,$stateParams,
         });
         event._moreList = !event._moreList;
     };
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.confirmLists,function(obj){
-            if(obj.id == delid){
-                obj._delete = delid
-            }
-        })
-    });
 
 //分页
     $scope.custom = {
@@ -135,14 +120,7 @@ app.controller('confirmListCtrl',function($scope,confirmSer,toastr,$stateParams,
         activatePage: activatePage
     };
 
-    confirmSer.countResult().then(function(response){
-        if(response.data.code==0){
-            $scope.custom.itemsCount = response.data.data;
-            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
-        }else {
-            toastr.error( response.data.msg, '温馨提示');
-        }
-    })
+    
 
 });
 

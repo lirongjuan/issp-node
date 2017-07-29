@@ -18,7 +18,9 @@ app.controller('emailCtrl',function ($scope,$state) {
     });
     if (window.location.href.split('id=')[1]) {//如果是刷新进来的页面，没有经过list
         $scope.idListd = window.location.href.split('id=')[1];
-        $scope.menuClass = $location.search().name + 'Menu';
+        if($location.search().name){
+            $scope.menuClass = $location.search().name + 'Menu';
+        }
 
     }
     //-----------------------------------------------------------

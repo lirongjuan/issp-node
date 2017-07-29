@@ -1,21 +1,25 @@
 <div class="nav-list" ng-repeat="list in showsList">
-    <h3 class="header-menu big" ng-click="showMenu(list,true)"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('basicinfo')" ng-class="{'active':navCla=='basicinfo'}"  ui-sref="_root.projectmeasure.manage.basicinfo.list"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
-        <li ng-click="navClass('coststatus')" ng-class="{'active':navCla=='coststatus'}"  ui-sref="_root.projectmeasure.manage.coststatus.list"><a href="javascript:void(0)">{{menuInfo.name2}}
-</a></li>
-        <li ng-click="navClass('personDemand')" ng-class="{'active':navCla=='personDemand'}"  ui-sref="_root.projectmeasure.manage.personDemand.list"><a href="javascript:void(0)">{{menuInfo.name3}}
-</a></li>
-        <li ng-click="navClass('ssui')" ng-class="{'active':navCla=='ssui'}"  ui-sref="_root.projectmeasure.interface.ssui.list"><a href="javascript:void(0)">{{menuInfo.name4}}
+        <li ng-click="navClass('basicinfo')" ng-show="projectbasicinfo" ng-class="{'active':navCla=='basicinfo'}"  ui-sref="_root.projectmeasure.manage.basicinfo.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('coststatus')" ng-show="projectcoststatus" ng-class="{'active':navCla=='coststatus'}"  ui-sref="_root.projectmeasure.manage.coststatus.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}
         </a></li>
-                <li ng-click="navClass('smui')" ng-class="{'active':navCla=='smui'}"  ui-sref="_root.projectmeasure.interface.smui.list"><a href="javascript:void(0)">{{menuInfo.name5}}
+        <li ng-click="navClass('personDemand')" ng-show="projectmeasuresummary" ng-class="{'active':navCla=='personDemand'}"  ui-sref="_root.projectmeasure.manage.personDemand.list[12]"><a href="javascript:void(0)">{{menuInfo.name3}}
         </a></li>
-                <li ng-click="navClass('msui')" ng-class="{'active':navCla=='msui'}"  ui-sref="_root.projectmeasure.interface.msui.list"><a href="javascript:void(0)">{{menuInfo.name6}}
+        <li ng-click="navClass('otherDemand')" ng-show="projectotherdemand" ng-class="{'active':navCla=='otherDemand'}"  ui-sref="_root.projectmeasure.manage.otherDemand.list[12]"><a href="javascript:void(0)">{{menuInfo.name10}}
         </a></li>
-                <li ng-click="navClass('mmui')" ng-class="{'active':navCla=='mmui'}"  ui-sref="_root.projectmeasure.interface.mmui.list"><a href="javascript:void(0)">{{menuInfo.name7}}
+        <li ng-click="navClass('ssui')" ng-show="singleprojectsingleui" ng-class="{'active':navCla=='ssui'}"  ui-sref="_root.projectmeasure.interface.ssui.list[12]"><a href="javascript:void(0)">{{menuInfo.name4}}
         </a></li>
-                <li ng-click="navClass('email')" ng-class="{'active':navCla=='email'}"  ui-sref="_root.projectmeasure.summary.email.list"><a href="javascript:void(0)">{{menuInfo.name8}}
+        <li ng-click="navClass('smui')" ng-show="singleprojectmultipleui"  ng-class="{'active':navCla=='smui'}"  ui-sref="_root.projectmeasure.interface.smui.list[12]"><a href="javascript:void(0)">{{menuInfo.name5}}
         </a></li>
-                <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.projectmeasure.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name9}}</a></li>
+        <li ng-click="navClass('msui')" ng-show="multipleprojectpingleui" ng-class="{'active':navCla=='msui'}"  ui-sref="_root.projectmeasure.interface.msui.list[12]"><a href="javascript:void(0)">{{menuInfo.name6}}
+        </a></li>
+        <li ng-click="navClass('mmui')" ng-show="multipleprojectmultipleui" ng-class="{'active':navCla=='mmui'}"  ui-sref="_root.projectmeasure.interface.mmui.list[12]"><a href="javascript:void(0)">{{menuInfo.name7}}
+        </a></li>
+        <li ng-click="navClass('email')" ng-show="projectotherdemand" ng-class="{'active':navCla=='email'}"  ui-sref="_root.projectmeasure.summary.email.list[12]"><a href="javascript:void(0)">{{menuInfo.name8}}
+        </a></li>
+        <li ng-click="navClass('output')" ng-show="outevaluateresult" ng-class="{'active':navCla=='output'}"  ui-sref="_root.projectmeasure.output.list[12]" ><a href="javascript:void(0)">{{menuInfo.name11}}</a></li>
+        <li ng-click="navClass('setting')" ng-show="cuspermission" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.projectmeasure.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name9}}</a></li>
     </ul>
-</div>           
+</div>
+</div>

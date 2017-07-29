@@ -1,24 +1,15 @@
 var app = angular.module('activityList', ['ng-pagination','toastr']);
-app.controller('activityListCtrl',function($scope,activitySer,toastr){
+app.controller('activityListCtrl',function($scope,activitySer,toastr,$stateParams){
     $scope.$emit('changeId', null);
-    $scope.selectList = function(event){
-        angular.forEach($scope.activityLists,function(obj){
-            obj._selectList = false
-        });
-        event._selectList = true;
-        //向父Ctrl传递事件
-        $scope.$emit('changeId', event.id);
-    };
-
     //分页
     $scope.pagination = {
-        itemsCount: 11,//总条数
+        itemsCount: 2,//总条数
         take: 10,        //每页显示
         activatePage: activatePage
     };
     function activatePage(page) {
         var pages = {
-            page:page
+            page:page||1
         };
         activitySer.listActivity(pages).then(function(response){
             if(response.data.code==0){
@@ -39,6 +30,7 @@ app.controller('activityListCtrl',function($scope,activitySer,toastr){
     activitySer.countActivity().then(function(response){
         if(response.data.code==0){
             $scope.pagination.itemsCount = response.data.data;
+            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
         }else{
             toastr.error(response.data.msg, '温馨提示');
         }

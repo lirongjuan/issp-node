@@ -1,0 +1,165 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
+                    <select class="sele" ng-verify="option:0"   ng-model="add.username">
+                        <option value="" disabled>请选择</option>
+                        <option ng-repeat="pros in proData">{{pros}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>身份证有效期</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.identityCardTerm">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>技能等级</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.skill">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>管理等级</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.manage">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>处罚</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.push">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>奖励</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.reward">
+                </li>
+                <li>
+                    <label ><em>劳动合同</em></label>
+                    <select class="sele"  ng-model="editInfo.contractLabor">
+                        <option value="请选择" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>培训协议</em></label>
+                    <select class="sele" ng-model="editInfo.learnerShip">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>保密协议</em></label>
+                    <select class="sele"  ng-model="editInfo.secrecyAgreement">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>竞业协议</em></label>
+                    <select class="sele"  ng-model="editInfo.protocol">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>简历</em></label>
+                    <select class="sele"  ng-model="editInfo.resume">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>照片</em></label>
+                    <select class="sele"  ng-model="editInfo.photo">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>身份证</em></label>
+                    <select class="sele" ng-model="editInfo.identityCard">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>学历证</em></label>
+                    <select class="sele"  ng-model="editInfo.education">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>银行卡</em></label>
+                    <select class="sele"  ng-model="editInfo.bankCard">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>求职登记表</em></label>
+                    <select class="sele"  ng-model="editInfo.rollCall">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>入职登记表</em></label>
+                    <select class="sele"  ng-model="editInfo.entryCall">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>面谈确认单</em></label>
+                    <select class="sele"   ng-model="editInfo.interviewConfirmation">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>转正审批表</em></label>
+                    <select class="sele" ng-model="editInfo.positiveApproval">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label ><em>资格证书</em></label>
+                    <select class="sele" ng-model="editInfo.qualification">
+                        <option value="" disabled>请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>存放路径</em></label>
+                    <input type="text" ng-model="editInfo.storage">
+                </li>
+                <li>
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="editInfo.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="detailedEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

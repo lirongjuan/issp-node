@@ -12,7 +12,7 @@ app.controller('rootCtrl', function ($scope,$rootScope,$state,ipCookie,$location
         $scope.logined=true;
     }
 
-     $scope.login = function(){
+    $scope.login = function(){
         var absurl = $location.absUrl();
         window.location.href='http://localhost/login?url='+absurl
     };

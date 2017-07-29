@@ -4,21 +4,21 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                    <select class="sele" ng-model="targetInfo.area" >
+                    <select class="sele" ng-model="targetInfo.area" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="area in areas">{{area.area}}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
-                    <select class="sele" ng-model="targetInfo.type" >
+                    <select class="sele" ng-model="targetInfo.type" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="type in types">{{type.type}}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务方向科目</em></label>
-                    <select class="sele" ng-model="targetInfo.course" >
+                    <select class="sele" ng-model="targetInfo.course" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="course in courses">{{course.course}}</option>
                     </select>

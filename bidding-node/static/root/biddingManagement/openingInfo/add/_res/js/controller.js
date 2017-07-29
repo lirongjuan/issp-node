@@ -15,15 +15,6 @@ $scope.showed=true
             }
         });
     };
-//获取地区
-    // openingSer.getCity().then(function(response){
-    //     if(response.data.code == 0){
-    //         $scope.workOptions = response.data.data;
-
-    //     }else {
-    //         toastr.error(response.data.msg,'温馨提示')
-    //     }
-    // });
     //添加
     $scope.openAddFun = function () {
         var vm = $scope;

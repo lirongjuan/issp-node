@@ -4,14 +4,14 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
-                    <select class="sele" ng-model="measured.type" >
+                    <select class="sele" ng-model="measured.type" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="type in types">{{type.type}}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务方向科目</em></label>
-                    <select class="sele" ng-model="measured.course" >
+                    <select class="sele" ng-model="measured.course" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="course in courses">{{course.course}}</option>
                     </select>

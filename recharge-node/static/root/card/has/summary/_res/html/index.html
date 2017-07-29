@@ -1,0 +1,39 @@
+<div class="collect ">
+    <section class="collect-select">
+        <ul>
+            <li>
+                <label><em>开始日期</em></label>
+                <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="startTime" class="startTime">
+            </li>
+            <li>
+                <label><em>结束日期</em></label>
+                <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" ng-model="endTime" class="endTime">
+                <button ng-click="collect()">汇总</button>
+            </li>
+        </ul>
+    </section>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>油卡编号</span>
+            <span>卡号</span>
+            <span>充值日期</span>
+            <span>充值金额</span>
+            <span>充值人</span>
+            <span>充值方式</span>
+            <span>初始余额</span>
+            <span>是否付款</span>
+            <span>充值金额总额</span>
+        </li>
+        <li class="sum-tbody"  ng-repeat="summaryList in summaryLists">
+            <span>{{summaryList.oilCardCode}}</span>
+            <span>{{summaryList.oilCardNumber}}</span>
+            <span>{{summaryList.rechargeDate}}</span>
+            <span>{{summaryList.rechargeMoney}}</span>
+            <span>{{summaryList.rechargeUser}}</span>
+            <span>{{summaryList.rechargeWay}}</span>
+            <span>{{summaryList.oilCardBalance}}</span>
+            <span>{{summaryList.pay|cover}}</span>
+            <span>{{summaryList.rechargeMoneySum}}</span>
+        </li>
+    </ul>
+</div>

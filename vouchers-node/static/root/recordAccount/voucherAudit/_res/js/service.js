@@ -1,6 +1,7 @@
 var app = angular.module('voucherAuditServer',[]);
 app.factory('auditSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         AuditList : AuditList,
         LevelOne : LevelOne,
         LevelTwo : LevelTwo,
@@ -9,9 +10,17 @@ app.factory('auditSer',function ($http) {
         findVoucherId:findVoucherId,
         countReview:countReview,
         deleteVoucher:deleteVoucher,
-        auditVoucher:auditVoucher
+        auditVoucher:auditVoucher,
+        organizeArea:organizeArea,
+        organizeDepart:organizeDepart,
+        organizeUser:organizeUser
 
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/vouchergenerate/guidePermission/'+data);
+    }
+    //列表
     function AuditList(data) {
         return $http.get('/vouchergenerate/listAudit',{
             params: data
@@ -56,5 +65,16 @@ app.factory('auditSer',function ($http) {
             params: data
         })
     }
-
+    //获取组织结构所有地区
+    function organizeArea(){
+        return $http.get('/vouchergenerate/listOrganArea')
+    }
+    //获取组织结构所有项目组和部门
+    function organizeDepart(){
+        return $http.get('/vouchergenerate/listOrganDepart')
+    }
+    //获取组织结构所有用户
+    function organizeUser(){
+        return $http.get('/vouchergenerate/listOrganUser')
+    }
 });

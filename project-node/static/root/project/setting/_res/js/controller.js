@@ -4,35 +4,42 @@ var app = angular.module('setting', [{
     ]
 }]);
 app.controller('settingCtrl',function ($scope,$state) {
-
     if ($state.current.url == '/setting') {//默认加载列表
         $state.go('root.project.setting.list[12]')
     }
-
 }).controller('settingMenuCtrl',function($scope,$state,$rootScope,$location){
     var urlName = $state.current.url.split('/')[1].split('[')[0];
     $scope.menuClass=urlName+"Menu";
     $rootScope.$on('$locationChangeSuccess', function () {//url地扯改变或者刷新
         if($location.path().split('/').slice(-1)=='list[12]'){
             $scope.menuClass = 'listMenu';
-            searchHide();
         }
     });
-
+    if (window.location.href.split('id=')[1]) {//如果是刷新进来的页面，没有经过list
+        $scope.editId = window.location.href.split('id=')[1];
+        if($location.search().name){
+            $scope.menuClass = $location.search().name + 'Menu';
+        }
+    }
     $scope.$on('listId',function(event,id){
         $scope.editId=id;
     });
-
+    $scope.$on('pageId',function(event,flag){
+        $scope.page = flag;
+    });
+    if(!$scope.page){
+        $scope.page = $location.search().page;
+    }
     $scope.list = function(){
         $state.go('root.project.setting.list[12]');
-        $scope.menuClass = 'listMenu'
+        $scope.menuClass = 'listMenu';
+        $scope.editId = '';
     };
     $scope.edit = function(){
         if($scope.editId){
-            $state.go('root.project.setting.edit[12]',{id:$scope.editId});
+            $state.go('root.project.setting.edit[12]',{id:$scope.editId,page:$scope.page});
             $scope.menuClass = 'editMenu'
         }
-
     }
 });
 

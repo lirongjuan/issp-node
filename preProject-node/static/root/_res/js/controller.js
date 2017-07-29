@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngVerify','ipCookie',
+var app = angular.module('app', ['ngVerify','ipCookie','toastr',
     'indexSerModule'
 ]);
 app.controller('rootCtrl', function ($scope,$rootScope,$state,ipCookie,rootSer,$location) {
@@ -11,7 +11,6 @@ app.controller('rootCtrl', function ($scope,$rootScope,$state,ipCookie,rootSer,$
     }else {
         $scope.logined=true;
     }
-
     $scope.login = function(){
         var absurl = $location.absUrl();
         window.location.href='http://localhost/login?url='+absurl
@@ -22,3 +21,25 @@ app.controller('rootCtrl', function ($scope,$rootScope,$state,ipCookie,rootSer,$
         location.href="http://localhost/user/logout?absurl="+abs+"&hash="+hashs;
     }
 });
+// 下拉导航的自定义指令
+app.directive('resize', function ($window) {
+    return function (scope, element) {
+        var w = angular.element($window);
+        scope.getWindowDimensions = function () {
+            return { 'h': w.height() };
+        };
+        scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {
+            scope.windowHeight = newValue.h;
+            scope.style = function () {
+                return {
+                    'height': (newValue.h - 240) + 'px',
+                };
+            };
+        }, true);
+        w.bind('resize', function () {
+            scope.$apply();
+        });
+    }
+});
+
+

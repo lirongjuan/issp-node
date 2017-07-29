@@ -1,0 +1,29 @@
+
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.rotation.conditions.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla== menuInfo.msg}" ui-sref="_root.rotation.cover.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.rotation.opinion.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.rotation.recommended.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.rotation.standard.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.rotation.statistical.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.rotation.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name7}}</a>
+        </li>
+    </ul>
+</div>

@@ -4,7 +4,7 @@ app.config(function ($ocLazyLoadProvider) {
         modules: [
             {
                 name: 'indexSerModule',
-                files: ['root/_res/js/service.js']
+                files: ['root/_res/js/service.js','root/_res/js/tool.js']
             }
         ]
     });

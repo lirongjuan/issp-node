@@ -12,11 +12,11 @@
             <section>
                 <div class="list-text {{infoLists._selectList?'selectList':''}}" ng-click="selectList(infoLists)">
                     <p mod>{{$index+1+num}}</p>
-                    <p mod>{{infoLists.area}}</p>
-                    <p mod>{{infoLists.type}}</p>
-                    <p mod>{{infoLists.course}}</p>
-                    <p mod>{{infoLists.customer_id}}</p>
-                    <p mod>{{infoLists.remark}}</p>
+                    <p mod>{{::infoLists.area}}</p>
+                    <p mod>{{::infoLists.type}}</p>
+                    <p mod>{{::infoLists.course}}</p>
+                    <p mod>{{::infoLists.customerId}}</p>
+                    <p mod>{{::infoLists.remark}}</p>
                 </div>
             </section>
         </li>

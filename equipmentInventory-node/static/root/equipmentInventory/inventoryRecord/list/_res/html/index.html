@@ -1,0 +1,77 @@
+<div class="content-tab list" verify-scope="tipStyle: 1">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>盘点时间</span>
+            <span>编号</span>
+            <span>地区</span>
+            <span>部门</span>
+            <span>物资名称</span>
+            <span>单位</span>
+            <span>单价</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in recordLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.inventoryTime}}</p>
+                    <p mod>{{::lists.stockEncoding}}</p>
+                    <p mod>{{::lists.storageArea}}</p>
+                    <p mod>{{::lists.projectGroup}}</p>
+                    <p mod>{{::lists.materialName}}</p>
+                    <p mod>{{::lists.unit}}</p>
+                    <p mod>{{::lists.unitPrice}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>购买时间</span>
+                                <span>保修期</span>
+                                <span>账面数</span>
+                                <span>盘点数</span>
+                                <span>盈亏数</span>
+                                <span>盈亏合计</span>
+                                <span>差异说明</span>
+                                <span>责任人</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.purchaseDate}}</span>
+                                <span mod>{{::lists.warrantyExpire}}</span>
+                                <span mod>{{::lists.quantity}}</span>
+                                <span mod>{{::lists.inventoryNum}}</span>
+                                <span mod>{{::lists.profitLoss}}</span>
+                                <span mod>{{::lists.profitLossCount}}</span>
+                                <span mod>{{::lists.differThat}}</span>
+                                <span mod>{{::lists.responsible}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>使用状态</span>
+                                <span>盘点人</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.state}}</span>
+                                <span mod>{{::lists.inventoryMan}}</span>
+                                <span mod>{{::lists.note}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+
+
+
+

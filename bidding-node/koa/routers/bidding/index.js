@@ -225,7 +225,8 @@ module.exports = function(){
             }));
     }).get('/biddinginfo/count', function*(){//获取招标信息总条数
         var $self = this;
-        var countToken = {userToken:$self.cookies.get('token')};
+        var countToken = $self.request.query;
+        countToken.userToken = $self.cookies.get('token');
         yield (server().getInfoTotal(countToken)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
@@ -711,7 +712,8 @@ module.exports = function(){
             }));
     }).get('/bidopeninginfo/count', function*(){//获取开标信息总条数
         var $self = this;
-        var countToken = {userToken:$self.cookies.get('token')};
+        var countToken = $self.request.query;
+        countToken.userToken = $self.cookies.get('token');
         yield (server().getOpeningInfoTotal(countToken)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);

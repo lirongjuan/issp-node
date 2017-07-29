@@ -1,14 +1,14 @@
 <ul class="list width-10">
-    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list">
-        <a href="javascript:void(0)" class="lis">列表<span>Tabulate</span></a>
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
     </li>
-    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu'}" style="width: 15%">
-        <a href="javascript:void(0)"  class="same-one">记账凭证编辑拆分<span>Edit</span></a>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" style="width: 15%" ng-show="SPLIT" ng-init="menuCheck('SPLIT')">
+        <a href="javascript:void(0)"  class="same-one see">记账凭证编辑拆分</a>
     </li>
-    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu'}">
-        <a href="javascript:void(0)" class="same-two" >删除<span>Delete</span></a>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
     </li>
-    <li ng-click="review()" ng-class="{'current':menuClass=='reviewMenu'}">
-        <a href="javascript:void(0)" class="same-three" >审核<span>Review</span></a>
+    <li ng-click="review()" ng-class="{'current':menuClass=='reviewMenu','seeParent':idListd}" ng-show="AUDIT" ng-init="menuCheck('AUDIT')">
+        <a href="javascript:void(0)" class="same-three see">审核</a>
     </li>
 </ul>

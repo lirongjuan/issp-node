@@ -3,9 +3,9 @@
         <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
         <div class="select">
             <p class="select-text" >
-                <span ng-repeat="area in areas">{{area}}, </span>
+                <span ng-repeat="area in arrivals">{{area}}, </span>
             </p>
-            <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="areas" extra-settings="stringSettings"></div>
+            <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="arrivals" extra-settings="stringSettings"></div>
         </div>
         </div>
     <ul class="sum-list">

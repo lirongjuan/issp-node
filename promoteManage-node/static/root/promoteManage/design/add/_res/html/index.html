@@ -1,0 +1,28 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>分类</em></label>
+                    <input type="text" ng-model="design.classification" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>管理方向</em></label>
+                    <input type="text" ng-model="design.direction" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>技能等级</em></label>
+                    <input type="text" ng-model="design.skillLevel" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>档次</em></label>
+                    <input type="text" ng-model="design.grade" ng-verify>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="designAddFun()">提交</button>
+    </p>
+</div>

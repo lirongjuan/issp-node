@@ -1,0 +1,37 @@
+<div class="collect">
+    <div class="summary-select">
+        <div class="select3">
+            <label>项目组</label>
+            <select class="sele"  ng-model="data.projectGroup">
+                <option value="">请选择</option>
+                <option ng-repeat="list in peoples" value="{{list}}">{{ list }}</option>
+            </select>
+            <input type="text"  class="cInput" ng-model="data.projectGroup">
+        </div>
+        <button class="button" ng-click="collect()">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>项目组</span>
+            <span ng-show="data.projectGroup">地区</span>
+            <span ng-show="data.projectGroup">项目组</span>
+            <span ng-show="data.projectGroup">借款人</span>
+            <span ng-show="data.projectGroup">一级科目</span>
+            <span ng-show="data.projectGroup">二级科目</span>
+            <span ng-show="data.projectGroup">三级科目</span>
+            <span ng-show="data.projectGroup">是否付款</span>
+            <span>金额</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="Lists in summaryLists">
+            <span>{{::Lists.projectGroup}}</span>
+            <span ng-show="data.projectGroup">{{::Lists.area}}</span>
+            <span ng-show="data.projectGroup">{{::Lists.lender}}</span>
+            <span ng-show="data.projectGroup">{{::Lists.projectName}}</span>
+            <span ng-show="data.projectGroup">{{::Lists.firstSubject}}</span>
+            <span ng-show="data.projectGroup">{{::Lists.secondSubject}}</span>
+            <span ng-show="data.projectGroup">{{::Lists.thirdSubject}}</span>
+            <span ng-show="data.projectGroup">{{::Lists.payCondition}}</span>
+            <span>{{::Lists.money}}</span>
+        </li>
+    </ul>
+</div>

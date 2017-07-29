@@ -13,7 +13,7 @@ app.controller('implementationEditCtrl', function($scope, implementationSer,$sta
         var vm = $scope;
         implementationSer.editImplementationProject(vm.editInfo).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.project.implementation.list');
+                $state.go('root.project.implementation.list[12]');
                 toastr.success( "已成功编辑", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');

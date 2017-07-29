@@ -33,7 +33,6 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr,$stateParams,
                 }else{
                     $state.go('root.biddingManagement.openingInfo.list[12]',{id:null,name:null,page:$stateParams.page-1});
                 }
-                // $state.go('root.biddingManagement.openingInfo.list[12]',{id:null,name:null});
             }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
@@ -43,32 +42,37 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr,$stateParams,
     $scope.$on('iSsearch',function(event,newIs){
         $scope.isView = newIs;
     });
+    //获取搜索字段
+    $scope.competitive = $stateParams.competitive?$stateParams.competitive:'';
+    if($stateParams.competitive){
+        $scope.$emit('isId', false);
+        $scope.isView = false;
+    }else{
+        $scope.$emit('isId', true);
+    }
+    //搜索
+    $scope.collect = function(){
+        $state.go('root.biddingManagement.openingInfo.list[12]',{competitive:$scope.competitive});
+
+    }
     function activatePage(page) {
         var listData = {
+            competitive:$scope.competitive || " ",
             page:page || 1
         };
-        openingSer.bidOpeningList(listData).then(function(response){
+        openingSer.countBidOpening(listData).then(function(response){
             if(response.data.code==0){
-                $scope.openLists = response.data.data
+                $scope.custom.itemsCount = response.data.data;
+                $scope.num = $stateParams.search().page*10>10?($stateParams.search().page-1)*10:null;
             }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
-        });
-        //搜索功能
-        $scope.collect = function(){
-            $scope.custom = {
-                itemsCount: 2, //总条数
-                take: 10, //每页显示
-                activatePage: activatePage
-            };
-            var keywords = {
-                competitive: $scope.competitive
-            };
-            openingSer.countBidOpening(keywords).then(function (response) {
-                if(response.data.code==0){
-                    $scope.custom.itemsCount = response.data.data;
-                    if($stateParams.id){
-                    angular.forEach($scope.itemsCount,function(obj){
+        })
+        openingSer.bidOpeningList(listData).then(function(response){
+            if(response.data.code == 0){
+                $scope.openLists = response.data.data;
+                if($stateParams.id){
+                    angular.forEach($scope.openLists,function(obj){
                         if(obj.id == $stateParams.id){
                             obj._selectList = true;
                         }
@@ -76,23 +80,10 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr,$stateParams,
                     //向父Ctrl传递事件
                     $scope.$emit('changeId', $stateParams.id);
                 }
-
-                }else{
-                    toastr.error( response.data.msg, '温馨提示');
-                }
-            });
-            var data = {
-                competitive: $scope.competitive,
-                page: page
-            };
-            openingSer.searchList(data).then(function(response){
-                if(response.data.code == 0){
-                    $scope.openLists = response.data.data
-                }else{
-                    toastr.error( response.data.msg, '温馨提示');
-                }
-            });
-        };
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        });
     }
     // 搜索功能字段
     $scope.titles = ['竞争公司'];
@@ -115,13 +106,6 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr,$stateParams,
         });
         event._moreList = !event._moreList;
     };
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.openLists,function(obj){
-            if(obj.id == delid){
-                obj._delete = delid
-            }
-        })
-    });
 
 //分页
     $scope.custom = {
@@ -130,14 +114,7 @@ app.controller('openingListCtrl',function($scope,openingSer,toastr,$stateParams,
         activatePage: activatePage
     };
 
-    openingSer.countBidOpening().then(function(response){
-        if(response.data.code==0){
-            $scope.custom.itemsCount = response.data.data;
-            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
-        }else{
-            toastr.error( response.data.msg, '温馨提示');
-        }
-    })
+    
 
 });
 

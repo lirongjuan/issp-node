@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.project.setting.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.project.setting":{
                 templateUrl : "root/project/setting/edit/_res/html/index.html",
@@ -20,7 +20,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.project.setting.list[12]",{
-        url:"/list[12]",
+        url:"/list[12]?page=",
         views:{
             "content@root.project.setting":{
                 templateUrl : "root/project/setting/list/_res/html/index.html",

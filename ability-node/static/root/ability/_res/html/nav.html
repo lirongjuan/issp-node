@@ -1,10 +1,16 @@
 <div class="nav-list" ng-repeat="list in showsList">
-    <h3 class="header-menu big" ng-click="showMenu(list,true)"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('companycap')" ng-class="{'active':navCla=='companycap'}"  ui-sref="_root.ability.companycap.list"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
-        <li ng-click="navClass('selfcap')" ng-class="{'active':navCla=='selfcap'}"  ui-sref="_root.ability.selfcap.list"><a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
-        <li ng-click="navClass('cooperation')" ng-class="{'active':navCla=='cooperation'}"  ui-sref="_root.ability.cooperation.list"><a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
-        <li ng-click="navClass('email')" ng-class="{'active':navCla=='email'}"  ui-sref="_root.ability.email.list"><a href="javascript:void(0)">{{menuInfo.name4}}</a></li>
-        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.ability.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name5}}</a></li>
+        <li ng-click="navClass('companycap')" ng-show="companyCapability" ng-class="{'active':navCla=='companycap'}"  ui-sref="_root.ability.companycap.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('selfcap')" ng-show="selfCapability" ng-class="{'active':navCla=='selfcap'}"  ui-sref="_root.ability.selfcap.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
+        <li ng-click="navClass('cooperation')" ng-show="cooperCapability" ng-class="{'active':navCla=='cooperation'}"  ui-sref="_root.ability.cooperation.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
+        <li ng-click="navClass('email')" ng-show="collectemail" ng-class="{'active':navCla=='email'}"  ui-sref="_root.ability.email.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a></li>
+        <li ng-click="navClass('setting')" ng-show="cuspermission" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.ability.setting.list[12]" >
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a></li>
     </ul>
 </div>

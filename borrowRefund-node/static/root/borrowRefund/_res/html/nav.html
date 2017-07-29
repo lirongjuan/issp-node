@@ -1,0 +1,29 @@
+<div class="nav-list" class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+    <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+    {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="applyLend" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.applylend.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="applyErrorBorrow" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.applyErr.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
+        <li ng-click="navClass('waitAudit')" ng-show="lendWaitingAudit" ng-class="{'active':navCla=='waitAudit'}"  ui-sref="_root.borrowRefund.borrowManage.waitAudit.list[12]"><a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="lendHasAudit" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.hasAudit.list[12]"><a href="javascript:void(0)">{{menuInfo.name4}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="lendWaitPay" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.waitPayment.list[12]"><a href="javascript:void(0)">{{menuInfo.name5}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="lendSurePay" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.affirmRecieve.list[12]"><a href="javascript:void(0)">{{menuInfo.name6}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="lendApplyRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.borrowRecord.list[12]"><a href="javascript:void(0)">{{menuInfo.name7}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="lendReturnRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.returnRecord.list[12]"><a href="javascript:void(0)">{{menuInfo.name8}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="lendAccountcheck" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.businessCheck.list[12]"><a href="javascript:void(0)">{{menuInfo.name9}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="lendReceiveTicket" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.recieveTicket.list[12]"><a href="javascript:void(0)">{{menuInfo.name10}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="lendAnalysisRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.borrowManage.hasAnalyze.list[12]"><a href="javascript:void(0)">{{menuInfo.name11}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="applyReimRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.applyRecord.list[12]"><a href="javascript:void(0)">{{menuInfo.name12}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="applyReimWrong" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.refundErr.list[12]"><a href="javascript:void(0)">{{menuInfo.name13}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="reimWaitingAuditRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.rwaitAudit.list[12]"><a href="javascript:void(0)">{{menuInfo.name14}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="reimHasAuditRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.rhasAudit.list[12]"><a href="javascript:void(0)">{{menuInfo.name15}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="reimHasAnalysisRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.rhasAnalyze.list[12]"><a href="javascript:void(0)">{{menuInfo.name16}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="reimAccountCheckRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.rbusinessCheck.list[12]"><a href="javascript:void(0)">{{menuInfo.name17}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="reimWaitingPay" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.rwaitPayment.list[12]"><a href="javascript:void(0)">{{menuInfo.name18}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="reimHasPayRecord" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.hasPay.list[12]"><a href="javascript:void(0)">{{menuInfo.name19}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="reimAnalisisSet" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.analyze.list[12]"><a href="javascript:void(0)">{{menuInfo.name20}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="reimFinoddInfor" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.refundManage.finoddInfor.list[12]"><a href="javascript:void(0)">{{menuInfo.name21}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.borrowRefund.setting.list[12]"><a href="javascript:void(0)">{{menuInfo.name22}}</a></li>
+    </ul>
+</div>

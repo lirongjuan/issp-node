@@ -46,18 +46,29 @@ app.controller('progressCtrl', function ($scope,$state) {
         }
     });
     $scope.showsList = [
-        {id:"1",item:"计划管理",menuList:[{name:'年计划'},{name2:"月计划"},{name3:"周计划"},{name4:"日计划"}],showIs:true},
-        {id:"2",item:"市场管理",menuList:[{name5:'市场需求分析'},{name6:"目标信息"},{name7:"市场挖掘"},{name8:"市场调研"},{name9:"市场测算"}],showIs:true},
-        {id:"3",item:"其他",menuList:[{name10:'业务类型管理'},{name11:"业务方向科目"}],showIs:true},
-        {id:"4",item:"设置",menuList:[{name12:'设置'}],showIs:true}
+        {id:"1",item:"计划管理",menuList:[{name:'年计划',msg:'yearPlan'},{name2:"月计划",msg:'monthPlan'},{name3:"周计划",msg:'weekPlan'},{name4:"日计划",msg:'dayPlan'}],showIs:false},
+        {id:"2",item:"市场管理",menuList:[{name5:'市场需求分析',msg:'demandAnalysis'},{name6:"目标信息",msg:'targetInfo'},{name7:"市场挖掘",msg:'marketMining'},{name8:"市场调研",msg:'marketMeasured'},{name9:"市场测算",msg:'directionSubjects'}],showIs:false},
+        {id:"3",item:"其他",menuList:[{name10:'业务类型管理',msg:'businessType'},{name11:"业务方向科目",msg:'directionSubjects'}],showIs:false},
+        {id:"4",item:"设置",menuList:[{name12:'设置',msg:'setting'}],showIs:false}
     ];
+    if(active){
+        for(var i = 0; i < $scope.showsList.length; i++){
+            var n = $scope.showsList[i].menuList;
+            for(var j = 0; j < n.length; j++){
+                var m = n[j].msg;
+                if(m == active){
+                    $scope.showsList[i].showIs = true;
+                    break;
+                }
+            }
+        }
+    }
     $scope.showMenu = function(obj,event) {
         if(event){
             if(obj.showIs){
                 obj.showIs=!event;
             }else{
                 obj.showIs=event;
-                /* angular.forEach(function(item){ showSubAble sublist*/
                 this.showsList.forEach(function(item){
                     if(item.id!=obj.id){
                         item.showIs=!event;

@@ -46,7 +46,6 @@ app.factory('signingSer',function ($http) {
     function deleteSigning(data){
         return $http.get('/siginmanage/delete',{
             params: data
-
         })
     }
     //审核

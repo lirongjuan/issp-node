@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"msuiMenuCtrl"
             }
         }
+    }).state("root.projectmeasure.interface.msui.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.projectmeasure.interface.msui":{
+                templateUrl : "root/projectmeasure/interface/msui/list/_res/html/index.html",
+                controller:'msuiListCtrl'
+            }
+        }
     }).state("root.projectmeasure.interface.msui.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.projectmeasure.interface.msui.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.projectmeasure.interface.msui":{
                 templateUrl : "root/projectmeasure/interface/msui/edit/_res/html/index.html",

@@ -20,7 +20,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.budget.areaWeek.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.budget.areaWeek":{
                 templateUrl : "root/budget/areaWeek/edit/_res/html/index.html",
@@ -33,6 +33,14 @@ app.config(function($provide, $stateProvider){
             "content@root.budget.areaWeek":{
                 templateUrl : "root/budget/areaWeek/collect/_res/html/index.html",
                 controller:'collectSummaryCtrl'
+            }
+        }
+    }).state("root.budget.areaWeek.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.budget.areaWeek":{
+                templateUrl : "root/budget/areaWeek/list/_res/html/index.html",
+                controller:'areaWeekListCtrl'
             }
         }
     })

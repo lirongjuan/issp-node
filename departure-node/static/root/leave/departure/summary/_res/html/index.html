@@ -1,0 +1,46 @@
+<div class="collect">
+    <div class="collect-select">
+        <span>
+            部门:
+            <select class="sele branch"  ng-model="department">
+                <option value="">请选择</option>
+                <option ng-repeat="branch in branchs" value="{{branch}}">{{branch}}</option>
+            </select>
+            <input type="text"  class="inputArea" ng-model="department">
+        </span>
+        <span>
+            岗位:
+            <select class="sele job"  ng-model="position">
+                <option value="">请选择</option>
+                <option ng-repeat="job in jobs" value="{{job}}">{{job}}</option>
+            </select>
+            <input type="text"  class="inputArea" ng-model="position">
+        </span>
+        <span>汇总开始时间:<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter start"  ></span>
+        <span>汇总结束时间:<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter end"  ></span>
+        
+        <button ng-click="collect()">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>项目组</span>
+            <span>岗位</span>
+            <span>入职时间</span>
+            <span>在司工龄</span>
+            <span>学历</span>
+            <span>正常离职人数</span>
+            <span>自离人数</span>
+            <span>辞退人数</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="Lists in summaryLists">
+            <span>{{Lists.department}}</span>
+            <span>{{Lists.position}}</span>
+            <span>{{Lists.entryTime}}</span>
+            <span>{{Lists.seniority}}</span>
+            <span>{{Lists.education}}</span>
+            <span>{{Lists.normal}}</span>
+            <span>{{Lists.presume}}</span>
+            <span>{{Lists.refuse}}</span>
+        </li>
+    </ul>
+</div>

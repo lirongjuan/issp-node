@@ -26,8 +26,9 @@ app.controller('rootCtrl', function ($scope,$rootScope,$state,ipCookie,$location
     $scope.searchToggle = function(){
         $scope.isClick = !$scope.isClick;
         //父 Ctrl 监听到事件，向下广播
-        $scope.$broadcast('iSsearch',$scope.isClick)
+        $scope.$broadcast('isSearch',$scope.isClick)
     };
+
     //更新 isClick
     $scope.$on('isId',function(event,msg){
         $scope.isClick = msg;

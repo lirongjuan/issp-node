@@ -3,20 +3,16 @@
         <ul class="inter-left">
             <li class="required">
                 <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                <!--<select class="sele" ng-model="editInfo.area" ng-change="myFunc()" ng-init="type='3'">
-                    <option value="3">请选择</option>
-                    <option value="0">商业能力展示汇总</option>
-                    <option value="1">个人能力展示汇总</option>
-                    <option value="2">合作对象能力汇总</option>
-                </select>-->
-                 <input type="text"  ng-model="editInfo.area" ng-verify="{}">
+                <select class="sele" ng-model="data.area">
+                    <option ng-repeat="list in allAreas">{{ list.area }}</option>
+                </select>
             </li>
             <li class="required f-l">
                 <label><i><img src="/images/mandatory.png"></i><em>发送间隔</em></label>
-                <input type="number" ng-model="editInfo.sendInterval" ng-verify="{}">
-                <select class="sele" ng-model="editInfo.sendIntervalType" ng-init="editInfo.collectSendUnit='MINUTE'">
+                <input type="number" ng-model="data.sendInterval" ng-verify="{}">{{  }}
+                <select class="sele" ng-model="data.sendIntervalType">
                     <option value="MINUTE">分钟</option>
-                    <option value="HOURS">小时</option>
+                    <option value="HOUR">小时</option>
                     <option value="DAY">天</option>
                     <option value="WEEK">周</option>
                     <option value="MONTH">月</option>
@@ -26,33 +22,34 @@
             </li>
             <li class="required">
                 <label><i><img src="/images/mandatory.png"></i><em>汇总间隔</em></label>
-                <select class="sele" ng-model="editInfo.collectInterval" ng-verify="{}">
-                    <option value="ONEDAY">每天</option>
-                    <option value="ONEWEEK">每周</option>
-                    <option value="ONEMONTH">每月</option>
+                <select class="sele" ng-model="data.collectInterval">
+                    <option value="ONEDAY">天</option>
+                    <option value="ONEWEEK">周</option>
+                    <option value="ONEMONTH">月</option>
                 </select>
+            </li>
+            <li class="required ">
+                <label><i><img src="/images/mandatory.png"></i><em>选择对象</em></label>
+                <select class="sele one-select" ng-model="checkedEmail" ng-init="checkedEmail='自由录入'">
+                    <option ng-repeat="one in emails">{{one}}</option>
+                </select>
+                <input type="text" style=" width:22%;right: 102px; background-color: #fff;" ng-model="sendObjectList">
+                <button type="button" class="data-add" ng-click="addMail()">添加</button>
             </li>
         </ul>
         <ul class="inter-right">
-            <li>
+            <li >
                 <label><em>备注</em></label>
-                <input type="text" class="remark" ng-model="editInfo.remark">
-            </li>
-            <li class="required">
-                <label><i><img src="/images/mandatory.png"></i><em>选择对象</em></label>
-                <select class="sele" ng-model="editInfo.sendUser" ng-verify="{}">
-                    <option value="">请选择</option>
-                    <option value="cd">cd</option>
-                    <option value="bdd">bdd</option>
-                    <option ng-repeat="name in names">{{name}}</option>
-                </select>
+                <input type="text" class="remark" ng-model="data.remark">
             </li>
             <li class="f-send">
                 <p class="send-o">
                     <em>发送对象:</em>
-                    <span>(双击可以删除该选择对象)</span>
+                    <span>(双击可以删除该条邮箱地址)</span>
                 </p>
-                <p class="dclick" ng-dblclick="dbOject()" style="text-align: center">{{editInfo.sendUser}}</p>
+                <div class="dclick">
+                    <p ng-repeat="list in objLists track by $index" ng-dblclick="dbSend($index)" >{{list}}</p>
+                </div>
             </li>
         </ul>
     </section>

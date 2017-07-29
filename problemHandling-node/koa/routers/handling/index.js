@@ -80,7 +80,8 @@ module.exports = function(){
             }));
     }).get('/problemaccept/count', function*(){//获取项目执行中的问题受理总条数
         var $self = this;
-        var token ={userToken:$self.cookies.get('token')};
+        var token = $self.request.query;
+        token.userToken = this.cookies.get('token');
         yield (server().getProblemTotal(token)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
@@ -274,7 +275,8 @@ module.exports = function(){
             }));
     }).get('/problemhandlingresult/count', function*(){//获取确认问题处理结果总条数
         var $self = this;
-        var token ={userToken:$self.cookies.get('token')};
+        var token = $self.request.query;
+        token.userToken = this.cookies.get('token');
         yield (server().getConfirmTotal(token)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
@@ -545,7 +547,8 @@ module.exports = function(){
             }));
     }).get('/involvedprocessingtask/count', function*(){//获取参与处理人员的任务分配总条数
         var $self = this;
-        var token ={userToken:$self.cookies.get('token')};
+        var token = $self.request.query;
+        token.userToken = this.cookies.get('token');
         yield (server().getTaskTotal(token)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);

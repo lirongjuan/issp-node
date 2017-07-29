@@ -1,0 +1,18 @@
+<div class="content-input" verify-scope="tipStyle: 1">
+    <section class="interval">
+        <ul class="inter-left">
+            <li class="required">
+                <label><i><img src="/images/mandatory.png"></i><em>岗位层级</em></label>
+                <input type="text"  ng-verify="{}" ng-model="stand.arrangement">
+            </li>
+            <li class="required">
+                <label><i><img src="/images/mandatory.png"></i><em>补贴标准</em></label>
+                <input type="number"  ng-verify="{}" ng-model="standard">
+            </li>
+        </ul>
+    </section>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="standardAddFun()">提交</button>
+    </p>
+</div>

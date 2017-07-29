@@ -1,6 +1,5 @@
 var app = angular.module('settingEdit', ['toastr','angularjs-dropdown-multiselect']);
 app.controller('settingEditCtrl', function($scope, settingSer, $state,$stateParams,toastr){
-
     $scope.getId = {id:$stateParams.id};
     settingSer.getpermit($scope.getId).then(function(response){
         if(response.data.code==0){
@@ -8,7 +7,6 @@ app.controller('settingEditCtrl', function($scope, settingSer, $state,$statePara
             $scope.positions=$scope.edit.cusOperateVO
         }
     });
-
     $scope.positions = [];
     $scope.stringSettings = {displayProp: 'value',idProperty: 'id'};
     settingSer.getListpermit($scope.getId).then(function(response){
@@ -18,9 +16,6 @@ app.controller('settingEditCtrl', function($scope, settingSer, $state,$statePara
             toastr.error(response.data.msg, '温馨提示');
         }
     });
-
-
-
     $scope.editSetting = function(){
         var permitArr=[];
         angular.forEach($scope.positions,function(item){
@@ -36,9 +31,7 @@ app.controller('settingEditCtrl', function($scope, settingSer, $state,$statePara
                 toastr.error(response.data.msg, '温馨提示');
             }
         });
-
     }
-
 });
 
 

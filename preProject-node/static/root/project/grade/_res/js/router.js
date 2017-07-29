@@ -20,11 +20,19 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.project.grade.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.project.grade":{
                 templateUrl : "root/project/grade/edit/_res/html/index.html",
                 controller:'gradeEditCtrl'
+            }
+        }
+    }).state("root.project.grade.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.project.grade":{
+                templateUrl : "root/project/grade/list/_res/html/index.html",
+                controller:'gradeListCtrl'
             }
         }
     })

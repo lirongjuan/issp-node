@@ -1,41 +1,41 @@
 <ul class="list">
-    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list" >
-        <a href="javascript:void(0)" >列表<span>Tabulate</span></a>
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" class="lis" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" >列表</a>
     </li>
-    <li ng-click="firstSummary()" ng-class="{'current':menuClass=='firstSummaryMenu'}"  ui-sref=".firstSummary">
-        <a href="javascript:void(0)" class="same-three">一级科目<span>Summary</span></a>
+    <li ng-click="firstSummary()" ng-class="{'current':menuClass=='firstSummaryMenu'}"  ui-sref=".firstSummary" ng-show="COLLECT"  ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">一级科目</a>
     </li>
-    <li ng-click="firstDetails()" ng-class="{'current':menuClass=='firstDetailsMenu'}">
-        <a href="javascript:void(0)" class="same-two">一级科目详情<span>Details</span></a>
+    <li ng-click="firstDetails()" ng-class="{'current':menuClass=='firstDetailsMenu','seeParent':idSocialList}" ng-show="DETAIL"  ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-two see">一级详情</a>
     </li>
-    <li ng-click="secondSummary()" ng-class="{'current':menuClass=='secondSummaryMenu'}"  ui-sref=".secondSummary">
-        <a href="javascript:void(0)" class="same-one">二级科目<span>Summary</span></a>
+    <li ng-click="secondSummary()" ng-class="{'current':menuClass=='secondSummaryMenu'}"  ui-sref=".secondSummary" ng-show="COLLECT"  ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-one">二级科目</a>
     </li>
-    <li ng-click="secondDetails()" ng-class="{'current':menuClass=='secondDetailsMenu'}">
-        <a href="javascript:void(0)" class="same-two">二级科目详情<span>Details</span></a>
+    <li ng-click="secondDetails()" ng-class="{'current':menuClass=='secondDetailsMenu','seeParent':idSocialList}" ng-show="DETAIL"  ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-two see">二级详情</a>
     </li>
-    <li ng-click="thirdSummary()" ng-class="{'current':menuClass=='thirdSummaryMenu'}"  ui-sref=".thirdSummary">
-        <a href="javascript:void(0)" class="same-three">三级科目<span>Summary</span></a>
+    <li ng-click="thirdSummary()" ng-class="{'current':menuClass=='thirdSummaryMenu'}"  ui-sref=".thirdSummary" ng-show="COLLECT"  ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">三级科目</a>
     </li>
-    <li ng-click="thirdDetails()" ng-class="{'current':menuClass=='thirdDetailsMenu'}">
-        <a href="javascript:void(0)" class="same-one">三级科目详情<span>Details</span></a>
+    <li ng-click="thirdDetails()" ng-class="{'current':menuClass=='thirdDetailsMenu','seeParent':idSocialList}" ng-show="DETAIL"  ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-one see">三级详情</a>
     </li>
-    <li ng-click="areasSummary()" ng-class="{'current':menuClass=='areasSummaryMenu'}"  ui-sref=".areasSummary">
-        <a href="javascript:void(0)" class="same-three">地区<span>Summary</span></a>
+    <li ng-click="areasSummary()" ng-class="{'current':menuClass=='areasSummaryMenu'}"  ui-sref=".areasSummary" ng-show="COLLECT"  ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">地区</a>
     </li>
-    <li ng-click="areasDetails()" ng-class="{'current':menuClass=='areasDetailsMenu'}">
-        <a href="javascript:void(0)" class="same-two">地区详情<span>Details</span></a>
+    <li ng-click="areasDetails()" ng-class="{'current':menuClass=='areasDetailsMenu','seeParent':idSocialList}" ng-show="DETAIL"  ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-two see">地区详情</a>
     </li>
-    <li ng-click="projectSummary()" ng-class="{'current':menuClass=='projectSummaryMenu'}"  ui-sref=".projectSummary">
-        <a href="javascript:void(0)" class="same-three">项目组<span>Summary</span></a>
+    <li ng-click="projectSummary()" ng-class="{'current':menuClass=='projectSummaryMenu'}"  ui-sref=".projectSummary" ng-show="COLLECT"  ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-three">项目组</a>
     </li>
-    <li ng-click="projectDetails()" ng-class="{'current':menuClass=='projectDetailsMenu'}">
-        <a href="javascript:void(0)" class="same-one">项目组详情<span>Details</span></a>
+    <li ng-click="projectDetails()" ng-class="{'current':menuClass=='projectDetailsMenu','seeParent':idSocialList}" ng-show="DETAIL"  ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-one see">项目组详情</a>
     </li>
-    <li ng-click="projectNameSummary()" ng-class="{'current':menuClass=='projectNameSummaryMenu'}"  ui-sref=".projectNameSummary">
-        <a href="javascript:void(0)" class="same-two">项目名称<span>Summary</span></a>
+    <li ng-click="projectNameSummary()" ng-class="{'current':menuClass=='projectNameSummaryMenu'}"  ui-sref=".projectNameSummary" ng-show="COLLECT"  ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two">项目名称</a>
     </li>
-    <li ng-click="projectNameDetails()" ng-class="{'current':menuClass=='projectNameDetailsMenu'}">
-        <a href="javascript:void(0)" class="same-three">项目组详情<span>Details</span></a>
+    <li ng-click="projectNameDetails()" ng-class="{'current':menuClass=='projectNameDetailsMenu','seeParent':idSocialList}" ng-show="DETAIL"  ng-init="menuCheck('DETAIL')">
+        <a href="javascript:void(0)" class="same-three see">项目组详情</a>
     </li>
 </ul>

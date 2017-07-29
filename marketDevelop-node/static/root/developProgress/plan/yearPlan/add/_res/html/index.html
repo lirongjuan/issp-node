@@ -10,7 +10,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务类型</em></label>
-                    <select class="sele" ng-model="addYear.type" >
+                    <select class="sele" ng-model="addYear.type" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="allType in types">{{allType.type}}</option>
                     </select>
@@ -21,7 +21,7 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>业务方向科目</em></label>
-                    <select class="sele" ng-model="addYear.course" >
+                    <select class="sele" ng-model="addYear.course" ng-verify="option:0">
                         <option value="">请选择</option>
                         <option ng-repeat="course in courses">{{course.course}}</option>
                     </select>

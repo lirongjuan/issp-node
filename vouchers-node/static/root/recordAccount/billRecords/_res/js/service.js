@@ -1,6 +1,7 @@
 var app = angular.module('billRecordsServer',[]);
 app.factory('billRecordsSer',function ($http) {
     return {
+        menuPermission : menuPermission,
         listBillRecords : listBillRecords,
         countBillRecords:countBillRecords,
         subjectSummary:subjectSummary,
@@ -15,6 +16,10 @@ app.factory('billRecordsSer',function ($http) {
         getProject:getProject
 
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/vouchergenerate/guidePermission/'+data);
+    }
     //列表
     function listBillRecords(data) {
         return $http.get('/vouchergenerate/listCkRecord',{

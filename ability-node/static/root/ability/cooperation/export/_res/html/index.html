@@ -1,0 +1,18 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><em>公司名称</em></label>
+                    <select class="sele" ng-model="companyName">
+                        <option value="">全部导出</option>
+                        <option ng-repeat="name in companyNames" ng-verify="{}">{{name}}</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>

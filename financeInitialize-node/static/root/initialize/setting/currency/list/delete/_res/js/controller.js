@@ -1,6 +1,3 @@
-/**
- * Created by ike on 2017/4/17.
- */
 var app = angular.module('currencyDelete', ['toastr']);
 app.controller('currencyDeleteCtrl',function($scope,currencySer,toastr,$stateParams,$state){
     //删除

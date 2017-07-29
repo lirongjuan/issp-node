@@ -1,0 +1,96 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>姓名</span>
+            <span>地区</span>
+            <span>项目组部门</span>
+            <span>岗位</span>
+            <span>入职时间</span>
+            <span>转正时间</span>
+            <span>目前岗位层级</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in coverLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.username}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.department}}</p>
+                    <p mod>{{lists.position}}</p>
+                    <p mod>{{lists.entryTime}}</p>
+                    
+                    <p mod>{{lists.regularTime}}</p>
+                    <p mod>{{lists.arrangement}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>申请轮换等级数据id</span>
+                                <span>申请轮换等级</span>
+                                <span>申请轮换原因</span>
+                                <span>轮换后岗位等级数据id</span>
+                                <span>轮换后岗位等级</span>
+                                <span>总经办</span>
+                                <span>总经办意见</span>
+                                <span>是否通过 { }</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.applyLevelId}}</span>
+                                <span mod>{{lists.applyLevelArrangement}}</span>
+                                <span mod>{{lists.reason}}</span>
+                                <span mod>{{lists.rotationLevelId}}</span>
+                                <span mod>{{lists.rotationLevelArrangement}}</span>
+                                <span mod>{{lists.general}}</span>
+                                <span mod>{{lists.opinion}}</span>
+                                <span mod>{{lists.audit}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>轮换时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.rotationDate}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

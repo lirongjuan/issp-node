@@ -6,7 +6,7 @@ app.config(function($provide, $stateProvider){
             "content@root.projectmeasure" : {
                 templateUrl : "root/projectmeasure/setting/_res/html/index.html",
                 controller:"settingCtrl"
-            },"menu@root.projectmeasure" : {
+            },"nav@root.projectmeasure" : {
                 templateUrl : "root/projectmeasure/setting/_res/html/menu.html",
                 controller:"settingMenuCtrl"
             }

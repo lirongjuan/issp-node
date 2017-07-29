@@ -10,6 +10,8 @@ app.factory('proWeekSer',function ($http) {
         collectProject:collectProject,
         collectProject2:collectProject2,
         listSummaryProject:listSummaryProject,
+        menuPermission:menuPermission,
+        warningCostProjects:warningCostProjects,
     };
     function listProWeek(data) {
         return $http.get('/listProWeek/list',{params:data})
@@ -41,4 +43,12 @@ app.factory('proWeekSer',function ($http) {
     function collectProject2() {
         return $http.get('/collectProject2/project')
     }
-});
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/proWeek/guidePermission/'+data);
+    }
+    //预警
+    function warningCostProjects() {
+        return $http.get('/warning/id')
+    }
+ });

@@ -1,0 +1,25 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>分析(审核)人</em></label>
+                    <div class="sele area side">
+                        <select class="sele" ng-model="data.empNum">
+                            <option ng-repeat="list in allLisisor" value="{{list.username}}">{{ list.username }}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="data.empNum" ng-verify="{}">
+                    </div>
+                </li>
+                <li >
+                    <label ><em>备注</em></label>
+                    <input type="text" ng-model="data.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="editFun()">提交</button>
+    </p>
+</div>

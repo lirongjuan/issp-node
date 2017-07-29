@@ -18,6 +18,7 @@ app.controller('settingCtrl',function ($scope,$state) {
             $scope.menuClass = 'listMenu';
         }
     });
+
     $scope.$on('getId',function(event,id){
         $scope.editId=id;
     });

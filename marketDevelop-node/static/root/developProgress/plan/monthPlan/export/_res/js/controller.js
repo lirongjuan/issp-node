@@ -1,7 +1,7 @@
 var app = angular.module('monthPlanExport', ['toastr']);
 app.controller('monthPlanExportCtrl', function($scope, yearPlanSer,$state,toastr){
 
-    //获取内部项目编号
+    //获取业务类型
     yearPlanSer.getType().then(function(response){
         if(response.data.code==0){
             $scope.typeName = response.data.data;

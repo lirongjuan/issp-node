@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"auditCredentialsMenuCtrl"
             }
         }
+    }).state("root.recordAccount.auditCredentials.list[12]",{
+        url:"/list[12]?id=&ids=&name=&page=",
+        views:{
+            "content@root.recordAccount.auditCredentials":{
+                templateUrl : "root/recordAccount/auditCredentials/list/_res/html/index.html",
+                controller:'auditCredentialsListCtrl'
+            }
+        }
     }).state("root.recordAccount.auditCredentials.subjectsSummary[12]",{
         url:"/subjectsSummary[12]",
         views:{

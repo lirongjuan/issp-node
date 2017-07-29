@@ -12,7 +12,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.businessContract.basicInfo.list[12]",{
-        url:"/list[12]?id=&name=&page=",
+        url:"/list[12]?id=&name=&page=&inner=&outNum=&saleNum=&type=&subject=&cooperate=&first=&second=&area=&property=&payWays=&customerName=&siginYear=&fileCondition=",
         views:{
             "content@root.businessContract.basicInfo":{
                 templateUrl : "root/businessContract/basicInfo/list/_res/html/index.html",

@@ -51,5 +51,13 @@ app.config(function($provide, $stateProvider){
                 controller:'costDetailGroupCtrl'
             }
         }
+    }).state("root.project.cost.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.project.cost":{
+                templateUrl : "root/project/cost/list/_res/html/index.html",
+                controller:'costListCtrl'
+            }
+        }
     })
 });

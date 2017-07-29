@@ -1,6 +1,3 @@
-/**
- * Created by ike on 2017/4/13.
- */
 var app = angular.module('projectNameApp', ['toastr']);
 app.controller('ctNameCtrl',function($scope,checkincomeSer,toastr) {
     //查看更多
@@ -12,8 +9,8 @@ app.controller('ctNameCtrl',function($scope,checkincomeSer,toastr) {
          if(response.data.code==0){
             $scope.projectNames = response.data.data;
          }else{
-             toastr.error('获取所有项目组失败','温馨提示')
-        }
+                toastr.error( response.data.msg , '温馨提示');
+            }
     })
     
     $scope.collectFun = function(){
@@ -32,9 +29,9 @@ app.controller('ctNameCtrl',function($scope,checkincomeSer,toastr) {
         }
         checkincomeSer.ctProject(collectData).then(function(response){
             if(response.data.code==0){
-                $scope.lists = response.data.data;
+                $scope.listss = response.data.data;
             }else{
-                toastr.error('汇总失败','温馨提示')
+                toastr.error( response.data.msg , '温馨提示');
             }
         });
     }

@@ -12,23 +12,20 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>一级科目</em></label>
-                    <select class="sele" ng-model="data.firstSubject" ng-verify="{}" ng-change="firstFn(data.firstSubject)">
-                        <option>请选择一级科目</option>
-                        <option ng-repeat="list in firstList">{{ list }}</option>
+                    <select class="sele" ng-model="data.firstSubject"  ng-change="firstFn(data.firstSubject)">
+                        <option ng-repeat="list in firstList" ng-value="list">{{ list }}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>二级科目</em></label>
-                    <select class="sele" ng-model="data.secondSubject" ng-verify="{}" ng-change="scondFn(data.secondSubject)">
-                        <option>请选择二级科目</option>
-                        <option ng-repeat="list in secondList">{{ list }}</option>
+                    <select class="sele" ng-model="data.secondSubject"  ng-change="scondFn(data.secondSubject)">
+                        <option ng-repeat="list in secondList" ng-value="list">{{ list }}</option>
                     </select>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>三级科目</em></label>
-                    <select class="sele" ng-model="data.thirdSubject" ng-verify="{}">
-                         <option>请选择三级科目</option>
-                        <option ng-repeat="list in thirdList">{{ list }}</option>
+                    <select class="sele" ng-model="data.thirdSubject" >
+                        <option ng-repeat="list in thirdList" ng-value="list">{{ list }}</option>
                     </select>
                 </li>
                 <li>

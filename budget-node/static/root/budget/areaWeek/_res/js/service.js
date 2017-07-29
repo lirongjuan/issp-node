@@ -10,6 +10,8 @@ app.factory('areaWeekSer',function ($http) {
         listSummaryArea:listSummaryArea,
         collectArea:collectArea,
         collectArea2:collectArea2,
+        menuPermission:menuPermission,
+        warningCostProjects:warningCostProjects,
     };
     function listAreaWeek(data) {
         return $http.get('/listAreaWeek/list',{params:data})
@@ -40,5 +42,13 @@ app.factory('areaWeekSer',function ($http) {
     //汇总
     function collectArea2() {
         return $http.get('/collectArea2/area')
+    }
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/areaWeek/guidePermission/'+data);
+    }
+    //预警
+    function warningCostProjects() {
+        return $http.get('/warning/id')
     }
 });

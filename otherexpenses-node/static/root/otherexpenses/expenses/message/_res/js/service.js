@@ -1,6 +1,7 @@
 var app = angular.module('currencyServe',[]);
 app.factory('currencySer',function ($http) {
     return {
+        menuPermission:menuPermission,
         allList:allList,
         allCount:allCount,
         addMarketserveapply1:addMarketserveapply,
@@ -12,6 +13,10 @@ app.factory('currencySer',function ($http) {
         projectType:projectType,
         projectName:projectName
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/expenses/guidePermission/'+data);
+    }
     //列表
     function allList(data) {
         return $http.get('/expenses/message/list',{

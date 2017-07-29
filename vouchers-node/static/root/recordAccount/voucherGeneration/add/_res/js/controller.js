@@ -1,6 +1,30 @@
 var app = angular.module('voucherGenerationAdd', ['toastr']);
 app.controller('voucherGenerationAddCtrl', function($scope, voucherSer,$state,$stateParams,toastr){
 
+    //获取地区
+    voucherSer.organizeArea().then(function(response){
+        if(response.data.code == 0){
+            $scope.allArea = response.data.data;
+        }else{
+            toastr.error(response.data.msg, '温馨提示');
+        }
+    });
+    //获取项目组
+    voucherSer.organizeDepart().then(function(response){
+        if(response.data.code == 0){
+            $scope.allTeam = response.data.data;
+        }else{
+            toastr.error(response.data.msg, '温馨提示');
+        }
+    });
+    //获取用户名
+    voucherSer.organizeUser().then(function(response){
+        if(response.data.code == 0){
+            $scope.allName = response.data.data;
+        }else{
+            toastr.error(response.data.msg, '温馨提示');
+        }
+    });
     voucherSer.LevelOne().then(function(response){
         if(response.data.code == 0){
             $scope.firstLevel = response.data.data;
@@ -55,7 +79,9 @@ app.controller('voucherGenerationAddCtrl', function($scope, voucherSer,$state,$s
             }
         });
     };
-
+$scope.addSum = function() {
+    $scope.voucher.moneyTotal = $scope.voucher.borrowMoneys1 + $scope.voucher.borrowMoneys2
+};
     //添加
     $scope.voucherAddFun = function(){
         var vm = $scope;
@@ -67,7 +93,7 @@ app.controller('voucherGenerationAddCtrl', function($scope, voucherSer,$state,$s
         vm.voucher.voucherDate = angular.element('.voucherDate').val();
         voucherSer.addVoucher(vm.voucher).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.recordAccount.voucherGeneration.list');
+                $state.go('root.recordAccount.voucherGeneration.list[12]');
                 toastr.success("已成功添加", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');

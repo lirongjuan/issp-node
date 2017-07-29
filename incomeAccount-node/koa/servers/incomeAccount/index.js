@@ -3,7 +3,42 @@ var path = require('path');
 var config = require(path.resolve('plugins/read-config.js'));
 var form = require(path.resolve('plugins/form.js'));
 module.exports = function(){
-
+    //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/checkincome/v1/setButtonPermission',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.siginNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/checkincome/v1/sonPermission',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //资金回笼 功能菜单权限
+    this.checkindexPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/checkindex/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     //列表 资金回笼
    this.checkindexList= function(argvs){
         var options = {
@@ -11,7 +46,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/checkindex/v1/list?limit=10&page=${argvs.page}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -23,7 +58,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + '/checkindex/v1/count',
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -48,6 +83,9 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/checkindex/v1/getIndexById/${argvs.id}`,
             form : argvs,
+            headers : {
+                userToken : argvs.userToken
+            }
         };
         return request(options);
     };
@@ -76,7 +114,18 @@ module.exports = function(){
         };
         return request(options);
     };
-    
+    //收入核算 功能菜单权限
+    this.checkincomePermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/checkincome/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
      //列表 收入核算
    this.checkincomeList= function(argvs){
         var options = {
@@ -84,7 +133,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/checkincome/v1/list?limit=10&page=${argvs.page}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -96,7 +145,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + '/checkincome/v1/count',
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -121,6 +170,9 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/checkincome/v1/getIndexById/${argvs.id}`,
             form : argvs,
+            headers : {
+                userToken : argvs.userToken
+            }
         };
         return request(options);
     };
@@ -150,13 +202,13 @@ module.exports = function(){
         return request(options);
     };
     //获取所有的地区 
-    this.listArea = function(){
+    this.listArea = function(argvs){
         var options = {
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + '/checkincome/v1/listArea',
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -168,19 +220,19 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/checkincome/v1/ctArea?startTime=${encodeURIComponent(argvs.startTime)}&endTime=${encodeURIComponent(argvs.endTime)}&area=${encodeURIComponent(argvs.area)}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
     };
     //获取所有的项目组 
-    this.listGroup = function(){
+    this.listGroup = function(argvs){
         var options = {
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + '/checkincome/v1/listGroup',
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -192,19 +244,19 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/checkincome/v1/ctGroup?startTime=${encodeURIComponent(argvs.startTime)}&endTime=${encodeURIComponent(argvs.endTime)}&projectGroup=${encodeURIComponent(argvs.projectGroup)}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
     };
      //获取所有的项目名 
-    this.listProject = function(){
+    this.listProject = function(argvs){
         var options = {
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + '/checkincome/v1/listProject',
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -216,18 +268,56 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/checkincome/v1/ctProject?startTime=${encodeURIComponent(argvs.startTime)}&endTime=${encodeURIComponent(argvs.endTime)}&projectName=${encodeURIComponent(argvs.projectName)}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
     };
-    //用户退出
-    this.logout = function(argvs){
+    //设置权限
+    this.listSetting = function(argvs){
         var options = {
-            method : 'POST',
+            method : 'GET',
             timeout : 3000,
-            uri : config()['user'] + `/v1/sign-out/${argvs.token}`,
-            form:argvs
+            uri : config()['rurl'] + `/cuspermission/v1/list?limit=10&page=${argvs.page}`,
+            headers: {
+                 userToken : argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    this.countSetting = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/cuspermission/v1/count'
+        };
+        return request(options);
+    };
+    this.getpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/getOneById/${argvs.id}`
+        };
+        return request(options);
+    };
+    this.getListpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/listOperateById/${argvs.id}`
+        };
+        return request(options);
+    };
+    this.editSetting = function(argvs){
+        var options = {
+            method : 'PUT',
+            timeout : 3000,
+            uri : config()['rurl'] + '/cuspermission/v1/edit',
+            form:argvs,
+            headers: {
+                 userToken : argvs.userToken
+            }
         };
         return request(options);
     };

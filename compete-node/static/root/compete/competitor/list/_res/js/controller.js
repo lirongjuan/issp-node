@@ -1,7 +1,33 @@
-var app = angular.module('competitorList', ['ng-pagination','toastr','ipCookie']);
-app.controller('competitorListCtrl',function($scope,competitorSer,toastr,ipCookie,$location) {
-    $scope.companySearchFun = function(){
-        $scope.teamInfo = {};
+var app = angular.module('competitorList', ['ng-pagination','toastr']);
+app.controller('companyListCtrl',function($scope,competitorSer,toastr,$stateParams,$state) {
+    $scope.$emit('changeId',null);
+    //获取id
+    if($stateParams.id){
+        switch ($stateParams.name){
+            case 'delete':
+                $scope.delShow = true;
+                break;
+        }
+    }
+    $scope.cancel = function(){//取消删除
+        $scope.delShow = false;
+        $state.go('root.compete.competitor.list[12]',{id:null,name:null});
+    };
+    $scope.delFn = function(){//确认删除
+        var data = {
+            id:$stateParams.id
+        };
+        competitorSer.deleteCompanyAbility(data).then(function(response){
+            if(response.data.code==0){
+                toastr.info( "信息已删除", '温馨提示');
+                $scope.deledId = $stateParams.id;
+                $scope.$emit('changeId', null);
+                $scope.delShow = false;
+                $state.go('root.compete.competitor.list[12]',{id:null,name:null});
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        });
     };
    //选择
     $scope.selectList = function(event){
@@ -29,7 +55,16 @@ app.controller('competitorListCtrl',function($scope,competitorSer,toastr,ipCooki
         }
         competitorSer.listAbilityCompanyCap(listData).then(function(response){
             if(response.data.code==0){
-                $scope.competitorLists = response.data
+                $scope.competitorLists = response.data;
+                if($stateParams.id){
+                    angular.forEach($scope.competitorLists.data,function(obj){
+                        if(obj.id == $stateParams.id){
+                            obj._selectList = true;
+                        }
+                    });
+                    //向父Ctrl传递事件
+                    $scope.$emit('changeId', $stateParams.id);
+                }
             }else{
                 toastr.error( response.data.msg, '温馨提示');
             }
@@ -46,13 +81,5 @@ app.controller('competitorListCtrl',function($scope,competitorSer,toastr,ipCooki
         }else{
             toastr.error( response.data.msg , '温馨提示');
         }
-    });
-    //删除
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.competitorLists.data,function(obj){
-            if(obj.id == delid){
-                obj._delete = true
-            }
-        })
     });
 });

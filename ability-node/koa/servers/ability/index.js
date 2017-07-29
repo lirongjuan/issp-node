@@ -3,13 +3,14 @@ var path = require('path');
 var config = require(path.resolve('plugins/read-config.js'));
 var form = require(path.resolve('plugins/form.js'));
 var urlEncode = require(path.resolve('plugins/urlEncode.js'));
+var uploadFile = require(path.resolve('plugins/uploadFile.js'));
 module.exports = function(){
 
     this.abilitybaseinfoList= function(argvs){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['ability']['rurl'] + '/companycapability/v1/listCompanyCapability?limit=10&page='+argvs.page,
+            uri : config()['ability']['rurl'] + `/companycapability/v1/listCompanyCapability${urlEncode(argvs,true)}`,
             headers : {
                 userToken : argvs.token
             }
@@ -21,7 +22,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['ability']['rurl'] + '/companycapability/v1/count',
+            uri : config()['ability']['rurl'] + `/companycapability/v1/count${urlEncode(argvs,true)}`,
             headers : {
                 userToken : argvs.token
             }
@@ -79,49 +80,11 @@ module.exports = function(){
         };
         return request(options);
     };
-   //搜索
-    this.companySeachByname= function(argvs){
-        var options = {
-            method : 'GET',
-            timeout : 3000,
-            uri : config()['ability']['rurl'] + '/companycapability/v1/listCapabilityByCompanyName'+urlEncode(argvs,true),
-            form : argvs,
-            headers : {
-                userToken:argvs.token
-            }
-        };
-        return request(options);
-    };
-    //个人搜索
-    this.personSeachByname= function(argvs){
-        var options = {
-            method : 'GET',
-            timeout : 3000,
-            uri : config()['ability']['rurl'] + '/selfcapability/v1/listSelf'+urlEncode(argvs,true),
-            form : argvs,
-            headers : {
-                userToken:argvs.token
-            }
-        };
-        return request(options);
-    };
-    this.cooperationSeachByName= function(argvs){
-        var options = {
-            method : 'GET',
-            timeout : 3000,
-            uri : config()['ability']['rurl'] + '/coopercapability/v1/list'+urlEncode(argvs,true),
-            form : argvs,
-            headers : {
-                userToken:argvs.token
-            }
-        };
-        return request(options);
-    };
     this.abilitySelfCapList= function(argvs){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['ability']['rurl'] + '/selfcapability/v1/listSelf?limit=10&page='+argvs.page,
+            uri : config()['ability']['rurl'] + `/selfcapability/v1/listSelf${urlEncode(argvs,true)}`,
             headers : {
                 userToken:argvs.token
             }
@@ -133,43 +96,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['ability']['rurl'] + '/selfcapability/v1/count',
-            headers : {
-                userToken:argvs.token
-            }
-        };
-        return request(options);
-    };
-    //分页2
-    this.countSelfCap2Info = function(argvs){
-        var options = {
-            method : 'GET',
-            timeout : 3000,
-            uri : config()['ability']['rurl'] + '/selfcapability/v1/count?name='+argvs.name,
-            headers : {
-                userToken:argvs.token
-            }
-        };
-        return request(options);
-    };
-    //公司分页
-    this.countBaseInfo2Info = function(argvs){
-        var options = {
-            method : 'GET',
-            timeout : 3000,
-            uri : config()['ability']['rurl'] + '/companycapability/v1/listCompanyCapability?company='+argvs.company,
-            headers : {
-                userToken:argvs.token
-            }
-        };
-        return request(options);
-    };
-    //合作对象
-    this.countCooperation2Info = function(argvs){
-        var options = {
-            method : 'GET',
-            timeout : 3000,
-            uri : config()['ability']['rurl'] + '/coopercapability/v1/list?companyName='+argvs.companyName,
+            uri : config()['ability']['rurl'] + `/selfcapability/v1/count${urlEncode(argvs,true)}`,
             headers : {
                 userToken:argvs.token
             }
@@ -243,7 +170,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['ability']['rurl'] + '/coopercapability/v1/list?limit=10&page='+argvs.page,
+            uri : config()['ability']['rurl'] + `/coopercapability/v1/list${urlEncode(argvs,true)}`,
             form : argvs,
             headers : {
                 userToken:argvs.token
@@ -257,7 +184,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['ability']['rurl'] + '/coopercapability/v1/count',
+            uri : config()['ability']['rurl'] + `/coopercapability/v1/count${urlEncode(argvs,true)}`,
             headers : {
                 userToken:argvs.token
             }
@@ -629,6 +556,221 @@ module.exports = function(){
                 userToken:argvs.token
             },
             form:argvs
+        };
+        return request(options);
+    };
+
+    //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + '/companycapability/v1/setButtonPermission',
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.siginNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + '/companycapability/v1/sonPermission',
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //公司能力菜单功能权限
+    this.guidePermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/companycapability/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //个人能力
+    this.selfcapPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/selfcapability/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //个人社交资源菜单权限
+    this.selfcapPermission2 = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/selfsocial/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //公司合作菜单权限
+    this.cooperPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/coopercapability/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //邮件发送菜单权限
+    this.emailPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/cusemail/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+
+    //公司能力导入
+    this.companyImport = function(argvs){
+        var options = {
+            url: config()['ability']['rurl']+'/companycapability/v1/importExcel',
+            method: 'POST',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //获取所有公司名称
+    this.companyByName = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + '/companycapability/v1/listAllCompanyName',
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //公司上传附件
+    this.companyUploadFile = function(argvs){
+        var options = {
+            url: config()['ability']['rurl']+`/companycapability/v1/upload/${argvs.fields.id}`,
+            method: 'POST',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //公司能力查看附件
+     this.companyEnclosure = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/companycapability/v1/files/${argvs.id}`,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //公司能力删除文件
+    this.delFile = function(argvs){
+        var options = {
+            method : 'POST',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/companycapability/v1/delfile`,
+            headers:{
+                userToken:argvs.token
+            },
+            form:argvs.fields
+        };
+        return request(options);
+    };
+    //合作对象导入
+    this.cooperationImport = function(argvs){
+        var options = {
+            url: config()['ability']['rurl']+'/coopercapability/v1/importExcel',
+            method: 'POST',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //合作对象获取所有公司名称
+    this.cooperationByName = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + '/coopercapability/v1/listCompany',
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    this.cooperationUploadFile = function(argvs){
+        var options = {
+            url: config()['ability']['rurl']+`/coopercapability/v1/upload/${argvs.fields.id}`,
+            method: 'POST',
+            formData: {
+                files: uploadFile(argvs.files.files)
+            },
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //合作对象查看附件
+    this.cooperationEnclosure = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/coopercapability/v1/files/${argvs.id}`,
+            headers:{
+                userToken:argvs.token
+            }
+        };
+        return request(options);
+    };
+    //合作对象删除文件
+    this.cooperationFile = function(argvs){
+        var options = {
+            method : 'POST',
+            timeout : 3000,
+            uri : config()['ability']['rurl'] + `/coopercapability/v1/delfile`,
+            headers:{
+                userToken:argvs.token
+            },
+            form:argvs.fields
         };
         return request(options);
     };

@@ -1,0 +1,96 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>使用类型</em></label>
+                    <select class="sele" ng-verify="option:0" ng-model="editInfo.typeId">
+                        <option value="" disabled>请选择</option>
+                        <option ng-repeat="pros in infromData" value="{{pros.id}}">{{pros.name}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
+                    <select class="sele" ng-verify="option:0"   ng-model="editInfo.username">
+                        <option value="" disabled>请选择</option>
+                        <option ng-repeat="pros in proData">{{pros}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>员工编号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.employeesNumber">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.project">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>职位</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.position">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>学历</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.education">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>专业</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.major">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>毕业学校</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.school">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>毕业时间</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.graduate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image graduate">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>入职时间</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.entry" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image entry">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>在职时间</em></label>
+                    <input type="number" ng-verify="{}" ng-model="editInfo.seniority">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>电话号码</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.telephone">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>出生日期</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editInfo.birth" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image birth">
+                </li>
+                <li >
+                    <label><em>户籍地址</em></label>
+                    <input type="text" ng-model="editInfo.address">
+                </li>
+                <li>
+                    <label><em>身份证号码</em></label>
+                    <input type="text" ng-model="editInfo.identityCard">
+                </li>
+                <li>
+                    <label ><em>银行卡号</em></label>
+                    <input type="text" ng-model="editInfo.bankCard">
+                </li>
+                <li>
+                    <label ><em>开户行</em></label>
+                    <input type="text" ng-model="editInfo.bank">
+                </li>
+                <li>
+                    <label ><em>邮箱</em></label>
+                    <input type="text" ng-model="editInfo.email">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="messageEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

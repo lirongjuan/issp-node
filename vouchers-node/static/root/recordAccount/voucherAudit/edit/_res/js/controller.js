@@ -12,7 +12,30 @@ app.controller('voucherAuditEditCtrl', function($scope, $rootScope,auditSer,$sta
         }
 
     });
-
+    //获取地区
+    auditSer.organizeArea().then(function(response){
+        if(response.data.code == 0){
+            $scope.allArea = response.data.data;
+        }else{
+            toastr.error(response.data.msg, '温馨提示');
+        }
+    });
+    //获取项目组
+    auditSer.organizeDepart().then(function(response){
+        if(response.data.code == 0){
+            $scope.allTeam = response.data.data;
+        }else{
+            toastr.error(response.data.msg, '温馨提示');
+        }
+    });
+    //获取用户名
+    auditSer.organizeUser().then(function(response){
+        if(response.data.code == 0){
+            $scope.allName = response.data.data;
+        }else{
+            toastr.error(response.data.msg, '温馨提示');
+        }
+    });
     auditSer.LevelOne().then(function(response){
         if(response.data.code == 0){
             $scope.firstLevel = response.data.data;
@@ -70,7 +93,7 @@ app.controller('voucherAuditEditCtrl', function($scope, $rootScope,auditSer,$sta
         vm.editVoucher.voucherDate = angular.element('.voucherDate').val();
         auditSer.editSplit(vm.editVoucher).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.recordAccount.voucherAudit.list');
+                $state.go('root.recordAccount.voucherAudit.list[12]');
                 toastr.success( "编辑成功", '温馨提示');
             }else{
                 toastr.error(response.data.msg, '温馨提示');

@@ -34,7 +34,7 @@ app.controller('settingCtrl',function ($scope,$state) {
     };
     $scope.edit = function(){
         if($scope.editId){
-            $state.go('root.developProgress.other.setting.edit[12]',{id:$scope.editId});
+            $state.go('root.developProgress.other.setting.edit[12]',{id:$scope.editId,page:$scope.page});
             $scope.menuClass = 'editMenu'
         }
 

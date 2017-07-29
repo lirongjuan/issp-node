@@ -1,0 +1,37 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>Q群号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="qq.number">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>Q群名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="qq.name">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>Q群对象</em></label>
+                    <input type="text" ng-verify="{}" ng-model="qq.object">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>Q群管理人</em></label>
+                    <input type="text" ng-verify="{}" ng-model="qq.manager">
+                </li>
+                <li>
+                    <label><em>是否发送邮件</em></label>
+                    <select ng-model="qq.send" class="sele">
+                        <option value="">可填写是否发送邮件</option>
+                        <option value=false >否</option>
+                        <option value=true >是</option>
+                    </select>
+
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="qqEditFun()">提交</button>
+    </p>
+</div>

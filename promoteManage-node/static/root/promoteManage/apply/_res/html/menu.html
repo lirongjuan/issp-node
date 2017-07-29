@@ -1,0 +1,41 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD && !more" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" class="add">添加</a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="EDIT && !more" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see">编辑</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE && !more" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see" >删除</a>
+    </li>
+    <li ng-click="conform()" ng-class="{'current':menuClass=='conformMenu','seeParent':idListd}"  ng-show="GUIHUA && !more" ng-init="menuCheck('GUIHUA')">
+        <a href="javascript:void(0)" class="same-two see" title="规划晋升条件">规划晋升条件</a>
+    </li>
+    <li ng-click="wNum()" ng-class="{'current':menuClass=='wNumMenu','seeParent':idListd}"  ng-show="SUYANG" ng-init="menuCheck('SUYANG')">
+        <a href="javascript:void(0)" class="same-two see" title="综合模块填达标数">综合模块填达标数</a>
+    </li>
+    <li ng-click="pManager()" ng-class="{'current':menuClass=='pManagerMenu','seeParent':idListd}"  ng-show="MANAGER && more" ng-init="menuCheck('MANAGER')">
+        <a href="javascript:void(0)" class="same-two see" title="项目经理审核">项目经理审核</a>
+    </li>
+    <li ng-click="resource()" ng-class="{'current':menuClass=='resourceMenu','seeParent':idListd}"  ng-show="AUDIT  && more" ng-init="menuCheck('AUDIT')">
+        <a href="javascript:void(0)" class="same-two see" title="综合资源部审核">综合资源部审核</a>
+    </li>
+    <li ng-click="business()" ng-class="{'current':menuClass=='businessMenu','seeParent':idListd}"  ng-show="BUINESS  && more" ng-init="menuCheck('BUINESS')">
+        <a href="javascript:void(0)" class="same-two see" title="运营商务部审核">运营商务部审核</a>
+    </li>
+    <li ng-click="moduler()" ng-class="{'current':menuClass=='modulerMenu','seeParent':idListd}"  ng-show="MODULE  && more" ng-init="menuCheck('MODULE')">
+        <a href="javascript:void(0)" class="same-two see" title="模块负责人审核">模块负责人审核</a>
+    </li>
+    <li ng-click="writeManager()" ng-class="{'current':menuClass=='writeManagerMenu','seeParent':idListd}"  ng-show="BOSS  && more" ng-init="menuCheck('BOSS')">
+        <a href="javascript:void(0)" class="same-two see" title="总经办审核">总经办审核</a>
+    </li>
+    <li ng-click="rank()" ng-class="{'current':menuClass=='rankMenu'}"  ng-show="SEE && more" ng-init="menuCheck('SEE')" ui-sref=".rank[12]">
+        <a href="javascript:void(0)" class="same-two">晋升申请排名</a>
+    </li>
+    <li>
+        <a href="javascript:void(0)" class="viewMore" ng-click="viewMore()">查看更多</a>
+    </li>
+</ul>

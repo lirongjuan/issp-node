@@ -1,0 +1,68 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span>司机名称</span>
+            <span>出车日期</span>
+            <span>单号</span>
+            <span>地区</span>
+            <span>用车人</span>
+            <span>科目</span>
+            <span>租车单价</span>
+            <span></span>
+        </li>
+        <li class="list-all">
+            <section ng-repeat="list in hasLists.data">
+                <div  class="list-text">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::list.driverName}}</p>
+                    <p mod>{{::list.carDate}}</p>
+                    <p mod>{{::list.acctype|cover}}</p>
+                    <p mod>{{::list.arrival}}</p>
+                    <p mod>{{::list.carUser}}</p>
+                    <p mod>{{::list.project}}</p>
+                    <p mod>{{::list.carPrice}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>加班时长</span>
+                                <span>加班单价</span>
+                                <span>加班费</span>
+                                <span>餐费补贴</span>
+                                <span>停车/过路费</span>
+                                <span>金额</span>
+                                <span>填单人</span>
+                                <span>是否付款</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::list.overtimeHour}}</span>
+                                <span mod>{{::list.overtimePrice}}</span>
+                                <span mod>{{::list.overtimeFee}}</span>
+                                <span mod>{{::list.allowance}}</span>
+                                <span mod>{{::list.parkFee}}</span>
+                                <span mod>{{::list.amount}}</span>
+                                <span mod>{{::list.single}}</span>
+                                <span mod>{{::list.isPay}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+     </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>

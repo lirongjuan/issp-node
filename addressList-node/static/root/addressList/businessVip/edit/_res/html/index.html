@@ -1,0 +1,47 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>开卡名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="businessVip.name">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>卡号</em></label>
+                    <input type="text" ng-verify="{}" ng-model="businessVip.number">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>开卡人联系方式 </em></label>
+                    <input type="text" ng-verify="{}" ng-model="businessVip.phone">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>用途 </em></label>
+                    <input type="text" ng-verify="{}" ng-model="businessVip.purpose">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>类别</em></label>
+                    <select ng-model="businessVip.type" class="sele">
+                        <option value="个人">个人</option>
+                        <option value="公司办理">公司办理</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>Q备注</em></label>
+                    <input type="text" ng-model="businessVip.remark">
+                </li>
+                <li>
+                    <label><em>是否发送邮件</em></label>
+                    <select ng-model="businessVip.send" class="sele">
+                        <option value="">可填写是否发送邮件</option>
+                        <option value=false >否</option>
+                        <option value=true >是</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="businessVipEditFun()">提交</button>
+    </p>
+</div>

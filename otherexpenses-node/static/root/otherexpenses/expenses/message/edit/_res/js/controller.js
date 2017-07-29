@@ -15,7 +15,7 @@ app.controller('currenyEditCtrl', function($scope, currencySer,$state,toastr,$st
         // $scope.data.actual = Number($scope.actual).toFixed(2);//实际费用
         currencySer.marketserveapplyEdit1(data).then(function(response){
             if(response.data.code == 0){
-                $state.go('root.otherexpenses.expenses.message.list');
+                $state.go('root.otherexpenses.expenses.message.list[12]');
                 toastr.success("此次编辑成功",'温馨提示');
             }else{
                 toastr.error( response.data.msg , '温馨提示' );

@@ -1,6 +1,7 @@
 var app = angular.module('checkincomeServe',[]);
 app.factory('checkincomeSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         allList:allList,
         allCount:allCount,
         addData:addData,
@@ -13,6 +14,10 @@ app.factory('checkincomeSer',function ($http) {
         ctGroup:ctGroup,
         listProject:listProject,
         ctProject:ctProject
+    };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/checkincome/guidePermission/'+data);
     };
     //列表
     function allList(data) {

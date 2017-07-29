@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"commonMenuCtrl"
             }
         }
+    }).state("root.initialize.sort.common.list[12]",{
+        url:"/list[12]?id=&name=&page=",
+        views:{
+            "content@root.initialize.sort.common":{
+                templateUrl : "root/initialize/sort/common/list/_res/html/index.html",
+                controller:'commonListCtrl'
+            }
+        }
     }).state("root.initialize.sort.common.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.initialize.sort.common.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.initialize.sort.common":{
                 templateUrl : "root/initialize/sort/common/edit/_res/html/index.html",

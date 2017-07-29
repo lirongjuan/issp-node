@@ -1,6 +1,7 @@
 var app = angular.module('emailServer',[]);
 app.factory('emailSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         listSummary : listSummary,
         countSummary:countSummary,
         congealSummary:congealSummary,
@@ -8,8 +9,14 @@ app.factory('emailSer',function ($http) {
         deleteSummary:deleteSummary,
         addSummery:addSummery,
         editEmail:editEmail,
-        getFourById:getFourById
+        getFourById:getFourById,
+        allgetLender:allgetLender,
+        collectLender:collectLender
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/collectemail/guidePermission/'+data);
+    }
     //列表
     function  listSummary(data) {
         return $http.get('/projectmeasure/measuresummary/list',{
@@ -24,7 +31,7 @@ app.factory('emailSer',function ($http) {
     function congealSummary(data){
         return $http.post('/projectmeasure/measuresummary/congeal',data)
     }
-    // //解冻
+    //解冻
     function thawSummary(data){
         return $http.post('/projectmeasure/measuresummary/thaw',data)
     }
@@ -43,5 +50,13 @@ app.factory('emailSer',function ($http) {
     //id编辑
     function getFourById(data) {
         return $http.post('/projectmeasure/measuresummary/getOneById',data)
+    }
+    //獲取所有地區  
+    function allgetLender() {
+        return $http.get('/projectmeasure/measuresummary/allArea')
+    }
+    //匯總
+    function collectLender(data){
+        return $http.post('/projectmeasure/measuresummary/collect',data)
     }
 });
