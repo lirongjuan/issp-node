@@ -1,0 +1,98 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
+                    <input type="text" ng-model="add.name" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <input type="text" ng-model="add.area" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>部门</em></label>
+                    <input type="text" ng-model="add.department" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>入职日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="onetime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期望的福利待遇</em></label>
+                    <input type="text" ng-model="add.expectedBenefit" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期望薪资上升幅度</em></label>
+                    <input type="text" ng-model="add.expectedSalaryIncrease" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>规划日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="twotime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>目前状态</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.positionsStatus">
+                            <option value="执行层">执行层</option>
+                            <option value="管理层">管理层</option>
+                            <option value="决策层">决策层</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.positionsStatus" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发展路径</em></label>
+                    <select class="sele" ng-model="add.positive" ng-init="add.positive=''" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="转正">转正</option>
+                        <option value="管理方面">管理方面</option>
+                        <option value="技能方面">技能方面</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期望此能力的提升程度</em></label>
+                    <input type="text" ng-model="add.degreeAbilityAscend" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期望学到的东西</em></label>
+                    <input type="text" ng-model="add.expectLearnThings" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>预想的权利及义务</em></label>
+                    <input type="text" ng-model="add.rightsObligations" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>预计完成时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="threetime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期望此时的职位状态</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.currentState">
+                            <option value="已转正">已转正</option>
+                            <option value="管理层（模块负责人)">管理层（模块负责人)</option>
+                            <option value="技术经理">技术经理</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.currentState" ng-verify="{}">
+                    </div>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期望周收益（元）</em></label>
+                    <input type="number" ng-model="add.expectWeeksEarnings" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期望月收益（元）</em></label>
+                    <input type="number"  ng-model="add.expectMonthsEarnings" ng-verify="{}" >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期望年收益（元）</em></label>
+                    <input type="number" ng-model="add.expectYearsEarnings" ng-verify="{}">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="planAddFun()">提交</button>
+    </p>
+</div>
