@@ -1,0 +1,49 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li>
+                    <label><em>购票原因</em></label>
+                    <input type="text" ng-model="add.ticketCause">
+                </li>
+                <li>
+                    <label><em>车票类型</em></label>
+                    <input type="text" ng-model="add.ticketType">
+                </li>
+                <li>
+                    <label><em>购买方式</em></label>
+                    <input type="text" ng-model="add.buyPattern">
+                </li>
+                <li>
+                    <label><em>汇总类型</em></label>
+                    <input type="text" ng-model="add.summaryType">
+                </li>
+                <li>
+                    <label><em>汇总周期</em></label>
+                    <input type="text" ng-model="add.summaryCycle">
+                </li>
+                <li>
+                    <label><em>数据汇总呈现类型</em></label>
+                    <input type="text" ng-model="add.dataAggregationType">
+                </li>
+                <li>
+                    <label><em>查询权限</em></label>
+                    <input type="text" ng-model="add.deletePermission">
+                </li>
+                <li>
+                    <label><em>删除权限</em></label>
+                    <input type="text" ng-model="add.updatePermission">
+                </li>
+                <li>
+                    <label><em>修改权限</em></label>
+                    <input type="text" ng-model="add.queryPermission">
+                </li>
+
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="basicAddFun()">提交</button>
+    </p>
+</div>

@@ -1,0 +1,121 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>申请人</span>
+            <span>地区</span>
+            <span>部门/项目组</span>
+            <span>乘车人</span>
+            <span>乘车人岗位名称</span>
+            <span>身份证号码</span>
+            <span>联系电话</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.applicant}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p mod>{{list.department}}</p>
+                    <p mod>{{list.passenger}}</p>
+                    <p mod>{{list.passengerPostName}}</p>
+                    <p mod>{{list.idCardNumber}}</p>
+                    <p mod>{{list.relationTel}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>购票原因</span>
+                                <span>车票类型</span>
+                                <span>购买方式</span>
+                                <span>行程类型</span>
+                                <span>计划出发时间</span>
+                                <span>计划到达时间</span>
+                                <span>车票价格</span>
+                                <span>购买时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.ticketCause}}</span>
+                                <span mod>{{list.ticketType}}</span>
+                                <span mod>{{list.buyPattern}}</span>
+                                <span mod>{{list.tripType | cover}}</span>
+                                <span mod>{{list.planDepartureTime}}</span>
+                                <span mod>{{list.planArrivalTime}}</span>
+                                <span mod>{{list.ticketPrice}}</span>
+                                <span mod>{{list.buyTime}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>出发地</span>
+                                <span>目的地</span>
+                                <span>班次/航班</span>
+                                <span>是否可选座</span>
+                                <span>座位信息</span>
+                                <span>出发时间</span>
+                                <span>到达时间</span>
+                                <span>订单号</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.origin}}</span>
+                                <span mod>{{list.destination}}</span>
+                                <span mod>{{list.shift}}</span>
+                                <span mod>{{list.optionalSeat | cover}}</span>
+                                <span mod>{{list.seatInfo}}</span>
+                                <span mod>{{list.departureTime}}</span>
+                                <span mod>{{list.arrivalTime}}</span>
+                                <span mod>{{list.orderNum}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>备注</span>
+                                <span>乘车人是否有确认乘车信息</span>
+                                <span>确认信息时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.remark}}</span>
+                                <span mod>{{list.confirmPassengerInfo | cover}}</span>
+                                <span mod>{{list.confirmInfoTime}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

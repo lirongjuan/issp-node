@@ -1,0 +1,100 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申请人</em></label>
+                    <select class="sele" ng-model="edit.applicant">
+                        <option ng-repeat="u in user track by $index ">{{u}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <select class="sele" ng-model="edit.area">
+                        <option ng-repeat="a in area track by $index ">{{a.area}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>部门/项目组</em></label>
+                    <select class="sele" ng-model="edit.department" >
+                        <option ng-repeat="g in group track by $index ">{{g}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>乘车人</em></label>
+                    <span  class="select2">
+                    <p class="select-text">
+                        <span ng-repeat="word in positions">{{word}},</span>
+                    </p>
+                    <div class="mymultiselect" ng-dropdown-multiselect="" options="user" selected-model="positions" extra-settings="stringSettings" ></div>
+                </span>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>乘车人数</em></label>
+                    <input type="text" ng-model="edit.passengerNum" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>购票原因</em></label>
+                    <select class="sele" ng-model="edit.ticketCause">
+                        <option ng-repeat="c in cause track by $index ">{{c}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>车票类型</em></label>
+                    <select class="sele" ng-model="edit.ticketType" >
+                        <option ng-repeat="t in type track by $index ">{{t}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>购买方式</em></label>
+                    <select class="sele" ng-model="edit.buyPattern">
+                        <option ng-repeat="p in pattern track by $index ">{{p}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>行程类型</em></label>
+                    <select class="sele" ng-model="edit.tripType" >
+                        <option value="TO">往</option>
+                        <option value="RETURN">返</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>出发地</em></label>
+                    <input type="text" ng-model="edit.origin" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>目的地</em></label>
+                    <input type="text" ng-model="edit.destination" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计划出发时间</em></label>
+                    <input type="text" ng-model="edit.planDepartureTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="onetime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计划到达时间</em></label>
+                    <input type="text" ng-model="edit.planArrivalTime"  onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="twotime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>福利模块负责人</em></label>
+                    <select class="sele" ng-model="edit.welfAuditor">
+                        <option ng-repeat="u in user track by $index ">{{u}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>规划模块负责人 </em></label>
+                    <select class="sele" ng-model="edit.planAuditor">
+                        <option ng-repeat="u in user track by $index ">{{u}}</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="edit.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="appEditFun()">提交</button>
+    </p>
+</div>
