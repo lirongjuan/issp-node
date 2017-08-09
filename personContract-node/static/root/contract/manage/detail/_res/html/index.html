@@ -1,0 +1,143 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+
+        <section>
+            <div style="width:100%;height:50px;font-size:20px;text-align:center;line-height:50px;font-weight:bold;">合 同 信 息</div>
+            <ul>
+                <li class="required">
+                    <label><em>合同类型</em></label>
+                    <select class="sele" disabled ng-model="edit.typeId" disabled>
+                        <option ng-repeat="t in type " value="{{t.id}}">{{t.type}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>合同性质</em></label>
+                    <select class="sele" ng-model="edit.natureId" disabled>
+                        <option ng-repeat="n in nature" value="{{n.id}}">{{n.nature}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>合同编号</em></label>
+                    <input type="text" ng-model="edit.serialNumber" disabled>
+                </li>
+                <li class="required">
+                    <label><em>职工姓名(乙方)</em></label>
+                        <select class="sele" ng-model="edit.employeeUnit" disabled>
+                            <option ng-repeat="a in user track by $index">{{a}}</option>
+                        </select>
+
+                </li>
+                <li class="required">
+                    <label><em>用人单位(甲方)</em></label>
+                    <input type="text" ng-model="edit.username" disabled>
+                </li>
+                <li class="required">
+                    <label><em>合同期限 </em></label>
+                    <input type="text" ng-model="edit.deadline" disabled>
+                </li>
+                <li class="required">
+                    <label><em>合同起始日</em></label>
+                    <input type="text" disabled ng-model="edit.startDate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="startDate">
+                </li>
+                <li class="required">
+                    <label><em>合同约满日</em></label>
+                    <input type="text" disabled ng-model="edit.endDate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="endDate">
+                </li>
+                <li class="required">
+                    <label><em>试用期时长</em></label>
+                    <input type="text" ng-model="edit.probation" disabled>
+                </li>
+                <li>
+                    <label><em>线上存储路径</em></label>
+                    <input type="text" ng-model="edit.lineStorage" disabled >
+                </li>
+                <li class="required">
+                    <label><em>线下存储路径</em></label>
+                    <input type="text" ng-model="edit.storage" disabled>
+                </li>
+                <li class="required">
+                    <label><em>合同状态</em></label>
+                    <select class="sele" ng-model="edit.status" disabled>
+                        <option value="">请选择</option>
+                        <option ng-value=true>正常</option>
+                        <option ng-value=false>解除</option>
+                    </select>
+                </li>
+            </ul>
+            <div style="width:100%;height:50px;font-size:20px;text-align:center;line-height:50px;font-weight:bold;">乙 方 信 息</div>
+            <ul>
+                <li class="required">
+                    <label><em>姓名</em></label>
+                    <input type="text" ng-model="edit.vehicle" disabled>
+                </li>
+                <li class="required">
+                    <label><em>性别</em></label>
+                    <select class="sele" ng-model="edit.sex" disabled>
+                        <option ng-value=true>男</option>
+                        <option ng-value=false>女</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>出生日期</em></label>
+                    <input type="text" ng-model="edit.birth" disabled onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="birth">
+                </li>
+                </li>
+                <li class="required">
+                    <label><em>证件类型</em></label>
+                    <input type="text" ng-model="edit.certificate" disabled>
+                </li>
+                <li class="required">
+                    <label><em>证件号码</em></label>
+                    <input type="text" ng-model="edit.certificateNumber" disabled>
+                </li>
+                <li class="required">
+                    <label><em>联系电话</em></label>
+                    <input type="text" ng-model="edit.phone" disabled>
+                </li>
+                <li>
+                    <label><em>户籍地址</em></label>
+                    <input type="text" ng-model="edit.address" disabled>
+                </li>
+                <li class="required">
+                    <label><em>现住址</em></label>
+                    <input type="text" ng-model="edit.dwell" disabled>
+                </li>
+                <li class="required">
+                    <label><em>部门</em></label>
+                    <input type="text" ng-model="edit.department" disabled>
+                </li>
+                <li class="required">
+                    <label><em>岗位</em></label>
+                    <input type="text" ng-model="edit.position" disabled>
+                </li>
+                <li class="required">
+                    <label><em>是否离职</em></label>
+                    <select class="sele" ng-model="edit.leave" disabled>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>离职时间</em></label>
+                    <input type="text" ng-model="edit.leaveDate" disabled onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="leaveDate">
+                </li>
+                <li class="required">
+                    <label><em>计薪方式</em></label>
+                    <input type="text" ng-model="edit.way" disabled>
+                </li>
+                <li class="required">
+                    <label><em>基本报酬</em></label>
+                    <input type="number" step="0.01" ng-model="edit.pay" disabled>
+                </li>
+                <li class="required">
+                    <label><em>薪酬发放日</em></label>
+                    <input type="text" ng-model="edit.releaseDate" disabled onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="releaseDate">
+                </li>
+                <li class="required">
+                    <label><em>特殊情况处理</em></label>
+                    <input type="text" ng-model="edit.situation" disabled>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>

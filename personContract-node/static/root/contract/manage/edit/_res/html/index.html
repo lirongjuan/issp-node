@@ -1,0 +1,72 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同类型</em></label>
+                    <select class="sele" ng-model="edit.typeId" >
+                        <option ng-repeat="t in type " value="{{t.id}}">{{t.type}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同性质</em></label>
+                    <select class="sele" ng-model="edit.natureId">
+                        <option ng-repeat="n in nature" value="{{n.id}}">{{n.nature}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同编号</em></label>
+                    <input type="text" ng-model="edit.serialNumber" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>职工姓名(乙方) </em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="edit.employeeUnit">
+                            <option ng-repeat="a in user track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="edit.employeeUnit" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>用人单位(甲方)</em></label>
+                    <input type="text" ng-model="edit.username" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同期限 </em></label>
+                    <input type="text" ng-model="edit.deadline" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同起始日</em></label>
+                    <input type="text" ng-model="edit.startDate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="startDate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同约满日</em></label>
+                    <input type="text" ng-model="edit.endDate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="endDate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>试用期时长</em></label>
+                    <input type="text" ng-model="edit.probation" ng-verify="{}">
+                </li>
+                <li>
+                    <label><em>线上存储路径</em></label>
+                    <input type="text" ng-model="edit.lineStorage">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>线下存储路径</em></label>
+                    <input type="text" ng-model="edit.storage" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同状态</em></label>
+                    <select class="sele" ng-model="edit.status" >
+                        <option ng-value=true>正常</option>
+                        <option ng-value=false>解除</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="EditFun()">提交</button>
+    </p>
+</div>

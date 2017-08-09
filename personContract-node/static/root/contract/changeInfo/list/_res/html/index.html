@@ -1,0 +1,85 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>合同类型</span>
+            <span>合同性质</span>
+            <span>合同编号</span>
+            <span>用人单位(甲方)</span>
+            <span>职工姓名(乙方)</span>
+            <span>是否签订新合同</span>
+            <span>是否添加协议</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.type}}</p>
+                    <p mod>{{list.nature}}</p>
+                    <p mod>{{list.serialNumber}}</p>
+                    <p mod>{{list.employeeUnit}}</p>
+                    <p mod>{{list.username}}</p>
+                    <p mod>{{list.sign | cover}}</p>
+                    <p mod>{{list.superinduce | cover}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>是否删减协议</span>
+                                <span>是否续签合同</span>
+                                <span>是否解除合同</span>
+                                <span>变更原因</span>
+                                <span>变更内容</span>
+                                <span>是否已确认变更</span>
+                                <span>变更时间</span>
+
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.prune | cover}}</span>
+                                <span mod>{{list.renew | cover}}</span>
+                                <span mod>{{list.relieve | cover}}</span>
+                                <span mod>{{list.reason}}</span>
+                                <span mod>{{list.content}}</span>
+                                <span mod>{{list.affirm | cover}}</span>
+                                <span mod>{{list.change}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

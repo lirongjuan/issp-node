@@ -1,0 +1,29 @@
+<ul class="list">
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="add">数据录入</a>
+    </li>
+    <li  ng-click="edit()"  ng-class="{'current':menuClass=='editMenu','seeParent':getId}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" class="same-one see" >编辑</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':getId}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':getId}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)" class="same-one see">上传附件</a>
+    </li>
+    <li ng-click="download()"ng-class="{'current':menuClass=='viewMenu','seeParent':getId}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)" class="same-one see">查看附件</a>
+    </li>
+    <li  ng-click="detail()" ng-class="{'current':menuClass=='detailMenu','seeParent':getId}" ng-show="SEE" ng-init="menuCheck('SEE')">
+        <a href="javascript:void(0)"  class="same-one see" >查看详情</a>
+    </li>
+    <li  ng-click="changing()" ng-class="{'current':menuClass=='changingMenu','seeParent':getId}" ng-show="LDCHANG" ng-init="menuCheck('LDCHANG')">
+        <a href="javascript:void(0)"  class="same-one see" >变更合同</a>
+    </li>
+    <li  ng-click="confirm()" ng-class="{'current':menuClass=='confirmMenu','seeParent':getId}" ng-show="LDREMOVE" ng-init="menuCheck('LDREMOVE')">
+        <a href="javascript:void(0)"  class="same-one see" title="确认解除合同">确认解除合同</a>
+    </li>
+</ul>

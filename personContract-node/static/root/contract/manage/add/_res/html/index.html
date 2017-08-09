@@ -1,0 +1,153 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+
+        <section>
+            <div style="width:100%;height:50px;font-size:20px;text-align:center;line-height:50px;font-weight:bold;">合 同 信 息</div>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同类型</em></label>
+                    <select class="sele" ng-model="add.typeId" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-repeat="t in type " value="{{t.id}}">{{t.type}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同性质</em></label>
+                    <select class="sele" ng-model="add.natureId" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-repeat="n in nature" value="{{n.id}}">{{n.nature}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同编号</em></label>
+                    <input type="text" ng-model="add.serialNumber" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>职工姓名(乙方) </em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.employeeUnit">
+                            <option ng-repeat="a in user track by $index">{{a}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.employeeUnit" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>用人单位(甲方)</em></label>
+                    <input type="text" ng-model="add.username" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同期限 </em></label>
+                    <input type="text" ng-model="add.deadline" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同起始日</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="startDate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同约满日</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="endDate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>试用期时长</em></label>
+                    <input type="text" ng-model="add.probation" ng-verify="{}">
+                </li>
+                <li>
+                    <label><em>线上存储路径</em></label>
+                    <input type="text" ng-model="add.lineStorage" >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>线下存储路径</em></label>
+                    <input type="text" ng-model="add.storage" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合同状态</em></label>
+                    <select class="sele" ng-model="add.status" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-value=true>正常</option>
+                        <option ng-value=false>解除</option>
+                    </select>
+                </li>
+            </ul>
+            <div style="width:100%;height:50px;font-size:20px;text-align:center;line-height:50px;font-weight:bold;">乙 方 信 息</div>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
+                    <input type="text" ng-model="add.vehicle" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>性别</em></label>
+                    <select class="sele" ng-model="add.sex" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-value=true>男</option>
+                        <option ng-value=false>女</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>出生日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="birth">
+                </li>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>证件类型</em></label>
+                    <input type="text" ng-model="add.certificate" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>证件号码</em></label>
+                    <input type="text" ng-model="add.certificateNumber" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>联系电话</em></label>
+                    <input type="text" ng-model="add.phone" ng-verify="{}">
+                </li>
+                <li>
+                    <label><em>户籍地址</em></label>
+                    <input type="text" ng-model="add.address" >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>现住址</em></label>
+                    <input type="text" ng-model="add.dwell" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>部门</em></label>
+                    <input type="text" ng-model="add.department" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <input type="text" ng-model="add.position" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否离职</em></label>
+                    <select class="sele" ng-model="add.leave" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>离职时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="leaveDate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计薪方式</em></label>
+                    <input type="text" ng-model="add.way" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>基本报酬</em></label>
+                    <input type="number" step="0.01" ng-model="add.pay" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>薪酬发放日</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="releaseDate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>特殊情况处理</em></label>
+                    <input type="text" ng-model="add.situation" ng-verify="{}">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="standAddFun()">提交</button>
+    </p>
+</div>
