@@ -1,0 +1,32 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li>
+                    <label><em>工作交接原因</em></label>
+                    <input type="text" ng-model="add.workJoinCause" >
+                </li>
+                <li >
+                    <label><em>交接流程</em></label>
+                    <input type="text" ng-model="add.joinProcess">
+                </li>
+                <li>
+                    <label><em>对象</em></label>
+                    <select class="sele" ng-model="add.object">
+                        <option value="">请选择</option>
+                        <option value="交接者">交接者</option>
+                        <option value="被交接者">被交接者</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>交接时间(例如1小时)</em></label>
+                    <input type="text" ng-model="add.joinTime">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="TimesAddFun()">提交</button>
+    </p>
+</div>

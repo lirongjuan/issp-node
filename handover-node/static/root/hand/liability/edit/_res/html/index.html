@@ -1,0 +1,26 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li>
+                    <label><em>对象</em></label>
+                    <select class="sele" ng-model="edit.object">
+                        <option value="">请选择</option>
+                        <option value="交接者">交接者</option>
+                        <option value="被交接者">被交接者</option>
+                    </select>
+                </li>
+                <li>
+                </li>
+                <li class="l-big2">
+                    <label><em>责任与义务</em></label>
+                    <textarea class="big-input" ng-model="edit.duty" ></textarea>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="liabEditFun()">提交</button>
+    </p>
+</div>

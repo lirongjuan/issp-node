@@ -1,0 +1,94 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工作交接开始时间</em></label>
+                    <input type="text" onClick="laydate({istime: true , format:'YYYY-MM-DD'})" class="workJoinStartTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工作交接结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true , format:'YYYY-MM-DD'})" class="workJoinendTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>所属模块/组别</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.belongModule">
+                            <option ng-repeat="a in group track by $index">{{a.module}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.belongModule" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.jobs">
+                            <option ng-repeat="s in station track by $index">{{s.position}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.jobs" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工作交接原因</em></label>
+                        <select class="sele" ng-model="add.workJoinCause" ng-verify="option:0">
+                            <option value="">请选择</option>
+                            <option value="入职">入职</option>
+                            <option value="离职">离职</option>
+                            <option value="岗位轮换">岗位轮换</option>
+                            <option value="请假">请假</option>
+                            <option value="人员调动">人员调动</option>
+                        </select>
+                </li>
+
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>工作权限</em></label>
+                    <select class="sele" ng-model="add.workPermission" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="制作">制作</option>
+                        <option value="审核">审核</option>
+                        <option value="汇总">汇总</option>
+                        <option value="跟进">跟进</option>
+                        <option value="跟进">跟进</option>
+                        <option value="协调">协调</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>交接人</em></label>
+                    <input type="text" ng-model="add.successor" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>交接人确认</em></label>
+                    <select class="sele" ng-model="add.heir" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>接手人</em></label>
+                    <input type="text" ng-model="add.replacement" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>接手人确认</em></label>
+                    <select class="sele" ng-model="add.inheritor" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li class="l-big2">
+                    <label><i><img src="/images/mandatory.png"></i><em>工作范围</em></label>
+                    <textarea class="big-input" ng-model="add.workScope" ng-verify="{}"></textarea>
+                </li>
+                <li class="l-big2">
+                    <label><i><img src="/images/mandatory.png"></i><em>工作目的</em></label>
+                    <textarea ng-model="add.workPurpose" ng-verify="{}"></textarea>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="workAddFun()">提交</button>
+    </p>
+</div>

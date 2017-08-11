@@ -1,0 +1,30 @@
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="workjoin" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.hand.work.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name1}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="joininfo" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.hand.means.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="taskjoin" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.hand.task.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="devicejoin" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.hand.device.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="workjointimespecification" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.hand.times.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="workjoinduty" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.hand.liability.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.hand.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name7}}</a>
+        </li>
+    </ul>
+</div>
+
+
