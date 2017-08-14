@@ -1,0 +1,159 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>租房编号</span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>项目名称</span>
+            <span>房屋租赁人</span>
+            <span>租房地址</span>
+            <span>房东姓名</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.rentNum}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p mod>{{list.projectGroup}}</p>
+                    <p mod>{{list.projectName}}</p>
+                    <p mod>{{list.lessee}}</p>
+                    <p mod>{{list.address}}</p>
+                    <p mod>{{list.landlord}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+
+                                <span>联系方式</span>
+                                <span>账户名称</span>
+                                <span>银行卡号</span>
+                                <span>银行开户行（详细到支行）</span>
+                                <span>租房用途</span>
+                                <span>租房合同</span>
+                                <span>租房开始时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.contact}}</span>
+                                <span mod>{{list.accountTitle}}</span>
+                                <span mod>{{list.bankNumber}}</span>
+                                <span mod>{{list.bankAccount}}</span>
+                                <span mod>{{list.purpose}}</span>
+                                <span mod>{{list.tenancyAgreement}}</span>
+                                <span mod>{{list.rentBeginTime}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>租房截止时间</span>
+                                <span>房屋交租方式</span>
+                                <span>房租交租频率</span>
+                                <span>房租缴费日期</span>
+                                <span>水电费缴费频率</span>
+                                <span>水电费缴费日期</span>
+                                <span>中介费</span>
+
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.rentEndTime}}</span>
+                                <span mod>{{list.taxesWay}}</span>
+                                <span mod>{{list.taxesFequency}}</span>
+                                <span mod>{{list.rentTime}}</span>
+                                <span mod>{{list.paymentFrequency}}</span>
+                                <span mod>{{list.paymentFrequency}}</span>
+                                <span mod>{{list.agency}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>押金</span>
+                                <span>房租</span>
+                                <span>管理费</span>
+                                <span>卫生费</span>
+                                <span>房租缴费方</span>
+                                <span>水费期初数目</span>
+                                <span>水费计价金额(元/吨)</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.deposit}}</span>
+                                <span mod>{{list.rent}}</span>
+                                <span mod>{{list.managementFee}}</span>
+                                <span mod>{{list.healthFee}}</span>
+                                <span mod>{{list.rentPay}}</span>
+                                <span mod>{{list.water}}</span>
+                                <span mod>{{list.waterMoney}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>水费缴费方</span>
+                                <span>电费期初数目</span>
+                                <span>电费计价金额(元/度)</span>
+                                <span>电费缴费方</span>
+                                <span>网络套餐费用使用期限</span>
+                                <span>网络套餐费用缴纳金额</span>
+                                <span>网络套餐费用缴费方</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.waterPay}}</span>
+                                <span mod>{{list.energy}}</span>
+                                <span mod>{{list.energyMoney}}</span>
+                                <span mod>{{list.energyPay}}</span>
+                                <span mod>{{list.network}}</span>
+                                <span mod>{{list.networkMoney}}</span>
+                                <span mod>{{list.networkPay}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>管道燃气费充值额度</span>
+                                <span>燃气费缴费方</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.gas}}</span>
+                                <span mod>{{list.gasPay}}</span>
+                                <span mod>{{list.remark}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

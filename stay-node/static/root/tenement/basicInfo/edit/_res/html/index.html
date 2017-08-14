@@ -1,0 +1,92 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>账户名称</em></label>
+                    <input type="text" ng-model="edit.accountTitle" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>银行卡号</em></label>
+                    <input type="text" ng-model="edit.bankNumber" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>银行开户行（详细到支行）</em></label>
+                    <input type="text" ng-model="edit.bankAccount" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>租房合同</em></label>
+                    <input type="text" ng-model="edit.tenancyAgreement" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>租房开始时间</em></label>
+                    <input type="text" ng-model="edit.rentBeginTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="rentBeginTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>租房开始时间</em></label>
+                    <input type="text" ng-model="edit.rentEndTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="rentEndTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房屋交租方式</em></label>
+                        <select class="sele" ng-model="edit.taxesWay">
+                            <option value="转账">转账</option>
+                            <option value="现金">现金</option>
+                        </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租交租频率</em></label>
+                        <select class="sele" ng-model="edit.taxesFequency">
+                            <option value="每月一交">每月一交</option>
+                            <option value="每两2个月一交">每两2个月一交</option>
+                        </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租缴费日期</em></label>
+                    <input type="text" ng-model="edit.rentTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="rentTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>水电费缴费频率</em></label>
+                        <select class="sele" ng-model="edit.paymentFrequency">
+                            <option value="每月一交">每月一交</option>
+                            <option value="每两2个月一交">每两2个月一交</option>
+                        </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>水电费缴费日期</em></label>
+                    <input type="text" ng-model="edit.paymentTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="paymentTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>水费期初数目</em></label>
+                    <input type="number" ng-model="edit.water">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>电费期初数目</em></label>
+                    <input type="number" ng-model="edit.energy">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>网络套餐费用使用期限</em></label>
+                    <input type="text" ng-model="edit.network" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>管道燃气费充值额度 </em></label>
+                    <input type="number" ng-model="edit.gas" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>燃气费缴纳方</em></label>
+                        <select class="sele" ng-model="edit.gasPay">
+                            <option value="公司缴纳">公司缴纳</option>
+                            <option value="员工缴纳">员工缴纳</option>
+                        </select>
+                </li>
+                <li>
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="edit.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="basicEditFun()">提交</button>
+    </p>
+</div>

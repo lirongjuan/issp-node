@@ -1,0 +1,19 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>开始时间</em></label>
+                    <input type="text" class="startTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>结束时间</em></label>
+                    <input type="text" class="endTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>

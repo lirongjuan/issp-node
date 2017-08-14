@@ -1,0 +1,46 @@
+<div class="collect ">
+    <div class="collect-select">
+        <span></span>
+        <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+        <div class="select">
+            <p class="select-text" >
+                <span ng-repeat="word in words">{{word}}, </span>
+            </p>
+            <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="words" extra-settings="stringSettings"></div>
+        </div>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>地区</span>
+            <span>项目组</span>
+            <span>项目名称</span>
+            <span>租房地址</span>
+            <span>房租</span>
+            <span>中介费</span>
+            <span>押金</span>
+            <span>管理费</span>
+            <span>卫生费</span>
+            <span>水量初始额</span>
+            <span>电量初始额</span>
+            <span>网络套餐费用</span>
+            <span>管道燃气费充值额度</span>
+            <span>合计</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="list in summaryLists" ng-model="tabTit">
+            <span>{{list.area}}</span>
+            <span>{{list.projectGroup}}</span>
+            <span>{{list.projectName}}</span>
+            <span>{{list.address}}</span>
+            <span>{{list.rent}}</span>
+            <span>{{list.agency}}</span>
+            <span>{{list.deposit}}</span>
+            <span>{{list.managementFee}}</span>
+            <span>{{list.healthFee}}</span>
+            <span>{{list.water}}</span>
+            <span>{{list.energy}}</span>
+            <span>{{list.network}}</span>
+            <span>{{list.gas}}</span>
+            <span>{{list.remark}}</span>
+        </li>
+    </ul>
+</div>

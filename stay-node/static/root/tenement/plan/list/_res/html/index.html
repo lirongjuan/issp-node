@@ -1,0 +1,121 @@
+<div class="content-tab list">
+
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>租房编号</span>
+            <span>员工编号</span>
+            <span>姓名（用户名称）</span>
+            <span>岗位</span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>项目名称</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.rentNum}}</p>
+                    <p mod>{{list.employeeNum}}</p>
+                    <p mod>{{list.name}}</p>
+                    <p mod>{{list.jobs}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p mod>{{list.projectGroup}}</p>
+                    <p mod>{{list.projectName}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>租房用途</span>
+                                <span>住宿人数</span>
+                                <span>租房规格</span>
+                                <span>租房要求</span>
+                                <span>租房期限</span>
+                                <span>完成租房开始时间</span>
+                                <span>完成租房结束时间</span>
+                                <span>资金意见</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.purpose}}</span>
+                                <span mod>{{list.accommodationPeople}}</span>
+                                <span mod>{{list.norms}}</span>
+                                <span mod>{{list.requirements}}</span>
+                                <span mod>{{list.deadline}}</span>
+                                <span mod>{{list.completeStartTime}}</span>
+                                <span mod>{{list.completeEndTime}}</span>
+                                <span mod>{{list.moneyOn}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>注意事项</span>
+                                <span>商务发展部意见</span>
+                                <span>运营财务部意见</span>
+                                <span>综合资源部核实</span>
+                                <span>项目经理</span>
+                                <span>项目经理意见</span>
+                                <span>项目经理是否通过</span>
+                                <span>总经办</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.attention}}</span>
+                                <span mod>{{list.commerceRemark}}</span>
+                                <span mod>{{list.operatingRemark}}</span>
+                                <span mod>{{list.comprehensiveRemark}}</span>
+                                <span mod>{{list.manage}}</span>
+                                <span mod>{{list.manageOpinion}}</span>
+                                <span mod>{{list.managePass}}</span>
+                                <span mod>{{list.general}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>总经办意见</span>
+                                <span>总经办是否通过</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.generalOpinion}}</span>
+                                <span mod>{{list.generalPass | cover}}</span>
+                                <span mod>{{list.remark}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

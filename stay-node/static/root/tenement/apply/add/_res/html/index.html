@@ -1,0 +1,188 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>租房编号</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.rentNum">
+                            <option ng-repeat="n in num track by $index">{{n}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.rentNum" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>员工编号</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.employeeNum">
+                            <option ng-repeat="a in user track by $index">{{a.employeeNumber}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.employeeNum" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>姓名（用户名称）</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.name">
+                            <option ng-repeat="a in user track by $index">{{a.username}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.name" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.jobs">
+                            <option ng-repeat="a in position track by $index">{{a.position}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.jobs" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.area">
+                            <option ng-repeat="a in area track by $index">{{a.area}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.area" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.projectGroup">
+                            <option ng-repeat="a in group track by $index">{{a.department}}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.projectGroup" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
+                    <input type="text" ng-model="add.projectName" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>租赁人</em></label>
+                    <input type="text" ng-model="add.lessee" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>住宿人</em></label>
+                    <input type="text" ng-model="add.stayPeople" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申请原因</em></label>
+                    <input type="text" ng-model="add.reason" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>租房用途</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select class="sele" ng-model="add.purpose">
+                            <option value="办公用房">办公用房</option>
+                            <option value="员工宿舍">员工宿舍</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="add.purpose" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>租房地址</em></label>
+                    <input type="text" ng-model="add.address" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房东姓名</em></label>
+                    <input type="text" ng-model="add.landlord" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>联系方式</em></label>
+                    <input type="text" ng-model="add.contact" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>中介费</em></label>
+                    <input type="number" ng-model="add.agency" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>押金</em></label>
+                    <input type="number" ng-model="add.deposit" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租</em></label>
+                    <input type="number" ng-model="add.rent" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租缴费方</em></label>
+                        <select class="sele" ng-model="add.rentPay" ng-verify="option:0">
+                            <option value="">请选择</option>
+                            <option value="公司缴纳">公司缴纳</option>
+                            <option value="员工缴纳">员工缴纳</option>
+                        </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租管理费</em></label>
+                    <input type="number" ng-model="add.rentFee" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租管理费缴费方</em></label>
+                    <select class="sele" ng-model="add.rentFeePay" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="公司缴纳">公司缴纳</option>
+                        <option value="员工缴纳">员工缴纳</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>卫生费</em></label>
+                    <input type="number" ng-model="add.sanitation" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>卫生费缴费方</em></label>
+                    <select class="sele" ng-model="add.sanitationPay" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="公司缴纳">公司缴纳</option>
+                        <option value="员工缴纳">员工缴纳</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>水费计价</em></label>
+                    <input type="number" ng-model="add.water" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>水费缴费方</em></label>
+                    <select class="sele" ng-model="add.waterPay" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="公司缴纳">公司缴纳</option>
+                        <option value="员工缴纳">员工缴纳</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>电费计价</em></label>
+                    <input type="number" ng-model="add.energy" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>电费缴费方</em></label>
+                    <select class="sele" ng-model="add.energyPay" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="公司缴纳">公司缴纳</option>
+                        <option value="员工缴纳">员工缴纳</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>网络套餐费用</em></label>
+                    <input type="number" ng-model="add.network" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>网络套餐费用缴费方</em></label>
+                    <select class="sele" ng-model="add.networkPay" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="公司缴纳">公司缴纳</option>
+                        <option value="员工缴纳">员工缴纳</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="add.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="applyAddFun()">提交</button>
+    </p>
+</div>
