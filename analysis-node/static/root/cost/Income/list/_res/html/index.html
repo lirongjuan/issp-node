@@ -1,0 +1,99 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>年份</span>
+            <span>月份</span>
+            <span>地区</span>
+            <span>项目组/部门</span>
+            <span>出车司机数</span>
+            <span>司机出车费</span>
+            <span>油卡充值</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.year}}</p>
+                    <p mod>{{list.month}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p mod>{{list.department}}</p>
+                    <p mod>{{list.carNum}}</p>
+                    <p mod>{{list.driverFee}}</p>
+                    <p mod>{{list.oilRecharge}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>房租</span>
+                                <span>社保</span>
+                                <span>员工工资</span>
+                                <span>办公费</span>
+                                <span>市场费</span>
+                                <span>税金</span>
+                                <span>合计</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.rent}}</span>
+                                <span mod>{{list.socialSecurity}}</span>
+                                <span mod>{{list.staffWage}}</span>
+                                <span mod>{{list.office}}</span>
+                                <span mod>{{list.marketCost}}</span>
+                                <span mod>{{list.tax}}</span>
+                                <span mod>{{list.total}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>员工人数</span>
+                                <span>人均工资</span>
+                                <span>税后余额收入</span>
+                                <span>差额</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.staffNum}}</span>
+                                <span mod>{{list.perCapitaWage}}</span>
+                                <span mod>{{list.incomeAfterTax}}</span>
+                                <span mod>{{list.balance}}</span>
+                            </p>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

@@ -1,0 +1,90 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>年份</em></label>
+                    <input type="number" ng-model="edit.year" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>月份</em></label>
+                    <select class="sele" ng-model="edit.month" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-value=1>1月</option>
+                        <option ng-value=2>2月</option>
+                        <option ng-value=3>3月</option>
+                        <option ng-value=4>4月</option>
+                        <option ng-value=5>5月</option>
+                        <option ng-value=6>6月</option>
+                        <option ng-value=7>7月</option>
+                        <option ng-value=8>8月</option>
+                        <option ng-value=9>9月</option>
+                        <option ng-value=10>10月</option>
+                        <option ng-value=11>11月</option>
+                        <option ng-value=12>12月</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <input type="text" ng-model="edit.area" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组/部门</em></label>
+                    <input type="text" ng-model="edit.department" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>出车司机数</em></label>
+                    <input type="number" ng-model="edit.carNum" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>司机出车费</em></label>
+                    <input type="number" ng-model="edit.driverFee" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>油卡充值</em></label>
+                    <input type="number" ng-model="edit.oilRecharge" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租</em></label>
+                    <input type="number" ng-model="edit.rent" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>社保</em></label>
+                    <input type="number" ng-model="edit.socialSecurity" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>员工工资</em></label>
+                    <input type="number" ng-model="edit.staffWage" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>办公费</em></label>
+                    <input type="number" ng-model="edit.office" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>市场费</em></label>
+                    <input type="number" ng-model="edit.marketCost" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>税金</em></label>
+                    <input type="number" ng-model="edit.tax" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>员工人数</em></label>
+                    <input type="number" ng-model="edit.staffNum" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>人均工资</em></label>
+                    <input type="number" ng-model="edit.perCapitaWage" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>税后余额收入</em></label>
+                    <input type="number" ng-model="edit.incomeAfterTax" ng-verify="{}">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="IncomeEditFun()">提交</button>
+    </p>
+</div>

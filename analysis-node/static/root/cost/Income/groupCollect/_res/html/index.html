@@ -1,0 +1,56 @@
+<div class="collect " verify-scope="tipStyle: 1">
+    <ul class="listsearch">
+         <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+        <li class="required">
+            <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+
+            <select class="select-text" ng-model="department" ng-verify="option:0">
+                <option value="">请选择</option>
+                <option  ng-repeat="a in workOptions track by $index">{{a}}</option>
+            </select>
+        </li>
+        <li>
+            <button ng-verify="{control:'myform'}" ng-click="groupCollects()">汇总</button>
+        </li>
+    </ul>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>时间</span>
+            <span>地区</span>
+            <span>项目组/部门</span>
+            <span>出车司机数</span>
+            <span>司机出车费</span>
+            <span>油卡充值</span>
+            <span>房租</span>
+            <span>社保</span>
+            <span>员工工资</span>
+            <span>办公费</span>
+            <span>市场费</span>
+            <span>税金</span>
+            <span>合计</span>
+            <span>员工人数</span>
+            <span>人均工资</span>
+            <span>税后余额收入</span>
+            <span>差额</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="list in summaryLists" ng-model="tabTit">
+            <span>{{list.date}}</span>
+            <span>{{list.area}}</span>
+            <span>{{list.department}}</span>
+            <span>{{list.carNum}}</span>
+            <span>{{list.driverFee}}</span>
+            <span>{{list.oilRecharge}}</span>
+            <span>{{list.rent}}</span>
+            <span>{{list.socialSecurity}}</span>
+            <span>{{list.staffWage}}</span>
+            <span>{{list.office}}</span>
+            <span>{{list.marketCost}}</span>
+            <span>{{list.tax}}</span>
+            <span>{{list.total}}</span>
+            <span>{{list.staffNum}}</span>
+            <span>{{list.perCapitaWage}}</span>
+            <span>{{list.incomeAfterTax}}</span>
+            <span>{{list.remark}}</span>
+        </li>
+    </ul>
+</div>
