@@ -1,0 +1,32 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>时间</em></label>
+                    <input type="text" ng-model="edit.time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>科目</em></label>
+                    <input type="text" step="0.01" ng-model="edit.subject" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总准备金</em></label>
+                    <input type="number" step="0.01" ng-model="edit.totalReserve" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <input type="text" ng-model="edit.projectGroup" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>比例分配</em></label>
+                    <input type="number"  step="0.01"  ng-model="edit.prorate" ng-verify="{}">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="CapEditFun()">提交</button>
+    </p>
+</div>

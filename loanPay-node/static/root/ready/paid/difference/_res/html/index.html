@@ -1,0 +1,51 @@
+<div class="content-tab list" verify-scope="tipStyle: 1">
+    <ul class="listsearch">
+        <li >
+            <label><i><img src="/images/mandatory.png"></i><em>开始时间</em></label>
+            <input type="text" class="startTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+        </li>
+        <li >
+            <label><i><img src="/images/mandatory.png"></i><em>结束时间</em></label>
+            <input type="text" class="endTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+        </li>
+        <li><button ng-verify="{control:'myform'}" ng-click="Anfn()">查询</button>
+        </li>
+
+    </ul>
+</div>
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>时间</span>
+            <span>科目</span>
+            <span>项目组</span>
+            <span>本月准备金</span>
+            <span>实际支付金额</span>
+            <span>差异</span>
+            <span>增长率</span>
+        </li>
+        <li class="list-all" ng-repeat="list in infoLists track by $index" style="display: {{list._delete?'none':'block'}};">
+            <section >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p><!--{{$index+1}}--></p>
+                    <p>{{list.time}}</p>
+                    <p>{{list.subject}}</p>
+                    <p>{{list.projectGroup}}</p>
+                    <p>{{list.currentReserve}}</p>
+                    <p>{{list.payMoney}}</p>
+                    <p>{{list.difference}}</p>
+                    <p>{{list.growth}}</p>
+                </div>
+            </section>
+        </li>
+    </ul>
+</div>
+</section>
+<div ui-view="modal"></div>
+
+
+
+
+
+

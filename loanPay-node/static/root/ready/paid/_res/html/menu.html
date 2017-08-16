@@ -1,0 +1,17 @@
+<ul class="list">
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="groupCollect()" ng-class="{'current':menuClass=='groupCollectMenu'}"  ui-sref=".groupCollect[12]"ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two" title="项目组汇总">项目组汇总</a>
+    </li>
+    <li ng-click="areaCollect()" ng-class="{'current':menuClass=='areaCollectMenu'}"  ui-sref=".areaCollect[12]"ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two" title="地区汇总">地区汇总</a>
+    </li>
+    <li  ng-click="difference()" ng-class="{'current':menuClass=='differenceMenu'}" ui-sref=".difference[12]" ng-show="DIFFERENCES" ng-init="menuCheck('DIFFERENCES')">
+        <a href="javascript:void(0)" class="lis" title="资金准备与实际支付差异">资金准备与实际支付差异</a>
+    </li>
+    <li  ng-click="export()"  ng-class="{'current':menuClass=='exportMenu','seeParent':getId}" ui-sref=".export[12]" ng-show="EXPORT" ng-init="menuCheck('EXPORT')">
+        <a href="javascript:void(0)" class="same-one" >导出</a>
+    </li>
+</ul>

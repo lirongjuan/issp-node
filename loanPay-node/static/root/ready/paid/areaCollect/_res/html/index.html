@@ -1,0 +1,29 @@
+<div class="collect " verify-scope="tipStyle: 1">
+    <div class="sum-select">
+        <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+        <div class="select">
+            <p class="select-text" >
+                <span ng-repeat="word in areas">{{word}}, </span>
+            </p>
+            <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="areas" extra-settings="stringSettings"></div>
+        </div>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>付款状态</span>
+            <span>时间</span>
+            <span>科目</span>
+            <span>项目组</span>
+            <span>支付金额</span>
+            <span>付款时间</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="list in summaryLists" ng-model="tabTit">
+            <span>{{list.payStatus | cover}}</span>
+            <span>{{list.lendDate}}</span>
+            <span>{{list.firstSubject}}</span>
+            <span>{{list.projectGroup}}</span>
+            <span>{{list.lendMoney}}</span>
+            <span>{{list.payDate}}</span>
+        </li>
+    </ul>
+</div>
