@@ -1,0 +1,18 @@
+<ul class="list">
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li  ng-click="edit()"  ng-class="{'current':menuClass=='editMenu','seeParent':name}"  ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" class="same-one see" >编辑</a>
+    </li>
+    <li ng-click="congeal()" ng-class="{'current':menuClass=='congealMenu','seeParent':name}"  ng-init="menuCheck('CONGEL')">
+        <a href="javascript:void(0)" class="same-two see">冻结</a>
+    </li>
+    <!--
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':getId}" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
+    </li>
+    <li ng-click="collect()" ng-class="{'current':menuClass=='collectMenu'}"  ui-sref=".collect[12]"  ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="same-two" title="汇总对比">汇总对比</a>
+    </li>-->
+</ul>

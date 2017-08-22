@@ -1,0 +1,29 @@
+<ul class="list">
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+<!--    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]"  ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="add">添加</a>
+    </li>
+    <li  ng-click="edit()"  ng-class="{'current':menuClass=='editMenu','seeParent':getId}"  ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" class="same-one see" >编辑</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':getId}" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see">删除</a>
+    </li>-->
+    <li ng-click="eventCollect()" ng-class="{'current':menuClass=='eventCollectMenu'}"  ui-sref=".eventCollect[12]" ng-show="COUNT" ng-init="menuCheck('COUNT')">
+        <a href="javascript:void(0)" class="same-two" title="总事件汇总">总事件汇总</a>
+    </li>
+    <li ng-click="handled()" ng-class="{'current':menuClass=='handledMenu'}"  ui-sref=".handled[12]" ng-show="COUNT" ng-init="menuCheck('COUNT')">
+        <a href="javascript:void(0)" class="same-two" title="已处理事件汇总">已处理事件汇总</a>
+    </li>
+    <li ng-click="untreated()" ng-class="{'current':menuClass=='untreatedMenu'}"  ui-sref=".untreated[12]" ng-show="COUNT" ng-init="menuCheck('COUNT')">
+        <a href="javascript:void(0)" class="same-two" title="未处理事件汇总">未处理事件汇总</a>
+    </li>
+    <li ng-click="overdue()" ng-class="{'current':menuClass=='overdueMenu'}"  ui-sref=".overdue[12]" ng-show="COUNT" ng-init="menuCheck('COUNT')">
+        <a href="javascript:void(0)" class="same-two" title="逾期未处理事件汇总">逾期未处理事件汇总</a>
+    </li>
+    <li ng-click="classify()" ng-class="{'current':menuClass=='classifyMenu'}" ui-sref=".classify[12]" ng-show="COUNT" ng-init="menuCheck('COUNT')">
+        <a href="javascript:void(0)" class="same-two" title="按照分类汇总">按照分类汇总</a>
+    </li>
+</ul>

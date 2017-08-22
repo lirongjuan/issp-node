@@ -1,0 +1,95 @@
+<div class="content-tab list">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select class="salc" ng-model="checkedName" ng-init="checkedName='日期'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <input type="text"  onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="protime" ng-show="checkedName=='日期'" ng-model="time">
+
+        <select class="salc" ng-model="permissionses" ng-show="checkedName=='分类'">
+            <option value="">请选择</option>
+            <option value="SEE">查看</option>
+            <option value="MAKE">制作</option>
+            <option value="ADUIT">审核</option>
+            <option value="CONFIRM">确认</option>
+            <option value="CHECK">核对</option>
+            <option value="ANALYZE">分析</option>
+        </select>
+        <select class="salc" ng-model="eventStatuses" ng-show="checkedName=='处理情况'">
+            <option value="">请选择</option>
+            <option value="HAVEDEAL">已处理</option>
+            <option value="NOSEENODEAL">未查看未处理</option>
+            <option value="SEENODEAL">查看未处理（待处理）</option>
+            <option value="NODEAL">逾期未处理</option>
+        </select>
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
+    </div>
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>项目名称</span>
+            <span>事件内容</span>
+            <span>事件获取时间</span>
+            <span>要求处理时间</span>
+            <span>处理人</span>
+            <span>所属地区</span>
+            <span>所属项目组/部门</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};background-color:{{list.eventBOs[$index].color}}">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p >{{$index+1+num}}</p>
+                    <p mod>{{list.project}}</p>
+                    <p mod>{{list.eventBOs[$index].content}}</p>
+                    <p mod>{{list.eventBOs[$index].getTime}}</p>
+                    <p mod>{{list.eventBOs[$index].requestTime}}</p>
+                    <p mod>{{list.eventBOs[$index].name}}</p>
+                    <p mod>{{list.eventBOs[$index].area}}</p>
+                    <p mod>{{list.eventBOs[$index].depart}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>所属模块</span>
+                                <span>岗位名称</span>
+                                <span>权限</span>
+                                <span>优先级</span>
+                                <span>提醒间隔时间</span>
+                                <span>实际处理完成时间</span>
+                                <span>事件处理状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.eventBOs[$index].module}}</span>
+                                <span mod>{{list.eventBOs[$index].position}}</span>
+                                <span mod>{{list.eventBOs[$index].permissions | cover }}</span>
+                                <span mod>{{list.eventBOs[$index].level}}</span>
+                                <span mod>{{list.eventBOs[$index].remindTime}}</span>
+                                <span mod>{{list.eventBOs[$index].actualTime}}</span>
+                                <span mod>{{list.eventBOs[$index].eventStatus | cover }}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+
+
+
+
+

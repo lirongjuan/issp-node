@@ -1,0 +1,80 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>所属地区</span>
+            <span title="所属项目组/部门">所属项目组/部门</span>
+            <span>所属模块</span>
+            <span>权限</span>
+            <span>提醒间隔时间</span>
+            <span>设置人</span>
+            <span>设置时间</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}}; background-color:{{list.color}}">
+            <section class="{{list.status=='FREEZE'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p >{{$index+1+num}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p mod>{{list.depart}}</p>
+                    <p mod>{{list.module}}</p>
+                    <p mod>{{list.permissions | cover2 }}</p>
+                    <p mod>{{list.intervalTime}}</p>
+                    <p mod>{{list.name}}</p>
+                    <p mod>{{list.setTime}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>上次提醒时间</span>
+                                <span>状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.lastTime}}</span>
+                                <span mod>{{list.status | cover2 }}</span>
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="thaw-modal">
+                    <button ng-click="thaw(list)">解冻</button>
+                </div>
+                <div class="thaw-modal">
+                    <button ng-click="thaw(list)">解冻</button>
+                </div>
+            </section>
+
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+
+</div>
+<div class="delete mod" ng-show="congealShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要冻结这条数据？</p>
+        <div class="btn">
+            <button ng-click="conFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="congealShow"></div>
+
+
+
+
+

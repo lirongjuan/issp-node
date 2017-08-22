@@ -1,0 +1,48 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>权限</em></label>
+                   <select  class="sele" ng-model="edit.permissions" ng-verify="option:0" >
+                       <option value="">请选择</option>
+                       <option value="SEE">查看</option>
+                       <option value="MAKE">制作</option>
+                       <option value="ADUIT">审核</option>
+                       <option value="CONFIRM">确认</option>
+                       <option value="CHECK">核对</option>
+                       <option value="ANALYZE">分析</option>
+                   </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>间隔类型</em></label>
+                    <select  class="sele" ng-model="edit.intervalType" ng-verify="option:0" >
+                        <option value="">请选择</option>
+                        <option value="DAY">天</option>
+                        <option value="HOUR">小时</option>
+                        <option value="MINUTE">分</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>间隔时长</em></label>
+                    <input type="number"  ng-model="edit.interval" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设置时间</em></label>
+                    <input type="text" ng-model="edit.setTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="setTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>颜色</em></label>
+                    <input  ng-model="edit.color"  just-date id="mycolor" class="colorPicker evo-cp0" class="colorval" val="edit.color"/>
+
+                    <div class="evo-colorind" style="background-color:#8db3e2"></div>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="timeEditFun()">提交</button>
+    </p>
+</div>
+
