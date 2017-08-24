@@ -1,0 +1,20 @@
+<ul class="list">
+    <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)"  class="add">添加</a>
+    </li>
+    <li  ng-click="edit()"  ng-class="{'current':menuClass=='editMenu','seeParent':getId}" ng-show="EDIT"  ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" class="same-one see" >编辑</a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':getId}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)" class="same-one see">上传附件</a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':getId}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)" class="same-one see">查看附件</a>
+    </li>
+    <li ng-click="eventCollect()" ng-class="{'current':menuClass=='eventCollectMenu'}" ui-sref=".eventCollect[12]"  ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" class="add" title="油卡充值汇总">油卡充值汇总</a>
+    </li>
+</ul>

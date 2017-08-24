@@ -1,0 +1,25 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核结果</em></label>
+                    <select class="sele" ng-model="edit.auditResult" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="PENDING">待处理</option>
+                        <option value="REFUSE">拒绝</option>
+                        <option value="AGREE">同意</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核意见</em></label>
+                    <input type="text" ng-model="edit.auditSuggestion" ng-verify="{}">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="AuditFun()">提交</button>
+    </p>
+</div>

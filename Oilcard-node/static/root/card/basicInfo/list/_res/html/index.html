@@ -1,0 +1,114 @@
+<div class="content-tab list" verify-scope="tipStyle: 1">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select class="salc" ng-model="checkedName" ng-init="checkedName='状态'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <select class="salc" ng-model="status" ng-show="checkedName=='状态'">
+            <option value="">请选择</option>
+            <option value="THAW">解冻</option>
+            <option value="CONGEAL">冻结</option>
+            <option value="DELETE">删除</option>
+            <option value="NOACTIVE">未激活</option>
+            <option value="UNREVIEW">未审核</option>
+        </select>
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
+    </div>
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>油卡编号</span>
+            <span>卡号</span>
+            <span>主卡/副卡</span>
+            <span>所属主卡</span>
+            <span>办理人</span>
+            <span>办理日期</span>
+            <span>使用地区</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="list in standardLists" style="display: {{list._delete?'none':'block'}};">
+            <section class="{{list.status=='CONGEAL'?'congeal':''}}" >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{list.oilCardCode}}</p>
+                    <p mod>{{list.oilCardNumber}}</p>
+                    <p mod>{{list.mainOrDeputy}}</p>
+                    <p mod>{{list.belongMainCard}}</p>
+                    <p mod>{{list.handlingUser}}</p>
+                    <p mod>{{list.handlingDate}}</p>
+                    <p mod>{{list.area}}</p>
+                    <p >
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(list)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{list._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>项目名称</span>
+                                <span>使用状态</span>
+                                <span>使用状态更新时间</span>
+                                <span>期初金额</span>
+                                <span>余额</span>
+                                <span>状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{list.project}}</span>
+                                <span mod>{{list.cardStatus | cover}}</span>
+                                <span mod>{{list.updateStatusTime}}</span>
+                                <span mod>{{list.cycleEarlyMoney}}</span>
+                                <span mod>{{list.balance}}</span>
+                                <span mod>{{list.status | cover}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="thaw-modal">
+                    <button ng-click="thaw(list)">解冻</button>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div class="delete mod" ng-show="congealShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要冻结这条数据？</p>
+        <div class="btn">
+            <button ng-click="conFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow||congealShow"></div>
+
+
+
+
+
+
+
+

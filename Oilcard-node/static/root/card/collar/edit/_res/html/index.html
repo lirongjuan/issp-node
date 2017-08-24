@@ -1,0 +1,45 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>油卡编号</em></label>
+                    <select class="sele" ng-model="edit.oilCardBasicId" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-repeat="g in getNo track by $index" value="{{g.id}}">{{g.oilCardCode}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>领用日期</em></label>
+                    <input type="text" ng-model="edit.receiveDate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="twotime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <select class="sele" ng-model="edit.area" ng-verify="{}">
+                        <option value="">请选择</option>
+                        <option ng-repeat="u in area track by $index ">{{u.area}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核人</em></label>
+                    <select class="sele" ng-model="edit.auditUser" ng-verify="{}">
+                        <option value="">请选择</option>
+                        <option ng-repeat="u in user track by $index ">{{u}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>原因</em></label>
+                    <input type="text" ng-model="edit.receiveReason" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="edit.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="collarEditFun()">提交</button>
+    </p>
+</div>

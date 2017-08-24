@@ -1,0 +1,31 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>油卡编号</em></label>
+                    <select class="sele" ng-model="add.oilCardBasicId" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option ng-repeat="g in getNo track by $index" ng-value="g.id">{{g.oilCardCode}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>充值金额</em></label>
+                    <input type="number" step="0.01" ng-model="add.rechargeMoney" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>充值日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="twotime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>充值方式</em></label>
+                    <input type="text" ng-model="add.rechargeWay" ng-verify="{}">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="chargeAddFun()">提交</button>
+    </p>
+</div>

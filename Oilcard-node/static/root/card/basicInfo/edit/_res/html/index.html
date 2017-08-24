@@ -1,0 +1,45 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>油卡编号</em></label>
+                    <input type="text" ng-model="edit.oilCardCode" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>卡号</em></label>
+                    <input type="text" ng-model="edit.oilCardNumber" ng-verify="{}">
+                </li>
+                <li>
+                    <label><em>主卡/副卡</em></label>
+                    <input type="text" ng-model="edit.mainOrDeputy" >
+                </li>
+                <li>
+                    <label><em>所属主卡</em></label>
+                    <input type="text" ng-model="edit.belongMainCard">
+                </li>
+                <li >
+                    <label><em>办理人</em></label>
+                    <input type="text" ng-model="edit.handlingUser">
+                </li>
+                <li>
+                    <label><em>办理日期</em></label>
+                    <input type="text" ng-model="edit.handlingDate" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="onetime">
+                </li>
+                <li >
+                    <label><em>密码</em></label>
+                    <input type="password" ng-model="edit.cardPassWord">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>期初金额</em></label>
+                    <input type="number" ng-model="edit.cycleEarlyMoney" ng-verify="{}">
+                </li>
+
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="basicEditFun()">提交</button>
+    </p>
+</div>
